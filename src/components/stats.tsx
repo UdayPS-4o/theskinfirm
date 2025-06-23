@@ -16,7 +16,7 @@ export const Stats = () => {
       className='w-full mt-24 flex justify-center'
     >
       <div className='max-w-7xl w-full bg-[#F9EFE7] rounded-tl-4xl rounded-br-4xl md:rounded-tl-[100px] md:rounded-br-[100px] xl:rounded-tl-[1000px] xl:rounded-br-[1000px] py-12 px-4'>
-        <div className='grid grid-cols-2 gap-y-12 gap-x-8 max-w-3xl mx-auto'>
+        <div className='mx-auto grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4 lg:gap-8'>
           <Stat property='YEARS' value={3} suffix='+' isInView={isInView} delay={0.1} />
           <Stat property='TREATMENTS OFFERED' value={60} suffix='+' isInView={isInView} delay={0.2} />
           <Stat property='HAPPY PATIENTS' value={4000} suffix='k' isInView={isInView} delay={0.3} />
@@ -75,8 +75,8 @@ function Stat({property, value, suffix, isInView, delay}: {
       transition={{ duration: 0.5, delay: delay, ease: "easeOut" }}
       className='text-center text-[#8A7B70]'
     >
-      <h2 className='text-4xl sm:text-6xl md:text-8xl'>{formatValue(count)}{suffix}</h2>
-      <p className='text-base sm:text-xl md:text-2xl'>{property}</p>
+      <h2 className='text-4xl sm:text-6xl md:text-6xl lg:text-8xl'>{formatValue(count)}{suffix}</h2>
+      <p className='text-base sm:text-xl md:text-xl lg:text-2xl'>{property}</p>
     </motion.div>
   )
 }
