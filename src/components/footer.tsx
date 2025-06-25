@@ -16,7 +16,7 @@ export const Footer = () => {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.6 }}
-      className='pt-16 pb-10 px-4 lg:px-12 bg-[#F8F4EB] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12'
+      className='pt-10 sm:pt-16 pb-6 sm:pb-10 px-2 sm:px-4 md:px-8 lg:px-12 bg-[#F8F4EB] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-12'
     >
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
