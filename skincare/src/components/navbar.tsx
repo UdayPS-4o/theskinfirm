@@ -56,7 +56,7 @@ export const Navbar = () => {
         >
           <Image 
             src='/logo.svg' 
-            alt='The Skin Firm Logo' 
+            alt='dermaeleganceLogo' 
             width={120} 
             height={57} 
             className='h-10 lg:h-14 w-auto'

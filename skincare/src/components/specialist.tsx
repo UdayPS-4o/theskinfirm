@@ -2,7 +2,7 @@ import React from 'react'
 import { DashedSeparator } from './dashed-separator'
 import Image from 'next/image'
 import { ArrowRight, Quote, Star } from 'lucide-react'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 
 export const Specialist = () => {
   return (

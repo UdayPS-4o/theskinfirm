@@ -1,5 +1,5 @@
+import HomePage from "@/components/home-page";
 import type { Metadata } from "next";
-import HomePage from "@/components/home/home-page";
 
 export const metadata: Metadata = {
   title: "Home | dermaelegance- Your Journey to Radiant Skin Starts Here",

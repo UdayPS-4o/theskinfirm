@@ -1,7 +1,7 @@
 'use client';
 import React from 'react'
 
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'

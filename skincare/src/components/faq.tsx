@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { DashedSeparator } from './dashed-separator'
-import { Accordion, AccordionContent, AccordionTrigger } from './ui/accordion'
+import { Accordion, AccordionContent, AccordionTrigger } from '../ui/accordion'
 import { AccordionItem } from '@radix-ui/react-accordion'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
