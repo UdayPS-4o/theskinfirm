@@ -191,3 +191,11 @@ html {
     @apply bg-background text-foreground;
   }
 }
+/* styles/globals.css or app/globals.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
