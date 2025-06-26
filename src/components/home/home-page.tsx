@@ -9,7 +9,6 @@ import { Faq } from "@/components/sections/faq";
 import { Footer } from "@/components/layout/footer";
 import { Gallery } from "@/components/sections/gallery";
 import { Hero } from "@/components/home/hero";
-import { Navbar } from "@/components/layout/navbar";
 import { News } from "@/components/sections/news";
 import { PremiumServices } from "@/components/sections/premium-services";
 import { Services } from "@/components/sections/services";
@@ -25,7 +24,6 @@ export default function HomePage() {
   return (
     <div className="w-full">
       <section id="home">
-        <Navbar />
         <Hero />
       </section>
 

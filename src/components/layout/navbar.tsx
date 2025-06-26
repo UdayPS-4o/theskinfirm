@@ -5,10 +5,11 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
+import { MaxWidthWrapper } from './max-width';
 
 const NAV_ITEMS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About Us', href: '#about' },
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about-us' },
   { label: 'Services', href: '#services' },
   { label: 'Success Stories', href: '#stories' },
   { label: 'Gallery', href: '#gallery' },
@@ -46,7 +47,7 @@ export const Navbar = () => {
 
   return (
     <nav className='py-4 lg:py-8 w-full bg-[#FBEDE4]'>
-      <div className='max-w-7xl mx-auto px-6 lg:px-24 flex items-center justify-between'>
+      <MaxWidthWrapper className='flex items-center justify-between'>
         {/* Logo */}
         <motion.div
           initial="hidden"
@@ -54,11 +55,11 @@ export const Navbar = () => {
           variants={logoVariants}
           className="flex-shrink-0"
         >
-          <Image 
-            src='/logo.svg' 
-            alt='dermaeleganceLogo' 
-            width={120} 
-            height={57} 
+          <Image
+            src='/logo.svg'
+            alt='dermaeleganceLogo'
+            width={120}
+            height={57}
             className='h-10 lg:h-14 w-auto'
           />
         </motion.div>
@@ -90,7 +91,7 @@ export const Navbar = () => {
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
+      </MaxWidthWrapper>
 
       {/* Mobile Menu */}
       <AnimatePresence>
