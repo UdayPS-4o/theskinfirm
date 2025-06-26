@@ -1,29 +1,46 @@
 import React from 'react'
 import { DashedSeparator } from './dashed-separator'
 import Image from 'next/image'
+import { MaxWidthWrapper } from '../layout/max-width'
 
 export const Gallery = () => {
   return (
-    <div className='mt-24 mx-5 md:mx-24 shadow-sm grid grid-cols-1 lg:grid-cols-3 bg-white lg:max-h-full'>
-      <div className='flex flex-col items-center justify-center pb-20 lg:pb-0 lg:pr-5 lg:pl-20 gap-5 max-w-xs mx-auto'>
-        <div className="flex flex-row items-center w-full">
-          <DashedSeparator />
-          <h3 className='text-[#EC7754] text-3xl font-medium'>Photos</h3>
-          <DashedSeparator />
+    <MaxWidthWrapper>
+      <div className='py-16 lg:py-24'>
+        {/* Header Section */}
+        <div className='flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-16'>
+          {/* Left Side - Title */}
+          <div className='flex-shrink-0 text-center lg:text-left lg:w-80'>
+            <div className="flex flex-row items-center justify-center lg:justify-start gap-4 mb-6">
+              <DashedSeparator />
+              <h3 className='text-[#EC7754] text-2xl md:text-3xl font-medium whitespace-nowrap'>Photos</h3>
+              <DashedSeparator />
+            </div>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold text-[#333333] leading-tight'>
+              Our Gallery
+            </h2>
+          </div>
+
+          {/* Right Side - Gallery Image */}
+          <div className='flex-1 w-full'>
+            <div className='relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 group'>
+              <div className='aspect-[4/3] lg:aspect-[3/2] relative'>
+                <Image
+                  src='/gallery.png'
+                  alt='Gallery of spa treatments and wellness services'
+                  fill
+                  className='object-cover group-hover:scale-105 transition-transform duration-700'
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 60vw"
+                  priority
+                />
+
+                {/* Subtle overlay for better image enhancement */}
+                <div className='absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10' />
+              </div>
+            </div>
+          </div>
         </div>
-        <h2 className='mt-5 text-center font-semibold text-5xl text-[#333333]'>Our Gallery</h2>
       </div>
-      <div className='lg:col-span-2 w-full p-4'>
-        <div className='aspect-square relative'>
-          <Image 
-            src={'/gallery.png'} 
-            alt='Gallery of treatments' 
-            layout='fill' 
-            objectFit='cover' 
-            className='rounded-lg' 
-          />
-        </div>
-      </div>
-    </div>
+    </MaxWidthWrapper>
   )
 }
