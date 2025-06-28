@@ -13,8 +13,8 @@ export const WhyChooseUs = () => {
           </h2>
           <p className="text-center lg:text-start max-w-md text-xl text-[#98A2B3]">
             Because your skin deserves more than just treatment, it deserves
-            intention, expertise, and care that feels personal. At The Skin
-            Firm, we don’t offer quick fixes; we offer thoughtful
+            intention, expertise, and care that feels personal. At{' '}
+            <span className="font-semibold text-[#344054]">The Skin Firm</span>, we don&apos;t offer quick fixes; we offer thoughtful
             transformations built on trust, innovation, and clinical precision.
           </p>
           <div className="grid grid-cols-2 w-full">

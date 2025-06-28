@@ -1,11 +1,47 @@
 "use client";
-import React from 'react'
+import React, { useCallback } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 
 import { DashedSeparator } from './dashed-separator'
-import Image from 'next/image';
 import { MaxWidthWrapper } from '../layout/max-width';
-
+const reviews = [
+  {
+    name: 'Wankam. Konyak',
+    review: 'The Skin Firm has been a complete game changer for my confidence. The personalized approach to my skin concerns has delivered results I never thought were possible.'
+  },
+  {
+    name: 'Emily Rodriguez',
+    review: 'Dr. Reed truly listens and develops a treatment plan that works for your specific needs. After years of struggling, my rosacea is finally under control thanks to her expertise and care.'
+  },
+  {
+    name: 'Meghna. B',
+    review: 'I had great results with my laser hair reduction treatment here. The process was surprisingly comfortable, and the staff made sure I understood the aftercare, leading to fantastic results.'
+  },
+  {
+    name: 'Neha Singh',
+    review: 'The level of care and professionalism at this clinic is truly outstanding. Keep doing the good work; it\'s rare to find a team so dedicated to their clients\' well-being.'
+  },
+  {
+    name: 'Hritika Shegaokar',
+    review: 'Dr. Karishma truly worked magic on my skin. Her treatment plan cleared up my persistent issues and has given me a glow and a boost of confidence I haven\'t felt in years.'
+  },
+  {
+    name: 'Shazia Misquitta',
+    review: 'The clinic is exceptionally hygienic and the entire team operates with such a high level of professionalism. It’s very reassuring to know you\'re in a clean and safe environment for your treatments.'
+  }
+];
 export const SuccessStories = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()])
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
   return (
     <MaxWidthWrapper>
       <div className='mx-4 lg:mx-24 mt-24'>
@@ -15,42 +51,28 @@ export const SuccessStories = () => {
           <DashedSeparator />
         </div>
         <h2 className="mt-5 text-center font-semibold text-5xl text-[#333333]">Success Stories</h2>
-        <div className='w-full h-full bg-no-repeat pb-7' style={{ backgroundImage: "url(/success-stories-bg.svg)", backgroundPosition: 'center' }}>
-          <div className="mt-20 flex flex-col items-center justify-start gap-y-3">
-            <div className='w-full max-w-3xl p-6 bg-white shadow-2xl'>
-              <div className='bg-white/20 pt-10 pb-14 px-5 lg:px-20 text-center w-full shadow-md'>
-                <p className='text-[#1B1C1E]'>Dr. Reed truly listens and develops a treatment plan that works for your specific needs. My rosacea is finally under control after years of struggling.</p>
-                <h4 className="mt-5 text-[#1B1C1E] text-lg font-medium">Emily Rodriguez</h4>
+        <div className='w-full h-full bg-no-repeat pb-7 mt-16' style={{ backgroundImage: "url(/success-stories-bg.svg)", backgroundPosition: 'center' }}>
+          <div className="flex items-center justify-center gap-x-8">
+            <button className="text-4xl text-gray-400 hover:text-gray-600 transition-colors" onClick={scrollPrev}>
+              ←
+            </button>
+            <div className="overflow-hidden w-full max-w-4xl" ref={emblaRef}>
+              <div className="flex">
+                {reviews.map((review, index) => (
+                  <div className="flex-[0_0_100%] min-w-0 px-4" key={index}>
+                    <div className='w-full bg-white rounded-lg shadow-lg border border-gray-100'>
+                      <div className='pt-12 pb-16 px-8 lg:px-16 text-center'>
+                        <p className='text-[#333333] text-lg lg:text-xl leading-relaxed mb-8'>{review.review}</p>
+                        <h4 className="text-[#333333] text-xl font-semibold">{review.name}</h4>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            <Image width={84} height={84} alt='emily' src={'/emily.png'} />
-          </div>
-        </div>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-10'>
-          <div className='shadow-lg pt-5 px-3 pb-12'>
-            <div className="py-2 mb-5 text-center shadow-lg text-[#8A7B70] text-xl">
-              Before & After
-            </div>
-            <div className='grid grid-cols-2 gap-2 lg:gap-16'>
-              <div>
-                <div className="bg-[#FFFBF9] text-[#A89689] py-2.5 mb-3 text-center shadow-md">
-                  Before
-                </div>
-                <Image src={'/before-treatment.png'} alt='before treatment' height={224} width={250} className='h-56 w-full' />
-              </div>
-              <div>
-                <div className="bg-[#FFFBF9] text-[#A89689] py-2.5 mb-3 text-center shadow-md">
-                  After
-                </div>
-                <Image src={'/after-treatment.png'} alt='after treatment' height={224} width={250} className='h-56 w-full' />
-              </div>
-            </div>
-          </div>
-          <div className="pt-4">
-            <div className="py-2 mb-5 text-center shadow-lg text-[#8A7B70] text-xl">
-              Client Results
-            </div>
-            <Image src={"/client-result.svg"} width={322} height={322} alt='' className='mx-auto' />
+            <button className="text-4xl text-gray-400 hover:text-gray-600 transition-colors" onClick={scrollNext}>
+              →
+            </button>
           </div>
         </div>
       </div>

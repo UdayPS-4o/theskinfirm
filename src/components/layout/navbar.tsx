@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
@@ -40,13 +40,26 @@ const navItemVariants: Variants = {
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className='py-4 lg:py-8 w-full bg-[#FBEDE4]'>
+    <nav className={`py-4 lg:py-4 w-full bg-[#FBEDE4] sticky top-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'shadow-lg backdrop-blur-sm bg-[#FBEDE4]/95' : ''
+    }`}>
       <MaxWidthWrapper className='flex items-center justify-between'>
         {/* Logo */}
         <motion.div
@@ -57,7 +70,7 @@ export const Navbar = () => {
         >
           <Image
             src='/logo.svg'
-            alt='dermaeleganceLogo'
+            alt='The Skin FirmLogo'
             width={120}
             height={57}
             className='h-10 lg:h-14 w-auto'

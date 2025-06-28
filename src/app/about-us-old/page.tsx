@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import HeroSection from "@/components/about-us/hero";
-import KarishmaStorySection from "@/components/about-us/story";
-import AboutStatsSection from "@/components/about-us/about-us-stats";
-import CompanyAboutSection from "@/components/about-us/company-about";
-import ReviewSection from "@/components/about-us/review";
+import HeroSection from "@/components/about-us-old/hero";
+import KarishmaStorySection from "@/components/about-us-old/story";
+import AboutStatsSection from "@/components/about-us-old/about-us-stats";
+import CompanyAboutSection from "@/components/about-us-old/company-about";
+import ReviewSection from "@/components/about-us-old/review";
 import { testimonials } from "@/data/about-us";
 import { Footer } from "@/components/layout/footer";
 

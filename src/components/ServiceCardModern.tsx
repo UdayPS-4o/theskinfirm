@@ -10,20 +10,20 @@ interface ServiceCardModernProps {
 
 export function ServiceCardModern({ image, title, services, link = "#" }: ServiceCardModernProps) {
   return (
-    <div className="flex w-[600px] h-[260px] bg-white border border-gray-300 rounded-[16px] overflow-hidden p-3">
+    <div className="flex flex-col sm:flex-row w-full max-w-2xl sm:h-[260px] bg-white border border-gray-300 rounded-[16px] overflow-hidden p-3">
       {/* Image Section */}
-      <div className="w-[370px] h-full relative">
+      <div className="w-full h-48 sm:w-[250px] sm:h-full relative flex-shrink-0">
         <Image
           src={image}
           alt={title}
           fill
           className="object-cover rounded-[10px]"
-          sizes="300px"
+          sizes="(max-width: 640px) 100vw, 250px"
         />
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col justify-between pl-5 py-2 w-full">
+      <div className="flex flex-col justify-between pt-4 sm:pt-2 sm:pl-5 w-full">
         {/* Title */}
         <h3 className="text-[#d4a380] text-[20px] font-semibold uppercase mb-4">
           {title}
@@ -60,4 +60,4 @@ export function ServiceCardModern({ image, title, services, link = "#" }: Servic
       </div>
     </div>
   );
-} 
+}

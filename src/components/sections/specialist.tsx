@@ -18,14 +18,14 @@ export const Specialist = () => {
         
         <div className='relative mt-8 text-center'>
           <h2 className='text-5xl md:text-7xl lg:text-8xl text-[#171717] text-center font-bold leading-tight'>
-            I&apos;m <span className='text-[#FD853A]'>Jenny</span>, <br /> <span className='text-[#FD853A]'>Skin</span> Specialist
+            I&apos;m <span className='text-[#FD853A]'>Karishma</span>, <br /> <span className='text-[#FD853A]'>Skin</span> Specialist
           </h2>
           
           <div className='relative mt-[-20px] md:mt-[-40px] lg:mt-[-60px] flex justify-center items-end'>
             <div className='hidden md:block absolute left-0 bottom-20'>
               <Quote fill='#344054' className='text-[#344054] rotate-180' />
               <p className='mt-6 max-w-[280px] text-[#6C6C6C] text-left'>
-                Led by Dr. Amelia Reed, our clinic offers comprehensive skin assessment, evidence-based treatments, and ongoing support.
+                Led by Dr. Karishma Singh, our clinic offers comprehensive skin assessment, evidence-based treatments, and ongoing support.
               </p>
             </div>
             

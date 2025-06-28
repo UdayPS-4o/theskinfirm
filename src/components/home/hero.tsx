@@ -14,7 +14,7 @@ export const Hero = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div className='w-full bg-[#FBEDE4] pb-8 lg:pb-14 pt-4 lg:pt-8'>
+    <div className='w-full bg-[#FBEDE4] pb-8 lg:pb-14 pt-8 lg:pt-8'>
       <MaxWidthWrapper>
           <motion.div
             ref={ref}
@@ -31,7 +31,7 @@ export const Hero = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className='text-[#8A7B70] text-2xl sm:text-3xl lg:text-[40px] leading-tight lg:leading-normal font-medium'
                 >
-                  Where Skin Meets Science, and Self-Care Feels Like Home
+                  Reveal your most radiant self with personalized skincare
                 </motion.h1>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}

@@ -2,11 +2,119 @@
 import { Footer } from "@/components/layout/footer";
 import Image from "next/image";
 import { useState } from "react";
-import Helper from "./helper";
+import {ServiceCardModern} from "@/components/ServiceCardModern";
 
-type TabKey = "skin" | "hair" | "laser";
+type ServiceTab = {
+  label: string;
+  key: string;
+};
 
+const SERVICES_TABS: ServiceTab[] = [
+  {
+    label: "Skin Services",
+    key: "skin",
+  },
+  {
+    label: "Hair Services",
+    key: "hair",
+  },
+  {
+    label: "Laser Services",
+    key: "laser",
+  },
+] as const;
 
+type TabKey = typeof SERVICES_TABS[number]["key"];
+
+type ServiceCard = {
+  image: string;
+  title: string;
+  treatments: string[];
+};
+
+const SERVICES_CARDS: Record<TabKey, ServiceCard[]> = {
+  skin: [
+    {
+      image: "/mesotherapy.png",
+      title: "PIGMENTATION",
+      treatments: ["Chemical Peels", "Laser Toning", "Microdermabrasion"],
+    },
+    {
+      image: "/prp.png",
+      title: "ACNE SCARS",
+      treatments: ["Microneedling", "PRP Therapy", "Subcision"],
+    },
+    {
+      image: "/about.png",
+      title: "ANTI-AGING",
+      treatments: ["Botox", "Fillers", "Thread Lift"],
+    },
+    {
+      image: "/botox.png",
+      title: "DARK CIRCLES",
+      treatments: ["Laser", "Fillers", "Topical Creams"],
+    },
+    {
+      image: "/after-treatment.png",
+      title: "OPEN PORES",
+      treatments: ["Laser Resurfacing", "Peels", "Microneedling"],
+    },
+  ],
+  hair: [
+    {
+      image: "/prp.png",
+      title: "HAIR LOSS",
+      treatments: ["PRP Therapy", "Mesotherapy", "Hair Transplant"],
+    },
+    {
+      image: "/about.png",
+      title: "DANDRUFF",
+      treatments: ["Medicated Shampoos", "Topical Solutions", "Oral Medications"],
+    },
+    {
+      image: "/mesotherapy.png",
+      title: "ALOPECIA",
+      treatments: ["Steroid Injections", "PRP", "Minoxidil"],
+    },
+    {
+      image: "/botox.png",
+      title: "HAIR THINNING",
+      treatments: ["Nutritional Therapy", "Low Level Laser", "PRP"],
+    },
+    {
+      image: "/after-treatment.png",
+      title: "SCALP INFECTIONS",
+      treatments: ["Antifungal Treatment", "Antibiotics", "Topical Solutions"],
+    },
+  ],
+  laser: [
+    {
+      image: "/laser.png",
+      title: "LASER HAIR REMOVAL",
+      treatments: ["Face", "Arms", "Legs"],
+    },
+    {
+      image: "/laser.png",
+      title: "TATTOO REMOVAL",
+      treatments: ["Q-Switched Laser", "Multiple Sessions"],
+    },
+    {
+      image: "/laser.png",
+      title: "PIGMENT REMOVAL",
+      treatments: ["Laser Toning", "Spot Treatment"],
+    },
+    {
+      image: "/laser.png",
+      title: "SKIN REJUVENATION",
+      treatments: ["Laser Resurfacing", "Fractional CO2"],
+    },
+    {
+      image: "/laser.png",
+      title: "VASCULAR LESIONS",
+      treatments: ["Laser Therapy", "IPL"],
+    },
+  ],
+};
 
 export default function ServicePage() {
   const [activeTab, setActiveTab] = useState<TabKey>("skin");
@@ -103,8 +211,16 @@ export default function ServicePage() {
             </div>
 
             {/* Cards Grid */}
-            <div className="w-full">
-              <Helper />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center">
+              {SERVICES_CARDS[activeTab].map((card: ServiceCard, idx: number) => (
+                <ServiceCardModern
+                  key={card.title + idx}
+                  image={card.image}
+                  title={card.title}
+                  services={card.treatments}
+                  link="#"
+                />
+              ))}
             </div>
           </div>
         </section>

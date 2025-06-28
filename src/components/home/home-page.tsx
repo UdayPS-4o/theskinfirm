@@ -7,14 +7,13 @@ import { Cta } from "@/components/shared/cta";
 import { Cta2 } from "@/components/shared/cta2";
 import { Faq } from "@/components/sections/faq";
 import { Footer } from "@/components/layout/footer";
-import { Gallery } from "@/components/sections/gallery";
 import { Hero } from "@/components/home/hero";
 import { News } from "@/components/sections/news";
 import { PremiumServices } from "@/components/sections/premium-services";
 import { Services } from "@/components/sections/services";
+import { ServicesDetailed } from "@/components/sections/services-detailed";
 import { Specialist } from "@/components/sections/specialist";
 import { Stats } from "@/components/sections/stats";
-import { Stories } from "@/components/sections/stories";
 import { SuccessStories } from "@/components/sections/success-stories";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 
@@ -67,14 +66,14 @@ export default function HomePage() {
           <News />
         </AnimatedComponent>
       </section>
-      <section id="gallery">
+      {/* <section id="gallery">
         <AnimatedComponent>
           <Gallery />
         </AnimatedComponent>
       </section>
       <AnimatedComponent>
         <Stories />
-      </AnimatedComponent>
+      </AnimatedComponent> */}
       <AnimatedComponent>
         <Cta2 />
       </AnimatedComponent>

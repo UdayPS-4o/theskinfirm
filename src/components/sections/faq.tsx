@@ -83,6 +83,72 @@ export const Faq = () => {
                 treatment.
               </AccordionContent>
             </AccordionItem>
+            <AccordionItem
+              value="4"
+              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+            >
+              <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
+                Are your treatments safe for all skin types?
+              </AccordionTrigger>
+              <AccordionContent className="text-[#4B5563] text-2xl">
+                Absolutely. All our procedures are performed using FDA-approved
+                technology and dermatologist-supervised protocols, making them
+                safe and effective across various Indian skin types and tones.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="5"
+              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+            >
+              <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
+                Will I need multiple sessions?
+              </AccordionTrigger>
+              <AccordionContent className="text-[#4B5563] text-2xl">
+                That depends on your concern and the treatment chosen. While some
+                procedures offer visible results in a single session, others
+                (like laser or hair restoration) require a series of sessions
+                for long-term results. We&apos;ll guide you every step of the way.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="6"
+              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+            >
+              <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
+                Do you offer treatments for men as well?
+              </AccordionTrigger>
+              <AccordionContent className="text-[#4B5563] text-2xl">
+                Yes, we provide specialised skin and hair treatments for men,
+                too, including beard shaping, hair loss therapy, skin
+                rejuvenation, and acne control.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="7"
+              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+            >
+              <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
+                Where is The Skin Firm located?
+              </AccordionTrigger>
+              <AccordionContent className="text-[#4B5563] text-2xl">
+                We&apos;re located in NIBM, Pune, easily accessible from all parts
+                of the city. You can find our address and contact details on
+                the Contact Us page or simply reach out to book your visit.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="8"
+              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+            >
+              <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
+                How do I book an appointment?
+              </AccordionTrigger>
+              <AccordionContent className="text-[#4B5563] text-2xl">
+                You can call or WhatsApp us directly, or fill out the booking
+                form on our website. Our team will get in touch to schedule
+                your consultation at a time convenient for you.
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </motion.div>
       </div>

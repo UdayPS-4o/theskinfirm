@@ -15,37 +15,35 @@ export const Services = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.2
-      }
-    }
-  }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  }
 
   return (
     <motion.div
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={containerVariants}
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.6,
+            staggerChildren: 0.2
+          }
+        }
+      }}
       className='my-20 py-20 px-4 sm:px-6 lg:px-32 bg-[#F8F4EB]'
     >
       <MaxWidthWrapper>
-        <motion.div variants={itemVariants} className='grid grid-cols-1 lg:grid-cols-2 items-end gap-6 lg:gap-8'>
+        <motion.div variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5 }
+          }
+        }} className='grid grid-cols-1 lg:grid-cols-2 items-end gap-6 lg:gap-8'>
           <div className='w-full'>
             <div className="mx-auto flex items-center justify-center max-w-md w-full gap-x-0.5">
               <DashedSeparator />
@@ -59,7 +57,14 @@ export const Services = () => {
           </div>
         </motion.div>
 
-        <motion.div variants={itemVariants}>
+        <motion.div variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5 }
+          }
+        }}>
           <Carousel
             plugins={[Autoplay({ delay: 3000 })]}
             className='w-full pt-8 sm:pt-10'
@@ -95,7 +100,14 @@ export const Services = () => {
         </motion.div>
 
         <motion.div
-          variants={itemVariants}
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.5 }
+            }
+          }}
           className='flex flex-row justify-center sm:justify-end mt-12 sm:mt-16'
         >
           <Button className='bg-[#D4A380] hover:bg-[#C19660] text-white transition-colors duration-200' size={'lg'}>

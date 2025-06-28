@@ -9,7 +9,7 @@ export const Cta = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div className='w-full mt-10 bg-[#D4AF37] py-4 lg:py-10'>
+    <div className='w-full mt-10 bg-[#e3caab] py-4 lg:py-10'>
       <motion.div 
         ref={ref}
         initial={{ opacity: 0, y: 30 }}

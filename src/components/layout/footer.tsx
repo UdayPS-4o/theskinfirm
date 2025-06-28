@@ -20,7 +20,7 @@ export const Footer = () => {
       className='pt-16 pb-10 bg-[#F8F4EB]'
     >
       <MaxWidthWrapper>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ export const Footer = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col justify-start gap-y-5 items-start"
+            className="lg:col-span-2 flex flex-col justify-start gap-y-5 items-start"
           >
             <h3 className='text-[#8A7B70] text-xl/relaxed text-start'>Contact Us</h3>
             <div className='flex flex-col items-start justify-start gap-y-4 *:text-[#A89689] *:text-base/relaxed *:hover:opacity-80'>
@@ -92,17 +92,17 @@ export const Footer = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="md:col-span-2 lg:col-span-1 flex flex-col justify-start gap-y-5 items-start"
+            className="flex flex-col justify-start gap-y-5 items-start"
           >
             <h3 className='text-[#8A7B70] text-xl/relaxed text-start'>Opening Hours</h3>
-            <div className='w-full'>
-              <div className='flex flex-row items-center justify-between'>
-                <p className='text-[#A89689] text-base/relaxed'>Tuesday - Sunday</p>
-                <p className='text-[#8A7B70] text-base/relaxed'>11:00 AM - 8:00 PM</p>
+            <div className='w-full space-y-3'>
+              <div className='flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1 lg:gap-4'>
+                <p className='text-[#A89689] text-base/relaxed whitespace-nowrap'>Tuesday - Sunday</p>
+                <p className='text-[#8A7B70] text-base/relaxed whitespace-nowrap'>11:00 AM - 8:00 PM</p>
               </div>
-              <div className='mt-4 flex flex-row items-center justify-between'>
-                <p className='text-[#A89689] text-base/relaxed'>Monday</p>
-                <p className='text-[#8A7B70] text-base/relaxed'>Closed</p>
+              <div className='flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1 lg:gap-4'>
+                <p className='text-[#A89689] text-base/relaxed whitespace-nowrap'>Monday</p>
+                <p className='text-[#8A7B70] text-base/relaxed whitespace-nowrap'>Closed</p>
               </div>
             </div>
           </motion.div>

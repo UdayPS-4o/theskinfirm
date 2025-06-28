@@ -2,7 +2,6 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import Image from "next/image";
 
 interface Member {
   name: string;
@@ -18,7 +17,7 @@ export default function TeamSection({ members }: { members: Member[] }) {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {members.map((member, idx) => (
           <div key={idx} className="relative rounded-xl overflow-hidden group shadow-md transition-transform hover:scale-[1.02]">
-            <Image src={member.image} alt={member.name} width={300} height={400} className="w-full h-[400px] object-cover" />
+            <img src={member.image} alt={member.name} className="w-full h-[400px] object-cover" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent px-4 pt-8 pb-4 text-center text-white">
               <h3 className="text-base font-semibold">{member.name}</h3>
               <p className="text-xs text-gray-300">Role</p>

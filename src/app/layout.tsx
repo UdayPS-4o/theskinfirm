@@ -16,13 +16,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://theskinfirm.com"),
   title: {
-    default: "dermaelegance- Premium Skincare and Treatments",
+    default: "The Skin Firm- Premium Skincare and Treatments",
     template: `%s | The Skin Firm`,
   },
-  description: "dermaeleganceoffers exceptional skincare services and advanced treatments to help you achieve radiant, healthy skin. Book your consultation today!",
+  description: "The Skin Firmoffers exceptional skincare services and advanced treatments to help you achieve radiant, healthy skin. Book your consultation today!",
   keywords: ["skincare", "skin treatments", "facial", "botox", "laser hair removal", "dermatology", "beauty clinic"],
   openGraph: {
-    title: "dermaelegance- Premium Skincare and Treatments",
+    title: "The Skin Firm- Premium Skincare and Treatments",
     description: "Discover a new level of skincare with The Skin Firm. We provide personalized treatments to enhance your natural beauty.",
     images: [
       {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "dermaelegance- Premium Skincare and Treatments",
+    title: "The Skin Firm- Premium Skincare and Treatments",
     description: "Your journey to flawless skin starts here. Explore our services at The Skin Firm.",
     images: ["/twitter-image.png"], // Must be an absolute URL
   },
