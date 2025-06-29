@@ -6,12 +6,15 @@ import React from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
+import Image from 'next/image';
+
 export const Cta2 = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div className='mt-24 py-10 bg-radial flex items-center justify-center' style={{backgroundImage: 'url(/cta2.png)'}}>
+    <div className='relative mt-24 py-10 bg-radial flex items-center justify-center'>
+      <Image src="/cta2.png" alt="" layout="fill" objectFit="cover" className="-z-90" loading="lazy"/>
       <motion.div
         ref={ref}
         initial={{ opacity: 0, scale: 0.9 }}

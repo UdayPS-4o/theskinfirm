@@ -14,7 +14,7 @@ export const Specialist = () => {
           <DashedSeparator />
         </div>
         <h2 className="mt-5 text-center font-semibold text-4xl md:text-5xl text-[#333333]">Specialist in Pune</h2>
-        <Image alt='' src={'/specialist-hello.svg'} width={122} height={61} className='mt-6 mx-auto' />
+        <Image alt='' src={'/specialist-hello.svg'} width={122} height={61} className='mt-6 mx-auto' loading='lazy' />
         
         <div className='relative mt-8 text-center'>
           <h2 className='text-5xl md:text-7xl lg:text-8xl text-[#171717] text-center font-bold leading-tight'>
@@ -30,7 +30,7 @@ export const Specialist = () => {
             </div>
             
             <div className='z-10 mt-8'>
-              <Image alt='Skin Specialist' src={'/skin-specialist.svg'} width={500} height={400} className='mx-auto' />
+              <Image alt='Skin Specialist' src={'/skin-specialist.svg'} width={500} height={400} className='mx-auto' loading='lazy' />
             </div>
 
             <div className='hidden md:block absolute right-0 bottom-20 text-right'>

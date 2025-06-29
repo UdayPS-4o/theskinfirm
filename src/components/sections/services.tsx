@@ -129,6 +129,7 @@ function Service({ coverImageUrl, description, title }: { coverImageUrl: string,
         width={384}
         height={453}
         className='mx-auto w-full max-w-[300px] sm:max-w-[350px] lg:max-w-[384px] h-auto object-cover rounded-lg'
+        loading='lazy'
       />
       <div className='absolute bottom-0 w-full px-2'>
         <div className='py-4 sm:py-5 px-4 sm:px-5 bg-white w-full max-w-[280px] sm:max-w-xs mx-auto rounded-lg shadow-lg'>
@@ -139,6 +140,7 @@ function Service({ coverImageUrl, description, title }: { coverImageUrl: string,
               height={60}
               width={60}
               className='flex-shrink-0 w-12 h-12 sm:w-15 sm:h-15'
+              loading='lazy'
             />
             <div className='flex flex-col items-start justify-start space-y-3 sm:space-y-4 flex-1'>
               <h3 className='text-lg sm:text-xl font-medium text-[#5E6282] leading-tight'>{title}</h3>

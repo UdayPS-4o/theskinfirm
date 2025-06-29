@@ -6,7 +6,7 @@ export const WhyChooseUs = () => {
   return (
     <div className="mt-24 px-5 lg:px-[70px] py-[122px] bg-[#F8F4EB]">
       <div className="flex flex-col lg:flex-row items-center justify-center mb-5 lg:mb-0">
-        <Image alt="" src={"/why-choose-us.svg"} height={600} width={603} />
+        <Image alt="" src={"/why-choose-us.svg"} height={600} width={603} loading='lazy' />
         <div className="flex flex-col items-start justify-center space-y-12">
           <h2 className="font-semibold text-[64px]/tight text-center lg:text-start text-[#344054]">
             Why <span className="text-[#FD853A]">Choose Us</span>?
@@ -19,11 +19,11 @@ export const WhyChooseUs = () => {
           </p>
           <div className="grid grid-cols-2 w-full">
             <div className="text-center lg:text-start">
-              <h2 className="font-medium text-4xl text-[#1D2939]">450+</h2>
+              <h2 className="font-medium text-4xl text-[#1D2939]">500+</h2>
               <p className="mt-5 text-[#667085] text-xl">Patients</p>
             </div>
             <div className="text-center lg:text-start">
-              <h2 className="font-medium text-4xl text-[#1D2939]">450+</h2>
+              <h2 className="font-medium text-4xl text-[#1D2939]">500+</h2>
               <p className="mt-5 text-[#667085] text-xl">Successful Results</p>
             </div>
           </div>

@@ -24,27 +24,22 @@
     "subtitle": "Process",
     "steps": [
       {
-        "number": "1",
         "title": "Skin Analysis & Consultation",
         "description": "A detailed skin assessment by our in-house dermatologists to understand acne type, severity, and triggers."
       },
       {
-        "number": "2",
         "title": "Deep Pore Cleansing",
         "description": "We utilise advanced medical facials, gentle peels, or hydra-technology to eliminate impurities and decongest pores."
       },
       {
-        "number": "3",
         "title": "Targeted Treatment Application",
         "description": "Application of anti-inflammatory actives, acne-fighting ingredients like salicylic acid or retinoids, and procedures such as chemical peels, laser therapy, or comedone extraction as per the dermatologist's prescription"
       },
       {
-        "number": "4",
         "title": "LED Light or Laser Sessions",
         "description": "Cutting-edge technology to reduce bacteria, calm inflammation, and accelerate healing."
       },
       {
-        "number": "5",
         "title": "Customised Aftercare Plan",
         "description": "A personalised home regimen with medical-grade products to continue results and prevent relapse."
       }

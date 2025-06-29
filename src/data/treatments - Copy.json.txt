@@ -1,0 +1,134 @@
+{
+  "skin": {
+    "sections": [
+      {
+        "title": "Acne and Acne Scars",
+        "treatments": [
+          {
+            "imageSrc": "https://picsum.photos/id/93/200/200",
+            "imageBgSrc": "https://picsum.photos/id/68/200/200",
+            "title": "Acne Treatment",
+            "description": "At The Skin Firm, our Acne Treatment is designed by a dermatologist's protocol that targets acne at its root and not just the surface. Whether you're dealing with active breakouts, hormonal acne, or persistent post-acne marks, this treatment is tailored to your skin's unique condition."
+          },
+          {
+            "imageSrc": "https://picsum.photos/id/38/200/200",
+            "imageBgSrc": "https://picsum.photos/id/57/200/200",
+            "title": "Acne Marks Treatment",
+            "description": "Acne may fade, but the marks it leaves can linger, reminding us of our skin struggles. At The Skin Firm, our Acne Marks Treatment in Pune is crafted to gently yet effectively fade post-acne pigmentation, dark spots, and uneven skin texture caused by previous breakouts."
+          },
+          {
+            "imageSrc": "https://picsum.photos/id/31/200/200",
+            "imageBgSrc": "https://picsum.photos/id/25/200/200",
+            "title": "Acne Scars Removal",
+            "description": "While breakouts may resolve, the presence of acne scars can persist over time, leaving behind uneven texture, pits, and reminders we'd prefer to forget. At The Skin Firm, our advanced Acne Scar Treatment in Pune is designed to visibly reduce all types of acne scarring, so your skin can feel as smooth and confident as you do."
+          },
+          {
+            "imageSrc": "https://picsum.photos/id/47/200/200",
+            "imageBgSrc": "https://picsum.photos/id/54/200/200",
+            "title": "Open Pores Treatment",
+            "description": "If you've ever felt like your skin looks uneven, rough, or just won't hold makeup the way it should, enlarged pores could be the reason. Open pores are common, especially in Indian skin, and are often the result of genetics, excess oil production, acne history, or sun damage."
+          }
+        ]
+      },
+      {
+        "title": "Pigmentation",
+        "treatments": [
+          {
+            "imageSrc": "https://picsum.photos/id/15/200/200",
+            "imageBgSrc": "https://picsum.photos/id/22/200/200",
+            "title": "Pigmentation Treatment",
+            "description": "Uneven skin tone, stubborn dark patches, sun spots, or discoloration pigmentation can show up in different forms and affect your skin's clarity and confidence. At The Skin Firm, our advanced Pigmentation Treatment in Pune is designed to target various types of pigmentation concerns."
+          },
+          {
+            "imageSrc": "https://picsum.photos/id/29/200/200",
+            "imageBgSrc": "https://picsum.photos/id/35/200/200",
+            "title": "Melasma Treatment",
+            "description": "Melasma is one of the most persistent and emotionally taxing skin concerns, often appearing as brown or greyish patches across the cheeks, forehead, and upper lip. Triggered by hormones, sun exposure, or genetics, melasma can feel overwhelming to manage."
+          }
+        ]
+      }
+    ]
+  },
+  "hair": {
+    "sections": [
+      {
+        "title": "Hair Loss Treatment",
+        "treatments": [
+          {
+            "imageSrc": "https://picsum.photos/id/91/200/200",
+            "imageBgSrc": "https://picsum.photos/id/82/200/200",
+            "title": "PRP Hair Treatment",
+            "description": "Platelet-Rich Plasma (PRP) therapy uses your body's own healing factors to stimulate hair growth and strengthen existing hair follicles. This natural treatment is effective for both men and women experiencing hair thinning or early-stage hair loss."
+          },
+          {
+            "imageSrc": "https://picsum.photos/id/73/200/200",
+            "imageBgSrc": "https://picsum.photos/id/64/200/200",
+            "title": "Hair Transplant",
+            "description": "Our advanced hair transplant procedures use the latest FUE and FUT techniques to restore natural-looking hair growth. Each treatment is customized to your specific hair loss pattern and aesthetic goals."
+          },
+          {
+            "imageSrc": "https://picsum.photos/id/55/200/200",
+            "imageBgSrc": "https://picsum.photos/id/46/200/200",
+            "title": "Mesotherapy for Hair",
+            "description": "Mesotherapy involves micro-injections of vitamins, minerals, and growth factors directly into the scalp to nourish hair follicles, improve circulation, and promote healthy hair growth."
+          }
+        ]
+      },
+      {
+        "title": "Hair Care Treatments",
+        "treatments": [
+          {
+            "imageSrc": "https://picsum.photos/id/37/200/200",
+            "imageBgSrc": "https://picsum.photos/id/28/200/200",
+            "title": "Scalp Treatment",
+            "description": "Comprehensive scalp care treatments to address dandruff, seborrheic dermatitis, and other scalp conditions that can affect hair health and growth."
+          }
+        ]
+      }
+    ]
+  },
+  "laser": {
+    "sections": [
+      {
+        "title": "Laser Hair Removal",
+        "treatments": [
+          {
+            "imageSrc": "https://picsum.photos/id/19/200/200",
+            "imageBgSrc": "https://picsum.photos/id/10/200/200",
+            "title": "Full Body Laser Hair Removal",
+            "description": "Advanced laser technology for permanent hair reduction on all body areas. Our state-of-the-art equipment is safe for all skin types and provides long-lasting results with minimal discomfort."
+          },
+          {
+            "imageSrc": "https://picsum.photos/id/81/200/200",
+            "imageBgSrc": "https://picsum.photos/id/72/200/200",
+            "title": "Facial Hair Removal",
+            "description": "Precise laser hair removal for facial areas including upper lip, chin, and sideburns. Gentle treatment suitable for sensitive facial skin with excellent results."
+          },
+          {
+            "imageSrc": "https://picsum.photos/id/63/200/200",
+            "imageBgSrc": "https://picsum.photos/id/54/200/200",
+            "title": "Bikini Line Laser",
+            "description": "Professional and discreet laser hair removal for intimate areas. Our experienced technicians ensure comfort and privacy while delivering effective results."
+          }
+        ]
+      },
+      {
+        "title": "Laser Skin Treatments",
+        "treatments": [
+          {
+            "imageSrc": "https://picsum.photos/id/45/200/200",
+            "imageBgSrc": "https://picsum.photos/id/36/200/200",
+            "title": "Laser Skin Resurfacing",
+            "description": "Advanced laser technology to improve skin texture, reduce fine lines, and address sun damage. This treatment promotes collagen production for smoother, younger-looking skin."
+          },
+          {
+            "imageSrc": "https://picsum.photos/id/27/200/200",
+            "imageBgSrc": "https://picsum.photos/id/18/200/200",
+            "title": "Laser Tattoo Removal",
+            "description": "Safe and effective laser tattoo removal using advanced Q-switched laser technology. Multiple sessions gradually fade tattoos with minimal scarring."
+          }
+        ]
+      }
+    ]
+  }
+}

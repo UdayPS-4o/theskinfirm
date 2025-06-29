@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { Footer } from '@/components/layout/footer';
-import serviceData from './service-data.json';
 import { ChevronRight } from 'lucide-react';
+import serviceData from './service-data.json';
+
 
 const ServiceDetailsPage = () => {
   return (
@@ -100,9 +101,9 @@ const ServiceDetailsPage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
               {serviceData.process.steps.map((step, index) => (
-                <div key={index} className="flex flex-col gap-5">
-                  <div className="w-[50px] h-[50px] rounded-full bg-[#d4a380] flex items-center justify-center shadow-lg">
-                    <span className="text-[22px] font-medium text-white">{step.number}</span>
+                <div key={index} className="flex items-start gap-4">
+                  <div className="w-[50px] h-[50px] rounded-full bg-[#d4a380] flex items-center justify-center shadow-lg flex-shrink-0">
+                    <span className="text-[22px] font-medium text-white">{index + 1}</span>
                   </div>
                   <div className="flex flex-col gap-3">
                     <p className="text-lg font-medium text-black">

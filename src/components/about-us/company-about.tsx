@@ -204,7 +204,7 @@ export default function CompanyAboutSection() {
                    }
                  }}
                >
-                 We combine <span className="font-semibold text-[#d4a380]">cutting-edge technology</span> with a warm, welcoming environment where every client feels heard, valued, and cared for. From advanced laser treatments to gentle skincare solutions, we're here to help you achieve the <span className="font-semibold text-[#ec7754]">healthy, radiant skin</span> you deserve.
+                 We combine <span className="font-semibold text-[#d4a380]">cutting-edge technology</span> with a warm, welcoming environment where every client feels heard, valued, and cared for. From advanced laser treatments to gentle skincare solutions, we&apos;re here to help you achieve the <span className="font-semibold text-[#ec7754]">healthy, radiant skin</span> you deserve.
                </motion.p>
               
               <motion.p 

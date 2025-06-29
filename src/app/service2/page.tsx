@@ -4,27 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import {ServiceCardModern} from "@/components/ServiceCardModern";
 
-type ServiceTab = {
-  label: string;
-  key: string;
-};
-
-const SERVICES_TABS: ServiceTab[] = [
-  {
-    label: "Skin Services",
-    key: "skin",
-  },
-  {
-    label: "Hair Services",
-    key: "hair",
-  },
-  {
-    label: "Laser Services",
-    key: "laser",
-  },
-] as const;
-
-type TabKey = typeof SERVICES_TABS[number]["key"];
+type TabKey = "skin" | "hair" | "laser";
 
 type ServiceCard = {
   image: string;

@@ -41,7 +41,7 @@ export const BookYourConsultation = () => {
             </div>
               <div className='text-start'>
                 <h4 className='text-sm sm:text-base text-[#8A7B70] font-medium'>Contact Number</h4>
-                <p className="mt-1 text-xs sm:text-sm text-[#A89689]">8308669966</p>
+                <p className="mt-1 text-xs sm:text-sm text-[#A89689]">+91 8308669966</p>
               </div>
             </div>
             <div className='flex flex-row items-start justify-start space-x-5'>

@@ -108,6 +108,7 @@ function Service({coverImageUrl, description, title}: {coverImageUrl: string, ti
             width={355} 
             height={159} 
             className='w-full h-32 sm:h-40 object-cover rounded-lg' 
+            loading='lazy'
           />
         </div>
         <div className='flex-1 flex flex-col justify-between pt-3 sm:pt-4'>
