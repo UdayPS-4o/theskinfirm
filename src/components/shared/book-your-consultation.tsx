@@ -1,15 +1,79 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 import { Textarea } from '../ui/textarea'
 import { Button } from '../ui/button'
-import { Calendar, Clock, MapPin, Phone, Mail } from 'lucide-react'
+import { Calendar, Clock, MapPin, Phone, Mail, ChevronDown } from 'lucide-react'
 import { MaxWidthWrapper } from '../layout/max-width'
 
 export const BookYourConsultation = () => {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedService, setSelectedService] = useState('')
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  const services = [
+    // Skin Services
+    'Acne and Acne Scars',
+    'Pigmentation',
+    'Skin Discoloration',
+    'Aging and Wrinkles',
+    'Skin Texture',
+    'Other Skin Concerns',
+    'Facials',
+    'Chemical Peel',
+    'Advanced Skin Treatment',
+    'Lifting and Tightening',
+    'Trending Services',
+    'Specialty Treatment',
+    // Hair Services
+    'PRP Hair Treatment',
+    'Hair Loss Treatment',
+    'Hair Mesotherapy',
+    'QR678 Treatment',
+    'Hair Density Improvement',
+    'Hair Regrowth',
+    'Postnatal Hair Loss Treatment',
+    'Alopecia Areata Treatment',
+    'Hair Loss Treatment for Men',
+    // Laser Services
+    'Laser Hair Removal',
+    'Leg Hair Removal',
+    'Bikini Hair Removal',
+    'Laser Beard Shaping',
+    'Diode Laser Hair Removal',
+    'CO2 Laser for Skin',
+    'QSwitch ND YAG Laser',
+    'Carbon Laser Facial',
+    'Tattoo Removal'
+  ]
+
+  const filteredServices = services.filter(service =>
+    service.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  const handleServiceSelect = (service: string) => {
+    setSelectedService(service)
+    setSearchTerm(service)
+    setIsDropdownOpen(false)
+  }
+
   return (
-    <div className='py-32 bg-[#FDFBF7] w-full'>
+    <div className='mt-20 py-32 bg-[#FDFBF7] w-full'>
       <MaxWidthWrapper>
         <div className='p-4 sm:p-7 grid grid-cols-1 lg:grid-cols-2 gap-y-12 sm:gap-y-20 lg:gap-x-20'>
         <div>
@@ -80,16 +144,37 @@ export const BookYourConsultation = () => {
           <Label className='text-[#8A7B70] mb-3'>Email Address</Label>
           <Input className='shadow-md text-xl placeholder:text-[#CCCCCC]' />
         </div>
-        <div className='mt-5'>
+        <div className='mt-5' ref={dropdownRef}>
           <Label className='text-[#8A7B70] mb-3'>Service Interested in</Label>
-          <Select>
-            <SelectTrigger className='w-full shadow-md'>
-              <SelectValue placeholder="Select a service" />
-            </SelectTrigger>
-            <SelectContent>
-          <SelectItem value='item-1'>Item 1</SelectItem>
-            </SelectContent>
-          </Select>
+          <div className='relative'>
+            <Input
+              className='shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC] pr-10'
+              placeholder='Type to search or select a service'
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value)
+                setIsDropdownOpen(true)
+              }}
+              onFocus={() => setIsDropdownOpen(true)}
+            />
+            <ChevronDown 
+              className='absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[#A89689] cursor-pointer'
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            />
+            {isDropdownOpen && filteredServices.length > 0 && (
+              <div className='absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto'>
+                {filteredServices.map((service, index) => (
+                  <div
+                    key={index}
+                    className='px-4 py-2 hover:bg-[#F9EEE7] cursor-pointer text-[#8A7B70] border-b border-gray-100 last:border-b-0'
+                    onClick={() => handleServiceSelect(service)}
+                  >
+                    {service}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
         <div className='mt-5'>
           <Label className='text-[#8A7B70] mb-3'>Additional Information</Label>

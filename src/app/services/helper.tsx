@@ -59,6 +59,7 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
             id={section.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}
             className="mb-[20px] last:mb-0"
           >
+            <div className="ignore target relative top-[-100px]" id={'_'+section.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}></div>
             <div className="bg-white border border-[#E6E6E6] rounded-[10px] p-[26px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full">
               <div 
                 className="flex items-center justify-between cursor-pointer"
@@ -86,15 +87,15 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
               </div>
               
               <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                isExpanded ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 <div className="mt-[32px]">
-                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-[24px]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
                     
                     {section.treatments.map((treatment: any, treatmentIndex) => (
                       <motion.div
                         key={`treatment-${treatmentIndex}`}
-                        className="bg-white border border-[#E6E6E6] rounded-[10px] p-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full hover:shadow-[0px_0px_15px_0px_rgba(0,0,0,0.1)] transition-shadow duration-300 relative overflow-hidden cursor-pointer"
+                        className="bg-white border border-[#E6E6E6] rounded-[10px] p-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full hover:shadow-[0px_0px_15px_0px_rgba(0,0,0,0.1)] transition-shadow duration-300 relative cursor-pointer"
                         onClick={() => handleCardClick(treatment?.title || '')}
                         initial={{
                           opacity: 0,
@@ -111,8 +112,8 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                           ease: "easeOut",
                           delay: isExpanded ? treatmentIndex * 0.1 : 0
                         }}
-                      >
-
+                      > 
+                        <div className="target ignore relative top-[-100px]" id={'_'+treatment?.title}></div>
                         <div className="flex gap-[16px] items-start">
                           {/* Image container with blur fade transition */}
                           <div className="w-[140px] h-[140px] flex-shrink-0 rounded-[8px] overflow-hidden relative">

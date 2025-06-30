@@ -8,7 +8,7 @@ import { Cta2 } from "@/components/shared/cta2";
 import { Faq } from "@/components/sections/faq";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/home/hero";
-
+import CategoriesSection from "@/components/home/categories";
 import { Services } from "@/components/sections/services";
 
 import { Specialist } from "@/components/sections/specialist";
@@ -21,21 +21,36 @@ import { PremiumServices } from "@/components/sections/premium-services";
 export default function HomePage() {
   return (
     <div className="w-full">
-      <section id="home"><Hero /></section>
-      <AnimatedComponent><Cta /></AnimatedComponent>
-      <AnimatedComponent><PremiumServices /></AnimatedComponent>
-      <section id="services"><AnimatedComponent><Services /></AnimatedComponent></section>
-      <AnimatedComponent><Specialist /></AnimatedComponent>
-      <AnimatedComponent><Stats /></AnimatedComponent>
-      <section id="about"><AnimatedComponent><About /></AnimatedComponent></section>
-      <section id="stories"><AnimatedComponent><SuccessStories /></AnimatedComponent></section>
-      <AnimatedComponent><WhyChooseUs /></AnimatedComponent>
-      <section id="contact"><AnimatedComponent><BookYourConsultation /></AnimatedComponent></section>
-      {/* <section id="news"><AnimatedComponent><News /></AnimatedComponent></section> */}
-      {/* <section id="gallery"><AnimatedComponent><Gallery /></AnimatedComponent></section>
-      <AnimatedComponent><Stories /></AnimatedComponent> */}
-      <AnimatedComponent><Cta2 /></AnimatedComponent>
-      <AnimatedComponent><Faq /></AnimatedComponent>
+      <main role="main">
+        <section id="home" aria-labelledby="hero-heading">
+          <Hero />
+        </section>
+        <AnimatedComponent><Cta /></AnimatedComponent>
+        {/* <AnimatedComponent><PremiumServices /></AnimatedComponent> */}
+        <section id="categories" aria-labelledby="categories-heading">
+          <AnimatedComponent><CategoriesSection /></AnimatedComponent>
+        </section>
+        <section id="services" aria-labelledby="services-heading">
+          <AnimatedComponent><Services /></AnimatedComponent>
+        </section>
+        <AnimatedComponent><Specialist /></AnimatedComponent>
+        <AnimatedComponent><Stats /></AnimatedComponent>
+        <section id="about" aria-labelledby="about-heading">
+          <AnimatedComponent><About /></AnimatedComponent>
+        </section>
+        <section id="stories" aria-labelledby="stories-heading">
+          <AnimatedComponent><SuccessStories /></AnimatedComponent>
+        </section>
+        <AnimatedComponent><WhyChooseUs /></AnimatedComponent>
+        <section id="contact" aria-labelledby="contact-heading">
+          <AnimatedComponent><BookYourConsultation /></AnimatedComponent>
+        </section>
+        {/* <section id="news"><AnimatedComponent><News /></AnimatedComponent></section> */}
+        {/* <section id="gallery"><AnimatedComponent><Gallery /></AnimatedComponent></section>
+        <AnimatedComponent><Stories /></AnimatedComponent> */}
+        <AnimatedComponent><Cta2 /></AnimatedComponent>
+        <AnimatedComponent><Faq /></AnimatedComponent>
+      </main>
       <Footer />
     </div>
   );

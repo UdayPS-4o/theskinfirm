@@ -5780,5 +5780,210 @@
                 }
             ]
         }
+    },
+    "Carbon Laser Facial": {
+        "hero": {
+            "serviceCategory": "Service Details",
+            "title": "Carbon Laser Facial",
+            "description": "Experience transformative skincare solutions tailored to your unique needs by certified specialists",
+            "buttons": {
+                "primary": "Book Consultation",
+                "secondary": "Explore Services"
+            },
+            "doctor": {
+                "name": "Dr. Karishma Singh",
+                "title": "Certified Dermatologist"
+            },
+            "image": "/details/rounded-hero.png"
+        },
+        "about": {
+            "title": "What is the Carbon Laser Facial?",
+            "description": "Also known as the Carbon Laser Facial, the Hollywood Facial is a high-performance skin treatment designed to deeply cleanse, exfoliate, and refine your skin, leaving it smoother, brighter, and camera-ready. This facial got its name from its popularity with Hollywood celebrities who need instant radiance before red carpet events, but it's more than just a glow-up. It uses a medical-grade laser combined with an activated carbon mask to target excess oil, dullness, pigmentation, and enlarged pores, making it especially effective for oily, acne-prone, or congested skin.",
+            "highlight": "At The Skin Firm, we bring the authentic Carbon Laser Facial to Pune, using advanced Q-switched laser technology under expert dermatological supervision, offering results that go far beyond a salon facial.",
+            "image": "https://picsum.photos/id/1/470/360"
+        },
+        "process": {
+            "title": "Process of Carbon Laser Facial",
+            "subtitle": "Process",
+            "steps": [
+                {
+                    "title": "Carbon Application",
+                    "description": "A thin layer of activated carbon solution is applied to your cleansed face. The carbon absorbs oil, impurities, and dead skin cells from the pores."
+                },
+                {
+                    "title": "Laser Activation",
+                    "description": "Once dried, a specialised Q-switched laser is passed over the skin. The laser targets the carbon particles, causing a gentle yet powerful exfoliation and heat-based stimulation."
+                },
+                {
+                    "title": "Pore Refinement & Collagen Boost",
+                    "description": "The laser also penetrates deeper layers of the skin to stimulate collagen, reduce pigmentation, and shrink pores over time."
+                },
+                {
+                    "title": "Post-Treatment Care",
+                    "description": "Calming serums and sunscreen are applied to protect and hydrate your skin after the session."
+                }
+            ]
+        },
+        "benefits": {
+            "title": "Benefits of Carbon Laser Facial",
+            "subtitle": "Benefits",
+            "items": [
+                "Instantly brightens and deep-cleanses the skin.",
+                "Reduces oiliness, blackheads, and breakouts",
+                "Tightens enlarged pores and improves skin texture.",
+                "Lightens pigmentation and sun damage over time",
+                "Boosts collagen and long-term skin clarity",
+                "Safe, non-invasive, and suitable for sensitive skin",
+                "Considered the best facial for oily skin and open pores",
+                "A celebrity favourite, now available as a Carbon Laser Facial in Pune"
+            ]
+        },
+        "postCare": {
+            "title": "Downtime & Post-Care",
+            "subtitle": "Post Care",
+            "downtime": {
+                "title": "Downtime Information",
+                "items": [
+                    "Minimal to none. Mild redness may occur for 1–2 hours."
+                ]
+            },
+            "postCare": {
+                "title": "Post-Care Information",
+                "items": [
+                    "Avoid heat, sun exposure, and sweating for 24 hours.",
+                    "Use a gentle cleanser and skip actives for 2–3 days.",
+                    "Apply sunscreen daily",
+                    "Refrain from salon facials or scrubs for at least 5 days."
+                ]
+            }
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "subtitle": "FAQs",
+            "questions": [
+                {
+                    "question": "Who is the Carbon Laser Facial ideal for?",
+                    "answer": "It’s perfect for oily, acne-prone, or dull skin and for anyone looking for a quick, no-downtime skin refresh. It's especially loved by clients before photoshoots, events, or travel."
+                },
+                {
+                    "question": "Is the carbon laser facial safe?",
+                    "answer": "Yes. When performed by trained professionals using medical-grade lasers, it is completely safe and effective, even for sensitive skin."
+                },
+                {
+                    "question": "How often should I get this facial?",
+                    "answer": "You can do it once every 3–4 weeks, or as part of a seasonal skin-clearing routine. With consistent sessions, it helps maintain long-term skin clarity."
+                },
+                {
+                    "question": "Will it help with acne or pigmentation?",
+                    "answer": "Yes — the laser reduces oil production, kills acne-causing bacteria, and fades pigmentation over time. It also helps reduce post-acne marks and scars when done regularly."
+                },
+                {
+                    "question": "Why choose The Skin Firm for a Carbon Laser Facial in Pune?",
+                    "answer": "Because we don’t offer diluted versions of trending treatments. Our Carbon Laser Facial is powered by clinical precision, real lasers, and dermatological oversight, giving you real results, not just a temporary glow."
+                }
+            ]
+        }
+    },
+    "Platelet-Rich Plasma Facial": {
+        "hero": {
+            "serviceCategory": "Service Details",
+            "title": "Platelet-Rich Plasma Facial",
+            "description": "Experience transformative skincare solutions tailored to your unique needs by certified specialists",
+            "buttons": {
+                "primary": "Book Consultation",
+                "secondary": "Explore Services"
+            },
+            "doctor": {
+                "name": "Dr. Karishma Singh",
+                "title": "Certified Dermatologist"
+            },
+            "image": "/details/rounded-hero.png"
+        },
+        "about": {
+            "title": "What is the Platelet-Rich Plasma Facial?",
+            "description": "The Platelet-Rich Plasma Facial, short for Platelet-Rich Plasma Facial, is a cutting-edge regenerative skin therapy that uses your body’s growth factors to repair, renew, and refresh your skin from the inside out. This treatment involves extracting a small amount of your blood, isolating the nutrient-rich platelets, and delivering them back into your skin through microchannels created by microneedling. The result? Stronger collagen support, improved texture, reduced pigmentation, and a visibly healthier glow over time.",
+            "highlight": "At The Skin Firm, we perform Platelet-Rich Plasma facial treatments in Pune using precise, dermatologist-led protocols, ensuring high efficacy, safety, and visible skin rejuvenation without synthetic additives.",
+            "image": "https://picsum.photos/id/1/470/360"
+        },
+        "process": {
+            "title": "Process of Platelet-Rich Plasma Facial",
+            "subtitle": "Process",
+            "steps": [
+                {
+                    "title": "Blood Draw & Plasma Separation",
+                    "description": "A small vial of blood is drawn and spun in a medical centrifuge to extract platelet-rich plasma, the golden fluid rich in growth factors."
+                },
+                {
+                    "title": "Microneedling for Delivery",
+                    "description": "Using a microneedling device, controlled micro-injuries are created in the skin to allow deeper PRP penetration and stimulate collagen production."
+                },
+                {
+                    "title": "PRP Application & Absorption",
+                    "description": "The PRP is then applied and absorbed into the dermal layers, kickstarting the natural healing process and encouraging cellular renewal."
+                },
+                {
+                    "title": "Post-Procedure Protection",
+                    "description": "The skin is soothed with calming serums, and a protective barrier is applied to support healing over the next few days."
+                }
+            ]
+        },
+        "benefits": {
+            "title": "Benefits of Platelet-Rich Plasma Facial",
+            "subtitle": "Benefits",
+            "items": [
+                "Stimulates collagen and elastin production naturally",
+                "Improves skin tone, texture, and firmness",
+                "Reduces signs of ageing, pigmentation, and acne scars",
+                "Supports long-term skin regeneration and hydration",
+                "100% natural with no chemicals, fillers, or synthetic ingredients",
+                "Safe for all skin types and tones",
+                "A top-rated collagen-boosting facial treatment in Pune"
+            ]
+        },
+        "postCare": {
+            "title": "Downtime & Post-Care",
+            "subtitle": "Post Care",
+            "downtime": {
+                "title": "Downtime Information",
+                "items": [
+                    "Mild redness, swelling, or sensitivity for 1–3 days is normal. Skin may feel dry or tight during healing."
+                ]
+            },
+            "postCare": {
+                "title": "Post-Care Information",
+                "items": [
+                    "Avoid makeup and sun exposure for 48 hours.",
+                    "Skip active skincare ingredients (retinols, exfoliants) for 5 days.",
+                    "Use gentle cleansers and SPF diligently.",
+                    "Avoid touching or rubbing the face during healing."
+                ]
+            }
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "subtitle": "FAQs",
+            "questions": [
+                {
+                    "question": "Is Platelet-Rich Plasma Facial the same as Vampire Facial?",
+                    "answer": "Yes, they are two names for the same treatment. “Vampire Facial” is the popular name, while “PRP Facial” is the clinical term. Both use your plasma to rejuvenate the skin."
+                },
+                {
+                    "question": "What skin concerns does it treat?",
+                    "answer": "Platelet-Rich Plasma facials are effective for dullness, fine lines, pigmentation, acne scars, uneven texture, and early signs of ageing. It’s a full-spectrum natural skin rejuvenation therapy."
+                },
+                {
+                    "question": "Is the treatment painful?",
+                    "answer": "The skin is numbed beforehand, so discomfort is minimal. Some redness or tingling after the procedure is normal and temporary."
+                },
+                {
+                    "question": "How many sessions are required?",
+                    "answer": "Usually, 3–4 sessions spaced 4–6 weeks apart are ideal for best results, followed by maintenance treatments every 6–12 months."
+                },
+                {
+                    "question": "Why choose The Skin Firm for a Platelet-Rich Plasma Facial in Pune?",
+                    "answer": "Because we prioritise medical accuracy, hygiene, and personalisation. Our dermatologists use advanced microneedling devices, sterile PRP kits, and evidence-based protocols to ensure each session delivers real, visible results, making us one of the most trusted clinics for Platelet-Rich Plasma facial treatments in Pune."
+                }
+            ]
+        }
     }
 }

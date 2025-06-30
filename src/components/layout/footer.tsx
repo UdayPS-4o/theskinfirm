@@ -1,6 +1,6 @@
 'use client';
 
-import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from 'lucide-react'
+import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import { motion, useInView } from 'framer-motion'
@@ -31,14 +31,14 @@ export const Footer = () => {
             <p className='text-base/relaxed text-[#A89689] text-start'>Where Skin Meets Science, and Self-Care Feels Like Home
 </p>
             <div className='flex flex-row items-center justify-start gap-x-5'>
-              <Link href={""} className='p-3 rounded-full bg-[#F9EEE7]'>
+              <Link href={"https://www.instagram.com/theskinfirm_official/?hl=en"} target="_blank" className='p-3 rounded-full bg-[#F9EEE7]'>
                 <Instagram className='size-5' color='#D4A380' />
               </Link>
-              <Link href={""} className='p-3 rounded-full bg-[#F9EEE7]'>
+              <Link href={"https://www.facebook.com/theskinfirmpune/"} target="_blank" className='p-3 rounded-full bg-[#F9EEE7]'>
                 <Facebook className='size-5' color='#D4A380' />
               </Link>
-              <Link href={""} className='p-3 rounded-full bg-[#F9EEE7]'>
-                <Twitter className='size-5' color='#D4A380' />
+              <Link href={"https://www.youtube.com/@TheSkinFirm-Pune"} target="_blank" className='p-3 rounded-full bg-[#F9EEE7]'>
+                <Youtube className='size-5' color='#D4A380' />
               </Link>
             </div>
           </motion.div>
@@ -51,11 +51,11 @@ export const Footer = () => {
           >
             <h3 className='text-[#8A7B70] text-xl/relaxed text-start'>Quick links</h3>
             <div className='flex flex-col items-start justify-start gap-y-4 *:text-[#A89689] *:text-base/relaxed *:hover:opacity-80'>
-              <Link href={"#home"}>Home</Link>
-              <Link href={"#about"}>About us</Link>
-              <Link href={"#services"}>Services</Link>
-              <Link href={"#services"}>Treatments</Link>
-              <Link href={"#contact"}>Contact</Link>
+              <Link href={"/home"}>Home</Link>
+              <Link href={"/about"}>About us</Link>
+              <Link href={"/services"}>Services</Link>
+              <Link href={"/services"}>Treatments</Link>
+              <Link href={"/home#contact"}>Contact</Link>
             </div>
           </motion.div>
 

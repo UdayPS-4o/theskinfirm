@@ -69,9 +69,36 @@ const LASER_SERVICES = [
   "Diode Laser Hair Removal",
   "CO2 Laser for Skin",
   "QSwitch ND YAG Laser",
-  "Carbon Facial Treatment",
+  "Carbon Laser Facial",
   "Tattoo Removal"
 ];
+
+// Service name to slug mapping for exact URL generation
+const SERVICE_TO_SLUG_MAP: Record<string, string> = {
+  "PRP Hair Treatment": "prp-hair-treatment",
+  "Hair Loss Treatment": "hair-loss-treatment",
+  "Hair Mesotherapy": "hair-mesotherapy",
+  "QR678 Treatment": "qr678-treatment",
+  "Hair Density Improvement": "hair-density-improvement",
+  "Hair Regrowth": "hair-regrowth",
+  "Postnatal Hair Loss Treatment": "postnatal-hair-loss-treatment",
+  "Alopecia Areata Treatment": "alopecia-areata-treatment",
+  "Hair Loss Treatment for Men": "hair-loss-treatment-for-men",
+  "Laser Hair Removal": "laser-hair-removal",
+  "Leg Hair Removal": "leg-hair-removal",
+  "Bikini Hair Removal": "bikini-hair-removal",
+  "Laser Beard Shaping": "laser-beard-shaping",
+  "Diode Laser Hair Removal": "diode-laser-hair-removal",
+  "CO2 Laser for Skin": "co2-laser-for-skin",
+  "QSwitch ND YAG Laser": "qswitch-nd-yag-laser",
+  "Carbon Laser Facial": "carbon-laser-facial",
+  "Tattoo Removal": "tattoo-removal"
+};
+
+// Helper function to convert service name to slug
+const getServiceSlug = (serviceName: string): string => {
+  return SERVICE_TO_SLUG_MAP[serviceName] || serviceName.toLowerCase().replace(/\s+/g, '-');
+};
 
 // Mobile Service Categories Component - Collapsible
 const MobileServiceCategories = ({ onLinkClick }: { onLinkClick: () => void }) => {
@@ -116,7 +143,7 @@ const MobileServiceCategories = ({ onLinkClick }: { onLinkClick: () => void }) =
                   transition={{ delay: index * 0.05, duration: 0.2 }}
                 >
                   <Link
-                    href={`/services#${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
+                    href={`/services#_${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
                     className="block text-sm text-[#374151] hover:text-[#D4A380] py-1.5 transition-all duration-200"
                     onClick={handleLinkClick}
                   >
@@ -158,7 +185,7 @@ const MobileServiceCategories = ({ onLinkClick }: { onLinkClick: () => void }) =
                   transition={{ delay: index * 0.05, duration: 0.2 }}
                 >
                   <Link
-                    href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/services/${getServiceSlug(service)}`}
                     className="block text-sm text-[#374151] hover:text-[#D4A380] py-1.5 transition-all duration-200"
                     onClick={handleLinkClick}
                   >
@@ -200,7 +227,7 @@ const MobileServiceCategories = ({ onLinkClick }: { onLinkClick: () => void }) =
                   transition={{ delay: index * 0.05, duration: 0.2 }}
                 >
                   <Link
-                    href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/services/${getServiceSlug(service)}`}
                     className="block text-sm text-[#374151] hover:text-[#D4A380] py-1.5 transition-all duration-200"
                     onClick={handleLinkClick}
                   >
@@ -241,6 +268,13 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
+  const closeDropdown = () => setIsDropdownOpen(false);
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+  
   const toggleMenu = () => {
     const newMenuState = !isMenuOpen;
     setIsMenuOpen(newMenuState);
@@ -302,13 +336,14 @@ export const Navbar = () => {
             <motion.div key={item.label} variants={navItemVariants} className="relative">
               {item.hasDropdown ? (
                 <div
-                  className="relative"
+                  className="relative group"
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
                 >
                   <Link
                     href={item.href}
-                    className="transition-colors flex items-center gap-1"
+                    className="transition-colors flex items-center gap-1 py-1"
+                    onClick={closeDropdown}
                   >
                     {item.label}
                     <ChevronDown size={16} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
@@ -327,8 +362,9 @@ export const Navbar = () => {
                           staggerChildren: 0.1,
                           delayChildren: 0.1
                         }}
-                        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 bg-gradient-to-br from-[#FBEDE4] to-[#F5E6D3] backdrop-blur-xl rounded-2xl shadow-2xl border border-[#D4A380]/20 p-8 z-50 min-w-[1000px]"
+                        className="absolute top-full left-[-550px] max-lg:left-[-550px] md:max-lg:left-[-500px] pt-1 z-50"
                       >
+                        <div className="bg-gradient-to-br from-[#FBEDE4] to-[#F5E6D3] backdrop-blur-xl rounded-2xl shadow-2xl border border-[#D4A380]/20 p-8 w-[min(800px,calc(100vw-4rem))] max-w-[800px]">
                         <div className="grid grid-cols-3 gap-8">
                           {/* Skin Services */}
                           <motion.div 
@@ -350,13 +386,14 @@ export const Navbar = () => {
                               {SKIN_SERVICE_GROUPS.map((group, index) => (
                                 <motion.div
                                   key={group}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={{ opacity: 1, x: 0 }}
+                                  initial={{ opacity: 0, y: -20 }}
+                                  animate={{ opacity: 1, y: 0 }}
                                   transition={{ delay: 0.2 + (index * 0.03), duration: 0.2 }}
                                 >
                                   <Link
-                                    href={`/services#${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
+                                    href={`/services#_${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
                                     className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
+                                    onClick={closeDropdown}
                                   >
                                     {group}
                                   </Link>
@@ -385,13 +422,14 @@ export const Navbar = () => {
                               {HAIR_SERVICES.map((service, index) => (
                                 <motion.div
                                   key={service}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={{ opacity: 1, x: 0 }}
+                                  initial={{ opacity: 0, y: -20 }}
+                                  animate={{ opacity: 1, y: 0 }}
                                   transition={{ delay: 0.25 + (index * 0.03), duration: 0.2 }}
                                 >
                                   <Link
-                                    href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}
+                                    href={`/services/${getServiceSlug(service)}`}
                                     className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
+                                    onClick={closeDropdown}
                                   >
                                     {service}
                                   </Link>
@@ -420,13 +458,14 @@ export const Navbar = () => {
                               {LASER_SERVICES.map((service, index) => (
                                 <motion.div
                                   key={service}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={{ opacity: 1, x: 0 }}
+                                  initial={{ opacity: 0, y: -20 }}
+                                  animate={{ opacity: 1, y: 0 }}
                                   transition={{ delay: 0.3 + (index * 0.03), duration: 0.2 }}
                                 >
                                   <Link
-                                    href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}
+                                    href={`/services/${getServiceSlug(service)}`}
                                     className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
+                                    onClick={closeDropdown}
                                   >
                                     {service}
                                   </Link>
@@ -435,6 +474,7 @@ export const Navbar = () => {
                             </div>
                           </motion.div>
                         </div>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -442,7 +482,8 @@ export const Navbar = () => {
               ) : (
                 <Link
                   href={item.href}
-                  className="transition-colors"
+                  className="transition-colors flex items-center py-1"
+                  onClick={closeDropdown}
                 >
                   {item.label}
                 </Link>
@@ -487,10 +528,7 @@ export const Navbar = () => {
                           <Link
                             href={item.href}
                             className='text-[#374151] hover:text-[#374151]/80 transition-colors py-3 block font-medium mb-3'
-                            onClick={() => {
-                              document.body.style.overflow = 'unset';
-                              setIsMenuOpen(false);
-                            }}
+                            onClick={closeMobileMenu}
                           >
                             {item.label}
                           </Link>
@@ -502,17 +540,14 @@ export const Navbar = () => {
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                             className="bg-gradient-to-br from-[#FBEDE4] to-[#F5E6D3] rounded-xl p-5 border border-[#D4A380]/20"
                           >
-                            <MobileServiceCategories onLinkClick={() => setIsMenuOpen(false)} />
+                            <MobileServiceCategories onLinkClick={closeMobileMenu} />
                           </motion.div>
                         </div>
                       ) : (
                         <Link
                           href={item.href}
                           className='text-[#374151] hover:text-[#374151]/80 transition-colors py-3 block font-medium'
-                          onClick={() => {
-                            document.body.style.overflow = 'unset';
-                            setIsMenuOpen(false);
-                          }}
+                          onClick={closeMobileMenu}
                         >
                           {item.label}
                         </Link>

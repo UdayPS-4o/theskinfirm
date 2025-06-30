@@ -97,39 +97,88 @@ const GalleryPage = () => {
           {/* Enhanced Header Section */}
           <motion.div 
             className="mb-16 text-center"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="flex flex-row items-center justify-center gap-4 mb-8">
-              <DashedSeparator />
-              <h3 className="text-[#EC7754] text-2xl md:text-3xl font-medium whitespace-nowrap bg-gradient-to-r from-[#EC7754] to-[#D4A380] bg-clip-text text-transparent">
-                Transformation Gallery
-              </h3>
-              <DashedSeparator />
-            </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#333333] leading-tight mb-8 tracking-tight">
-              Real Results,{' '}
-              <span className="bg-gradient-to-r from-[#EC7754] to-[#D4A380] bg-clip-text text-transparent">
+            <motion.div 
+              className="flex flex-row items-center justify-center gap-4 mb-8"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 100 }}
+            >
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "auto" }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <DashedSeparator />
+              </motion.div>
+              <motion.h3 
+                className="text-[#EC7754] text-2xl md:text-3xl font-medium whitespace-nowrap bg-gradient-to-r from-[#EC7754] to-[#D4A380] bg-clip-text text-transparent"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+              - - - -   Transformation Gallery - - - - 
+              </motion.h3>
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "auto" }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <DashedSeparator />
+              </motion.div>
+            </motion.div>
+            <motion.h1 
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#333333] leading-tight mb-8 tracking-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+            >
+              <motion.span
+                className="inline-block"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+              >
+                Real Results,{' '}
+              </motion.span>
+              <motion.span 
+                className="inline-block bg-gradient-to-r from-[#EC7754] to-[#D4A380] bg-clip-text text-transparent"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+              >
                 Real Stories
-              </span>
-            </h1>
-            <p className="text-[#8A7B70] max-w-4xl mx-auto text-xl leading-relaxed">
+              </motion.span>
+            </motion.h1>
+            <motion.p 
+              className="text-[#8A7B70] max-w-4xl mx-auto text-xl leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+            >
               Witness the incredible transformations achieved through our advanced treatments. 
               Each image tells a story of renewed confidence and radiant skin.
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Filter and View Controls */}
           <motion.div 
             className="mb-12 space-y-6"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 1.6 }}
           >
             {/* Category Filters */}
-            <div className="flex flex-wrap justify-center gap-3 mb-6">
-              {filterCategories.map((category) => (
+            <motion.div 
+              className="flex flex-wrap justify-center gap-3 mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.8 }}
+            >
+              {filterCategories.map((category, index) => (
                 <motion.button
                   key={category.key}
                   onClick={() => handleFilterChange(category.key)}
@@ -138,27 +187,77 @@ const GalleryPage = () => {
                       ? 'bg-gradient-to-r from-[#EC7754] to-[#D4A380] text-white border-[#EC7754] shadow-lg shadow-[#EC7754]/25'
                       : 'bg-white/80 text-[#8A7B70] border-[#E5E5E5] hover:border-[#EC7754] hover:text-[#EC7754] hover:shadow-md'
                   }`}
-                  whileHover={{ scale: 1.05 }}
+                  initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: 1.8 + (index * 0.1),
+                    type: "spring",
+                    stiffness: 200
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -2,
+                    boxShadow: "0 10px 25px rgba(236, 119, 84, 0.2)"
+                  }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {category.label}
-                  <span className="ml-2 px-2 py-1 text-xs rounded-full bg-black/10">
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 2.0 + (index * 0.1) }}
+                  >
+                    {category.label}
+                  </motion.span>
+                  <motion.span 
+                    className="ml-2 px-2 py-1 text-xs rounded-full bg-black/10"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ 
+                      delay: 2.2 + (index * 0.1),
+                      type: "spring",
+                      stiffness: 300
+                    }}
+                  >
                     {category.count}
-                  </span>
+                  </motion.span>
                 </motion.button>
               ))}
-            </div>
+            </motion.div>
 
             {/* View Mode Toggle and Stats */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-              <div className="flex items-center gap-4">
-                <span className="text-[#8A7B70] font-medium">
+            <motion.div 
+              className="flex flex-col sm:flex-row justify-between items-center gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 2.4 }}
+            >
+              <motion.div 
+                className="flex items-center gap-4"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 2.6 }}
+              >
+                <motion.span 
+                  className="text-[#8A7B70] font-medium"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2.8 }}
+                >
                   Showing {filteredImages.length} {filteredImages.length === 1 ? 'result' : 'results'}
-                </span>
-                {isLoading && (
-                  <div className="w-5 h-5 border-2 border-[#EC7754] border-t-transparent rounded-full animate-spin" />
-                )}
-              </div>
+                </motion.span>
+                <AnimatePresence>
+                  {isLoading && (
+                    <motion.div 
+                      className="w-5 h-5 border-2 border-[#EC7754] border-t-transparent rounded-full animate-spin"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    />
+                  )}
+                </AnimatePresence>
+              </motion.div>
               
               {/* <div className="flex items-center gap-2 bg-white/80 rounded-full p-1 border border-[#E5E5E5]">
                 <button
@@ -182,7 +281,7 @@ const GalleryPage = () => {
                   <LayoutGrid size={18} />
                 </button>
               </div> */}
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Enhanced Gallery Grid */}
@@ -205,17 +304,24 @@ const GalleryPage = () => {
                   className={`relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group bg-white ${
                     viewMode === 'masonry' ? 'break-inside-avoid mb-6' : 'aspect-square'
                   }`}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: 50, scale: 0.8, rotateY: 15 }}
+                  animate={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
                   transition={{ 
-                    duration: 0.6, 
-                    delay: index * 0.1,
+                    duration: 0.8, 
+                    delay: 3.0 + (index * 0.15),
                     type: "spring",
-                    stiffness: 100
+                    stiffness: 120,
+                    damping: 15
                   }}
                   onClick={() => openModal(image)}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ 
+                    y: -12, 
+                    scale: 1.03,
+                    rotateY: -2,
+                    boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+                    transition: { type: "spring", stiffness: 300, damping: 20 }
+                  }}
+                  whileTap={{ scale: 0.97, rotateY: 1 }}
                 >
                   <div className={`relative ${viewMode === 'masonry' ? 'aspect-[4/5]' : 'aspect-square'}`}>
                     <Image
@@ -227,21 +333,49 @@ const GalleryPage = () => {
                     />
                     
                     {/* Enhanced Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <div className="absolute inset-0 flex flex-col justify-end p-6">
-                        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                          <div className="flex items-center gap-2 text-white">
-                            <ZoomIn size={16} />
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          whileHover={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.3, delay: 0.1 }}
+                        >
+                          <motion.div 
+                            className="flex items-center gap-2 text-white"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 400 }}
+                          >
+                            <motion.div
+                              animate={{ rotate: [0, 360] }}
+                              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                            >
+                              <ZoomIn size={16} />
+                            </motion.div>
                             <span className="text-sm font-medium">View Details</span>
-                          </div>
-                        </div>
+                          </motion.div>
+                        </motion.div>
                       </div>
-                    </div>
+                    </motion.div>
                     
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-[#8A7B70] capitalize opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <motion.div 
+                      className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-[#8A7B70] capitalize"
+                      initial={{ opacity: 0, scale: 0, x: -10 }}
+                      whileHover={{ opacity: 1, scale: 1, x: 0 }}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 300, 
+                        damping: 20,
+                        delay: 0.1
+                      }}
+                    >
                       {image.category}
-                    </div>
+                    </motion.div>
                   </div>
                 </motion.div>
               ))}

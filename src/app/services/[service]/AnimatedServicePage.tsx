@@ -145,13 +145,13 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               isVisible('hero-right') ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
             }`}>
               <div className="relative">
-                <div className={`overflow-hidden shadow-lg rounded-full border-4 md:border-8 border-[#f9eee7] w-full max-w-[400px] md:max-w-[450px] xl:max-w-[504px] h-[250px] sm:h-[280px] md:h-[320px] xl:h-[355px] mx-auto transform transition-all duration-700 delay-600 ease-out hover:scale-105 ${
+                <div className={`shadow-lg rounded-full border-4 md:border-8 border-[#f9eee7] w-full max-w-[400px] md:max-w-[450px] xl:max-w-[504px] h-[250px] sm:h-[280px] md:h-[320px] xl:h-[355px] mx-auto transform transition-all duration-700 delay-600 ease-out hover:scale-105 overflow-hidden ${
                   isVisible('hero-right') ? 'scale-100' : 'scale-95'
                 }`}>
                   <img 
                     src={serviceData.hero.image} 
                     alt={serviceData.hero.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
                 <div className={`absolute -bottom-2 md:-bottom-4 right-2 md:right-4 xl:right-0 shadow-lg rounded-lg border border-[#e9d7c7] p-3 md:p-4 bg-white max-w-[150px] md:max-w-[178px] transform transition-all duration-700 delay-800 ease-out hover:scale-105 ${
@@ -174,14 +174,16 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
       <section className="py-12 md:py-[100px] px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
-            <img
-              id="about-image" data-animate
-              src={serviceData.about.image}
-              alt={`${serviceData.hero.title} Process`}
-              className={`rounded-xl w-full lg:w-[470px] h-[280px] lg:h-[360px] object-cover transform transition-all duration-1000 ease-out hover:scale-105 hover:shadow-xl ${
-                isVisible('about-image') ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
-              }`}
-            />
+            <div className="rounded-xl w-full lg:w-[470px] h-[280px] lg:h-[360px] overflow-hidden hover:shadow-xl transition-all duration-1000 ease-out">
+              <img
+                id="about-image" data-animate
+                src={serviceData.about.image}
+                alt={`${serviceData.hero.title} Process`}
+                className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${
+                  isVisible('about-image') ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+                }`}
+              />
+            </div>
             <div id="about-content" data-animate className={`flex flex-col gap-4 w-full lg:w-[500px] transform transition-all duration-1000 delay-200 ease-out ${
               isVisible('about-content') ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
             }`}>
@@ -219,11 +221,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               }`}>
                 ---------- {serviceData.process.subtitle} ----------
               </h4>
-              <h1 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[#333333] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+              <h2 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[#333333] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                 isVisible('process-header') ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
               }`}>
                 {serviceData.process.title}
-              </h1>
+              </h2>
             </div>
             <div id="process-steps" data-animate className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
               {serviceData.process.steps.map((step, index) => (
@@ -260,11 +262,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               }`}>
                 ---------- {serviceData.benefits.subtitle} ----------
               </h4>
-              <h1 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[#333333] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+              <h2 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[#333333] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                 isVisible('benefits-header') ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
               }`}>
                 {serviceData.benefits.title}
-              </h1>
+              </h2>
             </div>
             <div id="benefits-grid" data-animate className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               {serviceData.benefits.items.map((benefit, index) => (
@@ -318,11 +320,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               }`}>
                 ---------- {serviceData.postCare.subtitle} ----------
               </h4>
-              <h1 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[#333333] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+              <h2 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[#333333] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                 isVisible('postcare-header') ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
               }`}>
                 {serviceData.postCare.title}
-              </h1>
+              </h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[84px]">
               {/* Downtime Information */}
@@ -387,11 +389,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               }`}>
                 ---------- {serviceData.faq.subtitle} ----------
               </h4>
-              <h1 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[#333333] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+              <h2 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[#333333] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                 isVisible('faq-header') ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
               }`}>
                 {serviceData.faq.title}
-              </h1>
+              </h2>
             </div>
             <div id="faq-grid" data-animate className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
               {serviceData.faq.questions.map((faq, index) => (

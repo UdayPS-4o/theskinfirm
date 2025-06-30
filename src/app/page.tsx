@@ -2,8 +2,27 @@ import type { Metadata } from "next";
 import HomePage from "@/components/home/home-page";
 
 export const metadata: Metadata = {
-  title: "Home | The Skin Firm- Your Journey to Radiant Skin Starts Here",
-  description: "Welcome to The Skin Firm. We offer a wide range of personalized skincare treatments to help you look and feel your best. Explore our services and book a consultation.",
+  title: "Best Skincare Clinic in Pune | Advanced Skin & Hair Treatments",
+  description: "Transform your skin at The Skin Firm Pune. Expert treatments for acne, pigmentation, anti-aging, laser hair removal & more. Book your free consultation today! ✨",
+  keywords: [
+    "best skincare clinic Pune", "skin treatment Pune", "acne treatment", "laser hair removal Pune",
+    "anti-aging treatment", "pigmentation treatment", "dermatology clinic", "facial treatment Pune"
+  ],
+  openGraph: {
+    title: "Best Skincare Clinic in Pune | The Skin Firm",
+    description: "Expert skincare treatments in Pune. Acne, pigmentation, anti-aging & laser solutions. Book consultation now!",
+    images: [
+      {
+        url: "/hero-graphic-2.png",
+        width: 800,
+        height: 600,
+        alt: "Professional skincare treatment at The Skin Firm Pune",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://theskinfirm.com",
+  },
 };
 
 export default function Home() {

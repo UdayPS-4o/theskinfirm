@@ -358,14 +358,14 @@
             "imageSrc": "https://picsum.photos/seed/56/400/300"
           },
           {
-            "title": "HIFU Treatment",
-            "description": "HIFU (High Intensity Focused Ultrasound) is a breakthrough non-invasive treatment that lifts, tightens, and contours the face and neck, without surgery or downtime. It uses focused ultrasound energy to stimulate collagen production deep within the skin, resulting in firmer, younger-looking skin over time.",
-            "imageSrc": "https://picsum.photos/seed/57/400/300"
-          },
-          {
             "title": "Stretch Marks Removal",
             "description": "Stretch marks, medically known as striae, are common skin lines that develop due to rapid stretching of the skin during pregnancy, weight changes, or growth spurts. At The Skin Firm, we offer advanced stretch mark removal treatments in Pune that help reduce the visibility of these marks, improve skin texture, and restore smoothness, using a combination of laser therapies and skin rejuvenation techniques tailored to your skin type.",
             "imageSrc": "https://picsum.photos/seed/58/400/300"
+          },
+          {
+            "title": "HIFU Treatment",
+            "description": "HIFU (High Intensity Focused Ultrasound) is a breakthrough non-invasive treatment that lifts, tightens, and contours the face and neck, without surgery or downtime. It uses focused ultrasound energy to stimulate collagen production deep within the skin, resulting in firmer, younger-looking skin over time.",
+            "imageSrc": "https://picsum.photos/seed/57/400/300"
           }
         ]
       }

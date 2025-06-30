@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   // output: 'export',
@@ -12,7 +12,15 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       }
     ]
-  }
+  },
+  // SEO optimizations
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: true,
+  // Enable experimental features for better performance
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 export default nextConfig;
