@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
+
 import { Textarea } from '../ui/textarea'
 import { Button } from '../ui/button'
 import { Calendar, Clock, MapPin, Phone, Mail, ChevronDown } from 'lucide-react'
@@ -9,7 +9,6 @@ import { MaxWidthWrapper } from '../layout/max-width'
 
 export const BookYourConsultation = () => {
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedService, setSelectedService] = useState('')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -67,7 +66,6 @@ export const BookYourConsultation = () => {
   }, [])
 
   const handleServiceSelect = (service: string) => {
-    setSelectedService(service)
     setSearchTerm(service)
     setIsDropdownOpen(false)
   }

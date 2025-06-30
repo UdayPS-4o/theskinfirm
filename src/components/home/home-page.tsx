@@ -16,7 +16,7 @@ import { Stats } from "@/components/sections/stats";
 import { SuccessStories } from "@/components/sections/success-stories";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 
-import { PremiumServices } from "@/components/sections/premium-services";
+
 
 export default function HomePage() {
   return (

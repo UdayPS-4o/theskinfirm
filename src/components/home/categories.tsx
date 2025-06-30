@@ -2,35 +2,28 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel';
-import { Button } from '../ui/button';
-import { ArrowRight } from 'lucide-react';
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+
 import Autoplay from 'embla-carousel-autoplay';
 
 const CategoriesSection = () => {
   const router = useRouter();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const [carouselApi, setCarouselApi] = React.useState<any>();
   
   const categoriesData = [
     {
       title: 'Skincare',
       imageUrl: '/categories/skin.png',
-      linkUrl: '/services?tab=skin',
       tabKey: 'skin'
     },
     {
       title: 'Haircare',
       imageUrl: '/categories/hair.png',
-      linkUrl: '/services?tab=hair',
       tabKey: 'hair'
     },
     {
       title: 'Laser',
       imageUrl: '/categories/laser.png',
-      linkUrl: '/services?tab=laser',
       tabKey: 'laser'
     },
   ];
@@ -60,7 +53,7 @@ const CategoriesSection = () => {
     );
   };
 
-  const CategoryCard = ({ title, imageUrl, linkUrl = '#', tabKey } : any) => {
+  const CategoryCard = ({ title, imageUrl, tabKey } : any) => {
     const handleCardClick = () => {
       router.push(`/services?tab=${tabKey}`);
     };
