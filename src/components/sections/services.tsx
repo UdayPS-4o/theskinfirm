@@ -11,49 +11,58 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useMemo } from 'react'
 import { MaxWidthWrapper } from '../layout/max-width';
 
-// Services data array
+
+
+// Services data array with hardcoded URLs
 const servicesData = [
   {
-    title: 'Laser Hair Reduction',
+    title: 'Laser Hair Removal',
     description: 'Advanced laser technology for permanent hair reduction with minimal discomfort and lasting results.',
     coverImageUrl: '/images/services/laser hair removal.png',
-    iconUrl: '/images/home-service/laser.png'
+    iconUrl: '/images/home-service/laser.png',
+    url: '/services/laser-hair-removal'
   },
   {
     title: 'Acne & Acne Scar Treatment',
     description: 'Comprehensive acne treatment and scar reduction therapy for clear, smooth, and healthy skin.',
     coverImageUrl: '/images/services/acne treatment.png',
-    iconUrl: '/images/home-service/skin.png'
+    iconUrl: '/images/home-service/skin.png',
+    url: '/services/acne-treatment'
   },
   {
     title: 'HydraFacial / Medi Facial',
     description: 'Deep cleansing and hydrating facial treatment that rejuvenates and revitalizes your skin.',
     coverImageUrl: '/images/services/hydra.png',
-    iconUrl: '/images/home-service/skin.png'
+    iconUrl: '/images/home-service/skin.png',
+    url: '/services/hydrafacial-treatment'
   },
   {
     title: 'Pigmentation Treatment',
     description: 'Effective pigmentation removal treatments to restore even skin tone and natural radiance.',
     coverImageUrl: '/images/services/pigmentation.png',
-    iconUrl: '/images/home-service/skin.png'
+    iconUrl: '/images/home-service/skin.png',
+    url: '/services/pigmentation-treatment'
   },
   {
     title: 'Hair Loss Treatment',
     description: 'Advanced hair restoration therapies to combat hair loss and promote healthy hair growth.',
     coverImageUrl: '/images/services/hair loss.png',
-    iconUrl: '/images/home-service/hair.png'
+    iconUrl: '/images/home-service/hair.png',
+    url: '/services/hair-loss-treatment'
   },
   {
     title: 'Anti-Aging Treatment',
     description: 'Comprehensive anti-aging solutions to reduce wrinkles and restore youthful skin appearance.',
     coverImageUrl: '/images/services/anti aging.png',
-    iconUrl: '/images/home-service/skin.png'
+    iconUrl: '/images/home-service/skin.png',
+    url: '/services/anti-ageing-treatment'
   },
   {
     title: 'Chemical Peels',
     description: 'Professional chemical peels to exfoliate and renew skin for a brighter, smoother complexion.',
     coverImageUrl: '/images/services/chemical peel.png',
-    iconUrl: '/images/home-service/skin.png'
+    iconUrl: '/images/home-service/skin.png',
+    url: '/services/chemical-peel'
   }
 ];
 
@@ -140,6 +149,7 @@ export const Services = () => {
                     title={service.title}
                     coverImageUrl={service.coverImageUrl}
                     iconUrl={service.iconUrl}
+                    url={service.url}
                   />
                 </CarouselItem>
               ))}
@@ -158,48 +168,52 @@ export const Services = () => {
           }}
           className='flex flex-row justify-center sm:justify-end mt-12 sm:mt-16'
         >
-          <Button className='bg-[#D4A380] hover:bg-[#C19660] text-white transition-colors duration-200' size={'lg'}>
-            <p>Explore All Services</p>
-            <ArrowRight className='ml-2' />
-          </Button>
+          <Link href="/services">
+            <Button className='bg-[#D4A380] hover:bg-[#C19660] text-white transition-colors duration-200' size={'lg'}>
+              <p>Explore All Services</p>
+              <ArrowRight className='ml-2' />
+            </Button>
+          </Link>
         </motion.div>
       </MaxWidthWrapper>
     </motion.div>
   )
 }
 
-function Service({ coverImageUrl, title, iconUrl }: { coverImageUrl: string, title: string, iconUrl: string }) {
+function Service({ coverImageUrl, title, iconUrl, url }: { coverImageUrl: string, title: string, iconUrl: string, url: string }) {
   return (
-    <div className='relative pb-12 sm:pb-14'>
-      <Image
-        alt={title}
-        src={coverImageUrl}
-        width={384}
-        height={520}
-        className='mx-auto w-full max-w-[300px] sm:max-w-[350px] lg:max-w-[384px] h-[400px] sm:h-[450px] lg:h-[420px] object-cover rounded-lg'
-        loading='lazy'
-      />
-      <div className='absolute bottom-4 w-full px-2'>
-        <div className='py-3 sm:py-4 px-3 sm:px-4 bg-white w-full max-w-[260px] sm:max-w-[300px] mx-auto rounded-lg shadow-lg'>
-          <div className="flex flex-row justify-start items-center gap-2.5">
-            <Image
-              alt=''
-              src={iconUrl}
-              height={40}
-              width={40}
-              className='flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10'
-              loading='lazy'
-            />
-            <div className='flex flex-col items-start justify-start space-y-1.5 sm:space-y-2 flex-1'>
-              <h3 className='text-sm sm:text-base font-medium text-[#5E6282] leading-tight'>{title}</h3>
-              <Link href={""} className='text-[#D4A380] hover:text-[#C19660] flex flex-row items-center justify-start space-x-1 transition-colors duration-200'>
-                <h4 className='text-xs sm:text-sm'>See more</h4>
-                <ArrowRight className='w-3 h-3 sm:w-4 sm:h-4' />
-              </Link>
+    <Link href={url} className='block'>
+      <div className='relative pb-12 sm:pb-14 cursor-pointer group'>
+        <Image
+          alt={title}
+          src={coverImageUrl}
+          width={384}
+          height={520}
+          className='mx-auto w-full max-w-[300px] sm:max-w-[350px] lg:max-w-[384px] h-[400px] sm:h-[450px] lg:h-[420px] object-cover rounded-lg group-hover:scale-105 transition-transform duration-300'
+          loading='lazy'
+        />
+        <div className='absolute bottom-4 w-full px-2'>
+          <div className='py-3 sm:py-4 px-3 sm:px-4 bg-white w-full max-w-[260px] sm:max-w-[300px] mx-auto rounded-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300'>
+            <div className="flex flex-row justify-start items-center gap-2.5">
+              <Image
+                alt=''
+                src={iconUrl}
+                height={40}
+                width={40}
+                className='flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10'
+                loading='lazy'
+              />
+              <div className='flex flex-col items-start justify-start space-y-1.5 sm:space-y-2 flex-1'>
+                <h3 className='text-sm sm:text-base font-medium text-[#5E6282] leading-tight group-hover:text-[#374151] transition-colors duration-200'>{title}</h3>
+                <div className='text-[#D4A380] hover:text-[#C19660] flex flex-row items-center justify-start space-x-1 transition-colors duration-200'>
+                  <h4 className='text-xs sm:text-sm'>See more</h4>
+                  <ArrowRight className='w-3 h-3 sm:w-4 sm:h-4' />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
