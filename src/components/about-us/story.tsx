@@ -47,33 +47,16 @@ export default function DrKarishmaSection() {
               }
             }}
           >
-            <motion.div 
-              className="relative max-w-[280px] sm:max-w-[320px] md:max-w-[350px] lg:max-w-[380px] w-full"
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.3, ease: "easeOut" }
-              }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-[#ec7754]/10 to-[#d4a380]/10 rounded-3xl blur-xl"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.6, 0.3]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+            <div className="relative max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] w-full aspect-[3/4]">
               <Image
-                src="/about-us-images/Karishma2.png"
+                src="/images/dr/K3r.png"
                 alt="Dr. Karishma Singh"
-                width={488}
-                height={673}
-                className="w-full h-auto object-cover mx-auto relative z-10 rounded-2xl shadow-2xl"
+                fill
+                sizes="(max-width: 640px) 300px, (max-width: 768px) 350px, (max-width: 1024px) 400px, 450px"
+                className="object-cover object-center"
+                priority
               />
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Dr. Karishma Singh Content */}
@@ -147,14 +130,13 @@ export default function DrKarishmaSection() {
                 </motion.h1>
               </motion.div>
               
-              {/* Credentials Card */}
+              {/* Credentials Section */}
               <motion.div 
-                className="shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.10)] shadow-[0px_2px_4px_-2px_rgba(0,0,0,0.10)] rounded-lg border border-[#e9d7c7] px-3 sm:px-4 md:px-5 lg:px-6 py-3 sm:py-4 md:py-5 lg:py-5 flex flex-col gap-1 sm:gap-1.5 md:gap-2 items-center lg:items-start relative bg-white w-full"
+                className="flex flex-col gap-2 sm:gap-3 items-center lg:items-start w-full"
                 variants={{
-                  hidden: { opacity: 0, scale: 0.9, y: 20 },
+                  hidden: { opacity: 0, y: 20 },
                   visible: {
                     opacity: 1,
-                    scale: 1,
                     y: 0,
                     transition: {
                       duration: 0.6,
@@ -162,14 +144,9 @@ export default function DrKarishmaSection() {
                     }
                   }
                 }}
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: "0 10px 25px rgba(236, 119, 84, 0.15)",
-                  transition: { duration: 0.3 }
-                }}
               >
                 <motion.h5 
-                  className="text-sm sm:text-base md:text-base lg:text-lg leading-5 text-[#333333] font-semibold"
+                  className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-[#333333] font-semibold"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {
@@ -185,7 +162,7 @@ export default function DrKarishmaSection() {
                   MBBS, MD Dermatology
                 </motion.h5>
                 <motion.p 
-                  className="text-xs sm:text-sm md:text-sm leading-4 md:leading-5"
+                  className="text-sm sm:text-base md:text-lg leading-relaxed"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {

@@ -30,7 +30,7 @@ export const Specialist = () => {
             </div>
             
             <div className='z-10 mt-8'>
-              <Image alt='Skin Specialist' src={'/skin-specialist.svg'} width={500} height={400} className='mx-auto' loading='lazy' />
+              <Image alt='Skin Specialist' src={'/skin-specialist.svg.png'} width={500} height={400} className='mx-auto' loading='lazy' />
             </div>
 
             <div className='hidden md:block absolute right-0 bottom-20 text-right'>
