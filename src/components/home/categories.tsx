@@ -13,17 +13,17 @@ const CategoriesSection = () => {
   const categoriesData = [
     {
       title: 'Skincare',
-      imageUrl: '/categories/skin.png',
+      imageUrl: '/images/category/skin.png',
       tabKey: 'skin'
     },
     {
       title: 'Haircare',
-      imageUrl: '/categories/hair.png',
+      imageUrl: '/images/category/hair.png',
       tabKey: 'hair'
     },
     {
       title: 'Laser',
-      imageUrl: '/categories/laser.png',
+      imageUrl: '/images/category/laser.png',
       tabKey: 'laser'
     },
   ];
@@ -102,7 +102,7 @@ const CategoriesSection = () => {
   };
 
   return (
-    <div className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       <div className="flex flex-col lg:flex-row lg:items-end lg:gap-12 mt-10">
         {/* Mobile header section - only visible on mobile */}
         <div className="lg:hidden w-full mb-8">

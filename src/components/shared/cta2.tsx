@@ -26,9 +26,9 @@ export const Cta2 = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className='font-semibold text-3xl/snug text-center text-wrap text-white'
+          className='font-semibold text-3xl/snug text-center text-wrap text-white px-8'
         >
-          Ready for a transformation? Reserve your session with an expert skin specialist.
+          Ready for a transformation? <br /> Reserve your session with an expert skin specialist.
         </motion.h3>
         <motion.div
           initial={{ opacity: 0, y: 30 }}

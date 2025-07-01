@@ -75,8 +75,8 @@ function Stat({property, value, suffix, isInView, delay}: {
       transition={{ duration: 0.5, delay: delay, ease: "easeOut" }}
       className='text-center text-[#8A7B70]'
     >
-      <h2 className='text-4xl sm:text-6xl md:text-6xl lg:text-8xl'>{formatValue(count)}{suffix}</h2>
-      <p className='text-base sm:text-xl md:text-xl lg:text-2xl'>{property}</p>
+      <h2 className='text-4xl sm:text-6xl md:text-6xl lg:text-6xl'>{formatValue(count)}{suffix}</h2>
+      <p className='text-base sm:text-xl md:text-xl lg:text-xl'>{property}</p>
     </motion.div>
   )
 }

@@ -5,7 +5,6 @@ import { Input } from '../ui/input'
 import { Textarea } from '../ui/textarea'
 import { Button } from '../ui/button'
 import { Calendar, Clock, MapPin, Phone, Mail, ChevronDown } from 'lucide-react'
-import { MaxWidthWrapper } from '../layout/max-width'
 
 export const BookYourConsultation = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -72,7 +71,7 @@ export const BookYourConsultation = () => {
 
   return (
     <div className='mt-20 py-32 bg-[#FDFBF7] w-full'>
-      <MaxWidthWrapper>
+      <div className='max-w-7xl mx-auto'>
         <div className='p-4 sm:p-7 grid grid-cols-1 lg:grid-cols-2 gap-y-12 sm:gap-y-20 lg:gap-x-20'>
         <div>
           <h2 className='text-start text-2xl sm:text-3xl text-[#8A7B70]'><span className='border-b-4 border-b-[#D4A380] pb-1'>Book y</span>our Consultation</h2>
@@ -185,7 +184,7 @@ export const BookYourConsultation = () => {
         </div>
       </div>
         </div>
-      </MaxWidthWrapper>
+      </div >
     </div>
   )
 }

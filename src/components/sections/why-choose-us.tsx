@@ -1,6 +1,6 @@
-import { GraduationCap, Heart, Zap } from "lucide-react";
 import Image from "next/image";
 import React, { ReactNode } from "react";
+import { Zap, Heart } from "lucide-react";
 
 export const WhyChooseUs = () => {
   return (
@@ -19,11 +19,11 @@ export const WhyChooseUs = () => {
           </p>
           <div className="grid grid-cols-2 w-full">
             <div className="text-center lg:text-start">
-              <h2 className="font-medium text-4xl text-[#1D2939]">500+</h2>
+              <h2 className="font-medium text-4xl text-[#1D2939]">2000+</h2>
               <p className="mt-5 text-[#667085] text-xl">Patients</p>
             </div>
             <div className="text-center lg:text-start">
-              <h2 className="font-medium text-4xl text-[#1D2939]">500+</h2>
+              <h2 className="font-medium text-4xl text-[#1D2939]">2000+</h2>
               <p className="mt-5 text-[#667085] text-xl">Successful Results</p>
             </div>
           </div>
@@ -42,7 +42,7 @@ export const WhyChooseUs = () => {
         />
         <Benefit
           description="Our relationship doesn’t end when your session does. With honest advice, progress tracking, and ongoing care plans, we’re here for your skin’s journey every step, every concern, every celebration."
-          icon={<GraduationCap color="#D4A380" />}
+          icon={<Image src="/post-care.svg" alt="Post Care" width={24} height={24} />}
           title="Continuous Support"
         />
       </div>

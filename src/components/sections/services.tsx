@@ -8,12 +8,71 @@ import { Button } from '../ui/button'
 import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useMemo } from 'react'
 import { MaxWidthWrapper } from '../layout/max-width';
+
+// Services data array
+const servicesData = [
+  {
+    title: 'Laser Hair Reduction',
+    description: 'Advanced laser technology for permanent hair reduction with minimal discomfort and lasting results.',
+    coverImageUrl: '/images/services/laser hair removal.png',
+    iconUrl: '/images/home-service/laser.png'
+  },
+  {
+    title: 'Acne & Acne Scar Treatment',
+    description: 'Comprehensive acne treatment and scar reduction therapy for clear, smooth, and healthy skin.',
+    coverImageUrl: '/images/services/acne treatment.png',
+    iconUrl: '/images/home-service/skin.png'
+  },
+  {
+    title: 'HydraFacial / Medi Facial',
+    description: 'Deep cleansing and hydrating facial treatment that rejuvenates and revitalizes your skin.',
+    coverImageUrl: '/images/services/hydra.png',
+    iconUrl: '/images/home-service/skin.png'
+  },
+  {
+    title: 'Pigmentation Treatment',
+    description: 'Effective pigmentation removal treatments to restore even skin tone and natural radiance.',
+    coverImageUrl: '/images/services/pigmentation.png',
+    iconUrl: '/images/home-service/skin.png'
+  },
+  {
+    title: 'Hair Loss Treatment',
+    description: 'Advanced hair restoration therapies to combat hair loss and promote healthy hair growth.',
+    coverImageUrl: '/images/services/hair loss.png',
+    iconUrl: '/images/home-service/hair.png'
+  },
+  {
+    title: 'Anti-Aging Treatment',
+    description: 'Comprehensive anti-aging solutions to reduce wrinkles and restore youthful skin appearance.',
+    coverImageUrl: '/images/services/anti aging.png',
+    iconUrl: '/images/home-service/skin.png'
+  },
+  {
+    title: 'Chemical Peels',
+    description: 'Professional chemical peels to exfoliate and renew skin for a brighter, smoother complexion.',
+    coverImageUrl: '/images/services/chemical peel.png',
+    iconUrl: '/images/home-service/skin.png'
+  }
+];
+
+// Shuffle function using Fisher-Yates algorithm
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 export const Services = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  
+  // Randomize services on every render
+  const randomizedServices = useMemo(() => shuffleArray(servicesData), [])
 
 
 
@@ -53,7 +112,8 @@ export const Services = () => {
             <h2 className="mt-2 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#333333] font-semibold leading-tight">What services we Offer</h2>
           </div>
           <div>
-            <p className='text-sm sm:text-base leading-relaxed text-[#EC7754] text-center lg:text-start'>Our clinic offers a sanctuary for those seeking transformative care. With a commitment to excellence and a passion for personalized </p>
+            <p className='text-sm sm:text-base leading-relaxed text-[#EC7754] text-center lg:text-start'>Beauty begins the moment you decide to take care of yourself.
+<br />With 59+ services to choose from, it can be hard to know where to start. Explore our most sought-after treatments, crafted to enhance your natural beauty with precision, care, and expertise. </p>
           </div>
         </motion.div>
 
@@ -74,27 +134,15 @@ export const Services = () => {
             }}
           >
             <CarouselContent className='flex -ml-2 sm:-ml-4'>
-              <CarouselItem className='pl-2 sm:pl-4 basis-4/5 sm:basis-3/4 md:basis-1/2 lg:basis-1/2 xl:basis-1/3'>
-                <Service
-                  title='Hip Augmentation'
-                  description='is simply dummy text of the printing and typesetting industry.'
-                  coverImageUrl='/hip-aug.png'
-                />
-              </CarouselItem>
-              <CarouselItem className='pl-2 sm:pl-4 basis-4/5 sm:basis-3/4 md:basis-1/2 lg:basis-1/2 xl:basis-1/3'>
-                <Service
-                  coverImageUrl='/botox.png'
-                  description='is simply dummy text of the printing and typesetting industry.'
-                  title='Botox Injection'
-                />
-              </CarouselItem>
-              <CarouselItem className='pl-2 sm:pl-4 basis-4/5 sm:basis-3/4 md:basis-1/2 lg:basis-1/2 xl:basis-1/3'>
-                <Service
-                  coverImageUrl='/implant.png'
-                  description='is simply dummy text of the printing and typesetting industry.'
-                  title='Breast Implant'
-                />
-              </CarouselItem>
+              {randomizedServices.map((service, index) => (
+                <CarouselItem key={index} className='pl-2 sm:pl-4 basis-4/5 sm:basis-3/4 md:basis-1/2 lg:basis-1/2 xl:basis-1/3'>
+                  <Service
+                    title={service.title}
+                    coverImageUrl={service.coverImageUrl}
+                    iconUrl={service.iconUrl}
+                  />
+                </CarouselItem>
+              ))}
             </CarouselContent>
           </Carousel>
         </motion.div>
@@ -111,7 +159,7 @@ export const Services = () => {
           className='flex flex-row justify-center sm:justify-end mt-12 sm:mt-16'
         >
           <Button className='bg-[#D4A380] hover:bg-[#C19660] text-white transition-colors duration-200' size={'lg'}>
-            <p>See More</p>
+            <p>Explore All Services</p>
             <ArrowRight className='ml-2' />
           </Button>
         </motion.div>
@@ -120,34 +168,33 @@ export const Services = () => {
   )
 }
 
-function Service({ coverImageUrl, description, title }: { coverImageUrl: string, title: string, description: string }) {
+function Service({ coverImageUrl, title, iconUrl }: { coverImageUrl: string, title: string, iconUrl: string }) {
   return (
-    <div className='relative pb-20 sm:pb-24'>
+    <div className='relative pb-12 sm:pb-14'>
       <Image
         alt={title}
         src={coverImageUrl}
         width={384}
-        height={453}
-        className='mx-auto w-full max-w-[300px] sm:max-w-[350px] lg:max-w-[384px] h-auto object-cover rounded-lg'
+        height={520}
+        className='mx-auto w-full max-w-[300px] sm:max-w-[350px] lg:max-w-[384px] h-[400px] sm:h-[450px] lg:h-[420px] object-cover rounded-lg'
         loading='lazy'
       />
-      <div className='absolute bottom-0 w-full px-2'>
-        <div className='py-4 sm:py-5 px-4 sm:px-5 bg-white w-full max-w-[280px] sm:max-w-xs mx-auto rounded-lg shadow-lg'>
-          <div className="flex flex-row justify-start items-start gap-3">
+      <div className='absolute bottom-4 w-full px-2'>
+        <div className='py-3 sm:py-4 px-3 sm:px-4 bg-white w-full max-w-[260px] sm:max-w-[300px] mx-auto rounded-lg shadow-lg'>
+          <div className="flex flex-row justify-start items-center gap-2.5">
             <Image
               alt=''
-              src={"/service.svg"}
-              height={60}
-              width={60}
-              className='flex-shrink-0 w-12 h-12 sm:w-15 sm:h-15'
+              src={iconUrl}
+              height={40}
+              width={40}
+              className='flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10'
               loading='lazy'
             />
-            <div className='flex flex-col items-start justify-start space-y-3 sm:space-y-4 flex-1'>
-              <h3 className='text-lg sm:text-xl font-medium text-[#5E6282] leading-tight'>{title}</h3>
-              <p className='text-xs sm:text-sm text-[#5E6282] leading-relaxed'>{description}</p>
-              <Link href={""} className='text-[#D4A380] hover:text-[#C19660] flex flex-row items-center justify-start space-x-1.5 transition-colors duration-200'>
-                <h4 className='text-sm'>See more</h4>
-                <ArrowRight className='w-4 h-4' />
+            <div className='flex flex-col items-start justify-start space-y-1.5 sm:space-y-2 flex-1'>
+              <h3 className='text-sm sm:text-base font-medium text-[#5E6282] leading-tight'>{title}</h3>
+              <Link href={""} className='text-[#D4A380] hover:text-[#C19660] flex flex-row items-center justify-start space-x-1 transition-colors duration-200'>
+                <h4 className='text-xs sm:text-sm'>See more</h4>
+                <ArrowRight className='w-3 h-3 sm:w-4 sm:h-4' />
               </Link>
             </div>
           </div>

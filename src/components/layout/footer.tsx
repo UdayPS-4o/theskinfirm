@@ -6,6 +6,7 @@ import React from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { MaxWidthWrapper } from './max-width'
+import Image from 'next/image'
 
 export const Footer = () => {
   const ref = useRef(null);
@@ -30,7 +31,7 @@ export const Footer = () => {
             <h3 className='text-[#8A7B70] text-xl/relaxed text-start'>The Skin Firm</h3>
             <p className='text-base/relaxed text-[#A89689] text-start'>Where Skin Meets Science, and Self-Care Feels Like Home
 </p>
-            <div className='flex flex-row items-center justify-start gap-x-5'>
+            <div className='grid grid-cols-2 gap-3 w-fit'>
               <Link href={"https://www.instagram.com/theskinfirm_official/?hl=en"} target="_blank" className='p-3 rounded-full bg-[#F9EEE7]'>
                 <Instagram className='size-5' color='#D4A380' />
               </Link>
@@ -39,6 +40,9 @@ export const Footer = () => {
               </Link>
               <Link href={"https://www.youtube.com/@TheSkinFirm-Pune"} target="_blank" className='p-3 rounded-full bg-[#F9EEE7]'>
                 <Youtube className='size-5' color='#D4A380' />
+              </Link>
+              <Link href={"https://wa.me/918308669966"} target="_blank" className='p-3 rounded-full bg-[#F9EEE7]'>
+                <Image src="/whatsapp.svg" alt="WhatsApp" width={20} height={20} />
               </Link>
             </div>
           </motion.div>

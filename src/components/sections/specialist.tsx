@@ -18,7 +18,7 @@ export const Specialist = () => {
         
         <div className='relative mt-8 text-center'>
           <h2 className='text-5xl md:text-7xl lg:text-8xl text-[#171717] text-center font-bold leading-tight'>
-            I&apos;m <span className='text-[#FD853A]'>Karishma</span>, <br /> <span className='text-[#FD853A]'>Skin</span> Specialist
+            I&apos;m <span className='text-[#FD853A]'>Dr. Karishma</span>, <br /> <span className='text-[#FD853A]'>Skin</span> Specialist
           </h2>
           
           <div className='relative mt-[-20px] md:mt-[-40px] lg:mt-[-60px] flex justify-center items-end'>
@@ -41,7 +41,7 @@ export const Specialist = () => {
                 <Star className='text-[#FD853A] p-0.5' fill='#FD853A' />
                 <Star className='text-[#FD853A] p-0.5' fill='#FD853A' />
               </div>
-              <h4 className="mt-5 text-4xl md:text-5xl font-bold text-[#171717]">10 Years</h4>
+              <h4 className="mt-5 text-4xl md:text-5xl font-bold text-[#171717]">5 Years</h4>
               <h5 className="mt-1 text-xl text-[#171717]">Experience</h5>
             </div>
           </div>

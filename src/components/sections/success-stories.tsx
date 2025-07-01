@@ -12,10 +12,6 @@ const reviews = [
     review: 'The Skin Firm has been a complete game changer for my confidence. The personalized approach to my skin concerns has delivered results I never thought were possible.'
   },
   {
-    name: 'Emily Rodriguez',
-    review: 'Dr. Reed truly listens and develops a treatment plan that works for your specific needs. After years of struggling, my rosacea is finally under control thanks to her expertise and care.'
-  },
-  {
     name: 'Meghna. B',
     review: 'I had great results with my laser hair reduction treatment here. The process was surprisingly comfortable, and the staff made sure I understood the aftercare, leading to fantastic results.'
   },
