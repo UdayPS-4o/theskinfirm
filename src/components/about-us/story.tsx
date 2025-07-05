@@ -7,12 +7,12 @@ import { MaxWidthWrapper } from "../layout/max-width";
 export default function DrKarishmaSection() {
 
   return (
-    <section className="relative bg-[#FBEDE4] mb-14 px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-16 md:py-18 lg:py-20 overflow-hidden rounded-bl-[75px]">
+    <section className="relative bg-[color:var(--color-light-background-alt)] mb-14 px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-16 md:py-18 lg:py-20 overflow-hidden rounded-bl-[75px]">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-[#ec7754]/30 to-[#d4a380]/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-[#d4a380]/20 to-[#ec7754]/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-gradient-to-br from-[#ec7754]/15 to-[#d4a380]/15 rounded-full blur-2xl"></div>
+        <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-[color:var(--color-primary-orange)]/30 to-[color:var(--color-primary-brown)]/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-[color:var(--color-primary-brown)]/20 to-[color:var(--color-primary-orange)]/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-gradient-to-br from-[color:var(--color-primary-orange)]/15 to-[color:var(--color-primary-brown)]/15 rounded-full blur-2xl"></div>
       </div>
       <MaxWidthWrapper>
         <motion.div 
@@ -91,7 +91,7 @@ export default function DrKarishmaSection() {
                 }}
               >
                 <motion.h3 
-                  className="text-sm sm:text-base md:text-lg lg:text-[22px] leading-tight lg:leading-[28px] text-transparent bg-gradient-to-r from-[#ec7754] to-[#d4a380] bg-clip-text font-semibold tracking-wider"
+                  className="text-sm sm:text-base md:text-lg lg:text-[22px] leading-tight lg:leading-[28px] text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-semibold tracking-wider"
                   variants={{
                     hidden: { opacity: 0, x: -30 },
                     visible: {
@@ -108,7 +108,7 @@ export default function DrKarishmaSection() {
                 </motion.h3>
                 
                 <motion.h1 
-                  className="text-lg sm:text-xl md:text-2xl lg:text-[42px] leading-tight lg:leading-[50px] text-[#333333] font-bold"
+                  className="text-lg sm:text-xl md:text-2xl lg:text-[42px] leading-tight lg:leading-[50px] text-[color:var(--color-dark-text)] font-bold"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {
@@ -122,7 +122,7 @@ export default function DrKarishmaSection() {
                   }}
                   whileHover={{ 
                     scale: 1.05,
-                    color: "#ec7754",
+                    color: "var(--color-primary-orange)",
                     transition: { duration: 0.3 }
                   }}
                 >
@@ -146,7 +146,7 @@ export default function DrKarishmaSection() {
                 }}
               >
                 <motion.h5 
-                  className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-[#333333] font-semibold"
+                  className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-[color:var(--color-dark-text)] font-semibold"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {
@@ -175,10 +175,10 @@ export default function DrKarishmaSection() {
                     }
                   }}
                 >
-                  <span className="text-[#8a7b70] font-medium">
+                  <span className="text-[color:var(--color-light-text)] font-medium">
                     Co-Founder & Medical Director, 
                   </span>
-                  <span className="text-transparent bg-gradient-to-r from-[#ec7754] to-[#d4a380] bg-clip-text font-bold">
+                  <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold">
                     The Skin Firm
                   </span>
                 </motion.p>
@@ -201,7 +201,7 @@ export default function DrKarishmaSection() {
               >
                 <div className="space-y-3 sm:space-y-4 md:space-y-4">
                   <motion.p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[#1c1e53] font-medium"
+                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[color:var(--color-text-dark-blue)] font-medium"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
                       visible: {
@@ -214,13 +214,13 @@ export default function DrKarishmaSection() {
                       }
                     }}
                   >
-                    <span className="text-[#1c1e53]">Dr. Karishma Singh is a renowned dermatologist and aesthetic physician based in NIBM, Pune, and the visionary co-founder of </span>
-                    <span className="text-transparent bg-gradient-to-r from-[#ec7754] to-[#d4a380] bg-clip-text font-bold">The Skin Firm</span>
+                    <span className="text-[color:var(--color-text-dark-blue)]">Dr. Karishma Singh is a renowned dermatologist and aesthetic physician based in NIBM, Pune, and the visionary co-founder of </span>
+                    <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold">The Skin Firm</span>
                     <span className="text-[#1c1e53]">. With over five years of focused experience in dermatology and cosmetology, she has helped hundreds of individuals transform their skin and hair with results that are not just visible, but lasting.</span>
                   </motion.p>
                   
                   <motion.p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[#1c1e53] font-medium"
+                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[color:var(--color-text-dark-blue)] font-medium"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
                       visible: {
@@ -233,11 +233,11 @@ export default function DrKarishmaSection() {
                       }
                     }}
                   >
-                    Known for her <span className="text-[#ec7754] font-semibold">gentle precision</span> and deep understanding of her patients&apos; unique needs, Dr. Karishma blends <span className="text-[#d4a380] font-semibold">clinical expertise</span> with an artist&apos;s eye, delivering customised treatments that enhance natural beauty and restore skin health from within.
+                                        Known for her <span className="text-[color:var(--color-primary-orange)] font-semibold">gentle precision</span> and deep understanding of her patients&apos; unique needs, Dr. Karishma blends                     <span className="font-semibold text-[color:var(--color-primary-brown)]">clinical expertise</span> with an artist&apos;s eye, delivering customised treatments that enhance natural beauty and restore skin health from within.
                   </motion.p>
                   
                   <motion.p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[#1c1e53] font-medium"
+                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[color:var(--color-text-dark-blue)] font-medium"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
                       visible: {
@@ -250,11 +250,11 @@ export default function DrKarishmaSection() {
                       }
                     }}
                   >
-                    She specialises in <span className="text-[#ec7754] font-semibold">advanced laser procedures</span>, <span className="text-[#d4a380] font-semibold">anti-ageing treatments</span>, and <span className="text-[#ec7754] font-semibold">hair restoration therapies</span>, always staying at the forefront of aesthetic innovation. Her calm demeanour, patient-first approach, and commitment to ethical dermatology have made her one of the most trusted skin doctors in Pune.
+                    She specialises in <span className="text-[color:var(--color-primary-orange)] font-semibold">advanced laser procedures</span>, <span className="text-[#d4a380] font-semibold">anti-ageing treatments</span>, and <span className="text-[#ec7754] font-semibold">                    <span className="text-[color:var(--color-primary-orange)] font-semibold">hair restoration therapies</span></span>, always staying at the forefront of aesthetic innovation. Her calm demeanour, patient-first approach, and commitment to ethical dermatology have made her one of the most trusted skin doctors in Pune.
                   </motion.p>
                   
                   <motion.p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[#1c1e53] font-medium"
+                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[color:var(--color-text-dark-blue)] font-medium"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
                       visible: {
@@ -308,7 +308,7 @@ export default function DrKarishmaSection() {
                   }}
                 >
                   <span className="text-[#333333]">Whether you&apos;re beginning your skincare journey or seeking expert solutions for advanced concerns, </span>
-                  <span className="text-transparent bg-gradient-to-r from-[#ec7754] to-[#d4a380] bg-clip-text font-bold">Dr. Karishma&apos;s expertise and holistic approach</span>
+                  <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold">Dr. Karishma&apos;s expertise and holistic approach</span>
                   <span className="text-[#333333]"> make her the partner your skin has been waiting for.</span>
                 </motion.p>
               </motion.div>

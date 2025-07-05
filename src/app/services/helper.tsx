@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import treatmentsData from '@/data/treatments.json';
 
 type TabKey = "skin" | "hair" | "laser";
@@ -10,6 +11,9 @@ type TabKey = "skin" | "hair" | "laser";
 interface HelperProps {
   activeTab: TabKey;
 }
+
+// Create a motion wrapper for Next.js Image
+const MotionImage = motion(Image);
 
 const Helper: React.FC<HelperProps> = ({ activeTab }) => {
   const router = useRouter();
@@ -49,6 +53,12 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
     router.push(`/services/${serviceSlug}`);
   };
 
+  const handleCardHover = (treatmentTitle: string) => {
+    // Preload the service page on hover
+    const serviceSlug = treatmentTitle.toLowerCase().replace(/\s+/g, '-');
+    router.prefetch(`/services/${serviceSlug}`);
+  };
+
   return (
     <div className="flex flex-col gap-[20px] w-full">
       {currentData.sections.map((section) => {
@@ -61,12 +71,12 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
             className="mb-[20px] last:mb-0"
           >
             <div className="ignore target relative top-[-100px]" id={'_'+section.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}></div>
-            <div className="bg-white border border-[#E6E6E6] rounded-[10px] p-[26px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full">
+            <div className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[26px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full">
               <div 
                 className="flex items-center justify-between cursor-pointer"
                 onClick={() => toggleSection(section.title)}
               >
-                <h2 className="text-[#D4A380] text-[24px] font-semibold leading-[24px] uppercase m-0">
+                <h2 className="text-[color:var(--color-primary-brown)] text-[24px] font-semibold leading-[24px] uppercase m-0">
                   {section.title}
                 </h2>
                 <svg
@@ -79,7 +89,7 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                 >
                   <path
                     d="M25 20L15 10L5 20"
-                    stroke="#333333"
+                    stroke="var(--color-dark-text)"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -96,8 +106,9 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                     {section.treatments.map((treatment: any, treatmentIndex) => (
                       <motion.div
                         key={`treatment-${treatmentIndex}`}
-                        className="bg-white border border-[#E6E6E6] rounded-[10px] p-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full hover:shadow-[0px_0px_15px_0px_rgba(0,0,0,0.1)] transition-shadow duration-300 relative cursor-pointer"
+                        className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full hover:shadow-[0px_0px_15px_0px_rgba(0,0,0,0.1)] transition-shadow duration-300 relative cursor-pointer"
                         onClick={() => handleCardClick(treatment?.title || '')}
+                        onMouseEnter={() => handleCardHover(treatment?.title || '')}
                         initial={{
                           opacity: 0,
                           y: 30,
@@ -119,11 +130,16 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                           {/* Image container with blur fade transition */}
                           <div className="w-[140px] h-[140px] flex-shrink-0 rounded-[8px] overflow-hidden relative">
                             <AnimatePresence mode="wait">
-                              <motion.img
+                              <MotionImage
                                 key={`${activeTab}-${treatment?.imageSrc}`}
-                                src={treatment?.imageSrc || "https://picsum.photos/id/27/200/200"}
+                                src={treatment?.imageSrc || "/images/services/53.png"}
                                 alt={treatment?.title || "Treatment"}
-                                className="w-full h-full object-cover"
+                                fill
+                                sizes="140px"
+                                className="object-cover"
+                                loading="lazy"
+                                placeholder="blur"
+                                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                                 initial={{
                                   opacity: 0,
                                   filter: "blur(8px)"
@@ -150,7 +166,7 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                             <AnimatePresence mode="wait">
                               <motion.h3
                                 key={`${activeTab}-title-${treatment?.title}`}
-                                className="text-[#D4A380] text-[16px] font-semibold leading-[20px] tracking-[-0.1px] m-0 mb-[8px]"
+                                className="text-[color:var(--color-primary-brown)] text-[16px] font-semibold leading-[20px] tracking-[-0.1px] m-0 mb-[8px]"
                                 initial={{
                                   opacity: 0,
                                   filter: "blur(4px)"
@@ -176,7 +192,7 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                             <AnimatePresence mode="wait">
                               <motion.p
                                 key={`${activeTab}-desc-${treatment?.description}`}
-                                className="text-[#333333] text-[13px] font-normal leading-[18px] tracking-[-0.05px] m-0 mb-[12px] line-clamp-4 overflow-hidden"
+                                className="text-[color:var(--color-dark-text)] text-[13px] font-normal leading-[18px] tracking-[-0.05px] m-0 mb-[12px] line-clamp-4 overflow-hidden"
                                 initial={{
                                   opacity: 0,
                                   filter: "blur(4px)"
@@ -221,7 +237,7 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                                   delay: treatmentIndex * 0.05 + 0.4
                                 }}
                               >
-                              <span className="text-[#000000] text-[12px] font-medium leading-[16px] group-hover:text-[#333333] transition-colors duration-300">
+                              <span className="text-[#000000] text-[12px] font-medium leading-[16px] group-hover:text-[color:var(--color-dark-text)] transition-colors duration-300">
                                 Learn More
                               </span>
                               <svg
@@ -234,7 +250,7 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                               >
                                 <path
                                   d="M2.33333 1H9V7.66667M9 1L1 9L9 1Z"
-                                  stroke="#D4A380"
+                                  stroke="var(--color-primary-brown)"
                                   strokeWidth="1.2"
                                   strokeLinecap="round"
                                   strokeLinejoin="round"

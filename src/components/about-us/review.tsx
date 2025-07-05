@@ -15,7 +15,7 @@ interface Testimonial {
 export default function ReviewSection({ testimonials }: { testimonials: Testimonial[] }) {
 
   return (
-    <section className="bg-[#FBEDE4] px-4 sm:px-6 lg:px-20 py-20 my-10">
+    <section className="bg-[color:var(--color-light-background-alt)] px-4 sm:px-6 lg:px-20 py-20 my-10">
       <motion.div 
         className="max-w-7xl mx-auto"
         variants={{
@@ -47,7 +47,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
           }}
         >
           <motion.p 
-            className="text-sm sm:text-base md:text-lg lg:text-[22px] leading-tight lg:leading-[28px] text-transparent bg-gradient-to-r from-[#ec7754] to-[#d4a380] bg-clip-text font-semibold tracking-wider mb-4"
+            className="text-sm sm:text-base md:text-lg lg:text-[22px] leading-tight lg:leading-[28px] text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-semibold tracking-wider mb-4"
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: {
@@ -63,7 +63,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
             -------- Reviews --------
           </motion.p>
           <motion.h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] leading-tight lg:leading-[60px] text-[#2C2C2C] font-bold tracking-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] leading-tight lg:leading-[60px] text-[color:var(--color-text-dark-gray)] font-bold tracking-tight"
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: {
@@ -81,7 +81,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
               transition: { duration: 0.3 }
             }}
           >
-            <span className="bg-gradient-to-r from-[#2C2C2C] via-[#4A4A4A] to-[#2C2C2C] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[color:var(--color-text-dark-gray)] via-[color:var(--color-text-medium-gray)] to-[color:var(--color-text-dark-gray)] bg-clip-text text-transparent">
               Meet Our Customers
             </span>
           </motion.h2>
@@ -103,7 +103,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
           {testimonials.map((testimonial, index) => (
             <motion.div 
               key={index} 
-              className="relative border border-[#e9d7c7] rounded-2xl bg-gradient-to-br from-white via-[#fefcfa] to-[#fdf9f5] p-6 flex flex-col gap-4 shadow-lg hover:shadow-2xl transition-all duration-300 backdrop-blur-sm"
+              className="relative border border-[color:var(--color-light-border)] rounded-2xl bg-gradient-to-br from-white via-[color:var(--color-light-background-alt-2)] to-[color:var(--color-light-background-alt-3)] p-6 flex flex-col gap-4 shadow-lg hover:shadow-2xl transition-all duration-300 backdrop-blur-sm"
               variants={{
                 hidden: { opacity: 0, scale: 0.9, y: 40 },
                 visible: {
@@ -126,14 +126,14 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
             >
               {/* Animated background glow */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-[#ec7754]/5 to-[#d4a380]/5 rounded-2xl opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-br from-[color:var(--color-primary-orange)]/5 to-[color:var(--color-primary-brown)]/5 rounded-2xl opacity-0 group-hover:opacity-100"
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
               
               {/* Stars */}
               <motion.div 
-                className="text-[#ec7754] text-sm relative z-10"
+                className="text-[color:var(--color-primary-orange)] text-sm relative z-10"
                 variants={{
                   hidden: { opacity: 0, y: 30 },
                   visible: {
@@ -162,7 +162,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
                     }}
                     whileHover={{ 
                       scale: 1.2,
-                      color: "#d4a380",
+                      color: "var(--color-primary-brown)",
                       transition: { duration: 0.2 }
                     }}
                   >
@@ -173,7 +173,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
               
               {/* Review text */}
               <motion.p 
-                className="text-sm text-[#1C1E53] leading-relaxed relative z-10 italic"
+                className="text-sm text-[color:var(--color-text-dark-blue)] leading-relaxed relative z-10 italic"
                 variants={{
                   hidden: { opacity: 0, y: 30 },
                   visible: {
@@ -186,9 +186,9 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
                   }
                 }}
               >
-                <span className="text-[#ec7754] text-lg font-bold">&ldquo;</span>
-                <span className="text-[#1C1E53]">{testimonial.review}</span>
-                <span className="text-[#ec7754] text-lg font-bold">&rdquo;</span>
+                <span className="text-[color:var(--color-primary-orange)] text-lg font-bold">&ldquo;</span>
+                <span className="text-[color:var(--color-text-dark-blue)]">{testimonial.review}</span>
+                <span className="text-[color:var(--color-primary-orange)] text-lg font-bold">&rdquo;</span>
               </motion.p>
               
               {/* User info */}
@@ -207,7 +207,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
                 }}
               >
                 <motion.div 
-                  className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ec7754] to-[#d4a380] flex items-center justify-center text-white font-bold text-lg shadow-lg"
+                  className="w-12 h-12 rounded-full bg-gradient-to-br from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] flex items-center justify-center text-white font-bold text-lg shadow-lg"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {
@@ -241,7 +241,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
                   }}
                 >
                   <motion.h4 
-                    className="font-semibold text-[#1C1E53] text-sm"
+                    className="font-semibold text-[color:var(--color-text-dark-blue)] text-sm"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
                       visible: {
@@ -254,7 +254,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
                       }
                     }}
                     whileHover={{ 
-                      color: "#ec7754",
+                      color: "var(--color-primary-orange)",
                       transition: { duration: 0.2 }
                     }}
                   >

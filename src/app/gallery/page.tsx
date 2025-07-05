@@ -91,7 +91,7 @@ const GalleryPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FDFBF7] via-[#FBF8F3] to-[#F8F4EF]">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--color-gallery-background-from)] via-[var(--color-gallery-background-via)] to-[var(--color-gallery-background-to)]">
       <div className="py-16 lg:py-24">
         <MaxWidthWrapper>
           {/* Enhanced Header Section */}
@@ -115,7 +115,7 @@ const GalleryPage = () => {
                 <DashedSeparator />
               </motion.div>
               <motion.h3 
-                className="text-[#EC7754] text-2xl md:text-3xl font-medium whitespace-nowrap bg-gradient-to-r from-[#EC7754] to-[#D4A380] bg-clip-text text-transparent"
+                className="text-[color:var(--color-primary-orange)] text-2xl md:text-3xl font-medium whitespace-nowrap bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text text-transparent"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
@@ -131,7 +131,7 @@ const GalleryPage = () => {
               </motion.div>
             </motion.div>
             <motion.h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#333333] leading-tight mb-8 tracking-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--color-dark-text)] leading-tight mb-8 tracking-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
@@ -154,7 +154,7 @@ const GalleryPage = () => {
               </motion.span>
             </motion.h1>
             <motion.p 
-              className="text-[#8A7B70] max-w-4xl mx-auto text-xl leading-relaxed"
+              className="text-[color:var(--color-light-text)] max-w-4xl mx-auto text-xl leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
@@ -184,8 +184,8 @@ const GalleryPage = () => {
                   onClick={() => handleFilterChange(category.key)}
                   className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border-2 ${
                     activeFilter === category.key
-                      ? 'bg-gradient-to-r from-[#EC7754] to-[#D4A380] text-white border-[#EC7754] shadow-lg shadow-[#EC7754]/25'
-                      : 'bg-white/80 text-[#8A7B70] border-[#E5E5E5] hover:border-[#EC7754] hover:text-[#EC7754] hover:shadow-md'
+                      ? 'bg-gradient-to-r from-[var(--color-primary-orange)] to-[var(--color-primary-brown)] text-white border-[var(--color-primary-orange)] shadow-lg shadow-[var(--color-primary-orange)]/25'
+                      : 'bg-white/80 text-[color:var(--color-light-text)] border-[var(--color-border-light)] hover:border-[var(--color-primary-orange)] hover:text-[color:var(--color-primary-orange)] hover:shadow-md'
                   }`}
                   initial={{ opacity: 0, y: 20, scale: 0.8 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -249,7 +249,7 @@ const GalleryPage = () => {
                 <AnimatePresence>
                   {isLoading && (
                     <motion.div 
-                      className="w-5 h-5 border-2 border-[#EC7754] border-t-transparent rounded-full animate-spin"
+                      className="w-5 h-5 border-2 border-[color:var(--color-primary-orange)] border-t-transparent rounded-full animate-spin"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0 }}
@@ -334,7 +334,7 @@ const GalleryPage = () => {
                     
                     {/* Enhanced Overlay */}
                     <motion.div 
-                      className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                      className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-black-80)] via-[color:var(--color-black-20)] to-transparent"
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
@@ -364,7 +364,7 @@ const GalleryPage = () => {
                     
                     {/* Category Badge */}
                     <motion.div 
-                      className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-[#8A7B70] capitalize"
+                      className="absolute top-4 left-4 px-3 py-1 bg-[color:var(--color-white-90)] backdrop-blur-sm rounded-full text-xs font-medium text-[color:var(--color-light-text)] capitalize"
                       initial={{ opacity: 0, scale: 0, x: -10 }}
                       whileHover={{ opacity: 1, scale: 1, x: 0 }}
                       transition={{ 
@@ -391,8 +391,8 @@ const GalleryPage = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-2xl font-semibold text-[#333333] mb-2">No results found</h3>
-              <p className="text-[#8A7B70]">Try adjusting your filter to see more results.</p>
+              <h3 className="text-2xl font-semibold text-[color:var(--color-dark-text)] mb-2">No results found</h3>
+              <p className="text-[color:var(--color-light-text)]">Try adjusting your filter to see more results.</p>
             </motion.div>
           )}
         </MaxWidthWrapper>

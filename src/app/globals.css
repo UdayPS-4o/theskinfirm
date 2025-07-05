@@ -76,6 +76,25 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --color-light-background: #f9efe7;
+  --color-light-border: #e9d7c7;
+  --color-gallery-background-from: #FDFBF7;
+  --color-gallery-background-via: #FBF8F3;
+  --color-gallery-background-to: #F8F4EF;
+  --color-primary-orange: #EC7754;
+  --color-primary-brown: #D4A380;
+  --color-dark-text: #333333;
+  --color-light-text: #8A7B70;
+  --color-border-light: #E5E5E5;
+  --color-black-10: rgba(0, 0, 0, 0.1);
+  --color-black-80: rgba(0, 0, 0, 0.8);
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F5F5F5;
+  --color-white-90: rgba(255, 255, 255, 0.9);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-60: rgba(255, 255, 255, 0.6);
 }
 
 .dark {

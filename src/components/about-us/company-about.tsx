@@ -8,12 +8,12 @@ export default function CompanyAboutSection() {
 
 
   return (
-    <section className="relative bg-gradient-to-br from-[#FBEDE4] via-white to-[#F9F1EC] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[color:var(--color-light-background-alt)] via-white to-[color:var(--color-light-background)] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-[#ec7754]/20 to-[#d4a380]/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-[#d4a380]/20 to-[#ec7754]/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-br from-[#ec7754]/10 to-[#d4a380]/10 rounded-full blur-2xl"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-[color:var(--color-primary-orange)]/20 to-[color:var(--color-primary-brown)]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-[color:var(--color-primary-brown)]/20 to-[color:var(--color-primary-orange)]/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-br from-[color:var(--color-primary-orange)]/10 to-[color:var(--color-primary-brown)]/10 rounded-full blur-2xl"></div>
       </div>
       <MaxWidthWrapper>
         <motion.div 
@@ -48,7 +48,7 @@ export default function CompanyAboutSection() {
             }}
           >
             <motion.h3 
-               className="text-sm sm:text-base md:text-lg lg:text-[22px] leading-tight lg:leading-[28px] text-transparent bg-gradient-to-r from-[#ec7754] to-[#d4a380] bg-clip-text font-semibold text-center tracking-wider"
+               className="text-sm sm:text-base md:text-lg lg:text-[22px] leading-tight lg:leading-[28px] text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-semibold text-center tracking-wider"
                variants={{
                  hidden: { opacity: 0, y: 30 },
                  visible: {
@@ -65,7 +65,7 @@ export default function CompanyAboutSection() {
              </motion.h3>
             
             <motion.h1 
-               className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] leading-tight lg:leading-[60px] text-[#2C2C2C] font-bold text-center tracking-tight"
+               className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] leading-tight lg:leading-[60px] text-[color:var(--color-text-dark-gray)] font-bold text-center tracking-tight"
                variants={{
                  hidden: { opacity: 0, y: 30 },
                  visible: {
@@ -78,7 +78,7 @@ export default function CompanyAboutSection() {
                  }
                }}
              >
-               <span className="bg-gradient-to-r from-[#2C2C2C] via-[#4A4A4A] to-[#2C2C2C] bg-clip-text text-transparent">
+               <span className="bg-gradient-to-r from-[color:var(--color-text-dark-gray)] via-[color:var(--color-text-medium-gray)] to-[color:var(--color-text-dark-gray)] bg-clip-text text-transparent">
                  The Skin Firm
                </span>
              </motion.h1>
@@ -116,7 +116,7 @@ export default function CompanyAboutSection() {
                whileHover={{ scale: 1.02 }}
                transition={{ type: "spring", stiffness: 300 }}
              >
-               <div className="absolute inset-0 bg-gradient-to-r from-[#ec7754]/10 via-[#d4a380]/5 to-[#ec7754]/10 rounded-2xl backdrop-blur-sm"></div>
+               <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-primary-orange)]/10 via-[color:var(--color-primary-brown)]/5 to-[color:var(--color-primary-orange)]/10 rounded-2xl backdrop-blur-sm"></div>
                <motion.h4 
                  className="relative text-xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-center font-medium italic"
                  variants={{
@@ -131,7 +131,7 @@ export default function CompanyAboutSection() {
                    }
                  }}
                >
-                 <span className="text-transparent bg-gradient-to-r from-[#d4a380] via-[#ec7754] to-[#d4a380] bg-clip-text">
+                 <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-brown)] via-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text">
                    &ldquo;Where Skin Meets Science, and Self-Care Feels Like Home&rdquo;
                  </span>
                </motion.h4>
@@ -153,7 +153,7 @@ export default function CompanyAboutSection() {
               }}
             >
               <motion.p 
-                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-[#4A4A4A] font-medium"
+                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-[color:var(--color-text-medium-gray)] font-medium"
                  variants={{
                    hidden: { opacity: 0, y: 30 },
                    visible: {
@@ -166,15 +166,15 @@ export default function CompanyAboutSection() {
                    }
                  }}
                >
-                 <span className="text-[#4A4A4A]">At</span>
-                 <span className="text-transparent bg-gradient-to-r from-[#ec7754] to-[#d4a380] bg-clip-text font-bold"> The Skin Firm,</span>
-                 <span className="text-[#4A4A4A]">
+                 <span className="text-[color:var(--color-text-medium-gray)]">At</span>
+                 <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold"> The Skin Firm,</span>
+                 <span className="text-[color:var(--color-text-medium-gray)]">
                    {" "}we believe that great skin isn&apos;t just about looking good—it&apos;s about feeling deeply confident in your skin.
                  </span>
                </motion.p>
               
               <motion.p 
-                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-[#555555]"
+                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-[color:var(--color-text-light-gray)]"
                  variants={{
                    hidden: { opacity: 0, y: 30 },
                    visible: {
@@ -187,7 +187,7 @@ export default function CompanyAboutSection() {
                    }
                  }}
                >
-                 Founded in Pune by <span className="font-semibold text-[#ec7754]">Dr. Karishma Singh</span>, The Skin Firm is a modern dermatology and aesthetic clinic rooted in precision care, ethical practices, and personalised results. Every treatment here is designed to go beyond the surface, addressing not just the symptom, but the story behind your skin.
+                 Founded in Pune by <span className="font-semibold text-[color:var(--color-primary-orange)]">Dr. Karishma Singh</span>, The Skin Firm is a modern dermatology and aesthetic clinic rooted in precision care, ethical practices, and personalised results. Every treatment here is designed to go beyond the surface, addressing not just the symptom, but the story behind your skin.
                </motion.p>
               
               <motion.p 
@@ -204,11 +204,11 @@ export default function CompanyAboutSection() {
                    }
                  }}
                >
-                 We combine <span className="font-semibold text-[#d4a380]">cutting-edge technology</span> with a warm, welcoming environment where every client feels heard, valued, and cared for. From advanced laser treatments to gentle skincare solutions, we&apos;re here to help you achieve the <span className="font-semibold text-[#ec7754]">healthy, radiant skin</span> you deserve.
+                 We combine <span className="font-semibold text-[color:var(--color-primary-brown)]">cutting-edge technology</span> with a warm, welcoming environment where every client feels heard, valued, and cared for. From advanced laser treatments to gentle skincare solutions, we&apos;re here to help you achieve the <span className="font-semibold text-[color:var(--color-primary-orange)]">healthy, radiant skin</span> you deserve.
                </motion.p>
               
               <motion.p 
-                className="text-sm sm:text-base md:text-lg lg:text-lg leading-5 sm:leading-6 md:leading-6 lg:leading-6 text-[#333333]"
+                className="text-sm sm:text-base md:text-lg lg:text-lg leading-5 sm:leading-6 md:leading-6 lg:leading-6 text-[color:var(--color-dark-text)]"
                 variants={{
                   hidden: { opacity: 0, y: 30 },
                   visible: {
@@ -221,7 +221,7 @@ export default function CompanyAboutSection() {
                   }
                 }}
               >
-                <span className="text-[#333333] font-medium">
+                <span className="text-[color:var(--color-dark-text)] font-medium">
                   We specialise in advanced dermatological and aesthetic treatments including laser therapies, skin rejuvenation, anti-ageing solutions, acne and pigmentation correction, and hair restoration. Our clinic blends medical-grade technology with an artistic understanding of beauty, ensuring your results look natural, not overdone.
                 </span>
               </motion.p>
@@ -229,7 +229,7 @@ export default function CompanyAboutSection() {
             
             {/* Highlight Box */}
             <motion.div 
-              className="rounded-[10px] px-4 sm:px-5 md:px-6 lg:px-6 py-4 sm:py-4 md:py-5 lg:py-5 flex gap-2.5 justify-center items-center bg-[#f9efe7] w-full"
+              className="rounded-[10px] px-4 sm:px-5 md:px-6 lg:px-6 py-4 sm:py-4 md:py-5 lg:py-5 flex gap-2.5 justify-center items-center bg-[color:var(--color-light-background)] w-full"
               variants={{
                 hidden: { opacity: 0, scale: 0.95 },
                 visible: {
@@ -254,7 +254,7 @@ export default function CompanyAboutSection() {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
-                <span className="text-[#333333] font-semibold">
+                <span className="text-[color:var(--color-dark-text)] font-semibold">
                   But what truly sets us apart is the way we treat people
                 </span>
               </motion.p>

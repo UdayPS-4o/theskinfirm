@@ -13,4 +13,4 @@ Allow: /gallery/
 Allow: /about-us/
 
 # Sitemap location
-Sitemap: https://skinfirm.in/sitemap.xml
+Sitemap: https://theskinfirm.in/sitemap.xml

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
+import Link from 'next/link'
 
 import { Textarea } from '../ui/textarea'
 import { Button } from '../ui/button'
@@ -102,7 +103,9 @@ export const BookYourConsultation = () => {
             </div>
               <div className='text-start'>
                 <h4 className='text-sm sm:text-base text-[#8A7B70] font-medium'>Contact Number</h4>
-                <p className="mt-1 text-xs sm:text-sm text-[#A89689]">+91 8308669966</p>
+                <Link href="tel:+918308669966" className="mt-1 text-xs sm:text-sm text-[#A89689] hover:text-[#D4A380] transition-colors">
+                  +91 8308669966
+                </Link>
               </div>
             </div>
             <div className='flex flex-row items-start justify-start space-x-5'>
@@ -111,7 +114,9 @@ export const BookYourConsultation = () => {
             </div>
               <div className='text-start'>
                 <h4 className='text-sm sm:text-base text-[#8A7B70] font-medium'>Email</h4>
-                <p className="mt-1 text-xs sm:text-sm text-[#A89689]">theskinfirmclinic@gmail.com</p>
+                <Link href="mailto:theskinfirmclinic@gmail.com" className="mt-1 text-xs sm:text-sm text-[#A89689] hover:text-[#D4A380] transition-colors">
+                  theskinfirmclinic@gmail.com
+                </Link>
               </div>
             </div>
             <div className='flex flex-row items-start justify-start space-x-5'>

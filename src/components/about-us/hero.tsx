@@ -122,7 +122,7 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.1, opacity: 1 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="text-3xl font-bold text-[#cb997e]">500+</div>
+                <div className="text-3xl font-bold text-[#cb997e]">2000+</div>
                 <div className="text-sm text-[#1C1E53]">Happy Clients</div>
               </motion.div>
               <motion.div 
@@ -130,7 +130,7 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.1, opacity: 1 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="text-3xl font-bold text-[#cb997e]">10+</div>
+                <div className="text-3xl font-bold text-[#cb997e]">5+</div>
                 <div className="text-sm text-[#1C1E53]">Years Experience</div>
               </motion.div>
               <motion.div 
@@ -138,7 +138,7 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.1, opacity: 1 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="text-3xl font-bold text-[#cb997e]">15+</div>
+                <div className="text-3xl font-bold text-[#cb997e]">60+</div>
                 <div className="text-sm text-[#1C1E53]">Treatments</div>
               </motion.div>
             </motion.div>

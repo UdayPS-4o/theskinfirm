@@ -17,9 +17,9 @@ export const Stats = () => {
     >
       <div className='max-w-7xl w-full bg-[#F9EFE7] rounded-tl-4xl rounded-br-4xl md:rounded-tl-[100px] md:rounded-br-[100px] xl:rounded-tl-[1000px] xl:rounded-br-[1000px] py-12 px-4'>
         <div className='mx-auto grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4 lg:gap-8'>
-          <Stat property='YEARS' value={3} suffix='+' isInView={isInView} delay={0.1} />
+          <Stat property='YEARS' value={5} suffix='+' isInView={isInView} delay={0.1} />
           <Stat property='TREATMENTS OFFERED' value={60} suffix='+' isInView={isInView} delay={0.2} />
-          <Stat property='HAPPY PATIENTS' value={4000} suffix='k' isInView={isInView} delay={0.3} />
+          <Stat property='HAPPY PATIENTS' value={2000} suffix='k' isInView={isInView} delay={0.3} />
           <Stat property='RATING ON GOOGLE' value={4.8} suffix='' isInView={isInView} delay={0.4} />
         </div>
       </div>

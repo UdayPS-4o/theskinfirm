@@ -15,12 +15,12 @@ export default function AboutStatsSection() {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="w-full px-6 lg:px-20 py-16 bg-[#FBEDE4] rounded-bl-[80px] rounded-tr-[80px] mb-14"
+        className="w-full px-6 lg:px-20 py-16 bg-[#FBEDE4] rounded-bl-[150px] rounded-tr-[150px] mb-14"
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 text-center text-[#86796F] font-inter">
-          <StatItem value={3} suffix="+" label="YEARS" isInView={isInView} delay={0.1} />
+          <StatItem value={5} suffix="+" label="YEARS" isInView={isInView} delay={0.1} />
           <StatItem value={60} suffix="+" label="TREATMENTS OFFERED" isInView={isInView} delay={0.2} />
-          <StatItem value={4000} suffix="k" label="HAPPY PATIENTS" isInView={isInView} delay={0.3} />
+          <StatItem value={2000} suffix="k" label="HAPPY PATIENTS" isInView={isInView} delay={0.3} />
           <StatItem value={4.8} suffix="" label="RATING ON GOOGLE" isInView={isInView} delay={0.4} />
         </div>
       </motion.section>

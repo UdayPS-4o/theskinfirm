@@ -117,7 +117,7 @@ function Service({coverImageUrl, description, title}: {coverImageUrl: string, ti
             <p className='text-sm sm:text-[15px] leading-relaxed text-[#333333] text-center px-1 sm:px-2'>{description}</p>
           </div>
           <div className="relative mt-4 pt-3 border-t border-neutral-200">
-            <Link href="" className='flex items-center justify-center text-[#D4A380] hover:text-[#C19660] transition-colors duration-200'>
+            <Link href="/services" className='flex items-center justify-center text-[#D4A380] hover:text-[#C19660] transition-colors duration-200'>
               <span className='text-sm font-medium mr-2'>Learn More</span>
               <ArrowRight className='w-4 h-4' />
             </Link>

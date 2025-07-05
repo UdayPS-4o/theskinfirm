@@ -42,7 +42,7 @@ export const Faq = () => {
           <Accordion type="single" collapsible className="mt-10">
             <AccordionItem
               value="1"
-              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+              className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
             >
               <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
                 What treatments does The Skin Firm offer?
@@ -57,7 +57,7 @@ export const Faq = () => {
             </AccordionItem>
             <AccordionItem
               value="2"
-              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+              className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
             >
               <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
                 How do I know which treatment is right for me?
@@ -71,7 +71,7 @@ export const Faq = () => {
             </AccordionItem>
             <AccordionItem
               value="3"
-              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+              className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
             >
               <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
                 Is there a consultation fee?
@@ -85,7 +85,7 @@ export const Faq = () => {
             </AccordionItem>
             <AccordionItem
               value="4"
-              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+              className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
             >
               <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
                 Are your treatments safe for all skin types?
@@ -98,7 +98,7 @@ export const Faq = () => {
             </AccordionItem>
             <AccordionItem
               value="5"
-              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+              className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
             >
               <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
                 Will I need multiple sessions?
@@ -112,7 +112,7 @@ export const Faq = () => {
             </AccordionItem>
             <AccordionItem
               value="6"
-              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+              className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
             >
               <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
                 Do you offer treatments for men as well?
@@ -125,7 +125,7 @@ export const Faq = () => {
             </AccordionItem>
             <AccordionItem
               value="7"
-              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+              className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
             >
               <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
                 Where is The Skin Firm located?
@@ -138,7 +138,7 @@ export const Faq = () => {
             </AccordionItem>
             <AccordionItem
               value="8"
-              className="py-12 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+              className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
             >
               <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
                 How do I book an appointment?

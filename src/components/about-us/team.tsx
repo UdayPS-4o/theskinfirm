@@ -3,6 +3,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Member {
   name: string;
@@ -23,9 +24,9 @@ export default function TeamSection({ members }: { members: Member[] }) {
               <h3 className="text-base font-semibold">{member.name}</h3>
               <p className="text-xs text-gray-300">Role</p>
               <div className="mt-2 flex justify-center gap-4 text-sm text-white">
-                <a href="#" className="hover:text-[#cb997e] transition"><FontAwesomeIcon icon={faFacebookF} /></a>
-                <a href="#" className="hover:text-[#cb997e] transition"><FontAwesomeIcon icon={faInstagram} /></a>
-                <a href="#" className="hover:text-[#cb997e] transition"><FontAwesomeIcon icon={faLinkedinIn} /></a>
+                <Link href="#" className="hover:text-[#cb997e] transition"><FontAwesomeIcon icon={faFacebookF} /></Link>
+                <Link href="#" className="hover:text-[#cb997e] transition"><FontAwesomeIcon icon={faInstagram} /></Link>
+                <Link href="#" className="hover:text-[#cb997e] transition"><FontAwesomeIcon icon={faLinkedinIn} /></Link>
               </div>
             </div>
           </div>

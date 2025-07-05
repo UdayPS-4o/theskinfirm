@@ -6,14 +6,29 @@ import Image from 'next/image'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 import { MaxWidthWrapper } from './max-width';
+import { useRouter } from 'next/navigation';
 
 const NAV_ITEMS = [
-  { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'Services', href: '/services', hasDropdown: true },
+  { 
+    label: 'Skin', 
+    href: '/services?tab=skin',
+    hasDropdown: true,
+    dropdownType: 'skin'
+  },
+  { 
+    label: 'Hair', 
+    href: '/services?tab=hair',
+    hasDropdown: true,
+    dropdownType: 'hair'
+  },
+  { 
+    label: 'Laser', 
+    href: '/services?tab=laser',
+    hasDropdown: true,
+    dropdownType: 'laser'
+  },
   { label: 'Gallery', href: '/gallery' },
-  // { label: 'Success Stories', href: '#stories' },
-  // { label: 'Blog', href: '#news' },
   { label: 'Contact', href: '/#contact' },
 ];
 
@@ -100,149 +115,6 @@ const getServiceSlug = (serviceName: string): string => {
   return SERVICE_TO_SLUG_MAP[serviceName] || serviceName.toLowerCase().replace(/\s+/g, '-');
 };
 
-// Mobile Service Categories Component - Collapsible
-const MobileServiceCategories = ({ onLinkClick }: { onLinkClick: () => void }) => {
-  const [skinOpen, setSkinOpen] = useState(false);
-  const [hairOpen, setHairOpen] = useState(false);
-  const [laserOpen, setLaserOpen] = useState(false);
-
-  const handleLinkClick = () => {
-    // Reset body overflow when navigating
-    document.body.style.overflow = 'unset';
-    onLinkClick();
-  };
-
-  return (
-    <div className="space-y-4">
-      {/* Skin Services */}
-      <div>
-        <button
-          onClick={() => setSkinOpen(!skinOpen)}
-          className="flex items-center justify-between w-full mb-2"
-        >
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-gradient-to-r from-[#D4A380] to-[#B8956A] rounded-full"></div>
-            <h3 className="font-semibold text-[#374151] text-base">Skin Services</h3>
-          </div>
-          <ChevronDown className={`w-4 h-4 text-[#374151] transition-transform duration-200 ${skinOpen ? 'rotate-180' : ''}`} />
-        </button>
-        <AnimatePresence>
-          {skinOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="space-y-1 pl-4 overflow-hidden"
-            >
-              {SKIN_SERVICE_GROUPS.map((group, index) => (
-                <motion.div
-                  key={group}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.2 }}
-                >
-                  <Link
-                    href={`/services#_${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
-                    className="block text-sm text-[#374151] hover:text-[#D4A380] py-1.5 transition-all duration-200"
-                    onClick={handleLinkClick}
-                  >
-                    {group}
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-      
-      {/* Hair Services */}
-      <div>
-        <button
-          onClick={() => setHairOpen(!hairOpen)}
-          className="flex items-center justify-between w-full mb-2"
-        >
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-gradient-to-r from-[#D4A380] to-[#B8956A] rounded-full"></div>
-            <h3 className="font-semibold text-[#374151] text-base">Hair Services</h3>
-          </div>
-          <ChevronDown className={`w-4 h-4 text-[#374151] transition-transform duration-200 ${hairOpen ? 'rotate-180' : ''}`} />
-        </button>
-        <AnimatePresence>
-          {hairOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="space-y-1 pl-4 overflow-hidden"
-            >
-              {HAIR_SERVICES.map((service, index) => (
-                <motion.div
-                  key={service}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.2 }}
-                >
-                  <Link
-                    href={`/services/${getServiceSlug(service)}`}
-                    className="block text-sm text-[#374151] hover:text-[#D4A380] py-1.5 transition-all duration-200"
-                    onClick={handleLinkClick}
-                  >
-                    {service}
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-      
-      {/* Laser Services */}
-      <div>
-        <button
-          onClick={() => setLaserOpen(!laserOpen)}
-          className="flex items-center justify-between w-full mb-2"
-        >
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-gradient-to-r from-[#D4A380] to-[#B8956A] rounded-full"></div>
-            <h3 className="font-semibold text-[#374151] text-base">Laser Services</h3>
-          </div>
-          <ChevronDown className={`w-4 h-4 text-[#374151] transition-transform duration-200 ${laserOpen ? 'rotate-180' : ''}`} />
-        </button>
-        <AnimatePresence>
-          {laserOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="space-y-1 pl-4 overflow-hidden"
-            >
-              {LASER_SERVICES.map((service, index) => (
-                <motion.div
-                  key={service}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.2 }}
-                >
-                  <Link
-                    href={`/services/${getServiceSlug(service)}`}
-                    className="block text-sm text-[#374151] hover:text-[#D4A380] py-1.5 transition-all duration-200"
-                    onClick={handleLinkClick}
-                  >
-                    {service}
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </div>
-  );
-};
-
 const logoVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeInOut' } },
@@ -267,11 +139,15 @@ const navItemVariants: Variants = {
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [activeDesktopDropdown, setActiveDesktopDropdown] = useState<string | null>(null);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
+  const router = useRouter();
   
-  const closeDropdown = () => setIsDropdownOpen(false);
+  const closeDesktopDropdown = () => setActiveDesktopDropdown(null);
+  
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
+    setActiveMobileDropdown(null);
     document.body.style.overflow = 'unset';
   };
   
@@ -284,7 +160,12 @@ export const Navbar = () => {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
+      setActiveMobileDropdown(null);
     }
+  };
+
+  const toggleMobileDropdown = (dropdownType: string) => {
+    setActiveMobileDropdown(activeMobileDropdown === dropdownType ? null : dropdownType);
   };
 
   // Clean up body overflow on component unmount
@@ -304,6 +185,103 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Preload function for pages
+  const handleLinkHover = (href: string) => {
+    if (href.startsWith('/') && !href.includes('#')) {
+      router.prefetch(href);
+    }
+  };
+
+  // Preload function for service pages
+  const handleServiceHover = (serviceSlug: string) => {
+    router.prefetch(`/services/${serviceSlug}`);
+  };
+
+  const renderDropdownContent = (dropdownType: string) => {
+    switch (dropdownType) {
+      case 'skin':
+        return (
+          <div className="space-y-1">
+            {SKIN_SERVICE_GROUPS.map((group, index) => (
+              <motion.div
+                key={group}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.02, duration: 0.2 }}
+              >
+                <Link
+                  href={`/services#_${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
+                  className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
+                  onMouseEnter={() => handleLinkHover('/services')}
+                  onClick={() => {
+                    closeDesktopDropdown();
+                    closeMobileMenu();
+                  }}
+                >
+                  {group}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        );
+      
+      case 'hair':
+        return (
+          <div className="space-y-1">
+            {HAIR_SERVICES.map((service, index) => (
+              <motion.div
+                key={service}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.02, duration: 0.2 }}
+              >
+                <Link
+                  href={`/services/${getServiceSlug(service)}`}
+                  className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
+                  onMouseEnter={() => handleServiceHover(getServiceSlug(service))}
+                  onClick={() => {
+                    closeDesktopDropdown();
+                    closeMobileMenu();
+                  }}
+                >
+                  {service}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        );
+      
+      case 'laser':
+        return (
+          <div className="space-y-1">
+            {LASER_SERVICES.map((service, index) => (
+              <motion.div
+                key={service}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.02, duration: 0.2 }}
+              >
+                <Link
+                  href={`/services/${getServiceSlug(service)}`}
+                  className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
+                  onMouseEnter={() => handleServiceHover(getServiceSlug(service))}
+                  onClick={() => {
+                    closeDesktopDropdown();
+                    closeMobileMenu();
+                  }}
+                >
+                  {service}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        );
+      
+      default:
+        return null;
+    }
+  };
+
   return (
     <nav className={`py-4 lg:py-4 w-full bg-[#FBEDE4] sticky top-0 z-50 transition-all duration-300 ${
       isScrolled ? 'shadow-lg backdrop-blur-sm bg-[#FBEDE4]/95' : ''
@@ -316,13 +294,15 @@ export const Navbar = () => {
           variants={logoVariants}
           className="flex-shrink-0"
         >
-          <Image
-            src='/logo.svg'
-            alt='The Skin FirmLogo'
-            width={120}
-            height={57}
-            className='h-10 lg:h-14 w-auto'
-          />
+          <Link href="/">
+            <Image
+              src='/logo.svg'
+              alt='The Skin FirmLogo'
+              width={120}
+              height={57}
+              className='h-10 lg:h-14 w-auto'
+            />
+          </Link>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -337,143 +317,33 @@ export const Navbar = () => {
               {item.hasDropdown ? (
                 <div
                   className="relative group"
-                  onMouseEnter={() => setIsDropdownOpen(true)}
-                  onMouseLeave={() => setIsDropdownOpen(false)}
+                  onMouseEnter={() => setActiveDesktopDropdown(item.dropdownType!)}
+                  onMouseLeave={() => setActiveDesktopDropdown(null)}
                 >
                   <Link
                     href={item.href}
                     className="transition-colors flex items-center gap-1 py-1"
-                    onClick={closeDropdown}
+                    onMouseEnter={() => handleLinkHover(item.href)}
+                    onClick={closeDesktopDropdown}
                   >
                     {item.label}
-                    <ChevronDown size={16} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown size={16} className={`transition-transform duration-200 ${
+                      activeDesktopDropdown === item.dropdownType ? 'rotate-180' : ''
+                    }`} />
                   </Link>
                   
-                  {/* Dropdown Menu */}
+                  {/* Desktop Dropdown */}
                   <AnimatePresence>
-                    {isDropdownOpen && (
+                    {activeDesktopDropdown === item.dropdownType && (
                       <motion.div
-                        initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                        transition={{ 
-                          duration: 0.4, 
-                          ease: [0.25, 0.46, 0.45, 0.94],
-                          staggerChildren: 0.1,
-                          delayChildren: 0.1
-                        }}
-                        className="absolute top-full left-[-550px] max-lg:left-[-550px] md:max-lg:left-[-500px] pt-1 z-50"
+                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50"
                       >
-                        <div className="bg-gradient-to-br from-[#FBEDE4] to-[#F5E6D3] backdrop-blur-xl rounded-2xl shadow-2xl border border-[#D4A380]/20 p-8 w-[min(800px,calc(100vw-4rem))] max-w-[800px]">
-                        <div className="grid grid-cols-3 gap-8">
-                          {/* Skin Services */}
-                          <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1, duration: 0.3 }}
-                            className="group relative"
-                          >
-                            <div className="flex items-center gap-3 mb-5 pb-3 border-b border-[#D4A380]/20">
-                              <motion.div 
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ delay: 0.2, duration: 0.3, type: "spring" }}
-                                className="w-2.5 h-2.5 bg-gradient-to-r from-[#D4A380] to-[#B8956A] rounded-full shadow-sm"
-                              ></motion.div>
-                              <h3 className="font-bold text-[#374151] text-lg tracking-tight">Skin Services</h3>
-                            </div>
-                            <div className="space-y-1">
-                              {SKIN_SERVICE_GROUPS.map((group, index) => (
-                                <motion.div
-                                  key={group}
-                                  initial={{ opacity: 0, y: -20 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: 0.2 + (index * 0.03), duration: 0.2 }}
-                                >
-                                  <Link
-                                    href={`/services#_${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
-                                    className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                                    onClick={closeDropdown}
-                                  >
-                                    {group}
-                                  </Link>
-                                </motion.div>
-                              ))}
-                            </div>
-                          </motion.div>
-                          
-                          {/* Hair Services */}
-                          <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.15, duration: 0.3 }}
-                            className="group relative"
-                          >
-                            <div className="flex items-center gap-3 mb-5 pb-3 border-b border-[#D4A380]/20">
-                              <motion.div 
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ delay: 0.25, duration: 0.3, type: "spring" }}
-                                className="w-2.5 h-2.5 bg-gradient-to-r from-[#D4A380] to-[#B8956A] rounded-full shadow-sm"
-                              ></motion.div>
-                              <h3 className="font-bold text-[#374151] text-lg tracking-tight">Hair Services</h3>
-                            </div>
-                            <div className="space-y-1">
-                              {HAIR_SERVICES.map((service, index) => (
-                                <motion.div
-                                  key={service}
-                                  initial={{ opacity: 0, y: -20 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: 0.25 + (index * 0.03), duration: 0.2 }}
-                                >
-                                  <Link
-                                    href={`/services/${getServiceSlug(service)}`}
-                                    className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                                    onClick={closeDropdown}
-                                  >
-                                    {service}
-                                  </Link>
-                                </motion.div>
-                              ))}
-                            </div>
-                          </motion.div>
-                          
-                          {/* Laser Services */}
-                          <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.3 }}
-                            className="group relative"
-                          >
-                            <div className="flex items-center gap-3 mb-5 pb-3 border-b border-[#D4A380]/20">
-                              <motion.div 
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ delay: 0.3, duration: 0.3, type: "spring" }}
-                                className="w-2.5 h-2.5 bg-gradient-to-r from-[#D4A380] to-[#B8956A] rounded-full shadow-sm"
-                              ></motion.div>
-                              <h3 className="font-bold text-[#374151] text-lg tracking-tight">Laser Services</h3>
-                            </div>
-                            <div className="space-y-1">
-                              {LASER_SERVICES.map((service, index) => (
-                                <motion.div
-                                  key={service}
-                                  initial={{ opacity: 0, y: -20 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: 0.3 + (index * 0.03), duration: 0.2 }}
-                                >
-                                  <Link
-                                    href={`/services/${getServiceSlug(service)}`}
-                                    className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                                    onClick={closeDropdown}
-                                  >
-                                    {service}
-                                  </Link>
-                                </motion.div>
-                              ))}
-                            </div>
-                          </motion.div>
-                        </div>
+                        <div className="bg-gradient-to-br from-[#FBEDE4] to-[#F5E6D3] backdrop-blur-xl rounded-2xl shadow-2xl border border-[#D4A380]/20 p-6 w-80">
+                          {renderDropdownContent(item.dropdownType!)}
                         </div>
                       </motion.div>
                     )}
@@ -483,7 +353,8 @@ export const Navbar = () => {
                 <Link
                   href={item.href}
                   className="transition-colors flex items-center py-1"
-                  onClick={closeDropdown}
+                  onMouseEnter={() => handleLinkHover(item.href)}
+                  onClick={closeDesktopDropdown}
                 >
                   {item.label}
                 </Link>
@@ -509,12 +380,12 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className='fixed inset-x-0 top-[72px] bg-[#FBEDE4] border-t border-[#D4A380]/20 shadow-lg z-40 overflow-y-auto'
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className='mt-[-5px] md:hidden fixed inset-x-0 top-[72px] bg-[#FBEDE4] border-t border-[#D4A380]/20 shadow-lg z-40 overflow-y-auto'
             style={{ maxHeight: 'calc(100vh - 72px)' }}
           >
-            <div className='max-w-7xl mx-auto px-6 lg:px-24 pb-8'>
-              <div className='md:hidden py-4'>
+            <div className='max-w-7xl mx-auto px-6 pb-0'>
+              <div className='md:hidden py-4 pb-4'>
                 <motion.div
                   initial="hidden"
                   animate="visible"
@@ -524,29 +395,97 @@ export const Navbar = () => {
                   {NAV_ITEMS.map((item) => (
                     <motion.div key={item.label} variants={navItemVariants}>
                       {item.hasDropdown ? (
-                        <div>
-                          <Link
-                            href={item.href}
-                            className='text-[#374151] hover:text-[#374151]/80 transition-colors py-3 block font-medium mb-3'
-                            onClick={closeMobileMenu}
+                        <div className="border-b border-[#D4A380]/10 pb-1 mb-3">
+                          {/* Mobile Dropdown Toggle */}
+                          <button
+                            onClick={() => toggleMobileDropdown(item.dropdownType!)}
+                            className="w-full flex items-center justify-between py-4 text-[#374151] hover:text-[#D4A380] transition-colors font-medium text-lg"
                           >
-                            {item.label}
-                          </Link>
+                            <span>{item.label}</span>
+                            <ChevronDown 
+                              size={20} 
+                              className={`transition-transform duration-300 ${
+                                activeMobileDropdown === item.dropdownType ? 'rotate-180' : ''
+                              }`} 
+                            />
+                          </button>
                           
-                          {/* Always show services - no toggle needed */}
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            transition={{ duration: 0.3, ease: 'easeInOut' }}
-                            className="bg-gradient-to-br from-[#FBEDE4] to-[#F5E6D3] rounded-xl p-5 border border-[#D4A380]/20"
-                          >
-                            <MobileServiceCategories onLinkClick={closeMobileMenu} />
-                          </motion.div>
+                          {/* Mobile Dropdown Content */}
+                          <AnimatePresence>
+                            {activeMobileDropdown === item.dropdownType && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                className="pb-4"
+                              >
+                                <div className="bg-white/30 rounded-xl p-4 space-y-2">
+                                  {item.dropdownType === 'skin' && SKIN_SERVICE_GROUPS.map((group, index) => (
+                                    <motion.div
+                                      key={group}
+                                      initial={{ opacity: 0, x: -20 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ delay: index * 0.03, duration: 0.2 }}
+                                    >
+                                      <Link
+                                        href={`/services#_${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
+                                        className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
+                                        onMouseEnter={() => handleLinkHover('/services')}
+                                        onClick={closeMobileMenu}
+                                      >
+                                        {group}
+                                      </Link>
+                                    </motion.div>
+                                  ))}
+                                  
+                                  {item.dropdownType === 'hair' && HAIR_SERVICES.map((service, index) => (
+                                    <motion.div
+                                      key={service}
+                                      initial={{ opacity: 0, x: -20 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ delay: index * 0.03, duration: 0.2 }}
+                                    >
+                                      <Link
+                                        href={`/services/${getServiceSlug(service)}`}
+                                        className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
+                                        onMouseEnter={() => handleServiceHover(getServiceSlug(service))}
+                                        onClick={closeMobileMenu}
+                                      >
+                                        {service}
+                                      </Link>
+                                    </motion.div>
+                                  ))}
+                                  
+                                  {item.dropdownType === 'laser' && LASER_SERVICES.map((service, index) => (
+                                    <motion.div
+                                      key={service}
+                                      initial={{ opacity: 0, x: -20 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ delay: index * 0.03, duration: 0.2 }}
+                                    >
+                                      <Link
+                                        href={`/services/${getServiceSlug(service)}`}
+                                        className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
+                                        onMouseEnter={() => handleServiceHover(getServiceSlug(service))}
+                                        onClick={closeMobileMenu}
+                                      >
+                                        {service}
+                                      </Link>
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       ) : (
                         <Link
                           href={item.href}
-                          className='text-[#374151] hover:text-[#374151]/80 transition-colors py-3 block font-medium'
+                          className={`text-[#374151] hover:text-[#D4A380] transition-colors py-4 block font-medium text-lg ${
+                            item.label === 'Contact' ? '' : 'border-b border-[#D4A380]/10'
+                          }`}
+                          onMouseEnter={() => handleLinkHover(item.href)}
                           onClick={closeMobileMenu}
                         >
                           {item.label}

@@ -31,7 +31,7 @@ export const Footer = () => {
             <h3 className='text-[#8A7B70] text-xl/relaxed text-start'>The Skin Firm</h3>
             <p className='text-base/relaxed text-[#A89689] text-start'>Where Skin Meets Science, and Self-Care Feels Like Home
 </p>
-            <div className='grid grid-cols-2 gap-3 w-fit'>
+            <div className='grid grid-cols-2 max-lg:grid-flow-col gap-3 w-fit'>
               <Link href={"https://www.instagram.com/theskinfirm_official/?hl=en"} target="_blank" className='p-3 rounded-full bg-[#F9EEE7]'>
                 <Instagram className='size-5' color='#D4A380' />
               </Link>
@@ -55,11 +55,11 @@ export const Footer = () => {
           >
             <h3 className='text-[#8A7B70] text-xl/relaxed text-start'>Quick links</h3>
             <div className='flex flex-col items-start justify-start gap-y-4 *:text-[#A89689] *:text-base/relaxed *:hover:opacity-80'>
-              <Link href={"/home"}>Home</Link>
-              <Link href={"/about"}>About us</Link>
+              <Link href={"/"}>Home</Link>
+              <Link href={"/about-us"}>About us</Link>
               <Link href={"/services"}>Services</Link>
               <Link href={"/services"}>Treatments</Link>
-              <Link href={"/home#contact"}>Contact</Link>
+              <Link href={"/#contact"}>Contact</Link>
             </div>
           </motion.div>
 
@@ -72,21 +72,19 @@ export const Footer = () => {
             <h3 className='text-[#8A7B70] text-xl/relaxed text-start'>Contact Us</h3>
             <div className='flex flex-col items-start justify-start gap-y-4 *:text-[#A89689] *:text-base/relaxed *:hover:opacity-80'>
               <div className='inline-flex items-center gap-x-4'>
-                <Link href={""} className='p-3 rounded-full bg-[#F9EEE7]'>
+                <Link href="tel:+918308669966" className='p-3 rounded-full bg-[#F9EEE7]'>
                   <Phone className='size-5' color='#D4A380' />
                 </Link>
                 <p>+91 8308669966</p>
               </div>
               <div className='inline-flex items-center gap-x-4'>
-                <Link href={"mailto:theskinfirmclinic@gmail.com"} target='_blank' className='p-3 rounded-full bg-[#F9EEE7]'>
+                <Link href={"mailto:theskinfirmclinic@gmail.com"} className='p-3 rounded-full bg-[#F9EEE7]'>
                   <Mail className='size-5' color='#D4A380' />
                 </Link>
                 <p>theskinfirmclinic@gmail.com</p>
               </div>
               <div className='inline-flex items-center gap-x-4'>
-                <Link href={"mailto:info@theskinfirm.com"} target='_blank' className='p-3 rounded-full bg-[#F9EEE7]'>
                   <MapPin className='size-5' color='#D4A380' />
-                </Link>
                 <p className='w-fit text-start'>{"Paul and Donna Peregrina House Plot No. 1, 1st floor, Sainik Vihar Hsg Society, next to New Shiv Temple near Nine Hills, Mohammadwadi -411060"}</p>
               </div>
             </div>
