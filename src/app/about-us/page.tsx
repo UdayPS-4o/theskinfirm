@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://theskinfirm.com/about-us",
+    canonical: "https://theskinfirm.in/about-us",
   },
 };
 

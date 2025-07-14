@@ -34,10 +34,6 @@ export default function MissionSection({ values }: MissionSectionProps) {
               <div className="p-6 text-left">
                 <h3 className="text-lg font-semibold text-[color:var(--color-text-dark)] mb-2">{item.title}</h3>
                 <p className="text-[color:var(--color-text-dark-blue)] text-sm mb-4">{item.description}</p>
-                {/* <a href="/services" className="text-sm font-semibold text-black flex items-center gap-2">
-                  Learn More <span className="text-[color:var(--color-text-dark-blue)]">↗</span>
-                </a> */}
-                {/* USE LINK INSTEAD OF A TAG */}
                 <Link href="/services" className="text-sm font-semibold text-black flex items-center gap-2">
                   Learn More <span className="text-[color:var(--color-text-dark-blue)]">↗</span>
                 </Link>

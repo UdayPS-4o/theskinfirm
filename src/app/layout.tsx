@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://theskinfirm.com"),
+  metadataBase: new URL("https://theskinfirm.in"),
   title: {
     default: "The Skin Firm - Premium Skincare & Advanced Treatments in Pune",
     template: `%s | The Skin Firm`,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Skin Firm - Premium Skincare & Advanced Treatments in Pune",
     description: "Discover advanced skincare solutions at The Skin Firm Pune. Expert treatments for acne, pigmentation, anti-aging, laser hair removal & more. Book consultation now!",
-    url: "https://theskinfirm.com",
+    url: "https://theskinfirm.in",
     siteName: "The Skin Firm",
     images: [
       {

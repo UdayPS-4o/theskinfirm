@@ -21,6 +21,16 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  async rewrites() {
+    return {
+      fallback: [
+        {
+          source: '/:path*',
+          destination: '/',
+        },
+      ],
+    };
+  },
 };
 
 export default nextConfig;

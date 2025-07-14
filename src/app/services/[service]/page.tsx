@@ -120,7 +120,7 @@ export async function generateMetadata({ params }: ServiceDetailsPageProps): Pro
       ],
     },
     alternates: {
-      canonical: `https://theskinfirm.com/services/${resolvedParams.service}`,
+      canonical: `https://theskinfirm.in/services/${resolvedParams.service}`,
     },
   };
 }
