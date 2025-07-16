@@ -2,6 +2,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel';
+import Image from 'next/image';
 
 import Autoplay from 'embla-carousel-autoplay';
 
@@ -63,10 +64,13 @@ const CategoriesSection = () => {
         className="rounded border border-gray-200 px-2 pt-2 pb-4 flex flex-col gap-4 items-start relative w-full hover:border-gray-300 transition-colors cursor-pointer"
         onClick={handleCardClick}
       >
-        <img
+        <Image
           src={imageUrl}
-          className="rounded-sm border border-gray-200 w-full h-[450px] sm:h-[520px] md:h-[480px] lg:h-[486px] object-cover"
           alt={title}
+          width={500}
+          height={500}
+          loading="lazy"
+          className="rounded-sm border border-gray-200 w-full h-[450px] sm:h-[520px] md:h-[480px] lg:h-[486px] object-cover"
         />
         <div className="px-4 flex justify-between items-center self-stretch relative w-full">
           <h4 className="text-xl sm:text-2xl leading-6 tracking-[-0.01em] text-gray-800">

@@ -114,7 +114,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className='flex justify-center lg:justify-start h-full'
               >
-                <Image className='w-full max-w-[300px] max-h-[490px] lg:max-w-none lg:w-full h-full object-cover rounded-2xl' src={'/home/hero-right.png'} width={457} height={490} alt='Woman with radiant, healthy skin after professional skincare treatment' loading='lazy' />
+                <Image className='w-full max-w-[300px] max-h-[490px] lg:max-w-none lg:w-full h-full object-cover rounded-2xl' src={'/home/hero-right.png'} width={457} height={490} alt='Woman with radiant, healthy skin after professional skincare treatment' priority />
               </motion.div>
             </div>
           </motion.div>
