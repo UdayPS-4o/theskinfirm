@@ -4,30 +4,22 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import Link from 'next/link';
 import { MaxWidthWrapper } from '../layout/max-width';
 
 export const Hero = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
   return (
     <div className='w-full bg-[#FBEDE4] pb-8 lg:pb-14 pt-8 lg:pt-8'>
       <MaxWidthWrapper>
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className='grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-8 h-full'
           >
             <div className='col-span-1 lg:col-span-2 order-2 lg:order-1'>
               <div className='max-w-2xl'>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className='text-[#8A7B70] text-2xl sm:text-3xl lg:text-[40px] leading-tight lg:leading-normal font-medium'
                   style={{ willChange: 'transform, opacity' }}
@@ -36,7 +28,7 @@ export const Hero = () => {
                 </motion.h1>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="mt-6 flex flex-col sm:flex-row items-center sm:items-start gap-3 lg:gap-6"
                 >
@@ -69,12 +61,12 @@ export const Hero = () => {
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className='mt-8 lg:mt-14 grid grid-cols-1 sm:grid-cols-5 gap-4 items-end'
               >
                 <div className='relative col-span-1 sm:col-span-3 rounded-2xl min-h-[280px] lg:min-h-[355px] w-full max-w-[400px] mx-auto lg:max-w-none lg:mx-0 bg-cover bg-center p-4 lg:p-6 flex flex-col justify-between overflow-hidden'>
-                  <Image src="/hero-offer-bg.png" alt="Special offer background with skincare treatment imagery" fill className="object-cover rounded-2xl" loading="lazy" style={{zIndex: 0}}/>
+                  <Image src="/hero-offer-bg.png" alt="Special offer background with skincare treatment imagery" fill className="object-cover rounded-2xl" priority style={{zIndex: 0}}/>
                   <div className='flex flex-row items-center justify-between w-full relative z-10'>
                     <Link href="/#contact">
                       <Button size={'lg'} className='py-3 lg:py-4 px-5 lg:px-7 rounded-full flex flex-row items-center gap-x-3.5 bg-transparent text-[#151515] hover:bg-gray-100 border-[#151515] border text-sm lg:text-base' aria-label="View special offer details">
@@ -102,7 +94,7 @@ export const Hero = () => {
             <div className='hidden lg:flex lg:flex-col col-span-1 order-1 lg:order-2'>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className='text-[#A89689] text-sm lg:text-base mb-6 lg:mb-10 text-center lg:text-left lg:pt-3'
               >
@@ -110,14 +102,14 @@ export const Hero = () => {
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className='flex justify-center lg:justify-start h-full'
               >
                 <Image className='w-full max-w-[300px] max-h-[490px] lg:max-w-none lg:w-full h-full object-cover rounded-2xl' src={'/home/hero-right.png'} width={457} height={490} alt='Woman with radiant, healthy skin after professional skincare treatment' priority />
               </motion.div>
             </div>
-          </motion.div>
+          </div>
       </MaxWidthWrapper>
     </div>
   )

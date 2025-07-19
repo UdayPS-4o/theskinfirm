@@ -94,7 +94,7 @@ export const BookYourConsultation = () => {
             </div>
               <div className='text-start'>
                 <h4 className='text-sm sm:text-base text-[#8A7B70] font-medium'>Location</h4>
-                <p className="mt-1 text-xs sm:text-sm text-[#A89689]">Paul and Donna Peregrina House Plot No. 1, 1st floor, Sainik Vihar Hsg Society, next to New Shiv Temple near Nine Hills, Mohammadwadi -411060</p>
+                <p className="mt-1 text-xs sm:text-sm text-[#A89689]">1st Floor, Society Gate 1, Plot no.1, NIBM Post Office Rd, opp. Tribeca Highstreet, Sainik Vihar, Jarande Nagar, Mohammed Wadi, Pune, Maharashtra 411060</p>
               </div>
             </div>
             <div className='flex flex-row items-start justify-start space-x-5'>

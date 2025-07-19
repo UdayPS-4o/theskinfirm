@@ -85,7 +85,7 @@ export const Footer = () => {
               </div>
               <div className='inline-flex items-center gap-x-4'>
                   <MapPin className='size-5' color='#D4A380' />
-                <p className='w-fit text-start'>{"Paul and Donna Peregrina House Plot No. 1, 1st floor, Sainik Vihar Hsg Society, next to New Shiv Temple near Nine Hills, Mohammadwadi -411060"}</p>
+                <p className='w-fit text-start'>{"1st Floor, Society Gate 1, Plot no.1, NIBM Post Office Rd, opp. Tribeca Highstreet, Sainik Vihar, Jarande Nagar, Mohammed Wadi, Pune, Maharashtra 411060"}</p>
               </div>
             </div>
           </motion.div>
