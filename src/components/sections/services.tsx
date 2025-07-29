@@ -55,7 +55,7 @@ const servicesData = [
     description: 'Comprehensive anti-aging solutions to reduce wrinkles and restore youthful skin appearance.',
     coverImageUrl: '/images/services/anti aging.png',
     iconUrl: '/images/home-service/skin.png',
-    url: '/services/anti-ageing-treatment'
+    url: '/services/anti-aging-treatment'
   },
   {
     title: 'Chemical Peels',

@@ -31,10 +31,10 @@ export default function HomePage() {
         <section id="categories" aria-labelledby="categories-heading">
           <AnimatedComponent><CategoriesSection /></AnimatedComponent>
         </section>
+        <AnimatedComponent><Specialist /></AnimatedComponent>
         <section id="services" aria-labelledby="services-heading">
           <AnimatedComponent><Services /></AnimatedComponent>
         </section>
-        <AnimatedComponent><Specialist /></AnimatedComponent>
         <AnimatedComponent><Stats /></AnimatedComponent>
         <section id="about" aria-labelledby="about-heading">
           <AnimatedComponent><About /></AnimatedComponent>
