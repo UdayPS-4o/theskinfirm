@@ -15,6 +15,7 @@ import { Specialist } from "@/components/sections/specialist";
 import { Stats } from "@/components/sections/stats";
 import { SuccessStories } from "@/components/sections/success-stories";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
+import Map from "@/components/sections/map";
 
 
 
@@ -50,6 +51,7 @@ export default function HomePage() {
         <AnimatedComponent><Stories /></AnimatedComponent> */}
         <AnimatedComponent><Cta2 /></AnimatedComponent>
         <AnimatedComponent><Faq /></AnimatedComponent>
+        <AnimatedComponent><Map /></AnimatedComponent>
       </main>
       <Footer />
     </div>
