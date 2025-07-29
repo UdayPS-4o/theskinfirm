@@ -8,7 +8,7 @@ import { DashedSeparator } from '@/components/sections/dashed-separator';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 
 type ViewMode = 'grid' | 'masonry';
-type FilterCategory = 'all' | 'acne' | 'pigmentation' | 'aging' | 'hair' | 'facial' | 'cosmetic';
+type FilterCategory = 'all' | 'acne' | 'pigmentation' | 'aging' | 'hair' | 'facial' | 'cosmetic' | 'clinic';
 
 interface GalleryImage {
   id: number;
@@ -25,6 +25,18 @@ const GalleryPage = () => {
 
   // Enhanced gallery data with correct treatment names and categories
   const galleryImages: GalleryImage[] = useMemo(() => [
+    { id: 24, src: '/clinic/The Skin Firm Pune.jpg', category: 'clinic' },
+    { id: 25, src: '/clinic/sitting-theskinfirm-pune.jpg', category: 'clinic' },
+    { id: 26, src: '/clinic/reception-theskinfirm-pune.jpg', category: 'clinic' },
+    { id: 27, src: '/clinic/procedureroom-theskinfirm-pune.jpg', category: 'clinic' },
+    { id: 28, src: '/clinic/procedureroom mirror-theskinfirm-pune.jpg', category: 'clinic' },
+    { id: 29, src: '/clinic/machinery-theskinfirm-pune.jpg', category: 'clinic' },
+    { id: 30, src: '/clinic/mirrortagline-theskinfirm-pune.jpg', category: 'clinic' },
+    { id: 31, src: '/clinic/machinery2-theskinfirm-pune.jpg.jpg', category: 'clinic' },
+    { id: 32, src: '/clinic/laserroom-theskinfirm-pune.jpg', category: 'clinic' },
+    { id: 33, src: '/clinic/laserroom2-theskinfirm-pune.jpg', category: 'clinic' },
+    { id: 34, src: '/clinic/hall-theskinfirm-pune.jpg', category: 'clinic' },
+    { id: 35, src: '/clinic/doctor_s cabin-theskinfirm-pune.jpg', category: 'clinic' },
     { id: 2, src: '/gallery/2.png', category: 'acne' },
     { id: 3, src: '/gallery/3.png', category: 'pigmentation' },
     { id: 4, src: '/gallery/4.png', category: 'acne' },
@@ -56,6 +68,7 @@ const GalleryPage = () => {
     { key: 'aging' as FilterCategory, label: 'Anti-Aging', count: galleryImages.filter(img => img.category === 'aging').length },
     { key: 'facial' as FilterCategory, label: 'Facial Treatments', count: galleryImages.filter(img => img.category === 'facial').length },
     { key: 'hair' as FilterCategory, label: 'Hair Treatments', count: galleryImages.filter(img => img.category === 'hair').length },
+    { key: 'clinic' as FilterCategory, label: 'Clinic', count: galleryImages.filter(img => img.category === 'clinic').length },
   ];
 
   const filteredImages = useMemo(() => {

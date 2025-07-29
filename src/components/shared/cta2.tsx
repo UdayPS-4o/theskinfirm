@@ -37,7 +37,7 @@ export const Cta2 = () => {
           className='mt-5 flex flex-row items-center justify-center'
         >
 
-        <Link href={""} className='max-w-lg w-full bg-white rounded-lg flex items-center justify-center gap-x-5 py-4 text-[#D4A380]'>
+        <Link href={"/#contact"} className='max-w-lg w-full bg-white rounded-lg flex items-center justify-center gap-x-5 py-4 text-[#D4A380]'>
         <p className='text-lg'>
           Book appointment
         </p>

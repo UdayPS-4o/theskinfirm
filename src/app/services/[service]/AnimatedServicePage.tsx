@@ -150,8 +150,8 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                   isVisible('hero-right') ? 'scale-100' : 'scale-95'
                 }`}>
                   <img 
-                    src={serviceData.hero.image} 
-                    alt={serviceData.hero.title} 
+                    src={"/Dr-Karishma-Singh-The-Skin-Firm-Pune2.png"}
+                    alt={"Dr. Karishma Singh"} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>

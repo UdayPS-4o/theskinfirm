@@ -7,7 +7,7 @@ import { MaxWidthWrapper } from "../layout/max-width";
 export default function DrKarishmaSection() {
 
   return (
-    <section className="relative bg-[color:var(--color-light-background-alt)] mb-14 px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-16 md:py-18 lg:py-20 overflow-hidden rounded-bl-[75px]">
+    <section id="dr_karishma" className="relative bg-[color:var(--color-light-background-alt)] mb-14 px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-16 md:py-18 lg:py-20 overflow-hidden rounded-bl-[75px]">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-[color:var(--color-primary-orange)]/30 to-[color:var(--color-primary-brown)]/30 rounded-full blur-3xl"></div>
@@ -49,7 +49,7 @@ export default function DrKarishmaSection() {
           >
             <div className="relative max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] w-full aspect-[3/4]">
               <Image
-                src="/images/dr/K3r.png"
+                src="/Dr-Karishma-Singh-The-Skin-Firm-Pune3.png"
                 alt="Dr. Karishma Singh"
                 fill
                 sizes="(max-width: 640px) 300px, (max-width: 768px) 350px, (max-width: 1024px) 400px, 450px"

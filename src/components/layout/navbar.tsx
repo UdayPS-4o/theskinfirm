@@ -298,9 +298,9 @@ export const Navbar = () => {
             <Image
               src='/logo.svg'
               alt='The Skin FirmLogo'
-              width={120}
+              width={220}
               height={57}
-              className='h-10 lg:h-14 w-auto'
+              className='h-10 lg:h-14'
             />
           </Link>
         </motion.div>

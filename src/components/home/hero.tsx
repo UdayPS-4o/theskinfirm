@@ -63,7 +63,7 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className='mt-8 lg:mt-14 grid grid-cols-1 sm:grid-cols-5 gap-4 items-end'
+                className='mt-8 lg:mt-8 grid grid-cols-1 sm:grid-cols-5 gap-4 items-end'
               >
                 <div className='relative col-span-1 sm:col-span-3 rounded-2xl min-h-[280px] lg:min-h-[355px] w-full max-w-[400px] mx-auto lg:max-w-none lg:mx-0 bg-cover bg-center p-4 lg:p-6 flex flex-col justify-between overflow-hidden'>
                   <Image src="/hero-offer-bg.png" alt="Special offer background with skincare treatment imagery" fill className="object-cover rounded-2xl" priority style={{zIndex: 0}}/>
@@ -87,7 +87,7 @@ export const Hero = () => {
                   </div>
                 </div>
                 <div className='col-span-1 sm:col-span-2 flex justify-center'>
-                  <Image src={'/hero-graphic-1.png'} width={334} height={430} alt='Professional skincare treatment being performed by certified specialist' className='w-full max-w-[380px] h-auto object-contain' loading='lazy' />
+                  <Image src={'/clinic/reception-theskinfirm.jpg'} width={334} height={430} alt='Professional skincare treatment being performed by certified specialist' className='w-full max-w-[380px] h-auto object-contain rounded-2xl ml-3' loading='lazy' />
                 </div>
               </motion.div>
             </div>

@@ -37,22 +37,6 @@ const CategoriesSection = () => {
     carouselApi?.scrollNext();
   };
 
-  const ArrowButton = ({ direction, onClick, fill = '#6B7280', opacity = '0.8' }:any) => {
-    const pathD = 'M20.0978 3.32906L20.4514 3.68261C20.5451 3.58885 20.5978 3.46167 20.5978 3.32906C20.5978 3.19645 20.5451 3.06928 20.4514 2.97551L20.0978 3.32906ZM17.2694 0.500633L17.6229 0.14708C17.5531 0.0769365 17.4639 0.0291255 17.3668 0.0097079C17.2697 -0.00970967 17.169 0.000140645 17.0775 0.0380103C16.986 0.07588 16.9079 0.140063 16.8529 0.222424C16.7979 0.304784 16.7686 0.401612 16.7688 0.500633L17.2694 0.500633ZM17.2694 6.15749L16.7688 6.15749C16.7686 6.25651 16.7979 6.35334 16.8529 6.4357C16.9079 6.51806 16.986 6.58224 17.0775 6.62011C17.169 6.65798 17.2697 6.66783 17.3668 6.64841C17.4639 6.629 17.5531 6.58118 17.6229 6.51104L17.2694 6.15749ZM17.2694 2.82843L0.298828 2.82843L0.298828 3.82969L17.2694 3.82969V2.82843ZM20.4514 2.97551L17.6229 0.14708L16.9158 0.854187L19.7443 3.68261L20.4514 2.97551ZM16.7688 0.500633V6.15749L17.77 6.15749L17.77 0.500633L16.7688 0.500633ZM17.6229 6.51104L20.4514 3.68261L19.7443 2.97551L16.9158 5.80393L17.6229 6.51104Z';
-
-    return (
-      <div
-        className={`p-2.5 flex flex-col gap-2.5 items-start relative cursor-pointer hover:opacity-70 transition-opacity ${
-          direction === 'left' ? 'rotate-180' : ''
-        }`}
-        onClick={onClick}
-      >
-        <svg width="21" height="7" viewBox="0 0 21 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d={pathD} fill={fill} fillOpacity={opacity} />
-        </svg>
-      </div>
-    );
-  };
 
   const CategoryCard = ({ title, imageUrl, tabKey } : any) => {
     const handleCardClick = () => {
@@ -120,11 +104,6 @@ const CategoriesSection = () => {
 
         {/* Text content on the left */}
         <div className="max-lg:hidden flex flex-col gap-4 items-start relative lg:flex-shrink-0 lg:h-full lg:justify-between lg:min-h-[550px]">
-          {/* Arrows at the top - only visible on desktop */}
-          <div className="hidden lg:flex gap-2 items-center lg:self-start">
-            <ArrowButton direction="left" onClick={scrollPrev} fill="#B76E79" opacity="0.5" />
-            <ArrowButton direction="right" onClick={scrollNext} fill="#B76E79" opacity="1" />
-          </div>
           
           {/* Text content at the bottom */}
           <div className="flex flex-col gap-4 items-start lg:mt-auto">

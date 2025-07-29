@@ -5,8 +5,8 @@ import { Zap, Heart } from "lucide-react";
 export const WhyChooseUs = () => {
   return (
     <div className="mt-24 px-5 lg:px-[70px] py-[122px] bg-[#F8F4EB]">
-      <div className="flex flex-col lg:flex-row items-center justify-center mb-5 lg:mb-0">
-        <Image alt="" src={"/why-choose-us.svg"} height={600} width={603} loading='lazy' />
+      <div className="flex flex-col lg:flex-row items-center justify-center mb-5 ">
+        <Image alt="" src={"/Dr-Karishma-Singh-The-Skin-Firm-Pune1.png"} height={300} width={603} loading='lazy' className="pr-[100px] lg:pb-[30px]" />
         <div className="flex flex-col items-start justify-center space-y-12">
           <h2 className="font-semibold text-[64px]/tight text-center lg:text-start text-[#344054]">
             Why <span className="text-[#FD853A]">Choose Us</span>?

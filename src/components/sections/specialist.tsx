@@ -3,8 +3,10 @@ import { DashedSeparator } from './dashed-separator'
 import Image from 'next/image'
 import { ArrowRight, Quote, Star } from 'lucide-react'
 import { Button } from '../ui/button'
+import { useRouter } from 'next/navigation'
 
 export const Specialist = () => {
+  const router = useRouter()
   return (
     <div className='py-12 md:py-24'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -14,7 +16,7 @@ export const Specialist = () => {
           <DashedSeparator />
         </div>
         <h2 className="mt-5 text-center font-semibold text-4xl md:text-5xl text-[#333333]">Specialist in Pune</h2>
-        <Image alt='' src={'/specialist-hello.svg'} width={122} height={61} className='mt-6 mx-auto' loading='lazy' />
+        <Image alt='' src={'/specialist-hello.svg'} width={122} height={61} className='mt-6 mx-auto' loading='lazy' onClick={() => router.push('/about-us#dr_karishma')}/>
         
         <div className='relative mt-8 text-center'>
           <h2 className='text-5xl md:text-7xl lg:text-8xl text-[#171717] text-center font-bold leading-tight'>
@@ -47,7 +49,7 @@ export const Specialist = () => {
           </div>
 
           <div className="mt-8 w-full flex justify-center">
-            <Button className='bg-[#D4A380] text-white rounded-full gap-x-2' size={'lg'}>
+            <Button className='bg-[#D4A380] text-white rounded-full gap-x-2' size={'lg'} onClick={() => router.push('/#contact')}>
               Book Consultation
               <ArrowRight />
             </Button>
