@@ -23,14 +23,14 @@ const servicesData = [
     url: '/services/laser-hair-removal'
   },
   {
-    title: 'Acne & Acne Scar Treatment',
+    title: 'Acne Treatment',
     description: 'Comprehensive acne treatment and scar reduction therapy for clear, smooth, and healthy skin.',
     coverImageUrl: '/images/services/acne treatment.png',
     iconUrl: '/images/home-service/skin.png',
     url: '/services/acne-treatment'
   },
   {
-    title: 'HydraFacial / Medi Facial',
+    title: 'Hydrafacial Treatment',
     description: 'Deep cleansing and hydrating facial treatment that rejuvenates and revitalizes your skin.',
     coverImageUrl: '/images/services/hydra.png',
     iconUrl: '/images/home-service/skin.png',
@@ -51,14 +51,14 @@ const servicesData = [
     url: '/services/hair-loss-treatment'
   },
   {
-    title: 'Anti-Aging Treatment',
+    title: 'Anti-Ageing Treatment',
     description: 'Comprehensive anti-aging solutions to reduce wrinkles and restore youthful skin appearance.',
     coverImageUrl: '/images/services/anti aging.png',
     iconUrl: '/images/home-service/skin.png',
-    url: '/services/anti-aging-treatment'
+    url: '/services/anti-ageing-treatment'
   },
   {
-    title: 'Chemical Peels',
+    title: 'Chemical Peel',
     description: 'Professional chemical peels to exfoliate and renew skin for a brighter, smoother complexion.',
     coverImageUrl: '/images/services/chemical peel.png',
     iconUrl: '/images/home-service/skin.png',

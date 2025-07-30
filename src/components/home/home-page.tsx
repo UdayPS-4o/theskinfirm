@@ -6,7 +6,6 @@ import { BookYourConsultation } from "@/components/shared/book-your-consultation
 import { Cta } from "@/components/shared/cta";
 import { Cta2 } from "@/components/shared/cta2";
 import { Faq } from "@/components/sections/faq";
-import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/home/hero";
 import CategoriesSection from "@/components/home/categories";
 import { Services } from "@/components/sections/services";
@@ -16,7 +15,7 @@ import { Stats } from "@/components/sections/stats";
 import { SuccessStories } from "@/components/sections/success-stories";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import Map from "@/components/sections/map";
-
+import { VideoTestimonials } from "@/components/sections/video-yt";
 
 
 export default function HomePage() {
@@ -50,10 +49,10 @@ export default function HomePage() {
         {/* <section id="gallery"><AnimatedComponent><Gallery /></AnimatedComponent></section>
         <AnimatedComponent><Stories /></AnimatedComponent> */}
         <AnimatedComponent><Cta2 /></AnimatedComponent>
+        <AnimatedComponent><VideoTestimonials /></AnimatedComponent>
         <AnimatedComponent><Faq /></AnimatedComponent>
         <AnimatedComponent><Map /></AnimatedComponent>
       </main>
-      <Footer />
     </div>
   );
 }

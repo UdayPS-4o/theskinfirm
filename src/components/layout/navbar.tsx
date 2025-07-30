@@ -48,20 +48,9 @@ const SKIN_SERVICE_GROUPS = [
   "Specialty Treatment"
 ];
 
-// Mapping skin service groups to their section IDs for scrolling
-const SKIN_GROUP_TO_SECTION = {
-  "Acne and Acne Scars": "acne-and-acne-scars",
-  "Pigmentation": "pigmentation",
-  "Skin Discoloration": "skin-discoloration",
-  "Aging and Wrinkles": "aging-and-wrinkles",
-  "Skin Texture": "skin-texture",
-  "Other Skin Concerns": "other-skin-concerns",
-  "Facials": "facials",
-  "Chemical Peel": "chemical-peel",
-  "Advanced Skin Treatment": "advanced-skin-treatment",
-  "Lifting and Tightening": "lifting-and-tightening",
-  "Trending Services": "trending-services",
-  "Specialty Treatment": "specialty-treatment"
+// Helper function to generate section slugs
+const getSectionSlug = (sectionName: string): string => {
+  return sectionName.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
 };
 
 const HAIR_SERVICES = [
@@ -210,7 +199,7 @@ export const Navbar = () => {
                 transition={{ delay: index * 0.02, duration: 0.2 }}
               >
                 <Link
-                  href={`/services#_${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
+                  href={`/services#_${getSectionSlug(group)}`}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
                   onMouseEnter={() => handleLinkHover('/services')}
                   onClick={() => {
@@ -429,7 +418,7 @@ export const Navbar = () => {
                                       transition={{ delay: index * 0.03, duration: 0.2 }}
                                     >
                                       <Link
-                                        href={`/services#_${SKIN_GROUP_TO_SECTION[group as keyof typeof SKIN_GROUP_TO_SECTION]}`}
+                                        href={`/services#_${getSectionSlug(group)}`}
                                         className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
                                         onMouseEnter={() => handleLinkHover('/services')}
                                         onClick={closeMobileMenu}
