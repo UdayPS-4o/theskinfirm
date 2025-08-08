@@ -5,6 +5,7 @@ import { Input } from "../ui/input";
 import Link from "next/link";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import ReCAPTCHA from "react-google-recaptcha";
 import {
   Calendar,
   Clock,
@@ -16,8 +17,8 @@ import {
   AlertTriangle,
 } from "lucide-react";
 
-// IMPORTANT: Replace this with the Google Apps Script URL you get after deployment.
-const SCRIPT_URL =
+// Google Apps Script URL from environment variable
+const SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || 
   "https://script.google.com/macros/s/AKfycbxtifUC6ivOWNXKTOPXYXG--2cELn3aoWuAXhKEfnHfubtecVaH9I3fNiU5CvI08KsRYA/exec";
 
 export const BookYourConsultation = () => {
@@ -34,6 +35,8 @@ export const BookYourConsultation = () => {
   const [submissionStatus, setSubmissionStatus] = useState<
     "success" | "error" | null
   >(null);
+  const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const services = [
     // Skin Services
@@ -108,12 +111,19 @@ export const BookYourConsultation = () => {
       return;
     }
 
+    if (!recaptchaValue) {
+      alert("Please complete the reCAPTCHA verification.");
+      setIsSubmitting(false);
+      return;
+    }
+
     const formData = {
       fullName,
       phoneNumber,
       email,
       service: searchTerm,
       additionalInfo,
+      recaptchaToken: recaptchaValue,
     };
 
     try {
@@ -141,6 +151,11 @@ export const BookYourConsultation = () => {
         setEmail("");
         setSearchTerm("");
         setAdditionalInfo("");
+        setRecaptchaValue(null);
+        // Reset reCAPTCHA
+        if (recaptchaRef.current) {
+          recaptchaRef.current.reset();
+        }
       }, 1000); // 1-second delay to allow the request to be sent
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -340,6 +355,16 @@ export const BookYourConsultation = () => {
                   onChange={(e) => setAdditionalInfo(e.target.value)}
                   className="shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC] h-24 sm:h-28"
                   placeholder="Tell us about your skin concerns"
+                />
+              </div>
+              <div className="mt-5 flex justify-center">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LcdQJ8rAAAAAAltx5YO0-BbxhCmvMtWWw6U4MC_"}
+                  onChange={(value) => setRecaptchaValue(value)}
+                  onExpired={() => setRecaptchaValue(null)}
+                  theme="light"
+                  size="normal"
                 />
               </div>
               <div className="mt-5">

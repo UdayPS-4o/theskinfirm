@@ -101,6 +101,11 @@ export default function RootLayout({
   gtag('config', 'G-2D5D0GH7J3');
 `}
         </Script>
+        <Script 
+          src="https://www.google.com/recaptcha/api.js" 
+          async 
+          defer
+        />
         <Navbar/>
         {children}
         <Footer />
