@@ -9,14 +9,22 @@ import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: "About The Skin Firm | Expert Dermatology Clinic in Pune",
-  description: "Discover The Skin Firm's story - Pune's premier skincare clinic. Meet our expert dermatologists, learn about our mission to transform skin health with advanced treatments.",
+  description:
+    "Discover The Skin Firm's story - Pune's premier skincare clinic. Meet our expert dermatologists, learn about our mission to transform skin health with advanced treatments.",
   keywords: [
-    "about The Skin Firm", "dermatology clinic Pune", "skincare experts Pune", "skin specialists",
-    "dermatologist Pune", "skincare clinic story", "beauty clinic about us", "skin treatment experts"
+    "about The Skin Firm",
+    "dermatology clinic Pune",
+    "skincare experts Pune",
+    "skin specialists",
+    "dermatologist Pune",
+    "skincare clinic story",
+    "beauty clinic about us",
+    "skin treatment experts",
   ],
   openGraph: {
     title: "About The Skin Firm | Expert Dermatology Clinic in Pune",
-    description: "Meet the experts behind Pune's premier skincare clinic. Learn about our mission to transform skin health with advanced treatments.",
+    description:
+      "Meet the experts behind Pune's premier skincare clinic. Learn about our mission to transform skin health with advanced treatments.",
     images: [
       {
         url: "/about-us-images/jenny.png",
@@ -39,7 +47,6 @@ export default function AboutUsPage() {
       <KarishmaStorySection />
       <AboutStatsSection />
       <ReviewSection testimonials={testimonials} />
-      <Footer />
     </>
   );
 }

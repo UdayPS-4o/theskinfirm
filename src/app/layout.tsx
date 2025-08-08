@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -103,6 +104,7 @@ export default function RootLayout({
         <Navbar/>
         {children}
         <Footer />
+        <WhatsAppFAB />
       </body>
     </html>
   );
