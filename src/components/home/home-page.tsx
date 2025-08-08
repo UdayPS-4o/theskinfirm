@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { About } from "@/components/sections/about";
 import { AnimatedComponent } from "@/components/shared/animated-component";
@@ -16,7 +16,6 @@ import { SuccessStories } from "@/components/sections/success-stories";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { VideoTestimonials } from "@/components/sections/video-yt";
 
-
 export default function HomePage() {
   return (
     <div className="w-full">
@@ -24,32 +23,51 @@ export default function HomePage() {
         <section id="home" aria-labelledby="hero-heading">
           <Hero />
         </section>
-        <AnimatedComponent><Cta /></AnimatedComponent>
+        <AnimatedComponent>
+          <Cta />
+        </AnimatedComponent>
         {/* <AnimatedComponent><PremiumServices /></AnimatedComponent> */}
         <section id="categories" aria-labelledby="categories-heading">
-          <AnimatedComponent><CategoriesSection /></AnimatedComponent>
+          <AnimatedComponent>
+            <CategoriesSection />
+          </AnimatedComponent>
         </section>
-        <AnimatedComponent><Specialist /></AnimatedComponent>
+        <AnimatedComponent>
+          <Specialist />
+        </AnimatedComponent>
         <section id="services" aria-labelledby="services-heading">
-          <AnimatedComponent><Services /></AnimatedComponent>
+          <AnimatedComponent>
+            <Services />
+          </AnimatedComponent>
         </section>
-        <AnimatedComponent><Stats /></AnimatedComponent>
+        <AnimatedComponent>
+          <Stats />
+        </AnimatedComponent>
         <section id="about" aria-labelledby="about-heading">
-          <AnimatedComponent><About /></AnimatedComponent>
+          <AnimatedComponent>
+            <About />
+          </AnimatedComponent>
         </section>
         <section id="stories" aria-labelledby="stories-heading">
-          <AnimatedComponent><SuccessStories /></AnimatedComponent>
+          <AnimatedComponent>
+            <SuccessStories />
+          </AnimatedComponent>
         </section>
-        <AnimatedComponent><WhyChooseUs /></AnimatedComponent>
-        <section id="contact" aria-labelledby="contact-heading">
-          <AnimatedComponent><BookYourConsultation /></AnimatedComponent>
-        </section>
+        <AnimatedComponent>
+          <WhyChooseUs />
+        </AnimatedComponent>
         {/* <section id="news"><AnimatedComponent><News /></AnimatedComponent></section> */}
         {/* <section id="gallery"><AnimatedComponent><Gallery /></AnimatedComponent></section>
         <AnimatedComponent><Stories /></AnimatedComponent> */}
-        <AnimatedComponent><Cta2 /></AnimatedComponent>
-        <AnimatedComponent><VideoTestimonials /></AnimatedComponent>
-        <AnimatedComponent><Faq /></AnimatedComponent>
+        <AnimatedComponent>
+          <Cta2 />
+        </AnimatedComponent>
+        <AnimatedComponent>
+          <VideoTestimonials />
+        </AnimatedComponent>
+        <AnimatedComponent>
+          <Faq />
+        </AnimatedComponent>
       </main>
     </div>
   );
