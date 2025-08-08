@@ -1,58 +1,54 @@
 "use client";
 
-import type { Metadata } from "next";
 import * as React from "react";
 import { MaxWidthWrapper } from "@/components/layout/max-width";
 import { DashedSeparator } from "@/components/sections/dashed-separator";
 
 const videos = [
   {
+    url: "http://www.youtube.com/watch?v=jQOx4QyGktE",
+    title:
+      "Clear Skin Chronicles: Your Acne-Free Journey with The Skin Firm, Pune | Best Skin Clinic in Pune",
+  },
+  {
+    url: "http://www.youtube.com/watch?v=3GQ9P9_tmUY",
+    title:
+      "Stretch Marks in Pregnancy: Myth-Busting & Comprehensive Treatment Guide | The Skin Firm | PUNE",
+  },
+  {
+    url: "http://www.youtube.com/watch?v=DqsoXfPwvWw",
+    title:
+      "IV Drip Therapy: Achieve Radiant Health and Glowing Skin at The Skin Firm, NIBM, Pune | IV Drip Pune",
+  },
+  {
+    url: "http://www.youtube.com/watch?v=UhkcQlU0ZRQ",
+    title:
+      "Brighter skin in 24 hours | Dr Karishma Singh | The Skin Firm, NIBM, Pune",
+  },
+  {
+    url: "http://www.youtube.com/watch?v=fmB8-4zusV8",
+    title:
+      "How To Get Glowing Skin? | Skincare Routine For Glowing Skin | The Skin Firm, NIBM, Prune",
+  },
+  {
+    title:
+      "Achieve your skin goals with just MEDIFACIALS | Dr Karishma Singh | skin clinic | PUNE",
+    url: "https://www.youtube.com/watch?v=GQFBmyZHS8k",
+  },
+  {
+    title:
+      "How to Repair Your Skin Barrier: Latest Trends & Tips | The Latest Trends in Skin Barrier in PUNE",
+    url: "https://youtu.be/s1W0uM7H5hc?si=2AuDTIhhmvd7a5-r",
+  },
+  {
+    title:
+      "Ultimate Skin Care Routine Guide For Glowing Skin | Top Skin Care Routine Tips - Dr. Karishma Singh",
+    url: "https://youtu.be/fMzUpOtSbYM?si=k6IRzA7hU60p8hQ2",
+  },
+  {
     url: "https://www.youtube.com/watch?v=i9p0tZaVdS4",
-    title: "Top Skincare Trends in Pune",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=fmB8-4zusV8",
-    title: "Must Popular Skincare Treatments",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=jY-7vEx8R3I",
-    title: "5 Trends to Transform Your Skin",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    title: "How To Get Glowing Skin",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=2g811Eo7K8U",
-    title: "How To Achieve Glowing Skin Naturally",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
-    title: "Professional Skincare at Home",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=L_jWHffIx5E",
-    title: "The Ultimate Guide to Skin Lightening",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=9bZkp7q19f0",
-    title: "Skin Brightening Treatment Everything You Need To Know",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
-    title: "Laser Treatment Explained",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=RgBcMBNFkIQ",
-    title: "Chemical Peel Guide",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    title: "My Acne Treatment Journey",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
-    title: "Life-Changing Laser Hair Removal",
+    title:
+      "Top Skincare Trends in Pune | Dr. Karishma Singh | The Skin Firm, NIBM, Pune | Best Skin Clinic Pune",
   },
 ];
 
