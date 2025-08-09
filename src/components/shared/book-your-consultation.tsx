@@ -19,7 +19,7 @@ import {
 
 // Google Apps Script URL from environment variable
 const SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || 
-  "https://script.google.com/macros/s/AKfycbxtifUC6ivOWNXKTOPXYXG--2cELn3aoWuAXhKEfnHfubtecVaH9I3fNiU5CvI08KsRYA/exec";
+  "https://script.google.com/macros/s/AKfycbz79l0pdVYczNBtdBfL1knPANrGviRwXC_erZEWP1--xEoJ469pxQQbA5DEPyxa-j98qg/exec";
 
 export const BookYourConsultation = () => {
   const [searchTerm, setSearchTerm] = useState("");
