@@ -150,23 +150,19 @@ export const Footer = () => {
             <h3 className="text-[#8A7B70] text-xl/relaxed text-start">
               Opening Hours
             </h3>
-            <div className="w-full space-y-3">
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1 lg:gap-4">
-                <p className="text-[#A89689] text-base/relaxed whitespace-nowrap">
-                  Tuesday - Sunday
-                </p>
-                <p className="text-[#8A7B70] text-base/relaxed whitespace-nowrap">
-                  11:00 AM - 8:00 PM
-                </p>
-              </div>
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1 lg:gap-4">
-                <p className="text-[#A89689] text-base/relaxed whitespace-nowrap">
-                  Monday
-                </p>
-                <p className="text-[#8A7B70] text-base/relaxed whitespace-nowrap">
-                  Closed
-                </p>
-              </div>
+            <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 w-full">
+              <span className="text-[#A89689] text-base/relaxed whitespace-nowrap">
+                Tue - Sun
+              </span>
+              <span className="text-[#8A7B70] text-base/relaxed whitespace-nowrap">
+                11AM - 8PM
+              </span>
+              <span className="text-[#A89689] text-base/relaxed whitespace-nowrap">
+                Monday
+              </span>
+              <span className="text-[#8A7B70] text-base/relaxed whitespace-nowrap">
+                Closed
+              </span>
             </div>
           </motion.div>
         </div>
