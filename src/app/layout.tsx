@@ -6,6 +6,109 @@ import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@id": "https://theskinfirm.in/",
+  "@type": "LocalBusiness",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IN",
+    addressLocality: "Pune",
+    addressRegion: "IN",
+    postalCode: "411060",
+    streetAddress:
+      "1st Floor, Plot no.1, Sainik Vihar Society Gate 1, opp Tribeca Highstreet, NIBM Post Office Road, Mohammmed Wadi",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    bestRating: "5",
+    ratingCount: "168",
+    ratingValue: "4.8",
+  },
+  description:
+    "“The Skin Firm is a modern dermatology & skin care clinic in NIBM and Mohammed Wadi, Pune, offering advanced treatments including HydraFacial, skin laser treatment, laser hair removal, acne treatment & acne scar correction, pigmentation therapy, anti-aging solutions, and hair restoration. Rooted in ‘where skin meets science,’ we combine advanced medical technology with a holistic approach—addressing skin, nutrition, and lifestyle. Led by Dr. Karishma Singh, our empathetic team delivers personalized, results-driven care in a comforting environment. Discover radiant, confident skin with us.”",
+  hasMap: "https://maps.google.com/maps?cid=3428824594272079360",
+  image:
+    "https://lh3.googleusercontent.com/GMnEAdN-kbwOnk8n3ponXa_JjgkEs7CHF4HpyBDafZHHs6IWf6Yc7GDQu3e6eeZm8j58F9r00q46ewYFPA=s0",
+  makesOffer: [
+    { "@type": "Offer", name: "Dermatologist" },
+    { "@type": "Offer", name: "Skin care clinic" },
+    { "@type": "Offer", name: "Doctor" },
+    { "@type": "Offer", name: "Hair removal service" },
+    { "@type": "Offer", name: "Laser hair removal service" },
+  ],
+  name: "The Skin Firm Laser Skin & Hair Clinic NIBM Mohammed Wadi",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      closes: "20:00:00",
+      dayOfWeek: "SUNDAY",
+      opens: "10:00:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      closes: "20:00:00",
+      dayOfWeek: "TUESDAY",
+      opens: "10:00:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      closes: "20:00:00",
+      dayOfWeek: "WEDNESDAY",
+      opens: "10:00:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      closes: "20:00:00",
+      dayOfWeek: "THURSDAY",
+      opens: "10:00:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      closes: "20:00:00",
+      dayOfWeek: "FRIDAY",
+      opens: "10:00:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      closes: "20:00:00",
+      dayOfWeek: "SATURDAY",
+      opens: "10:00:00",
+    },
+  ],
+  sameAs: [
+    "https://theskinfirm.in/",
+    "https://uconnect.ae/theskinfirmuser",
+    "https://www.justdial.com/Pune/Skin-Care-Clinics-in-Dorabjees-Royal-Heritage-Mall-Nibm-Kondhwa-Khurd/nct-10438800",
+    "https://www.instagram.com/theskinfirm_official/?hl=en",
+    "https://www.instagram.com/p/C4C6JLuLbk8/?hl=en",
+    "https://www.facebook.com/theskinfirmpune/",
+    "https://viesearch.com/?q=special&p=3020&s=h",
+    "https://www.vevioz.com/theskinfirmuser",
+    "https://uaeplusplus.com/OpenWebsite.aspx?url=theskinfirm.in&ssl=y",
+    "https://www.trueen.com/business/listing/the-skin-firm/524563",
+    "https://sites.suffolk.edu/connormulcahy/2014/03/31/pandoras-promise/",
+    "https://siwansamachar.in/dr-karishma-singh-a-top-skin-specialist-in-pune-offers-the-latest-and-trending-skin-and-hair-treatments-at-the-skin-firm-clinic-with-flawless-results/",
+    "https://republicnewsindia.com/dr-karishma-singh-a-top-skin-specialist-in-pune-offers-the-latest-and-trending-skin-and-hair-treatments-at-the-skin-firm-clinic-with-flawless-results/",
+    "https://pulapuneladies.com/directory/the-skin-firm/",
+    "https://www.palscity.com/theskinfirmuser",
+    "https://www.muamat.com/classifieds/88/posts/1_Services/8_Health_Personal_Trainer/45252260_Discover_Excellence_in_Skincare_with_Dr_Karishma_Singh_Your_Lady_Skin_Specialist_in_NIBM_Pune.html",
+    "http://ecuador.blog.malone.edu/2013/03/kailee-post_6.html",
+    "https://www.freelistingindia.in/listings/the-skin-firm",
+    "https://www.buzzbii.com/theskinfirmuser/likes",
+    "https://tonnesen-wrenn-2.blogbright.net/nighttime-beauty-routines-to-stay-looking-youthful-1731662857/",
+    "https://bizidex.com/en/the-skin-firm-gyms-405142",
+    "https://english.bharatmirror.com/dr-karishma-singh-a-top-skin-specialist-in-pune-offers-the-latest-and-trending-skin-and-hair-treatments-at-the-skin-firm-clinic-with-flawless-results/",
+    "https://bharathlisting.com/listings/maharashtra/pune/page/46",
+    "https://www.articleted.com/article/848797/294006/The-Ultimate-Guide-to-Medi-Facial-Treatments-in-Pune--Unveiling-Radiant-Skin-with-The-Skin-Firm",
+    "https://areporterlive.com/dr-karishma-singh-a-top-skin-specialist-in-pune-offers-the-latest-and-trending-skin-and-hair-treatments-at-the-skin-firm-clinic-with-flawless-results/",
+    "https://www.anibookmark.com/user/skinfirm123.html",
+    "https://addyp.com/listings/maharashtra/page/26",
+  ],
+  telephone: "+91 83086 69966",
+  url: "https://theskinfirm.in/",
+};
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -88,6 +191,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-2D5D0GH7J3"
