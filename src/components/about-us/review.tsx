@@ -15,7 +15,7 @@ interface Testimonial {
 export default function ReviewSection({ testimonials }: { testimonials: Testimonial[] }) {
 
   return (
-    <section className="bg-[color:var(--color-light-background-alt)] px-4 sm:px-6 lg:px-20 py-20 my-10">
+    <section className="bg-[color:var(--color-light-background-alt)] px-4 sm:px-6 lg:px-20 pb-20 my-10">
       <motion.div 
         className="max-w-7xl mx-auto"
         variants={{
@@ -81,9 +81,7 @@ export default function ReviewSection({ testimonials }: { testimonials: Testimon
               transition: { duration: 0.3 }
             }}
           >
-            <span className="bg-gradient-to-r from-[color:var(--color-text-dark-gray)] via-[color:var(--color-text-medium-gray)] to-[color:var(--color-text-dark-gray)] bg-clip-text text-transparent">
-              Meet Our Customers
-            </span>
+           
           </motion.h2>
         </motion.div>
 

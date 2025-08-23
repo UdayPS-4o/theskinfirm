@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/about-us/hero";
 import KarishmaStorySection from "@/components/about-us/story";
-import AboutStatsSection from "@/components/about-us/about-us-stats";
+// import AboutStatsSection from "@/components/about-us/about-us-stats";
 import CompanyAboutSection from "@/components/about-us/company-about";
 import ReviewSection from "@/components/about-us/review";
 import { testimonials } from "@/data/about-us";
@@ -45,7 +45,7 @@ export default function AboutUsPage() {
       <HeroSection />
       <CompanyAboutSection />
       <KarishmaStorySection />
-      <AboutStatsSection />
+      {/* <AboutStatsSection /> */}
       <ReviewSection testimonials={testimonials} />
     </>
   );

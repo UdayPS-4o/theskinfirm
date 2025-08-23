@@ -19,7 +19,7 @@ export const Stats = () => {
         <div className='mx-auto grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4 lg:gap-8'>
           <Stat property='YEARS' value={5} suffix='+' isInView={isInView} delay={0.1} />
           <Stat property='TREATMENTS OFFERED' value={60} suffix='+' isInView={isInView} delay={0.2} />
-          <Stat property='HAPPY PATIENTS' value={2000} suffix='k' isInView={isInView} delay={0.3} />
+          <Stat property='HAPPY PATIENTS' value={3513} suffix='' isInView={isInView} delay={0.3} />
           <a
             href="https://www.google.com/search?q=The+Skin+Firm+%7C+Laser+Skin+%26+Hair+Clinic+NIBM+Mohammed+Wadi+Reviews"
             target="_blank"

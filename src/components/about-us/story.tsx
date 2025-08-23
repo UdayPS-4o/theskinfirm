@@ -7,7 +7,7 @@ import { MaxWidthWrapper } from "../layout/max-width";
 export default function DrKarishmaSection() {
 
   return (
-    <section id="dr_karishma" className="relative bg-[color:var(--color-light-background-alt)] mb-14 px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-16 md:py-18 lg:py-20 overflow-hidden rounded-bl-[75px]">
+    <section id="dr_karishma" className="relative bg-[color:var(--color-light-background-alt)] mb-14 px-4 sm:px-6 md:px-8 lg:px-16 pt-12 sm:pt-16 md:pt-18 lg:pt-20 overflow-hidden rounded-bl-[75px]">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-[color:var(--color-primary-orange)]/30 to-[color:var(--color-primary-brown)]/30 rounded-full blur-3xl"></div>
@@ -146,7 +146,7 @@ export default function DrKarishmaSection() {
                 }}
               >
                 <motion.h5 
-                  className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-[color:var(--color-dark-text)] font-semibold"
+                  className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-black"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {
@@ -159,10 +159,10 @@ export default function DrKarishmaSection() {
                     }
                   }}
                 >
-                  MBBS, MD Dermatology
+                  Skin Specialist
                 </motion.h5>
                 <motion.p 
-                  className="text-sm sm:text-base md:text-lg leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg leading-relaxed text-black"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {
@@ -176,7 +176,7 @@ export default function DrKarishmaSection() {
                   }}
                 >
                   <span className="text-[color:var(--color-light-text)] font-medium">
-                    Co-Founder & Medical Director, 
+                    Co-Founder & Owner, &nbsp;  
                   </span>
                   <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold">
                     The Skin Firm
@@ -201,7 +201,7 @@ export default function DrKarishmaSection() {
               >
                 <div className="space-y-3 sm:space-y-4 md:space-y-4">
                   <motion.p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[color:var(--color-text-dark-blue)] font-medium"
+                    className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
                       visible: {
@@ -209,18 +209,16 @@ export default function DrKarishmaSection() {
                         y: 0,
                         transition: {
                           duration: 0.8,
-                          ease: [0.25, 0.1, 0.25, 1]
-                        }
-                      }
+                          ease: [0.25, 0.1, 0.25, 1],
+                        },
+                      },
                     }}
                   >
-                    <span className="text-[color:var(--color-text-dark-blue)]">Dr. Karishma Singh is a renowned dermatologist and aesthetic physician based in NIBM, Pune, and the visionary co-founder of </span>
-                    <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold">The Skin Firm</span>
-                    <span className="text-[#1c1e53]">. With over five years of focused experience in dermatology and cosmetology, she has helped hundreds of individuals transform their skin and hair with results that are not just visible, but lasting.</span>
+                    Dr. Karishma Singh, owner and co-founder of <span className="text-[color:var(--color-primary-orange)]">The Skin Firm</span>, NIBM Pune, is a highly regarded skin specialist celebrated for her refined approach to skin and hair care. With over five years of specialised expertise, she has helped hundreds achieve radiant, youthful skin and healthy hair through treatments that deliver visible, lasting results.
                   </motion.p>
-                  
+
                   <motion.p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[color:var(--color-text-dark-blue)] font-medium"
+                    className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
                       visible: {
@@ -228,16 +226,16 @@ export default function DrKarishmaSection() {
                         y: 0,
                         transition: {
                           duration: 0.8,
-                          ease: [0.25, 0.1, 0.25, 1]
-                        }
-                      }
+                          ease: [0.25, 0.1, 0.25, 1],
+                        },
+                      },
                     }}
                   >
-                                        Known for her <span className="text-[color:var(--color-primary-orange)] font-semibold">gentle precision</span> and deep understanding of her patients&apos; unique needs, Dr. Karishma blends                     <span className="font-semibold text-[color:var(--color-primary-brown)]">clinical expertise</span> with an artist&apos;s eye, delivering customised treatments that enhance natural beauty and restore skin health from within.
+                    Renowned for her <span className="text-[color:var(--color-primary-orange)]">gentle precision</span> and patient-centric philosophy, Dr. Karishma combines medical excellence with an artistic eye, offering luxury skin treatments, <span className="text-[color:var(--color-primary-orange)]">advanced laser procedures</span>, <span className="text-[color:var(--color-primary-orange)]">anti-ageing solutions</span>, and <span className="text-[color:var(--color-primary-orange)]">hair restoration therapies</span>. Her calm demeanour and ethical approach have established her as one of the most trusted dermatologists in Pune.
                   </motion.p>
-                  
+
                   <motion.p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[color:var(--color-text-dark-blue)] font-medium"
+                    className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
                       visible: {
@@ -245,29 +243,12 @@ export default function DrKarishmaSection() {
                         y: 0,
                         transition: {
                           duration: 0.8,
-                          ease: [0.25, 0.1, 0.25, 1]
-                        }
-                      }
+                          ease: [0.25, 0.1, 0.25, 1],
+                        },
+                      },
                     }}
                   >
-                    She specialises in <span className="text-[color:var(--color-primary-orange)] font-semibold">advanced laser procedures</span>, <span className="text-[#d4a380] font-semibold">anti-ageing treatments</span>, and <span className="text-[#ec7754] font-semibold">                    <span className="text-[color:var(--color-primary-orange)] font-semibold">hair restoration therapies</span></span>, always staying at the forefront of aesthetic innovation. Her calm demeanour, patient-first approach, and commitment to ethical dermatology have made her one of the most trusted skin doctors in Pune.
-                  </motion.p>
-                  
-                  <motion.p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-[14px] leading-relaxed md:leading-[20px] lg:leading-[22px] text-[color:var(--color-text-dark-blue)] font-medium"
-                    variants={{
-                      hidden: { opacity: 0, y: 30 },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.8,
-                          ease: [0.25, 0.1, 0.25, 1]
-                        }
-                      }
-                    }}
-                  >
-                    At <span className="text-transparent bg-gradient-to-r from-[#ec7754] to-[#d4a380] bg-clip-text font-bold">The Skin Firm</span>, Dr. Karishma leads a team that shares her vision to offer honest, effective, and personalised care in a space where clients feel seen, heard, and supported. Every treatment under her guidance is built on the foundation of <span className="text-[#ec7754] font-semibold">science</span>, <span className="text-[#d4a380] font-semibold">empathy</span>, and <span className="text-[#ec7754] font-semibold">long-term well-being</span>.
+                    At <span className="text-[color:var(--color-primary-orange)]">The Skin Firm</span>, Dr. Karishma leads a team committed to delivering premium, personalised care in an elegant, welcoming environment. Every treatment reflects her vision merging cutting-edge <span className="text-[color:var(--color-primary-orange)]">science</span> with <span className="text-[color:var(--color-primary-orange)]">empathy</span> to enhance natural beauty while restoring <span className="text-[color:var(--color-primary-orange)]">long-term&nbsp;skin&nbsp;health.</span>
                   </motion.p>
                 </div>
               </motion.div>
@@ -294,7 +275,7 @@ export default function DrKarishmaSection() {
                 }}
               >
                 <motion.p 
-                  className="text-xs sm:text-xs md:text-xs lg:text-[12px] leading-relaxed md:leading-5 text-black font-medium italic"
+                  className="text-xs sm:text-xs md:text-xs lg:text-[12px] leading-relaxed md:leading-5 text-black italic"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {
@@ -307,9 +288,7 @@ export default function DrKarishmaSection() {
                     }
                   }}
                 >
-                  <span className="text-[#333333]">Whether you&apos;re beginning your skincare journey or seeking expert solutions for advanced concerns, </span>
-                  <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold">Dr. Karishma&apos;s expertise and holistic approach</span>
-                  <span className="text-[#333333]"> make her the partner your skin has been waiting for.</span>
+                  Whether you&apos;re beginning your skincare journey or seeking expert solutions for advanced concerns, Dr. Karishma&apos;s expertise and holistic approach make her the partner your skin has been waiting for.
                 </motion.p>
               </motion.div>
               

@@ -20,7 +20,7 @@ export default function AboutStatsSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 text-center text-[#86796F] font-inter">
           <StatItem value={5} suffix="+" label="YEARS" isInView={isInView} delay={0.1} />
           <StatItem value={60} suffix="+" label="TREATMENTS OFFERED" isInView={isInView} delay={0.2} />
-          <StatItem value={2000} suffix="k" label="HAPPY PATIENTS" isInView={isInView} delay={0.3} />
+          <StatItem value={3513} suffix="" label="HAPPY PATIENTS" isInView={isInView} delay={0.3} />
           <a
             href="https://www.google.com/search?q=The+Skin+Firm+%7C+Laser+Skin+%26+Hair+Clinic+NIBM+Mohammed+Wadi+Reviews"
             target="_blank"

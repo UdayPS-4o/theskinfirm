@@ -122,16 +122,8 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.1, opacity: 1 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="text-3xl font-bold text-[#cb997e]">2000+</div>
-                <div className="text-sm text-[#1C1E53]">Happy Clients</div>
-              </motion.div>
-              <motion.div 
-                className="text-center"
-                whileHover={{ scale: 1.1, opacity: 1 }}
-                transition={{ duration: 0.2 }}
-              >
                 <div className="text-3xl font-bold text-[#cb997e]">5+</div>
-                <div className="text-sm text-[#1C1E53]">Years Experience</div>
+                <div className="text-sm text-[#1C1E53]">YEARS</div>
               </motion.div>
               <motion.div 
                 className="text-center"
@@ -139,11 +131,29 @@ export default function HeroSection() {
                 transition={{ duration: 0.2 }}
               >
                 <div className="text-3xl font-bold text-[#cb997e]">60+</div>
-                <div className="text-sm text-[#1C1E53]">Treatments</div>
+                <div className="text-sm text-[#1C1E53]">TREATMENTS OFFERED</div>
               </motion.div>
-            </motion.div>
-          </motion.div>
-        </div>
+              <motion.div 
+                className="text-center"
+                whileHover={{ scale: 1.1, opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="text-3xl font-bold text-[#cb997e]">3513</div>
+                <div className="text-sm text-[#1C1E53]">HAPPY PATIENTS</div>
+              </motion.div>
+              <Link href="https://www.google.com/search?sca_esv=61e5b843f2feed17&biw=1470&bih=832&sxsrf=AE3TifOMDsKPx7Kh6vF6AuOgmfyuc9Q8sQ:1755975431469&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_gaOLO0JJWs-odF0VvwJ8iCcPj735or90ztUaiok022kMxywU7rNHPilhW4K8hWZRCzL7ixLz2mh1vaqmzGHAcTSo2Dan_5E4MeiAARO1IB-ciambyzMFA-whJhPwFjWireW6fnOnA-Cc7q9v3nD645cxpQ&q=The+Skin+Firm+%7C+Laser+Skin+%26+Hair+Clinic+NIBM+Mohammed+Wadi+Reviews&sa=X&ved=2ahUKEwiq186ezqGPAxXnTmwGHYFmN9IQ0bkNegQIKhAE&cshid=1755975435279699" target="_blank" rel="noopener noreferrer">
+              <motion.div 
+                className="text-center cursor-pointer"
+                whileHover={{ scale: 1.1, opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="text-3xl font-bold text-[#cb997e]">4.9</div>
+                <div className="text-sm text-[#1C1E53] underline">RATING ON GOOGLE</div>
+              </motion.div>
+            </Link>
+           </motion.div>
+         </motion.div>
+       </div>
       </MaxWidthWrapper>
     </section>
   );

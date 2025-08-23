@@ -5,8 +5,6 @@ import { MaxWidthWrapper } from "../layout/max-width";
 
 export default function CompanyAboutSection() {
 
-
-
   return (
     <section className="relative bg-gradient-to-br from-[color:var(--color-light-background-alt)] via-white to-[color:var(--color-light-background)] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
       {/* Background decorative elements */}
@@ -48,7 +46,7 @@ export default function CompanyAboutSection() {
             }}
           >
             <motion.h3 
-               className="text-sm sm:text-base md:text-lg lg:text-[22px] leading-tight lg:leading-[28px] text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-semibold text-center tracking-wider"
+               className="text-sm sm:text-base md:text-lg lg:text-[22px] leading-tight lg:leading-[28px] text-black text-center tracking-wider"
                variants={{
                  hidden: { opacity: 0, y: 30 },
                  visible: {
@@ -65,7 +63,7 @@ export default function CompanyAboutSection() {
              </motion.h3>
             
             <motion.h1 
-               className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] leading-tight lg:leading-[60px] text-[color:var(--color-text-dark-gray)] font-bold text-center tracking-tight"
+               className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] leading-tight lg:leading-[60px] text-black text-center tracking-tight"
                variants={{
                  hidden: { opacity: 0, y: 30 },
                  visible: {
@@ -78,9 +76,7 @@ export default function CompanyAboutSection() {
                  }
                }}
              >
-               <span className="bg-gradient-to-r from-[color:var(--color-text-dark-gray)] via-[color:var(--color-text-medium-gray)] to-[color:var(--color-text-dark-gray)] bg-clip-text text-transparent">
-                 The Skin Firm
-               </span>
+               The Skin Firm
              </motion.h1>
           </motion.div>
           
@@ -118,7 +114,7 @@ export default function CompanyAboutSection() {
              >
                <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-primary-orange)]/10 via-[color:var(--color-primary-brown)]/5 to-[color:var(--color-primary-orange)]/10 rounded-2xl backdrop-blur-sm"></div>
                <motion.h4 
-                 className="relative text-xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-center font-medium italic"
+                 className="relative text-xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-center text-black italic"
                  variants={{
                    hidden: { opacity: 0, y: 30 },
                    visible: {
@@ -131,9 +127,7 @@ export default function CompanyAboutSection() {
                    }
                  }}
                >
-                 <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-brown)] via-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text">
-                   &ldquo;Where Skin Meets Science, and Self-Care Feels Like Home&rdquo;
-                 </span>
+                 &ldquo;Where Skin Meets Science, and Self-Care Feels Like Home&rdquo;
                </motion.h4>
              </motion.div>
             
@@ -153,7 +147,7 @@ export default function CompanyAboutSection() {
               }}
             >
               <motion.p 
-                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-[color:var(--color-text-medium-gray)] font-medium"
+                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                  variants={{
                    hidden: { opacity: 0, y: 30 },
                    visible: {
@@ -166,15 +160,13 @@ export default function CompanyAboutSection() {
                    }
                  }}
                >
-                 <span className="text-[color:var(--color-text-medium-gray)]">At</span>
-                 <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold"> The Skin Firm,</span>
-                 <span className="text-[color:var(--color-text-medium-gray)]">
-                   {" "}we believe that great skin isn&apos;t just about looking good—it&apos;s about feeling deeply confident in your skin.
-                 </span>
+                 At
+                 <span className="text-[color:var(--color-primary-orange)]"> The Skin Firm,</span>
+                 we believe that great skin isn&apos;t just about looking good—it&apos;s about feeling deeply confident in your skin.
                </motion.p>
               
               <motion.p 
-                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-[color:var(--color-text-light-gray)]"
+                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                  variants={{
                    hidden: { opacity: 0, y: 30 },
                    visible: {
@@ -187,11 +179,11 @@ export default function CompanyAboutSection() {
                    }
                  }}
                >
-                 Founded in Pune by <span className="font-semibold text-[color:var(--color-primary-orange)]">Dr. Karishma Singh</span>, The Skin Firm is a modern dermatology and aesthetic clinic rooted in precision care, ethical practices, and personalised results. Every treatment here is designed to go beyond the surface, addressing not just the symptom, but the story behind your skin.
+                 Founded in Pune by <span className="text-[color:var(--color-primary-orange)]">Dr. Karishma Singh</span>, The Skin Firm is a modern dermatology and aesthetic clinic rooted in precision care, ethical practices, and personalised results. Every treatment here is designed to go beyond the surface, addressing not just the symptom, but the story behind your skin.
                </motion.p>
               
               <motion.p 
-                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-[#555555]"
+                 className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                  variants={{
                    hidden: { opacity: 0, y: 30 },
                    visible: {
@@ -204,11 +196,11 @@ export default function CompanyAboutSection() {
                    }
                  }}
                >
-                 We combine <span className="font-semibold text-[color:var(--color-primary-brown)]">cutting-edge technology</span> with a warm, welcoming environment where every client feels heard, valued, and cared for. From advanced laser treatments to gentle skincare solutions, we&apos;re here to help you achieve the <span className="font-semibold text-[color:var(--color-primary-orange)]">healthy, radiant skin</span> you deserve.
+                 We combine <span className="text-[color:var(--color-primary-orange)]">cutting-edge technology</span> with a warm, welcoming environment where every client feels heard, valued, and cared for. From advanced laser treatments to gentle skincare solutions, we&apos;re here to help you achieve the <span className="text-[color:var(--color-primary-orange)]">healthy, radiant skin</span> you deserve.
                </motion.p>
               
               <motion.p 
-                className="text-sm sm:text-base md:text-lg lg:text-lg leading-5 sm:leading-6 md:leading-6 lg:leading-6 text-[color:var(--color-dark-text)]"
+                className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                 variants={{
                   hidden: { opacity: 0, y: 30 },
                   visible: {
@@ -221,9 +213,7 @@ export default function CompanyAboutSection() {
                   }
                 }}
               >
-                <span className="text-[color:var(--color-dark-text)] font-medium">
-                  We specialise in advanced dermatological and aesthetic treatments including laser therapies, skin rejuvenation, anti-ageing solutions, acne and pigmentation correction, and hair restoration. Our clinic blends medical-grade technology with an artistic understanding of beauty, ensuring your results look natural, not overdone.
-                </span>
+                We specialise in advanced dermatological and aesthetic treatments including laser therapies, skin rejuvenation, anti-ageing solutions, acne and pigmentation correction, and hair restoration. Our clinic blends medical-grade technology with an artistic understanding of beauty, ensuring your results look natural, not overdone.
               </motion.p>
             </motion.div>
             
@@ -249,14 +239,12 @@ export default function CompanyAboutSection() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <motion.p 
-                className="text-sm sm:text-base md:text-lg lg:text-lg leading-4 sm:leading-5 md:leading-5 lg:leading-5 uppercase text-[#333333] text-center"
+                className="text-sm sm:text-base md:text-lg lg:text-lg leading-4 sm:leading-5 md:leading-5 lg:leading-5 uppercase text-black text-center"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
-                <span className="text-[color:var(--color-dark-text)] font-semibold">
-                  But what truly sets us apart is the way we treat people
-                </span>
+                But what truly sets us apart is the way we treat people
               </motion.p>
             </motion.div>
             
