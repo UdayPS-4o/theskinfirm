@@ -21,7 +21,13 @@ export default function AboutStatsSection() {
           <StatItem value={5} suffix="+" label="YEARS" isInView={isInView} delay={0.1} />
           <StatItem value={60} suffix="+" label="TREATMENTS OFFERED" isInView={isInView} delay={0.2} />
           <StatItem value={2000} suffix="k" label="HAPPY PATIENTS" isInView={isInView} delay={0.3} />
-          <StatItem value={4.8} suffix="" label="RATING ON GOOGLE" isInView={isInView} delay={0.4} />
+          <a
+            href="https://www.google.com/search?q=The+Skin+Firm+%7C+Laser+Skin+%26+Hair+Clinic+NIBM+Mohammed+Wadi+Reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <StatItem value={4.9} suffix="" label="RATING ON GOOGLE" isInView={isInView} delay={0.4} />
+          </a>
         </div>
       </motion.section>
     </MaxWidthWrapper>

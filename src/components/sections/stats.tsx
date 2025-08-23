@@ -13,14 +13,20 @@ export const Stats = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className='w-full mt-24 flex justify-center'
+      className='w-full mt-12 flex justify-center'
     >
       <div className='max-w-7xl w-full bg-[#F9EFE7] rounded-tl-4xl rounded-br-4xl md:rounded-tl-[100px] md:rounded-br-[100px] xl:rounded-tl-[1000px] xl:rounded-br-[1000px] py-12 px-4'>
         <div className='mx-auto grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4 lg:gap-8'>
           <Stat property='YEARS' value={5} suffix='+' isInView={isInView} delay={0.1} />
           <Stat property='TREATMENTS OFFERED' value={60} suffix='+' isInView={isInView} delay={0.2} />
           <Stat property='HAPPY PATIENTS' value={2000} suffix='k' isInView={isInView} delay={0.3} />
-          <Stat property='RATING ON GOOGLE' value={4.8} suffix='' isInView={isInView} delay={0.4} />
+          <a
+            href="https://www.google.com/search?q=The+Skin+Firm+%7C+Laser+Skin+%26+Hair+Clinic+NIBM+Mohammed+Wadi+Reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Stat property='RATING ON GOOGLE' value={4.9} suffix='' isInView={isInView} delay={0.4} />
+          </a>
         </div>
       </div>
     </motion.div>

@@ -150,7 +150,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                <Link href="/#contact">
+                <Link href="/contact">
                   <button className="w-full sm:w-auto rounded-lg px-4 md:px-[22px] py-3 md:py-[15px] bg-[#d4a380] text-white font-medium text-base md:text-lg flex items-center justify-center gap-2 hover:bg-[#c19970] hover:scale-105 transition-all duration-300 hover:shadow-lg">
                     Book Consultation
                     <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />

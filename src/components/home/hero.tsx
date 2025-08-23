@@ -32,7 +32,7 @@ export const Hero = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="mt-6 flex flex-col sm:flex-row items-center sm:items-start gap-3 lg:gap-6"
                 >
-                  <Link href="#contact" className="w-full sm:w-auto" aria-label="Book a consultation with our skincare specialists">
+                  <Link href="/contact" className="w-full sm:w-auto" aria-label="Book a consultation with our skincare specialists">
                     <Button
                       size={'lg'}
                       className='w-full sm:w-auto lg:w-fit flex flex-row items-center justify-center gap-x-3.5 text-white hover:bg-[#D4A380]/90 rounded-[48px] bg-[#d4a380] py-[14px] px-[30px] !px-[30px] !py-[14px] h-[54px] min-h-[54px] text-center'
@@ -68,14 +68,14 @@ export const Hero = () => {
                 <div className='relative col-span-1 sm:col-span-3 rounded-2xl min-h-[280px] lg:min-h-[355px] w-full max-w-[400px] mx-auto lg:max-w-none lg:mx-0 bg-cover bg-center p-4 lg:p-6 flex flex-col justify-between overflow-hidden'>
                   <Image src="/hero-offer-bg.png" alt="Special offer background with skincare treatment imagery" fill className="object-cover rounded-2xl" priority style={{zIndex: 0}}/>
                   <div className='flex flex-row items-center justify-between w-full relative z-10'>
-                    <Link href="/#contact">
+                    <Link href="/contact">
                       <Button size={'lg'} className='py-3 lg:py-4 px-5 lg:px-7 rounded-full flex flex-row items-center gap-x-3.5 bg-transparent text-[#151515] hover:bg-gray-100 border-[#151515] border text-sm lg:text-base' aria-label="View special offer details">
                         <span className='leading-6 lg:leading-7'>
                           Special Offer
                         </span>
                       </Button>
                     </Link>
-                    <Link href="/#contact">
+                    <Link href="/contact">
                       <Button className='rounded-full bg-white hover:bg-gray-100 p-2 lg:p-3' aria-label="Learn more about special offer">
                         <ArrowUpRight className='text-[#D4A380] w-6 lg:w-8 h-auto' aria-hidden="true" />
                       </Button>

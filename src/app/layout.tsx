@@ -23,7 +23,7 @@ const jsonLd = {
     "@type": "AggregateRating",
     bestRating: "5",
     ratingCount: "168",
-    ratingValue: "4.8",
+    ratingValue: "4.9",
   },
   description:
     "“The Skin Firm is a modern dermatology & skin care clinic in NIBM and Mohammed Wadi, Pune, offering advanced treatments including HydraFacial, skin laser treatment, laser hair removal, acne treatment & acne scar correction, pigmentation therapy, anti-aging solutions, and hair restoration. Rooted in ‘where skin meets science,’ we combine advanced medical technology with a holistic approach—addressing skin, nutrition, and lifestyle. Led by Dr. Karishma Singh, our empathetic team delivers personalized, results-driven care in a comforting environment. Discover radiant, confident skin with us.”",

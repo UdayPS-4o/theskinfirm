@@ -295,7 +295,7 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`py-4 lg:py-4 w-full bg-[#FBEDE4] sticky top-0 z-50 transition-all duration-300 ${
+      className={`py-4 lg:py-4 w-full bg-[#e3caab] sticky top-0 z-50 transition-all duration-300 ${
         isScrolled ? "shadow-lg backdrop-blur-sm bg-[#FBEDE4]/95" : ""
       }`}
     >
@@ -308,12 +308,13 @@ export const Navbar = () => {
           className="flex-shrink-0"
         >
           <Link href="/">
-            <Image
-              src="/logo.svg"
+            <img
+              src="/logo.png"
               alt="The Skin FirmLogo"
               width={220}
-              height={57}
-              className="h-10 lg:h-14"
+              height={60}
+              className="py-3"
+              // className="h-10 lg:h-20"
             />
           </Link>
         </motion.div>

@@ -106,29 +106,34 @@ export const Footer = () => {
               Contact Us
             </h3>
             <div className="flex flex-col items-start justify-start gap-y-4">
-              <div className="inline-flex items-center gap-x-4">
-                <Link
-                  href="tel:+918308669966"
-                  className="p-3 rounded-full bg-[#F9EEE7]"
-                >
+              <Link
+                href="tel:+918308669966"
+                className="inline-flex items-center gap-x-4"
+              >
+                <div className="p-3 rounded-full bg-[#F9EEE7]">
                   <Phone className="size-5" color="#D4A380" />
-                </Link>
+                </div>
                 <p className="text-[#A89689] text-base/relaxed hover:opacity-80">
                   +91 8308669966
                 </p>
-              </div>
-              <div className="inline-flex items-center gap-x-4">
-                <Link
-                  href={"mailto:theskinfirmclinic@gmail.com"}
-                  className="p-3 rounded-full bg-[#F9EEE7]"
-                >
+              </Link>
+              <Link
+                href={"mailto:theskinfirmclinic@gmail.com"}
+                className="inline-flex items-center gap-x-4"
+              >
+                <div className="p-3 rounded-full bg-[#F9EEE7]">
                   <Mail className="size-5" color="#D4A380" />
-                </Link>
+                </div>
                 <p className="text-[#A89689] text-base/relaxed hover:opacity-80">
                   theskinfirmclinic@gmail.com
                 </p>
-              </div>
-              <div className="inline-flex items-start gap-x-4">
+              </Link>
+              <Link
+                href="https://www.google.com/maps?ll=18.46312,73.906915&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=9089425673850961578"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-start gap-x-4"
+              >
                 <div className="p-3 flex-shrink-0 bg-[#F9EEE7] rounded-full">
                   <MapPin className="size-5" color="#D4A380" />
                 </div>
@@ -137,7 +142,7 @@ export const Footer = () => {
                   opp. Tribeca Highstreet, Sainik Vihar, Jarande Nagar, Mohammed
                   Wadi, Pune, Maharashtra 411060
                 </p>
-              </div>
+              </Link>
             </div>
           </motion.div>
 
