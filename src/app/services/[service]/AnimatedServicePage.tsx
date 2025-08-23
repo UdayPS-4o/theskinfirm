@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ServiceData {
   hero: {
@@ -180,8 +181,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     isVisible("hero-right") ? "scale-100" : "scale-95"
                   }`}
                 >
-                  <img
-                    src={"/Dr-Karishma-Singh-The-Skin-Firm-Pune2.png"}
+                  <Image
+                    src={"/images/dr/Karishma_Singh.png"}
+                    width={504}
+                    height={355}
                     alt={"Dr. Karishma Singh"}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
