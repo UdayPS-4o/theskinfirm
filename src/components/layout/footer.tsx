@@ -129,7 +129,7 @@ export const Footer = () => {
                 </p>
               </Link>
               <Link
-                href="https://www.google.com/maps?ll=18.46312,73.906915&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=9089425673850961578"
+                href="https://www.google.com/maps/place/The+Skin+Firm+%7C+Laser+Skin+%26+Hair+Clinic+NIBM+Mohammed+Wadi/@18.4775982,73.9058603,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2eb03805470a7:0x2f95a1cd42b5ce00!8m2!3d18.4775982!4d73.9084352!16s%2Fg%2F11tn_8x08m?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-start gap-x-4"
