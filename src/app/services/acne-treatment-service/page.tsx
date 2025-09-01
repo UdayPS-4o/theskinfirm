@@ -74,7 +74,7 @@ const AcneTreatmentClientPage = () => {
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  Professional Acne Treatment in Pune
+                  Acne Treatment in Pune - Clear Skin, Real Confidence with The Skin Firm
                 </h1>
                 <h4
                   className={`text-base sm:text-lg md:text-xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${
@@ -83,7 +83,7 @@ const AcneTreatmentClientPage = () => {
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  Clear skin solutions with advanced dermatologist-led treatments for acne, breakouts, and post-acne concerns.
+                  Expert dermatologist-led solutions for pimples, acne scars & breakouts.
                 </h4>
               </div>
               <div
@@ -151,7 +151,106 @@ const AcneTreatmentClientPage = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* What Is Acne? Section */}
+      <section className="py-12 md:py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col gap-8 md:gap-12">
+            <div
+              id="what-is-acne-header"
+              data-animate
+              className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
+                isVisible("what-is-acne-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
+            >
+              <h2
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6 transform transition-all duration-700 delay-200 ease-out ${
+                  isVisible("what-is-acne-header")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                }`}
+              >
+                What Is Acne?
+              </h2>
+              <p
+                className={`text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] transform transition-all duration-700 delay-300 ease-out ${
+                  isVisible("what-is-acne-header")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                }`}
+              >
+                Acne is a common skin condition that occurs when hair follicles get clogged with oil, dead skin cells, and bacteria. This leads to pimples, blackheads, whiteheads, or deeper, painful bumps that may cause scarring or pigmentation if left untreated.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Signs & Symptoms of Acne Section */}
+      <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col gap-8 md:gap-12">
+            <div
+              id="symptoms-header"
+              data-animate
+              className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
+                isVisible("symptoms-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
+            >
+              <h2
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-8 transform transition-all duration-700 delay-200 ease-out ${
+                  isVisible("symptoms-header")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                }`}
+              >
+                Signs & Symptoms of Acne
+              </h2>
+            </div>
+            <div
+              id="symptoms-grid"
+              data-animate
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+            >
+              {[
+                "Whiteheads (closed clogged pores)",
+                "Blackheads (open clogged pores)",
+                "Small red, tender bumps (papules)",
+                "Pimples with pus (pustules)",
+                "Large, painful lumps under the skin (nodules)",
+                "Cystic lesions filled with pus (cysts)",
+                "Oily skin and shiny appearance",
+                "Redness, swelling, or inflammation",
+                "Dark spots or scars after breakouts"
+              ].map((symptom, index) => (
+                <div
+                  key={index}
+                  className={`rounded-[10px] border border-[color:var(--color-light-border)] p-4 md:p-5 bg-white flex flex-row items-start gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
+                    isVisible("symptoms-grid")
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${300 + index * 100}ms` }}
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[color:var(--color-primary-brown)]/20 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-[color:var(--color-primary-brown)]"></div>
+                    </div>
+                  </div>
+                  <p className="text-sm md:text-base leading-[20px] md:leading-[22px] text-black flex-1">
+                    {symptom}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Acne Treatment at The Skin Firm? Section */}
       <section className="py-12 md:py-[100px] px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
@@ -177,15 +276,15 @@ const AcneTreatmentClientPage = () => {
                   : "translate-x-10 opacity-0"
               }`}
             >
-              <h4
-                className={`text-xl md:text-2xl uppercase text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+              <h2
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                   isVisible("about-content")
                     ? "translate-y-0 opacity-100"
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                What is Professional Acne Treatment?
-              </h4>
+                Why Choose Acne Treatment at The Skin Firm?
+              </h2>
               <p
                 className={`text-sm leading-[22px] text-[color:var(--color-dark-text)] font-medium transform transition-all duration-700 delay-400 ease-out ${
                   isVisible("about-content")
@@ -193,17 +292,26 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                At The Skin Firm, our Acne Treatment is designed by dermatologist protocols that target acne at its root, not just the surface. Whether you're dealing with active breakouts, hormonal acne, or persistent post-acne marks, this treatment is tailored to your skin's unique condition. Combining clinical-grade technology with medical-grade formulations, our approach reduces inflammation, clears clogged pores, balances oil production, and prevents future flare-ups.
+                Struggling with breakouts, acne scars, or oily skin? We know how frustrating it feels to hide blemishes with makeup, avoid photos, and try endless products without success.
+              </p>
+              <p
+                className={`text-sm leading-[22px] text-[color:var(--color-dark-text)] font-medium transform transition-all duration-700 delay-500 ease-out ${
+                  isVisible("about-content")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                }`}
+              >
+                At The Skin Firm, we treat acne at its root - whether it's hormonal imbalance, excess oil, inflammation, or clogged pores - so you can finally enjoy smooth, confident skin.
               </p>
               <div
-                className={`rounded-[10px] px-5 py-4 bg-[color:var(--color-light-background)] transform transition-all duration-700 delay-500 ease-out hover:scale-105 hover:shadow-md ${
+                className={`rounded-[10px] px-5 py-4 bg-[color:var(--color-light-background)] transform transition-all duration-700 delay-600 ease-out hover:scale-105 hover:shadow-md ${
                   isVisible("about-content")
                     ? "translate-y-0 opacity-100"
                     : "translate-y-5 opacity-0"
                 }`}
               >
                 <p className="text-sm leading-5 text-black">
-                  Our acne solutions are ideal for everyone - teens, adults, or even those with sensitive or acne-prone skin who haven't found success with over-the-counter products.
+                  Recognized as one of the best dermatologists for acne in Pune, Dr. Karishma Singh leads every treatment plan with care and precision. As a trusted acne care clinic in Pune, we provide safe, advanced, and proven solutions for every skin type.
                 </p>
               </div>
             </div>
@@ -240,7 +348,7 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Process of Acne Treatment
+                How Our Acne Treatment Works
               </h2>
             </div>
             <div
@@ -249,11 +357,10 @@ const AcneTreatmentClientPage = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
             >
               {[
-                { title: "Skin Analysis & Consultation", description: "A detailed skin assessment by our in-house dermatologists to understand acne type, severity, and triggers." },
-                { title: "Deep Pore Cleansing", description: "We utilise advanced medical facials, gentle peels, or hydra-technology to eliminate impurities and decongest pores." },
-                { title: "Targeted Treatment", description: "Application of anti-inflammatory actives, acne-fighting ingredients like salicylic acid or retinoids, and procedures such as chemical peels, laser therapy, or comedone extraction as per the dermatologist's prescription." },
-                { title: "LED Light or Laser Sessions", description: "Cutting-edge technology to reduce bacteria, calm inflammation, and accelerate healing." },
-                { title: "Customised Aftercare Plan", description: "A personalised home regimen with medical-grade products to continue results and prevent relapse." }
+                { title: "Skin Consultation & Analysis", description: "A detailed assessment of your acne type, severity, and triggers." },
+                { title: "Personalised Acne Care Plan", description: "Your customised plan may include medicated facials, chemical peel for acne in Pune, laser therapy, LED light therapy, or a combination approach." },
+                { title: "Advanced Procedure", description: "Sessions are comfortable, with minimal downtime. Treatments may include deep cleansing, gentle exfoliation, targeted active ingredients, and laser treatment for acne scars in Pune to accelerate healing and prevent recurrence." },
+                { title: "Aftercare & Maintenance", description: "We equip you with dermatologist-approved skincare and lifestyle guidance to maintain clear skin long-term." }
               ].map((step, index) => (
                 <div
                   key={index}
@@ -334,7 +441,7 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Benefits of Acne Treatment
+                Benefits of Acne Treatment at The Skin Firm
               </h2>
             </div>
             <div
@@ -343,12 +450,11 @@ const AcneTreatmentClientPage = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"
             >
               {[
-                "Reduces active acne, whiteheads, blackheads, and cysts",
-                "Controls excess sebum and bacteria buildup",
-                "Fades acne marks and pigmentation over time",
-                "Suitable for all skin types, including sensitive skin",
-                "Customizable plans based on the severity of acne",
-                "Medical supervision ensures safe and visible results"
+                "Clears active acne and prevents new breakouts",
+                "Reduces redness, swelling & inflammation",
+                "Fades post-acne marks and pigmentation",
+                "Controls excess oil, improves texture & tone",
+                "Boosts confidence with clear, radiant skin"
               ].map((benefit, index) => (
                 <div
                   key={index}
@@ -423,93 +529,54 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Downtime & Post-Care
+                Downtime After Acne Treatments
               </h2>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[84px]">
-              {/* Downtime Information */}
+            <div className="max-w-4xl mx-auto">
+              {/* Downtime and Post-Care Information */}
               <div
-                id="postcare-downtime"
+                id="postcare-content"
                 data-animate
-                className={`flex flex-col gap-4 transform transition-all duration-1000 delay-400 ease-out ${
-                  isVisible("postcare-downtime")
-                    ? "translate-x-0 opacity-100"
-                    : "-translate-x-10 opacity-0"
+                className={`flex flex-col gap-6 transform transition-all duration-1000 delay-400 ease-out ${
+                  isVisible("postcare-content")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
                 }`}
               >
-                <h5 className="text-xl text-[color:var(--color-dark-text)] font-semibold">
-                  Downtime Information
-                </h5>
-                <div className="rounded-[10px] border border-[color:var(--color-light-background)] p-5 bg-[color:var(--color-light-background-alt)] flex flex-col gap-[30px] hover:shadow-lg transition-shadow duration-300">
-                  {[
-                    "Reactions may vary from minimal, depending on the treatment used.",
-                    "Some redness, dryness, or mild peeling may occur for 1–3 days, especially after chemical peels or extractions."
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${
-                        isVisible("postcare-downtime")
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-5 opacity-0"
-                      }`}
-                      style={{ transitionDelay: `${600 + index * 100}ms` }}
-                    >
-                      <div className="w-[30px] h-[30px] flex-shrink-0">
-                        <img
-                          src="/alert-circle.svg"
-                          alt="Alert"
-                          className="w-full h-full"
-                        />
+                <p className="text-base leading-[22px] text-black mb-6">
+                  Reactions may vary from minimal, depending on the treatment used. Some redness, dryness, or mild peeling may occur for 1–3 days, especially after chemical peels or extractions.
+                </p>
+                <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+                  <h3 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6">Post-Care After Acne Treatments</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[
+                      "Avoid direct sun exposure and always use a broad-spectrum SPF.",
+                      "Refrain from picking or exfoliating treated areas.",
+                      "Follow the prescribed skincare routine, including moisturisers and spot treatments.",
+                      "Schedule regular follow-ups to enhance results and maintain long-term skin clarity."
+                    ].map((item, index) => (
+                      <div
+                        key={index}
+                        className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${
+                          isVisible("postcare-content")
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-5 opacity-0"
+                        }`}
+                        style={{ transitionDelay: `${600 + index * 100}ms` }}
+                      >
+                        <div className="w-[30px] h-[30px] flex-shrink-0">
+                          <img
+                            src="/post-care.svg"
+                            alt="Post Care"
+                            className="w-full h-full"
+                          />
+                        </div>
+                        <p className="text-base leading-[22px] text-black">
+                          {item}
+                        </p>
                       </div>
-                      <p className="text-base leading-[22px] text-black">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Post-Care Information */}
-              <div
-                id="postcare-info"
-                data-animate
-                className={`flex flex-col gap-[30px] transform transition-all duration-1000 delay-500 ease-out ${
-                  isVisible("postcare-info")
-                    ? "translate-x-0 opacity-100"
-                    : "translate-x-10 opacity-0"
-                }`}
-              >
-                <h5 className="text-xl text-[color:var(--color-dark-text)] font-semibold">
-                  Post-Care Information
-                </h5>
-                <div className="flex flex-col gap-[30px]">
-                  {[
-                    "Avoid direct sun exposure and always use a broad-spectrum SPF.",
-                    "Refrain from picking or exfoliating treated areas.",
-                    "Follow the prescribed skincare routine, including moisturisers and spot treatments.",
-                    "Schedule regular follow-ups to enhance results and maintain long-term skin clarity."
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${
-                        isVisible("postcare-info")
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-5 opacity-0"
-                      }`}
-                      style={{ transitionDelay: `${700 + index * 100}ms` }}
-                    >
-                      <div className="w-[30px] h-[30px] flex-shrink-0">
-                        <img
-                          src="/post-care.svg"
-                          alt="Post Care"
-                          className="w-full h-full"
-                        />
-                      </div>
-                      <p className="text-base leading-[22px] text-black">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
