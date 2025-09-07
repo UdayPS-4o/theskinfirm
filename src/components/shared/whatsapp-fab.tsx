@@ -3,7 +3,7 @@
 import React from "react";
 
 export const WhatsAppFAB = () => {
-  const phoneNumber = "918308660965"; // Replace with your actual WhatsApp business number
+  const phoneNumber = "918308669966"; 
   const message =
     "Hello! I would like to know more about your skincare treatments.";
 
