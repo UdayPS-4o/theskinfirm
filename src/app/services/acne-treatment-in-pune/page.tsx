@@ -49,14 +49,14 @@ const AcneTreatmentClientPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="px-4 md:px-8 lg:px-[100px] py-8 md:py-12 lg:py-20 bg-[color:var(--color-light-background)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col xl:flex-row justify-between items-center gap-6 md:gap-8 xl:gap-12">
-            {/* Left Content */}
+      <section className="relative bg-[color:var(--color-light-background)]">
+        <div className="flex flex-col xl:flex-row min-h-[500px] xl:min-h-[600px]">
+          {/* Left Content */}
+          <div className="flex items-center justify-center xl:w-1/2 px-4 md:px-8 lg:px-[100px] py-8 md:py-12 lg:py-20">
             <div
               id="hero-left"
               data-animate
-              className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full xl:w-[511px] transform transition-all duration-1000 ease-out ${
+              className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full max-w-[511px] transform transition-all duration-1000 ease-out ${
                 isVisible("hero-left")
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
@@ -72,16 +72,35 @@ const AcneTreatmentClientPage = () => {
                 >
                   ACNE & SKIN CARE
                 </small>
-                <h1
-                  className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                    isVisible("hero-left")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
-                  }`}
-                >
-                  Acne Treatment in Pune - Clear Skin, Real Confidence with The
-                  Skin Firm
-                </h1>
+                <div className="flex flex-col gap-1">
+                  <h1
+                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out whitespace-nowrap ${
+                      isVisible("hero-left")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                    }`}
+                  >
+                    Acne Treatment in Pune
+                  </h1>
+                  <h2
+                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-350 ease-out whitespace-nowrap ${
+                      isVisible("hero-left")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                    }`}
+                  >
+                    Clear Skin, Real Confidence
+                  </h2>
+                  <h3
+                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-400 ease-out whitespace-nowrap ${
+                      isVisible("hero-left")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                    }`}
+                  >
+                    With The Skin Firm
+                  </h3>
+                </div>
                 <h4
                   className={`text-base sm:text-lg md:text-xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${
                     isVisible("hero-left")
@@ -113,47 +132,26 @@ const AcneTreatmentClientPage = () => {
                 </Link>
               </div>
             </div>
+          </div>
 
-            {/* Right Content */}
-            <div
-              id="hero-right"
-              data-animate
-              className={`flex flex-col items-center xl:items-end w-full xl:w-[523px] relative transform transition-all duration-1000 delay-300 ease-out ${
-                isVisible("hero-right")
-                  ? "translate-x-0 opacity-100"
-                  : "translate-x-10 opacity-0"
-              }`}
-            >
-              <div className="relative">
-                <div
-                  className={`shadow-lg rounded-full border-4 md:border-8 border-[color:var(--color-light-background)] w-full max-w-[400px] md:max-w-[450px] xl:max-w-[504px] h-[250px] sm:h-[280px] md:h-[320px] xl:h-[355px] mx-auto transform transition-all duration-700 delay-600 ease-out hover:scale-105 overflow-hidden ${
-                    isVisible("hero-right") ? "scale-100" : "scale-95"
-                  }`}
-                >
-                  <Image
-                    src={"/images/dr/Karishma_Singh.png"}
-                    width={504}
-                    height={355}
-                    alt={"Dr. Karishma Singh"}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-                <div
-                  className={`absolute -bottom-2 md:-bottom-4 right-2 md:right-4 xl:right-0 shadow-lg rounded-lg border border-[color:var(--color-light-border)] p-3 md:p-4 bg-white max-w-[150px] md:max-w-[178px] transform transition-all duration-700 delay-800 ease-out hover:scale-105 ${
-                    isVisible("hero-right")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
-                  }`}
-                >
-                  <div className="text-xs md:text-[13.6px] font-medium text-[color:var(--color-dark-text)]">
-                    Dr. Karishma Singh
-                  </div>
-                  <div className="text-[10px] md:text-[11.9px] text-[color:var(--color-light-text)]">
-                    Skin Specialist
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Right Content - Full Edge-to-Edge */}
+          <div
+            id="hero-right"
+            data-animate
+            className={`relative xl:w-1/2 min-h-[400px] xl:min-h-full transform transition-all duration-1000 delay-300 ease-out ${
+              isVisible("hero-right")
+                ? "translate-x-0 opacity-100"
+                : "translate-x-10 opacity-0"
+            }`}
+          >
+            <Image
+              src={"/TSF-Hero-Section.png"}
+              fill
+              alt={"Acne Treatment Collage"}
+              className="object-cover"
+            />
+            {/* Left edge blur/fade overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-light-background)] via-[color:var(--color-light-background)]/80 via-20% to-transparent to-40% pointer-events-none"></div>
           </div>
         </div>
       </section>
