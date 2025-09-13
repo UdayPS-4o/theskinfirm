@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
+import Head from "next/head";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -47,7 +48,76 @@ const AcneTreatmentClientPage = () => {
   const isVisible = (sectionId: string) => visibleSections.has(sectionId);
 
   return (
-    <div className="min-h-screen">
+    <>
+      <Head>
+        <title>Acne Treatment in Pune | Best Dermatologist for Pimples & Scars</title>
+        <meta name="description" content="Clear pimples, scars & acne with expert dermatologist-led treatments in Pune. The Skin Firm offers safe, customised acne solutions. Book your consultation today!" />
+        <meta name="keywords" content="acne treatment in Pune, best dermatologist for acne in Pune, acne scar treatment Pune, pimples treatment Pune, chemical peel for acne Pune, laser treatment for acne scars Pune, acne care clinic in Pune" />
+        <meta name="author" content="The Skin Firm" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Acne Treatment in Pune | Best Dermatologist for Pimples & Scars" />
+        <meta property="og:description" content="Clear pimples, scars & acne with expert dermatologist-led treatments in Pune. The Skin Firm offers safe, customised acne solutions. Book your consultation today!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://theskinfirm.com/services/acne-treatment-in-pune" />
+        <meta property="og:image" content="https://theskinfirm.com/TSF-Hero-Section.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Acne Treatment in Pune | Best Dermatologist for Pimples & Scars" />
+        <meta name="twitter:description" content="Clear pimples, scars & acne with expert dermatologist-led treatments in Pune. The Skin Firm offers safe, customised acne solutions. Book your consultation today!" />
+        <meta name="twitter:image" content="https://theskinfirm.com/TSF-Hero-Section.png" />
+        <link rel="canonical" href="https://theskinfirm.com/services/acne-treatment-in-pune" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MedicalBusiness",
+              "name": "The Skin Firm",
+              "description": "Best acne treatment clinic in Pune offering expert dermatologist-led solutions for pimples, acne scars and breakouts.",
+              "url": "https://theskinfirm.com/services/acne-treatment-in-pune",
+              "telephone": "+91-XXX-XXX-XXXX",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Mohammad Wadi, NIBM Road",
+                "addressLocality": "Pune",
+                "addressRegion": "Maharashtra",
+                "postalCode": "411048",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 18.4595,
+                "longitude": 73.8958
+              },
+              "openingHours": "Mo-Sa 09:00-18:00",
+              "medicalSpecialty": "Dermatology",
+              "areaServed": ["Pune", "Camp", "Undri", "Pisoli", "Kondhwa", "Hadapsar", "Wanowrie", "Handewadi", "Lullanagar"],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Acne Treatment Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "MedicalProcedure",
+                      "name": "Acne Treatment in Pune",
+                      "description": "Comprehensive acne treatment including medicated facials, chemical peels, and laser therapy"
+                    }
+                  },
+                  {
+                    "@type": "Offer", 
+                    "itemOffered": {
+                      "@type": "MedicalProcedure",
+                      "name": "Acne Scar Treatment Pune",
+                      "description": "Advanced laser treatment for acne scars and pigmentation"
+                    }
+                  }
+                ]
+              }
+            })
+          }}
+        />
+      </Head>
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-[color:var(--color-light-background)]">
         <div className="flex flex-col xl:flex-row min-h-[500px] xl:min-h-[600px]">
@@ -74,32 +144,24 @@ const AcneTreatmentClientPage = () => {
                 </small>
                 <div className="flex flex-col gap-1">
                   <h1
-                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out whitespace-nowrap ${
+                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                       isVisible("hero-left")
                         ? "translate-y-0 opacity-100"
                         : "translate-y-5 opacity-0"
                     }`}
                   >
-                    Acne Treatment in Pune
+                    <span className="block whitespace-nowrap">Acne Treatment in Pune</span>
+                    <span className={`block whitespace-nowrap transform transition-all duration-700 delay-350 ease-out ${
+                      isVisible("hero-left")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                    }`}>Clear Skin, Real Confidence</span>
+                    <span className={`block whitespace-nowrap transform transition-all duration-700 delay-400 ease-out ${
+                      isVisible("hero-left")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                    }`}>With The Skin Firm</span>
                   </h1>
-                  <h2
-                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-350 ease-out whitespace-nowrap ${
-                      isVisible("hero-left")
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-5 opacity-0"
-                    }`}
-                  >
-                    Clear Skin, Real Confidence
-                  </h2>
-                  <h3
-                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-400 ease-out whitespace-nowrap ${
-                      isVisible("hero-left")
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-5 opacity-0"
-                    }`}
-                  >
-                    With The Skin Firm
-                  </h3>
                 </div>
                 <h4
                   className={`text-base sm:text-lg md:text-xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${
@@ -426,7 +488,7 @@ const AcneTreatmentClientPage = () => {
       <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12">
-            Types of Acne & Pimple Treatments We Offer in Pune
+            Types of Acne Treatments We Offer in Pune
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -590,9 +652,9 @@ const AcneTreatmentClientPage = () => {
                   days, especially after chemical peels or extractions.
                 </p>
                 <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                  <h3 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6">
+                  <h2 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6">
                     Post-Care After Acne Treatments
-                  </h3>
+                  </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {[
                       "Avoid direct sun exposure and always use a broad-spectrum SPF.",
@@ -871,7 +933,7 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Real Acne Transformations <span className="whitespace-nowrap">(Before & After)</span>
+                Before & After Results - Acne Transformations
               </h2>
               <p
                 className={`text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed transform transition-all duration-700 delay-400 ease-out ${
@@ -938,7 +1000,7 @@ const AcneTreatmentClientPage = () => {
               ---------- Testimonials ----------
             </h4>
             <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-center text-[color:var(--color-dark-text)] font-semibold mb-12">
-              Patient Testimonials for Acne & Pimples Treatment Pune
+              Patient Testimonials for Acne Treatments
             </h2>
           </div>
           <div
@@ -1078,7 +1140,7 @@ const AcneTreatmentClientPage = () => {
               <DashedSeparator />
             </div>
             <h2 className="mt-2 text-[#333333] text-3xl lg:text-5xl font-semibold text-center">
-              Frequently Asked Questions
+              FAQs on Acne Treatment in Pune
             </h2>
             <Accordion type="single" collapsible className="mt-10">
               {[
@@ -1197,7 +1259,8 @@ const AcneTreatmentClientPage = () => {
           </Link>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 
