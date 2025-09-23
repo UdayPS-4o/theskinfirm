@@ -4,18 +4,18 @@ import { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Helper from "./helper";
 
-type TabKey = "skin" | "hair" | "laser";
+type TabKey = "skin" | "hair" | "laser" | "general";
 
 // Extract search params logic into separate component
 function ServicePageContent() {
   const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState<TabKey>("skin");
+  const [activeTab, setActiveTab] = useState<TabKey>("general");
   const servicesRef = useRef<HTMLElement>(null);
 
   // Handle URL search params for tab selection
   useEffect(() => {
     const tabParam = searchParams.get("tab") as TabKey;
-    if (tabParam && ["skin", "hair", "laser"].includes(tabParam)) {
+    if (tabParam && ["skin", "hair", "laser", "general"].includes(tabParam)) {
       setActiveTab(tabParam);
     }
   }, [searchParams]);
@@ -89,6 +89,31 @@ function ServicePageContent() {
                 <div className="flex w-full mx-auto mb-6 sm:mb-8 md:mb-10 relative">
                   {/* Bottom border line */}
                   <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-[color:var(--color-light-border-alt)]"></div>
+
+                  {/* General Services Tab */}
+                  <div
+                    className={`flex flex-col gap-3 sm:gap-4 md:gap-6 items-center flex-1 relative w-full cursor-pointer min-w-0 transition-all duration-300 pb-3 sm:pb-4`}
+                    onClick={() => handleTabChange("general")}
+                  >
+                    <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-center px-2 transition-all duration-300">
+                      <span
+                        className={`whitespace-nowrap transition-all duration-300 ${
+                          activeTab === "general"
+                            ? "font-semibold text-[color:var(--color-primary-brown)]"
+                            : "font-normal text-[color:var(--color-light-text)] hover:text-[color:var(--color-primary-brown)]"
+                        }`}
+                      >
+                        All Services
+                      </span>
+                    </h4>
+                    <div
+                      className={`absolute bottom-0 left-0 right-0 h-[3px] bg-[color:var(--color-primary-brown)] transition-all duration-300 ${
+                        activeTab === "general"
+                          ? "opacity-100 scale-x-100"
+                          : "opacity-0 scale-x-0"
+                      }`}
+                    ></div>
+                  </div>
 
                   {/* Skin Services Tab */}
                   <div
@@ -209,10 +234,18 @@ function ServicePageFallback() {
                   <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 items-center flex-1 relative w-full cursor-pointer min-w-0 transition-all duration-300 pb-3 sm:pb-4">
                     <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-center px-2">
                       <span className="whitespace-nowrap font-semibold text-[#d4a380]">
-                        Skin Services
+                        All Services
                       </span>
                     </h4>
                     <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#d4a380]"></div>
+                  </div>
+
+                  <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 items-center flex-1 relative w-full cursor-pointer min-w-0 transition-all duration-300 pb-3 sm:pb-4">
+                    <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-center px-2">
+                      <span className="whitespace-nowrap font-normal text-[#8a7b70]">
+                        Skin Services
+                      </span>
+                    </h4>
                   </div>
 
                   <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 items-center flex-1 relative w-full cursor-pointer min-w-0 transition-all duration-300 pb-3 sm:pb-4">
@@ -236,7 +269,7 @@ function ServicePageFallback() {
           </div>
 
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8">
-            <Helper activeTab="skin" />
+            <Helper activeTab="general" />
           </div>
         </section>
       </main>

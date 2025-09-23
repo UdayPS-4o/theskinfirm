@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import treatmentsData from '@/data/treatments.json';
+import newServicesData from '@/data/services.json';
 
-type TabKey = "skin" | "hair" | "laser";
+type TabKey = "skin" | "hair" | "laser" | "general";
 
 interface HelperProps {
   activeTab: TabKey;
@@ -18,22 +19,40 @@ const MotionImage = motion(Image);
 const Helper: React.FC<HelperProps> = ({ activeTab }) => {
   const router = useRouter();
 
-  const [currentData, setCurrentData] = useState(treatmentsData[activeTab]);
+  const [currentData, setCurrentData] = useState(treatmentsData[activeTab as keyof typeof treatmentsData]);
   const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
+
+  const allData = {
+      ...treatmentsData,
+      general: {
+          sections: [
+              {
+                  title: "All Services",
+                  treatments: newServicesData.map(service => ({
+                      title: service.title,
+                      description: service.content.split('\n')[2], // A short description from the content
+                      imageSrc: `/images/services/acne treatment.png` // A default image
+                  }))
+              }
+          ]
+      }
+  }
 
   // Initialize all sections as expanded when data changes
   useEffect(() => {
     const initialExpanded: {[key: string]: boolean} = {};
-    treatmentsData[activeTab].sections.forEach((section) => {
+    const dataToUse = activeTab === 'general' ? allData.general : treatmentsData[activeTab as keyof typeof treatmentsData];
+    dataToUse.sections.forEach((section) => {
       initialExpanded[section.title] = true; // All sections start uncollapsed
     });
     setExpandedSections(initialExpanded);
   }, [activeTab]);
 
   useEffect(() => {
-    if (currentData !== treatmentsData[activeTab]) {
+    const dataToUse = activeTab === 'general' ? allData.general : treatmentsData[activeTab as keyof typeof treatmentsData];
+    if (currentData !== dataToUse) {
       const timer = setTimeout(() => {
-        setCurrentData(treatmentsData[activeTab]);
+        setCurrentData(dataToUse as any);
       }, 300);
 
       return () => clearTimeout(timer);
@@ -50,13 +69,23 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
   const handleCardClick = (treatmentTitle: string) => {
     // Convert treatment title to URL-friendly format
     const serviceSlug = treatmentTitle.toLowerCase().replace(/\s+/g, '-');
-    router.push(`/services/${serviceSlug}`);
+    const newService = newServicesData.find(s => s.slug.includes(serviceSlug))
+    if(newService) {
+        router.push(`/services/${newService.slug}`);
+    } else {
+        router.push(`/services/${serviceSlug}`);
+    }
   };
 
   const handleCardHover = (treatmentTitle: string) => {
     // Preload the service page on hover
     const serviceSlug = treatmentTitle.toLowerCase().replace(/\s+/g, '-');
-    router.prefetch(`/services/${serviceSlug}`);
+    const newService = newServicesData.find(s => s.slug.includes(serviceSlug))
+    if(newService) {
+        router.prefetch(`/services/${newService.slug}`);
+    } else {
+        router.prefetch(`/services/${serviceSlug}`);
+    }
   };
 
   return (
