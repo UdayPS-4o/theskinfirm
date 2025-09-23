@@ -19,63 +19,45 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
   const router = useRouter();
 
   const [currentData, setCurrentData] = useState(treatmentsData[activeTab]);
-  const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
-
-  // Initialize all sections as expanded when data changes
-  useEffect(() => {
-    const initialExpanded: {[key: string]: boolean} = {};
-    treatmentsData[activeTab].sections.forEach((section) => {
-      initialExpanded[section.title] = true; // All sections start uncollapsed
-    });
-    setExpandedSections(initialExpanded);
-  }, [activeTab]);
-
-  useEffect(() => {
-    if (currentData !== treatmentsData[activeTab]) {
-      const timer = setTimeout(() => {
-        setCurrentData(treatmentsData[activeTab]);
-      }, 300);
-
+  const [currentData, setCurrentData] = useState(treatmentsData[activeTab as keyof typeof treatmentsData]);
       return () => clearTimeout(timer);
     }
   }, [activeTab, currentData]);
-
-  const toggleSection = (sectionTitle: string) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [sectionTitle]: !prev[sectionTitle]
-    }));
-  };
-
-  const handleCardClick = (treatmentTitle: string) => {
-    // Convert treatment title to URL-friendly format
-    const serviceSlug = treatmentTitle.toLowerCase().replace(/\s+/g, '-');
-    router.push(`/services/${serviceSlug}`);
-  };
-
-  const handleCardHover = (treatmentTitle: string) => {
-    // Preload the service page on hover
+      ...treatmentsData,
+      general: {
+          sections: [
+              {
+                  title: "All Services",
+                  treatments: newServicesData.map(service => ({
+                      title: service.title,
+                      description: service.content.split('\n')[2], // A short description from the content
+                      imageSrc: `/images/services/acne treatment.png` // A default image
+                  }))
+              }
+          ]
+      }
+  }
     const serviceSlug = treatmentTitle.toLowerCase().replace(/\s+/g, '-');
     router.prefetch(`/services/${serviceSlug}`);
   };
 
-  return (
+    const dataToUse = activeTab === 'general' ? allData.general : treatmentsData[activeTab as keyof typeof treatmentsData];
     <div className="flex flex-col gap-[20px] w-full">
       {currentData.sections.map((section) => {
         const isExpanded = expandedSections[section.title] ?? true;
         
-        return (
+  }, [activeTab]);
           <div
             key={section.title}
-            id={section.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}
+    const dataToUse = activeTab === 'general' ? allData.general : treatmentsData[activeTab as keyof typeof treatmentsData];
             className="mb-[20px] last:mb-0"
           >
-            <div className="ignore target relative top-[-100px]" id={'_'+section.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}></div>
+        setCurrentData(dataToUse as any);
             <div className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[26px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full">
               <div 
                 className="flex items-center justify-between cursor-pointer"
                 onClick={() => toggleSection(section.title)}
-              >
+  }, [activeTab, currentData]);
                 <h2 className="text-[color:var(--color-primary-brown)] text-[24px] font-semibold leading-[24px] uppercase m-0">
                   {section.title}
                 </h2>
@@ -85,10 +67,13 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                   viewBox="0 0 30 30"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                >
-                  <path
-                    d="M25 20L15 10L5 20"
+    // Convert treatment title to URL-friendly format
+    const serviceSlug = treatmentTitle.toLowerCase().replace(/\s+/g, '-');
+    const newService = newServicesData.find(s => s.slug.includes(serviceSlug))
+    if(newService) {
+        router.push(`/services/${newService.slug}`);
+    } else {
+        router.push(`/services/${serviceSlug}`);
                     stroke="var(--color-dark-text)"
                     strokeWidth="2.5"
                     strokeLinecap="round"

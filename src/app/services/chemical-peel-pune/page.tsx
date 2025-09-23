@@ -1,21 +1,23 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState, useRef } from "react";
 
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionTrigger } from "@/components/ui/accordion";
+import { AccordionItem } from "@radix-ui/react-accordion";
 import { DashedSeparator } from "@/components/sections/dashed-separator";
 import { MaxWidthWrapper } from "@/components/layout/max-width";
 
 // Import the JSON content
-import contentData from './acne-treatment-content.json';
-import type { AcneTreatmentContent } from './types';
+import contentData from './content.json';
+import { ChemicalPeelContent } from '../shared-types';
+// Force recompilation to apply shared types
 
-const AcneTreatmentClientPage = () => {
+const ChemicalPeelClientPage = () => {
   // Type assertion for the imported JSON data
-  const typedContentData = contentData as AcneTreatmentContent;
+  const typedContentData = contentData as ChemicalPeelContent;
 
   // Safe function to render text with markdown-style bold formatting
   const renderTextWithBold = (text: string) => {
@@ -60,11 +62,6 @@ const AcneTreatmentClientPage = () => {
 
   return (
     <>
-      <head>
-        <title>{typedContentData.meta.title}</title>
-        <meta name="description" content={typedContentData.meta.description} />
-        <meta name="keywords" content={typedContentData.meta.keywords} />
-      </head>
       <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-[color:var(--color-light-background)]">
@@ -108,7 +105,8 @@ const AcneTreatmentClientPage = () => {
                       : "translate-y-5 opacity-0"
                   }`}
                   dangerouslySetInnerHTML={{ __html: renderTextWithBold(typedContentData.hero.subtitle) }}
-                />
+                >
+                </h4>
               </div>
               <div
                 className={`flex flex-col sm:flex-row gap-3 md:gap-5 transform transition-all duration-700 delay-500 ease-out ${
@@ -174,7 +172,7 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                {typedContentData.whatIsAcne.title}
+                {typedContentData.whatIsService.title}
               </h2>
               <p
                 className={`text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
@@ -183,7 +181,7 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                {typedContentData.whatIsAcne.content}
+                {typedContentData.whatIsService.content}
               </p>
             </div>
           </div>
@@ -1076,4 +1074,4 @@ const AcneTreatmentClientPage = () => {
   );
 };
 
-export default AcneTreatmentClientPage;
+export default ChemicalPeelClientPage;

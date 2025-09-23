@@ -5,17 +5,18 @@ import React, { useEffect, useState, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionTrigger } from "@/components/ui/accordion";
+import { AccordionItem } from "@radix-ui/react-accordion";
 import { DashedSeparator } from "@/components/sections/dashed-separator";
 import { MaxWidthWrapper } from "@/components/layout/max-width";
 
 // Import the JSON content
-import contentData from './acne-treatment-content.json';
-import type { AcneTreatmentContent } from './types';
+import contentData from './content.json';
+import type { OpenPoresTreatmentContent } from '../shared-types';
 
-const AcneTreatmentClientPage = () => {
+const OpenPoresTreatmentClientPage = () => {
   // Type assertion for the imported JSON data
-  const typedContentData = contentData as AcneTreatmentContent;
+  const typedContentData = contentData as OpenPoresTreatmentContent;
 
   // Safe function to render text with markdown-style bold formatting
   const renderTextWithBold = (text: string) => {
@@ -60,11 +61,6 @@ const AcneTreatmentClientPage = () => {
 
   return (
     <>
-      <head>
-        <title>{typedContentData.meta.title}</title>
-        <meta name="description" content={typedContentData.meta.description} />
-        <meta name="keywords" content={typedContentData.meta.keywords} />
-      </head>
       <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-[color:var(--color-light-background)]">
@@ -88,7 +84,7 @@ const AcneTreatmentClientPage = () => {
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  ACNE & SKIN CARE
+                  OPEN PORES TREATMENT
                 </small>
                 <div className="flex flex-col gap-1">
                   <h1
@@ -108,7 +104,8 @@ const AcneTreatmentClientPage = () => {
                       : "translate-y-5 opacity-0"
                   }`}
                   dangerouslySetInnerHTML={{ __html: renderTextWithBold(typedContentData.hero.subtitle) }}
-                />
+                >
+                </h4>
               </div>
               <div
                 className={`flex flex-col sm:flex-row gap-3 md:gap-5 transform transition-all duration-700 delay-500 ease-out ${
@@ -145,7 +142,7 @@ const AcneTreatmentClientPage = () => {
             <Image
               src={"/TSF-Hero-Section.png"}
               fill
-              alt={"Acne Treatment Collage"}
+              alt={"Open Pores Treatment"}
               className="object-cover"
             />
             {/* Left edge blur/fade overlay */}
@@ -154,43 +151,43 @@ const AcneTreatmentClientPage = () => {
         </div>
       </section>
 
-      {/* What Is Acne? Section */}
+      {/* What Is Section */}
       <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-8 md:gap-12">
             <div
-              id="what-is-acne-header"
+              id="what-is-header"
               data-animate
               className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
-                isVisible("what-is-acne-header")
+                isVisible("what-is-header")
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
               }`}
             >
               <h2
                 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("what-is-acne-header")
+                  isVisible("what-is-header")
                     ? "translate-y-0 opacity-100"
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                {typedContentData.whatIsAcne.title}
+                {typedContentData.whatIsService.title}
               </h2>
               <p
                 className={`text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
-                  isVisible("what-is-acne-header")
+                  isVisible("what-is-header")
                     ? "translate-y-0 opacity-100"
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                {typedContentData.whatIsAcne.content}
+                {typedContentData.whatIsService.content}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Signs & Symptoms of Acne Section */}
+      {/* Signs & Symptoms Section */}
       <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-8 md:gap-12">
@@ -243,7 +240,7 @@ const AcneTreatmentClientPage = () => {
         </div>
       </section>
 
-      {/* Why Choose Acne Treatment at The Skin Firm? Section */}
+      {/* Why Choose Us Section */}
       <section className="py-12 md:py-[100px] px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
@@ -252,7 +249,7 @@ const AcneTreatmentClientPage = () => {
                 id="about-image"
                 data-animate
                 src="/images/services/acne treatment.png"
-                alt="Professional Acne Treatment Process"
+                alt="Professional Treatment Process"
                 className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${
                   isVisible("about-image")
                     ? "translate-x-0 opacity-100"
@@ -492,7 +489,6 @@ const AcneTreatmentClientPage = () => {
               </h2>
             </div>
             <div className="max-w-4xl mx-auto">
-              {/* Downtime and Post-Care Information */}
               <div
                 id="postcare-content"
                 data-animate
@@ -507,7 +503,7 @@ const AcneTreatmentClientPage = () => {
               </p>
                 <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
                   <h2 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6">
-                    Post-Care After Acne Treatments
+                    Post-Care Instructions
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {typedContentData.postCare.tips.map((item, index) => (
@@ -540,7 +536,7 @@ const AcneTreatmentClientPage = () => {
         </div>
       </section>
 
-      {/* Why The Skin Firm is Pune's Trusted Acne Clinic */}
+      {/* Why The Skin Firm Section */}
       <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-12 md:gap-16">
@@ -569,7 +565,7 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                {"Why The Skin Firm is Pune's Trusted Acne Clinic"}
+                {"Why The Skin Firm is Pune's Trusted Clinic"}
               </h2>
             </div>
             <div
@@ -663,7 +659,7 @@ const AcneTreatmentClientPage = () => {
                 },
                 {
                   title: "Proven Track Record",
-                  text: "thousands of happy acne-free patients",
+                  text: "thousands of happy patients",
                   icon: (
                     <svg
                       width="40"
@@ -753,7 +749,7 @@ const AcneTreatmentClientPage = () => {
         </div>
       </section>
 
-      {/* Real Acne Transformations (Before & After) */}
+      {/* Before & After Results */}
       <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-12 md:gap-16">
@@ -782,7 +778,7 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Before & After Results - Acne Transformations
+                Before & After Results
               </h2>
               <p
                 className={`text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed transform transition-all duration-700 delay-400 ease-out ${
@@ -791,8 +787,7 @@ const AcneTreatmentClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Swipe through real patient journeys that show reduced breakouts,
-                calmer skin, and fading post-acne marks over time.
+                Real patient transformations showing the effectiveness of our treatments.
               </p>
             </div>
             <div
@@ -805,9 +800,9 @@ const AcneTreatmentClientPage = () => {
               }`}
             >
               {[
-                { src: "/gallery/2.png", alt: "Acne Scars Treatment" },
-                { src: "/gallery/4.png", alt: "Acne Marks Treatment" },
-                { src: "/gallery/9.png", alt: "Under Eye Treatment" },
+                { src: "/gallery/2.png", alt: "Treatment Results" },
+                { src: "/gallery/4.png", alt: "Treatment Results" },
+                { src: "/gallery/9.png", alt: "Treatment Results" },
               ].map((image, index) => (
                 <div
                   key={index}
@@ -857,7 +852,7 @@ const AcneTreatmentClientPage = () => {
             data-animate
             className="grid grid-cols-1 lg:grid-cols-2 gap-8"
           >
-            {typedContentData.testimonials.reviews.map((text, index) => (
+            {typedContentData.testimonials.reviews.map((review, index) => (
               <div
                 key={index}
                 className={`relative bg-white p-6 md:p-8 rounded-2xl border border-[color:var(--color-light-border)] shadow-lg overflow-hidden transform transition-all duration-700 ease-out hover:shadow-xl hover:-translate-y-2 ${
@@ -868,10 +863,10 @@ const AcneTreatmentClientPage = () => {
                 style={{ transitionDelay: `${400 + index * 150}ms` }}
               >
                 <div className="absolute -top-6 -left-2 text-[64px] text-[color:var(--color-primary-brown)]/20 select-none">
-                  “
+                  "
                 </div>
                 <p className="italic text-[color:var(--color-dark-text)] leading-relaxed">
-                  {`“${text}”`}
+                  {typeof review === 'string' ? `"${review}"` : `"${review.review}"`}
                 </p>
                 <div className="mt-6 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[color:var(--color-primary-brown)]/20"></div>
@@ -882,73 +877,6 @@ const AcneTreatmentClientPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Related Videos */}
-      {/*
-      <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col gap-12 md:gap-16">
-            <div
-              id="videos-header"
-              data-animate
-              className={`text-center max-w-[700px] mx-auto transform transition-all duration-1000 ease-out ${
-                isVisible("videos-header")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-            >
-              <h4
-                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("videos-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-              >
-                ---------- Educational Videos ----------
-              </h4>
-              <h2
-                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4 transform transition-all duration-700 delay-300 ease-out ${
-                  isVisible("videos-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                } md:whitespace-nowrap`}
-              >
-                Related Acne & Pimples Treatment Videos
-              </h2>
-              <p
-                className={`text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed transform transition-all duration-700 delay-400 ease-out ${
-                  isVisible("videos-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                } md:whitespace-nowrap`}
-              >
-                Watch Dr. Karishma explain how we personalise acne care and see what to expect in a session.
-              </p>
-            </div>
-            <div
-              id="videos-grid"
-              data-animate
-              className={`transform transition-all duration-1000 delay-500 ease-out ${
-                isVisible("videos-grid")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-            >
-              <div className="rounded-lg overflow-hidden shadow-lg group">
-                <iframe
-                  src="https://www.youtube.com/embed/s64-J_nE3w4"
-                  title="How to get rid of acne scars?"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full aspect-video"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      */}
 
       {/* Who can benefit */}
       <section className="py-12 mt-10 md:py-20 px-4 md:px-8">
@@ -971,7 +899,7 @@ const AcneTreatmentClientPage = () => {
         </div>
       </section>
 
-      {/* FAQ Section (Accordion format for consistency) */}
+      {/* FAQ Section */}
       <section className="py-12 md:py-20 px-4 md:px-8">
         <MaxWidthWrapper>
           <div className="mx-6 lg:mx-24">
@@ -1008,7 +936,7 @@ const AcneTreatmentClientPage = () => {
            <p className="mb-4">
              At The Skin Firm, we proudly serve patients not only from Mohammad
              Wadi and NIBM Road, but also from several nearby areas in Pune who
-             visit us for trusted acne treatment, skin care, and hair solutions.
+             visit us for trusted treatments, skin care, and hair solutions.
            </p>
            <p className="mb-6 font-medium">
              Many of our patients travel to our clinic from:
@@ -1037,7 +965,7 @@ const AcneTreatmentClientPage = () => {
           </div>
           <p>
             Our convenient location makes it easy for people across South Pune
-            and Central Pune to access advanced acne treatments and other
+            and Central Pune to access advanced treatments and other
             dermatology services under the expert care of Dr. Karishma Singh.
           </p>
         </div>
@@ -1050,23 +978,22 @@ const AcneTreatmentClientPage = () => {
       >
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold mb-6 text-[color:var(--color-dark-text)]">
-            Book Your Acne Consultation at The Skin Firm, NIBM, Mohammad Wadi,
-            Pune
+            Book Your Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune
           </h2>
           <p className="mb-6 text-[color:var(--color-dark-text)]">
-            Don’t let acne hold back your confidence. At The Skin Firm, we
-            understand how breakouts and scars can affect not just your skin,
-            but also the way you feel about yourself. With Dr. Karishma Singh’s
-            expert care and customized acne treatments, clearer skin - and
+            Don't let skin concerns hold back your confidence. At The Skin Firm, we
+            understand how skin issues can affect not just your appearance,
+            but also the way you feel about yourself. With Dr. Karishma Singh's
+            expert care and customized treatments, healthier skin - and
             renewed confidence - can truly be yours.
           </p>
           <p className="font-semibold mb-8 text-[color:var(--color-dark-text)]">
-            Appointments fill quickly. Start your journey to clear, confident
-            skin today.
+            Appointments fill quickly. Start your journey to healthier,
+            confident skin today.
           </p>
           <Link href="/contact">
             <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
-              Book Your Acne Treatment Appointment →
+              Book Your Treatment Appointment â†’
             </button>
           </Link>
         </div>
@@ -1076,4 +1003,4 @@ const AcneTreatmentClientPage = () => {
   );
 };
 
-export default AcneTreatmentClientPage;
+export default OpenPoresTreatmentClientPage;
