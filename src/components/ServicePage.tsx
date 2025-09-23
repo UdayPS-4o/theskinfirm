@@ -80,19 +80,7 @@ const ServicePage = ({ service }: ServicePageProps) => {
 
   const heroContent = getSectionContent("Hero Section", service.content);
   const whatIsContent = getSectionContent("What Is", service.content);
-  const signsContent = getSectionContent("Signs &", service.content);
-  const whyChooseContent = getSectionContent("Why Choose", service.content);
-  const howItWorksContent = getSectionContent("How Our .* Works", service.content);
-  const typesContent = getSectionContent("Types of .* We Offer", service.content);
-  const benefitsContent = getSectionContent("Benefits of", service.content);
-  const downtimeContent = getSectionContent("Downtime After", service.content);
-  const postCareContent = getSectionContent("Post-Care After", service.content);
-  const whyTheSkinFirmContent = getSectionContent("Why The Skin Firm is", service.content);
-  const transformationsContent = getSectionContent("Before & After", service.content);
-  const testimonialsContent = getSectionContent("Patient Testimonials", service.content);
-  const whoCanBenefitContent = getSectionContent("Who Can Benefit", service.content);
   const faqs = getFaqs(service.content);
-  const finalCtaContent = getSectionContent("Book Your .* Consultation", service.content);
   const metaTitle = service.content.match(/Meta Title.*?\n(.*?)\n/)?.[1] || service.title;
   const metaDescription = service.content.match(/Meta Description.*?\n(.*?)\n/)?.[1] || "Read more about " + service.title;
   const keywords = service.content.match(/Keywords\n([\s\S]*?)(?=\n\n|##)/)?.[1] || "";
