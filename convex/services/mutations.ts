@@ -55,11 +55,13 @@ export const createService = mutation({
                 items: v.array(v.string()),
             })),
             postCare: v.optional(v.object({
+                title: v.string(),
+                subtitle: v.string(),
                 downtime: v.object({
                     title: v.string(),
                     items: v.array(v.string()),
                 }),
-                info: v.object({
+                postCare: v.object({
                     title: v.string(),
                     items: v.array(v.string()),
                 }),
@@ -71,6 +73,38 @@ export const createService = mutation({
                     question: v.string(),
                     answer: v.string(),
                 })),
+            })),
+            signsSymptoms: v.optional(v.object({
+                subtitle: v.string(),
+                title: v.string(),
+                items: v.array(v.string()),
+            })),
+            treatments: v.optional(v.object({
+                subtitle: v.string(),
+                title: v.string(),
+                items: v.array(v.object({
+                    title: v.string(),
+                    description: v.string(),
+                })),
+            })),
+            transformations: v.optional(v.object({
+                subtitle: v.string(),
+                title: v.string(),
+                description: v.string(),
+                images: v.array(v.object({
+                    src: v.string(),
+                    alt: v.string(),
+                    storageId: v.optional(v.id("_storage")),
+                })),
+            })),
+            testimonials: v.optional(v.object({
+                subtitle: v.string(),
+                title: v.string(),
+                items: v.array(v.string()),
+            })),
+            whoBenefits: v.optional(v.object({
+                title: v.string(),
+                items: v.array(v.string()),
             })),
         })
     },
@@ -110,11 +144,13 @@ export const updateService = mutation({
                 items: v.array(v.string()),
             })),
             postCare: v.optional(v.object({
+                title: v.string(),
+                subtitle: v.string(),
                 downtime: v.object({
                     title: v.string(),
                     items: v.array(v.string()),
                 }),
-                info: v.object({
+                postCare: v.object({
                     title: v.string(),
                     items: v.array(v.string()),
                 }),
@@ -126,6 +162,38 @@ export const updateService = mutation({
                     question: v.string(),
                     answer: v.string(),
                 })),
+            })),
+            signsSymptoms: v.optional(v.object({
+                subtitle: v.string(),
+                title: v.string(),
+                items: v.array(v.string()),
+            })),
+            treatments: v.optional(v.object({
+                subtitle: v.string(),
+                title: v.string(),
+                items: v.array(v.object({
+                    title: v.string(),
+                    description: v.string(),
+                })),
+            })),
+            transformations: v.optional(v.object({
+                subtitle: v.string(),
+                title: v.string(),
+                description: v.string(),
+                images: v.array(v.object({
+                    src: v.string(),
+                    alt: v.string(),
+                    storageId: v.optional(v.id("_storage")),
+                })),
+            })),
+            testimonials: v.optional(v.object({
+                subtitle: v.string(),
+                title: v.string(),
+                items: v.array(v.string()),
+            })),
+            whoBenefits: v.optional(v.object({
+                title: v.string(),
+                items: v.array(v.string()),
             })),
         }))
     },

@@ -49,7 +49,14 @@ export const SuccessStories = () => {
         </div>
         <h2 className="mt-5 text-center font-semibold text-5xl text-[#333333]">Success Stories</h2>
         <div className='relative w-full h-full bg-no-repeat pb-7 mt-16'>
-          <Image src="/success-stories-bg.svg" alt="" layout="fill" objectFit="contain" className="-z-10" loading="lazy"/>
+          <Image 
+            src="/success-stories-bg.svg" 
+            alt="" 
+            fill 
+            style={{ objectFit: 'contain' }} 
+            className="-z-10" 
+            loading="lazy"
+          />
           <div className="flex items-center justify-center gap-x-8">
             <button className="text-4xl text-gray-400 hover:text-gray-600 transition-colors" onClick={scrollPrev}>
               ←

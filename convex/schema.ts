@@ -31,15 +31,59 @@ export default defineSchema({
             items: v.array(v.string()),
         })),
         postCare: v.optional(v.object({
+            subtitle: v.string(),
+            title: v.string(),
             downtime: v.object({
                 title: v.string(),
                 items: v.array(v.string()),
             }),
-            info: v.object({
+            postCare: v.object({
                 title: v.string(),
                 items: v.array(v.string()),
             }),
         })),
+        // Signs & Symptoms section
+        signsSymptoms: v.optional(v.object({
+            subtitle: v.string(),
+            title: v.string(),
+            items: v.array(v.string()),
+        })),
+        
+        // Types of Treatments section
+        treatments: v.optional(v.object({
+            subtitle: v.string(),
+            title: v.string(),
+            items: v.array(v.object({
+                title: v.string(),
+                description: v.string(),
+            })),
+        })),
+        
+        // Before & After Transformations section
+        transformations: v.optional(v.object({
+            subtitle: v.string(),
+            title: v.string(),
+            description: v.string(),
+            images: v.array(v.object({
+                src: v.string(),
+                alt: v.string(),
+                storageId: v.optional(v.id("_storage")),
+            })),
+        })),
+        
+        // Testimonials section
+        testimonials: v.optional(v.object({
+            subtitle: v.string(),
+            title: v.string(),
+            items: v.array(v.string()),
+        })),
+        
+        // Who Can Benefit section
+        whoBenefits: v.optional(v.object({
+            title: v.string(),
+            items: v.array(v.string()),
+        })),
+        
         faq: v.optional(v.object({
             title: v.string(),
             subtitle: v.string(),

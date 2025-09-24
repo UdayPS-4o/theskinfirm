@@ -141,14 +141,40 @@ const ServiceDetailsPage = async ({ params }: ServiceDetailsPageProps) => {
         subtitle: "Key advantages of this treatment",
         items: ["Professional treatment", "Expert care", "Proven results"]
       },
+      // Signs & Symptoms section
+      signsSymptoms: serviceData.data.signsSymptoms ? {
+        subtitle: serviceData.data.signsSymptoms.subtitle,
+        title: serviceData.data.signsSymptoms.title,
+        items: serviceData.data.signsSymptoms.items
+      } : {
+        subtitle: "Symptoms",
+        title: "Signs & Symptoms",
+        items: ["Consult with our experts for proper diagnosis"]
+      },
+      
+      // Types of Treatments section
+      treatments: serviceData.data.treatments ? {
+        subtitle: serviceData.data.treatments.subtitle,
+        title: serviceData.data.treatments.title,
+        items: serviceData.data.treatments.items
+      } : {
+        subtitle: "Treatment Options",
+        title: "Available Treatments",
+        items: [
+          { title: "Professional Treatment", description: "Expert care tailored to your needs" },
+          { title: "Advanced Technology", description: "State-of-the-art equipment and techniques" },
+          { title: "Personalized Approach", description: "Customized treatment plans" }
+        ]
+      },
+      
       postCare: serviceData.data.postCare ? {
-        title: "Post-Treatment Care",
-        subtitle: "Important aftercare information",
+        title: serviceData.data.postCare.title || "Post-Treatment Care",
+        subtitle: serviceData.data.postCare.subtitle || "Important aftercare information",
         downtime: serviceData.data.postCare.downtime || {
           title: "Recovery Time",
           items: ["Minimal downtime", "Resume normal activities"]
         },
-        postCare: serviceData.data.postCare.info || {
+        postCare: serviceData.data.postCare.postCare || {
           title: "Care Instructions",
           items: ["Follow prescribed care", "Regular follow-ups"]
         }
@@ -163,6 +189,51 @@ const ServiceDetailsPage = async ({ params }: ServiceDetailsPageProps) => {
           title: "Care Instructions",
           items: ["Follow prescribed care", "Regular follow-ups"]
         }
+      },
+      
+      // Before & After Transformations section
+      transformations: serviceData.data.transformations ? {
+        subtitle: serviceData.data.transformations.subtitle,
+        title: serviceData.data.transformations.title,
+        description: serviceData.data.transformations.description,
+        images: serviceData.data.transformations.images
+      } : {
+        subtitle: "Results",
+        title: "Before & After Results",
+        description: "See the amazing transformations our patients have achieved",
+        images: [
+          { src: "/gallery/2.png", alt: "Treatment Results", storageId: undefined },
+          { src: "/gallery/4.png", alt: "Treatment Results", storageId: undefined },
+          { src: "/gallery/9.png", alt: "Treatment Results", storageId: undefined }
+        ]
+      },
+      
+      // Testimonials section
+      testimonials: serviceData.data.testimonials ? {
+        subtitle: serviceData.data.testimonials.subtitle,
+        title: serviceData.data.testimonials.title,
+        items: serviceData.data.testimonials.items
+      } : {
+        subtitle: "Testimonials",
+        title: "Patient Testimonials",
+        items: [
+          "The treatment was excellent and the results exceeded my expectations. The team was professional and caring throughout the process.",
+          "I'm so happy with the results. The staff explained everything clearly and made me feel comfortable during the entire treatment."
+        ]
+      },
+      
+      // Who Can Benefit section
+      whoBenefits: serviceData.data.whoBenefits ? {
+        title: serviceData.data.whoBenefits.title,
+        items: serviceData.data.whoBenefits.items
+      } : {
+        title: "Who Can Benefit from This Treatment?",
+        items: [
+          "Anyone looking for professional skin care",
+          "Patients seeking expert dermatological treatment",
+          "Individuals wanting to improve their skin health",
+          "Safe for all skin types and tones"
+        ]
       },
       faq: serviceData.data.faq ? {
         title: serviceData.data.faq.title,

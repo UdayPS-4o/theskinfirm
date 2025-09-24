@@ -306,7 +306,7 @@ const CategoriesPageComponent = React.memo(() => {
                                                         <AlertDialogHeader>
                                                             <AlertDialogTitle>Delete Category</AlertDialogTitle>
                                                             <AlertDialogDescription>
-                                                                Are you sure you want to delete the category "{category.name}"? 
+                                                                Are you sure you want to delete the category &quot;{category.name}&quot;? 
                                                                 This action cannot be undone and may affect services using this category.
                                                             </AlertDialogDescription>
                                                         </AlertDialogHeader>

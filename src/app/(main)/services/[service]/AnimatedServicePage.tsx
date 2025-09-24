@@ -30,6 +30,21 @@ interface ServiceData {
       description: string;
     }>;
   };
+  // Signs & Symptoms section
+  signsSymptoms: {
+    subtitle: string;
+    title: string;
+    items: string[];
+  };
+  // Types of Treatments section
+  treatments: {
+    subtitle: string;
+    title: string;
+    items: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
   benefits: {
     title: string;
     subtitle: string;
@@ -46,6 +61,28 @@ interface ServiceData {
       title: string;
       items: string[];
     };
+  };
+  // Before & After Transformations section
+  transformations: {
+    subtitle: string;
+    title: string;
+    description: string;
+    images: Array<{
+      src: string;
+      alt: string;
+      storageId?: string;
+    }>;
+  };
+  // Testimonials section
+  testimonials: {
+    subtitle: string;
+    title: string;
+    items: string[];
+  };
+  // Who Can Benefit section
+  whoBenefits: {
+    title: string;
+    items: string[];
   };
   faq: {
     title: string;
@@ -102,54 +139,51 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="px-4 md:px-8 lg:px-[100px] py-8 md:py-12 lg:py-20 bg-[color:var(--color-light-background)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col xl:flex-row justify-between items-center gap-6 md:gap-8 xl:gap-12">
-            {/* Left Content */}
+      <section className="relative bg-[color:var(--color-light-background)]">
+        <div className="flex flex-col xl:flex-row min-h-[500px] xl:min-h-[600px]">
+          {/* Left Content */}
+          <div className="flex items-center justify-center xl:w-1/2 px-4 md:px-8 lg:px-[100px] py-8 md:py-12 lg:py-20">
             <div
               id="hero-left"
               data-animate
-              className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full xl:w-[511px] transform transition-all duration-1000 ease-out ${
-                isVisible("hero-left")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
+              className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full max-w-[511px] transform transition-all duration-1000 ease-out ${isVisible("hero-left")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
             >
               <div className="flex flex-col gap-2.5">
                 <small
-                  className={`text-sm leading-[17px] uppercase text-[#b76e79] font-semibold transform transition-all duration-700 delay-200 ease-out ${
-                    isVisible("hero-left")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
-                  }`}
+                  className={`text-sm leading-[17px] uppercase text-[#b76e79] font-semibold transform transition-all duration-700 delay-200 ease-out ${isVisible("hero-left")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                    }`}
                 >
                   {serviceData.hero.serviceCategory}
                 </small>
-                <h1
-                  className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                    isVisible("hero-left")
+                <div className="flex flex-col gap-1">
+                  <h1
+                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("hero-left")
                       ? "translate-y-0 opacity-100"
                       : "translate-y-5 opacity-0"
-                  }`}
-                >
-                  {serviceData.hero.title}
-                </h1>
+                      }`}
+                  >
+                    <span className="block whitespace-nowrap">{serviceData.hero.title}</span>
+                  </h1>
+                </div>
                 <h4
-                  className={`text-base sm:text-lg md:text-xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${
-                    isVisible("hero-left")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
-                  }`}
+                  className={`text-base sm:text-lg md:text-xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${isVisible("hero-left")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                    }`}
                 >
                   {serviceData.hero.description}
                 </h4>
               </div>
               <div
-                className={`flex flex-col sm:flex-row gap-3 md:gap-5 transform transition-all duration-700 delay-500 ease-out ${
-                  isVisible("hero-left")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`flex flex-col sm:flex-row gap-3 md:gap-5 transform transition-all duration-700 delay-500 ease-out ${isVisible("hero-left")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 <Link href="/contact">
                   <button className="w-full sm:w-auto rounded-lg px-4 md:px-[22px] py-3 md:py-[15px] bg-[#d4a380] text-white font-medium text-base md:text-lg flex items-center justify-center gap-2 hover:bg-[#c19970] hover:scale-105 transition-all duration-300 hover:shadow-lg">
@@ -164,46 +198,60 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 </Link>
               </div>
             </div>
+          </div>
 
-            {/* Right Content */}
-            <div
-              id="hero-right"
-              data-animate
-              className={`flex flex-col items-center xl:items-end w-full xl:w-[523px] relative transform transition-all duration-1000 delay-300 ease-out ${
-                isVisible("hero-right")
-                  ? "translate-x-0 opacity-100"
-                  : "translate-x-10 opacity-0"
+          {/* Right Content - Full Edge-to-Edge */}
+          <div
+            id="hero-right"
+            data-animate
+            className={`relative xl:w-1/2 min-h-[400px] xl:min-h-full transform transition-all duration-1000 delay-300 ease-out ${isVisible("hero-right")
+              ? "translate-x-0 opacity-100"
+              : "translate-x-10 opacity-0"
               }`}
+          >
+            <Image
+              src={"/TSF-Hero-Section.png"}
+              fill
+              alt={"Acne Treatment Collage"}
+              className="object-cover"
+            />
+            {/* Left edge blur/fade overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-light-background)] via-[color:var(--color-light-background)]/80 via-20% to-transparent to-40% pointer-events-none"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Is Acne? Section */}
+      <section className="py-12 md:py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col gap-8 md:gap-12">
+            <div
+              id="what-is-acne-header"
+              data-animate
+              className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("what-is-acne-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
             >
-              <div className="relative">
-                <div
-                  className={`shadow-lg rounded-full border-4 md:border-8 border-[color:var(--color-light-background)] w-full max-w-[400px] md:max-w-[450px] xl:max-w-[504px] h-[250px] sm:h-[280px] md:h-[320px] xl:h-[355px] mx-auto transform transition-all duration-700 delay-600 ease-out hover:scale-105 overflow-hidden ${
-                    isVisible("hero-right") ? "scale-100" : "scale-95"
+              <h2
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6 transform transition-all duration-700 delay-200 ease-out ${isVisible("what-is-acne-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
                   }`}
-                >
-                  <Image
-                    src={"/images/dr/Karishma_Singh.png"}
-                    width={504}
-                    height={355}
-                    alt={"Dr. Karishma Singh"}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-                <div
-                  className={`absolute -bottom-2 md:-bottom-4 right-2 md:right-4 xl:right-0 shadow-lg rounded-lg border border-[color:var(--color-light-border)] p-3 md:p-4 bg-white max-w-[150px] md:max-w-[178px] transform transition-all duration-700 delay-800 ease-out hover:scale-105 ${
-                    isVisible("hero-right")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
+              >
+                What Is Acne?
+              </h2>
+              <p
+                className={`text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] transform transition-all duration-700 delay-300 ease-out ${isVisible("what-is-acne-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
                   }`}
-                >
-                  <div className="text-xs md:text-[13.6px] font-medium text-[color:var(--color-dark-text)]">
-                    {serviceData.hero.doctor.name}
-                  </div>
-                  <div className="text-[10px] md:text-[11.9px] text-[color:var(--color-light-text)]">
-                    {serviceData.hero.doctor.title}
-                  </div>
-                </div>
-              </div>
+              >
+                Acne is a common skin condition that occurs when hair follicles
+                get clogged with oil, dead skin cells, and bacteria. This leads
+                to pimples, blackheads, whiteheads, or deeper, painful bumps
+                that may cause scarring or pigmentation if left untreated.
+              </p>
             </div>
           </div>
         </div>
@@ -219,51 +267,96 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 data-animate
                 src={serviceData.about.image}
                 alt={`${serviceData.hero.title} Process`}
-                className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${
-                  isVisible("about-image")
-                    ? "translate-x-0 opacity-100"
-                    : "-translate-x-10 opacity-0"
-                }`}
+                className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${isVisible("about-image")
+                  ? "translate-x-0 opacity-100"
+                  : "-translate-x-10 opacity-0"
+                  }`}
               />
             </div>
             <div
               id="about-content"
               data-animate
-              className={`flex flex-col gap-4 w-full lg:w-[500px] transform transition-all duration-1000 delay-200 ease-out ${
-                isVisible("about-content")
-                  ? "translate-x-0 opacity-100"
-                  : "translate-x-10 opacity-0"
-              }`}
+              className={`flex flex-col gap-4 w-full lg:w-[500px] transform transition-all duration-1000 delay-200 ease-out ${isVisible("about-content")
+                ? "translate-x-0 opacity-100"
+                : "translate-x-10 opacity-0"
+                }`}
             >
               <h4
-                className={`text-xl md:text-2xl uppercase text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                  isVisible("about-content")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-xl md:text-2xl uppercase text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("about-content")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 {serviceData.about.title}
               </h4>
               <p
-                className={`text-sm leading-[22px] text-[color:var(--color-dark-text)] font-medium transform transition-all duration-700 delay-400 ease-out ${
-                  isVisible("about-content")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-sm leading-[22px] text-[color:var(--color-dark-text)] font-medium transform transition-all duration-700 delay-400 ease-out ${isVisible("about-content")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 {serviceData.about.description}
               </p>
               <div
-                className={`rounded-[10px] px-5 py-4 bg-[color:var(--color-light-background)] transform transition-all duration-700 delay-500 ease-out hover:scale-105 hover:shadow-md ${
-                  isVisible("about-content")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`rounded-[10px] px-5 py-4 bg-[color:var(--color-light-background)] transform transition-all duration-700 delay-500 ease-out hover:scale-105 hover:shadow-md ${isVisible("about-content")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 <p className="text-sm leading-5 text-black">
                   {serviceData.about.highlight}
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Signs & Symptoms Section */}
+      <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col gap-8 md:gap-12">
+            <div
+              id="symptoms-header"
+              data-animate
+              className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("symptoms-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
+            >
+              <h2
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-8 transform transition-all duration-700 delay-200 ease-out ${isVisible("symptoms-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                {serviceData.signsSymptoms.title}
+              </h2>
+            </div>
+            <div
+              id="symptoms-grid"
+              data-animate
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"
+            >
+              {serviceData.signsSymptoms.items.map((symptom, index) => (
+                <div
+                  key={index}
+                  className={`rounded-[10px] border border-[color:var(--color-light-border)] p-4 md:p-5 bg-white flex flex-row items-center gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${isVisible("symptoms-grid")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                    }`}
+                  style={{ transitionDelay: `${300 + index * 100}ms` }}
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[color:var(--color-primary-brown)]/20 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-[color:var(--color-primary-brown)]"></div>
+                    </div>
+                  </div>
+                  <p className="text-sm md:text-base leading-[20px] md:leading-[22px] text-black flex-1 text-center">
+                    {symptom}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -276,27 +369,24 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             <div
               id="process-header"
               data-animate
-              className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
-                isVisible("process-header")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
+              className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("process-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
             >
               <h4
-                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("process-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${isVisible("process-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 ---------- {serviceData.process.subtitle} ----------
               </h4>
               <h2
-                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                  isVisible("process-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("process-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 {serviceData.process.title}
               </h2>
@@ -304,20 +394,18 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             <div
               id="process-steps"
               data-animate
-              className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 ${
-                serviceData.process.steps.length === 4
-                  ? "lg:grid-cols-2"
-                  : "lg:grid-cols-3"
-              }`}
+              className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 ${serviceData.process.steps.length === 4
+                ? "lg:grid-cols-2"
+                : "lg:grid-cols-3"
+                }`}
             >
               {serviceData.process.steps.map((step, index) => (
                 <div
                   key={index}
-                  className={`flex items-start gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-lg hover:bg-gray-50 rounded-lg p-4 ${
-                    isVisible("process-steps")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-10 opacity-0"
-                  }`}
+                  className={`flex items-start gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-lg hover:bg-gray-50 rounded-lg p-4 ${isVisible("process-steps")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                    }`}
                   style={{ transitionDelay: `${400 + index * 100}ms` }}
                 >
                   <div className="w-[50px] h-[50px] rounded-full bg-[color:var(--color-primary-brown)] flex items-center justify-center shadow-lg flex-shrink-0 hover:scale-110 transition-transform duration-300">
@@ -340,6 +428,62 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
         </div>
       </section>
 
+      {/* Types of Treatments Section */}
+      <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col gap-12 md:gap-16">
+            <div
+              id="treatments-header"
+              data-animate
+              className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("treatments-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
+            >
+              <h4
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${isVisible("treatments-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                ---------- {serviceData.treatments.subtitle} ----------
+              </h4>
+              <h2
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("treatments-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                {serviceData.treatments.title}
+              </h2>
+            </div>
+            <div
+              id="treatments-grid"
+              data-animate
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {serviceData.treatments.items.map((treatment, index) => (
+                <div
+                  key={index}
+                  className={`group p-6 md:p-7 rounded-xl border border-[color:var(--color-light-border)] bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-700 ease-out flex flex-col items-center justify-center text-center transform ${isVisible("treatments-grid")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                    }`}
+                  style={{ transitionDelay: `${400 + index * 100}ms` }}
+                >
+                  <p className="text-base md:text-lg font-semibold text-black">
+                    {treatment.title}
+                  </p>
+                  <p className="text-xs md:text-sm text-[color:var(--color-light-text)] mt-1">
+                    {treatment.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
         <div className="max-w-6xl mx-auto">
@@ -347,27 +491,24 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             <div
               id="benefits-header"
               data-animate
-              className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
-                isVisible("benefits-header")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
+              className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("benefits-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
             >
               <h4
-                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("benefits-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${isVisible("benefits-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 ---------- {serviceData.benefits.subtitle} ----------
               </h4>
               <h2
-                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                  isVisible("benefits-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("benefits-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 {serviceData.benefits.title}
               </h2>
@@ -380,11 +521,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               {serviceData.benefits.items.map((benefit, index) => (
                 <div
                   key={index}
-                  className={`rounded-[10px] border border-[color:var(--color-light-background)] p-4 md:p-5 bg-white flex flex-row items-start gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
-                    isVisible("benefits-grid")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-10 opacity-0"
-                  }`}
+                  className={`rounded-[10px] border border-[color:var(--color-light-background)] p-4 md:p-5 bg-white flex flex-row items-start gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${isVisible("benefits-grid")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                    }`}
                   style={{ transitionDelay: `${400 + index * 100}ms` }}
                 >
                   <div className="flex-shrink-0">
@@ -422,6 +562,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
         </div>
       </section>
 
+
       {/* Post Care Section */}
       <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
@@ -429,27 +570,24 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             <div
               id="postcare-header"
               data-animate
-              className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
-                isVisible("postcare-header")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
+              className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("postcare-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
             >
               <h4
-                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("postcare-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${isVisible("postcare-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 ---------- {serviceData.postCare.subtitle} ----------
               </h4>
               <h2
-                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                  isVisible("postcare-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("postcare-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 {serviceData.postCare.title}
               </h2>
@@ -459,11 +597,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               <div
                 id="postcare-downtime"
                 data-animate
-                className={`flex flex-col gap-4 transform transition-all duration-1000 delay-400 ease-out ${
-                  isVisible("postcare-downtime")
-                    ? "translate-x-0 opacity-100"
-                    : "-translate-x-10 opacity-0"
-                }`}
+                className={`flex flex-col gap-4 transform transition-all duration-1000 delay-400 ease-out ${isVisible("postcare-downtime")
+                  ? "translate-x-0 opacity-100"
+                  : "-translate-x-10 opacity-0"
+                  }`}
               >
                 <h5 className="text-xl text-[color:var(--color-dark-text)] font-semibold">
                   {serviceData.postCare.downtime.title}
@@ -472,11 +609,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                   {serviceData.postCare.downtime.items.map((item, index) => (
                     <div
                       key={index}
-                      className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${
-                        isVisible("postcare-downtime")
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-5 opacity-0"
-                      }`}
+                      className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${isVisible("postcare-downtime")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                        }`}
                       style={{ transitionDelay: `${600 + index * 100}ms` }}
                     >
                       <div className="w-[30px] h-[30px] flex-shrink-0">
@@ -498,11 +634,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               <div
                 id="postcare-info"
                 data-animate
-                className={`flex flex-col gap-[30px] transform transition-all duration-1000 delay-500 ease-out ${
-                  isVisible("postcare-info")
-                    ? "translate-x-0 opacity-100"
-                    : "translate-x-10 opacity-0"
-                }`}
+                className={`flex flex-col gap-[30px] transform transition-all duration-1000 delay-500 ease-out ${isVisible("postcare-info")
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-10 opacity-0"
+                  }`}
               >
                 <h5 className="text-xl text-[color:var(--color-dark-text)] font-semibold">
                   {serviceData.postCare.postCare.title}
@@ -511,11 +646,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                   {serviceData.postCare.postCare.items.map((item, index) => (
                     <div
                       key={index}
-                      className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${
-                        isVisible("postcare-info")
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-5 opacity-0"
-                      }`}
+                      className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${isVisible("postcare-info")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                        }`}
                       style={{ transitionDelay: `${700 + index * 100}ms` }}
                     >
                       <div className="w-[30px] h-[30px] flex-shrink-0">
@@ -537,6 +671,229 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
         </div>
       </section>
 
+
+      {/* Why Choose Acne Treatment at The Skin Firm? Section */}
+      <section className="py-12 md:py-[100px] px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
+            <div className="rounded-xl w-full lg:w-[470px] h-[280px] lg:h-[360px] overflow-hidden hover:shadow-xl transition-all duration-1000 ease-out">
+              <img
+                id="about-image"
+                data-animate
+                src="/images/services/acne treatment.png"
+                alt="Professional Acne Treatment Process"
+                className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${isVisible("about-image")
+                  ? "translate-x-0 opacity-100"
+                  : "-translate-x-10 opacity-0"
+                  }`}
+              />
+            </div>
+            <div
+              id="about-content"
+              data-animate
+              className={`flex flex-col gap-4 w-full lg:w-[500px] transform transition-all duration-1000 delay-200 ease-out ${isVisible("about-content")
+                ? "translate-x-0 opacity-100"
+                : "translate-x-10 opacity-0"
+                }`}
+            >
+              <h2
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("about-content")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                Why Choose Acne Treatment at The Skin Firm?
+              </h2>
+              <p
+                className={`text-base leading-[22px] text-[color:var(--color-dark-text)] font-medium transform transition-all duration-700 delay-400 ease-out ${isVisible("about-content")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                Struggling with breakouts, acne scars, or oily skin? We know how
+                frustrating it feels to hide blemishes with makeup, avoid
+                photos, and try endless products without success.
+              </p>
+              <p
+                className={`text-base leading-[22px] text-[color:var(--color-dark-text)] font-medium transform transition-all duration-700 delay-500 ease-out ${isVisible("about-content")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                {
+                  "At The Skin Firm, we treat acne at its root - whether it's hormonal imbalance, excess oil, inflammation, or clogged pores - so you can finally enjoy smooth, confident skin."
+                }
+              </p>
+              <div
+                className={`rounded-[10px] px-5 py-4 bg-[color:var(--color-light-background)] transform transition-all duration-700 delay-600 ease-out hover:scale-105 hover:shadow-md ${isVisible("about-content")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                <p className="text-base leading-5 text-black">
+                  Recognized as one of the best dermatologists for acne in Pune,
+                  Dr. Karishma Singh leads every treatment plan with care and
+                  precision. As a trusted acne care clinic in Pune, we provide
+                  safe, advanced, and proven solutions for every skin type.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Before & After Transformations */}
+      <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col gap-12 md:gap-16">
+            <div
+              id="transformations-header"
+              data-animate
+              className={`text-center max-w-[700px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("transformations-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
+            >
+              <h4
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${isVisible("transformations-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                ---------- {serviceData.transformations.subtitle} ----------
+              </h4>
+              <h2
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4 transform transition-all duration-700 delay-300 ease-out ${isVisible("transformations-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                {serviceData.transformations.title}
+              </h2>
+              <p
+                className={`text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed transform transition-all duration-700 delay-400 ease-out ${isVisible("transformations-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                {serviceData.transformations.description}
+              </p>
+            </div>
+            <div
+              id="gallery-grid"
+              data-animate
+              className={`grid grid-cols-2 md:grid-cols-3 gap-4 transform transition-all duration-1000 delay-500 ease-out ${isVisible("gallery-grid")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
+            >
+              {serviceData.transformations.images.map((image, index) => (
+                <div
+                  key={index}
+                  className="rounded-lg overflow-hidden shadow-lg group max-w-xs mx-auto"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={300}
+                    height={300}
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-12 md:py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div
+            id="testimonials-header"
+            data-animate
+            className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("testimonials-header")
+              ? "translate-y-0 opacity-100"
+              : "translate-y-10 opacity-0"
+              }`}
+          >
+            <h4
+              className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${isVisible("testimonials-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-5 opacity-0"
+                }`}
+            >
+              ---------- {serviceData.testimonials.subtitle} ----------
+            </h4>
+            <h2
+              className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4 transform transition-all duration-700 delay-300 ease-out ${isVisible("testimonials-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-5 opacity-0"
+                }`}
+            >
+              {serviceData.testimonials.title}
+            </h2>
+            <p
+              className={`text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed transform transition-all duration-700 delay-400 ease-out ${isVisible("testimonials-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-5 opacity-0"
+                }`}
+            >
+              {serviceData.testimonials.subtitle}
+            </p>
+          </div>
+          <div
+            id="testimonials-grid"
+            data-animate
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          >
+            {serviceData.testimonials.items.map((text, index) => (
+              <div
+                key={index}
+                className={`relative bg-white p-6 md:p-8 rounded-2xl border border-[color:var(--color-light-border)] shadow-lg overflow-hidden transform transition-all duration-700 ease-out hover:shadow-xl hover:-translate-y-2 ${isVisible("testimonials-grid")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+                  }`}
+                style={{ transitionDelay: `${400 + index * 150}ms` }}
+              >
+                <div className="absolute -top-6 -left-2 text-[64px] text-[color:var(--color-primary-brown)]/20 select-none">
+                  “
+                </div>
+                <p className="italic text-[color:var(--color-dark-text)] leading-relaxed">
+                  {`“${text}”`}
+                </p>
+                <div className="mt-6 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[color:var(--color-primary-brown)]/20"></div>
+                  <div className="h-3 w-24 rounded-full bg-[color:var(--color-primary-brown)]/30"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who can benefit */}
+      <section className="py-12 mt-10 md:py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12">
+            {serviceData.whoBenefits.title}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {serviceData.whoBenefits.items.map((item) => (
+              <div
+                key={item}
+                className="p-6 rounded-lg bg-white shadow-md border border-[color:var(--color-light-border)] hover:border-[color:var(--color-primary-brown)]/50 hover:bg-[color:var(--color-light-background)] hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+              >
+                <p className="text-base font-semibold text-black text-center">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* FAQ Section */}
       <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
@@ -544,27 +901,24 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             <div
               id="faq-header"
               data-animate
-              className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
-                isVisible("faq-header")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
+              className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("faq-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+                }`}
             >
               <h4
-                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("faq-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${isVisible("faq-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 ---------- {serviceData.faq.subtitle} ----------
               </h4>
               <h2
-                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                  isVisible("faq-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("faq-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
               >
                 {serviceData.faq.title}
               </h2>
@@ -577,11 +931,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               {serviceData.faq.questions.map((faq, index) => (
                 <div
                   key={index}
-                  className={`shadow-lg rounded-[10px] border border-[color:var(--color-border-light)] p-6 bg-white transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
-                    isVisible("faq-grid")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-10 opacity-0"
-                  }`}
+                  className={`shadow-lg rounded-[10px] border border-[color:var(--color-border-light)] p-6 bg-white transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${isVisible("faq-grid")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                    }`}
                   style={{ transitionDelay: `${400 + index * 150}ms` }}
                 >
                   <div className="flex flex-col gap-[30px]">
@@ -598,6 +951,79 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Patients Visit Us From Section */}
+      <section className="py-12 md:py-20 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6">
+            Patients Visit Us From Across Pune
+          </h2>
+          <p className="mb-4">
+            At The Skin Firm, we proudly serve patients not only from Mohammad
+            Wadi and NIBM Road, but also from several nearby areas in Pune who
+            visit us for trusted acne treatment, skin care, and hair solutions.
+          </p>
+          <p className="mb-6 font-medium">
+            Many of our patients travel to our clinic from:
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {[
+              "Camp",
+              "Undri",
+              "Pisoli",
+              "Kondhwa",
+              "Hadapsar",
+              "Wanowrie",
+              "Handewadi",
+              "Lullanagar",
+            ].map((loc) => (
+              <span
+                key={loc}
+                className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full"
+              >
+                {loc}
+              </span>
+            ))}
+            <span className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full">
+              & many other far locations in Pune as well.
+            </span>
+          </div>
+          <p>
+            Our convenient location makes it easy for people across South Pune
+            and Central Pune to access advanced acne treatments and other
+            dermatology services under the expert care of Dr. Karishma Singh.
+          </p>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section
+        className="py-12 md:py-20 px-4 md:px-8 bg-cover bg-center mb-12"
+        style={{ backgroundColor: "#F8F4EB" }}
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold mb-6 text-[color:var(--color-dark-text)]">
+            Book Your Acne Consultation at The Skin Firm, NIBM, Mohammad Wadi,
+            Pune
+          </h2>
+          <p className="mb-6 text-[color:var(--color-dark-text)]">
+            Don’t let acne hold back your confidence. At The Skin Firm, we
+            understand how breakouts and scars can affect not just your skin,
+            but also the way you feel about yourself. With Dr. Karishma Singh’s
+            expert care and customized acne treatments, clearer skin - and
+            renewed confidence - can truly be yours.
+          </p>
+          <p className="font-semibold mb-8 text-[color:var(--color-dark-text)]">
+            Appointments fill quickly. Start your journey to clear, confident
+            skin today.
+          </p>
+          <Link href="/contact">
+            <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
+              Book Your Acne Treatment Appointment →
+            </button>
+          </Link>
         </div>
       </section>
     </div>

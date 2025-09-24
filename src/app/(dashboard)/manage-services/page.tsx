@@ -647,7 +647,7 @@ const ServicesPageComponent = React.memo(() => {
                                                     <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                                                     <AlertDialogDescription>
                                                         This action cannot be undone. This will permanently delete the
-                                                        service "{service.name}" and remove all its data.
+                                                        service &quot;{service.name}&quot; and remove all its data.
                                                     </AlertDialogDescription>
                                                 </AlertDialogHeader>
                                                 <AlertDialogFooter>

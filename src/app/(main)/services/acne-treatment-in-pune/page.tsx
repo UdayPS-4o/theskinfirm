@@ -678,7 +678,7 @@ const AcneTreatmentClientPage = () => {
                             className="w-full h-full"
                           />
                         </div>
-                        <p className="text-base leading-[22px] text-black mt-0.5 mt-[-4px]">
+                        <p className="text-base leading-[22px] text-black mt-[-4px]">
                           {item}
                         </p>
                       </div>

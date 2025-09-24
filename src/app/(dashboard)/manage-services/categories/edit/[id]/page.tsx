@@ -269,7 +269,7 @@ export default function EditCategoryPage() {
                 <div className="space-y-1">
                     <h1 className="text-3xl font-bold tracking-tight">Edit Category</h1>
                     <p className="text-muted-foreground">
-                        Update the information for "{category.name}".
+                        Update the information for &quot;{category.name}&quot;.
                     </p>
                 </div>
             </div>

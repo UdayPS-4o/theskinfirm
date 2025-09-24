@@ -14,7 +14,14 @@ export const Cta2 = () => {
 
   return (
     <div className='relative mt-24 py-10 bg-radial flex items-center justify-center'>
-      <Image src="/cta2.png" alt="" layout="fill" objectFit="cover" className="-z-90" loading="lazy"/>
+      <Image 
+        src="/cta2.png" 
+        alt="" 
+        fill 
+        style={{ objectFit: 'cover' }} 
+        className="-z-90" 
+        loading="lazy"
+      />
       <motion.div
         ref={ref}
         initial={{ opacity: 0, scale: 0.9 }}

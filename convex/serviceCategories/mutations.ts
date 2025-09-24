@@ -198,13 +198,15 @@ export const createServicesCategoriesFromDataJson = mutation({
                   items: serviceInfo.benefits.items || [],
                 } : undefined,
                 postCare: serviceInfo.postCare ? {
+                  title: serviceInfo.postCare.title || "",
+                  subtitle: serviceInfo.postCare.subtitle || "",
                   downtime: {
                     title: serviceInfo.postCare.downtime?.title || "",
                     items: serviceInfo.postCare.downtime?.items || [],
                   },
-                  info: {
-                    title: serviceInfo.postCare.info?.title || "",
-                    items: serviceInfo.postCare.info?.items || [],
+                  postCare: {
+                    title: serviceInfo.postCare.postCare?.title || "",
+                    items: serviceInfo.postCare.postCare?.items || [],
                   },
                 } : undefined,
                 faq: serviceInfo.faq ? {
@@ -263,13 +265,15 @@ export const createServicesCategoriesFromDataJson = mutation({
                   items: serviceInfo.benefits.items || [],
                 } : undefined,
                 postCare: serviceInfo.postCare ? {
+                  title: serviceInfo.postCare.title || "",
+                  subtitle: serviceInfo.postCare.subtitle || "",
                   downtime: {
                     title: serviceInfo.postCare.downtime?.title || "",
                     items: serviceInfo.postCare.downtime?.items || [],
                   },
-                  info: {
-                    title: serviceInfo.postCare.info?.title || "",
-                    items: serviceInfo.postCare.info?.items || [],
+                  postCare: {
+                    title: serviceInfo.postCare.postCare?.title || "",
+                    items: serviceInfo.postCare.postCare?.items || [],
                   },
                 } : undefined,
                 faq: serviceInfo.faq ? {
