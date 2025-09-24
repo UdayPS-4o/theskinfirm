@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/navbar";
 import Script from "next/script";
-import { Footer } from "@/components/layout/footer";
-import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
-
+import { ConvexWrapper } from "@/convex";
 const jsonLd = {
   "@context": "https://schema.org",
   "@id": "https://theskinfirm.in/",
@@ -127,8 +124,8 @@ export const metadata: Metadata = {
   },
   description: "The Skin Firm offers exceptional skincare services and advanced treatments including acne treatment, laser hair removal, anti-aging, and pigmentation solutions in Pune. Book your consultation today!",
   keywords: [
-    "skincare Pune", "skin treatments Pune", "acne treatment Pune", "laser hair removal Pune", 
-    "anti-aging treatment", "pigmentation treatment", "facial treatment", "dermatology clinic Pune", 
+    "skincare Pune", "skin treatments Pune", "acne treatment Pune", "laser hair removal Pune",
+    "anti-aging treatment", "pigmentation treatment", "facial treatment", "dermatology clinic Pune",
     "beauty clinic Pune", "skin whitening treatment", "botox Pune", "chemical peel treatment",
     "hydrafacial Pune", "microneedling", "stretch marks removal", "dark circle treatment"
   ],
@@ -187,37 +184,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-2D5D0GH7J3"
-        ></Script>
-        <Script id="google-analytics-script">
-          {`
+
+    <ConvexWrapper>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+          <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-2D5D0GH7J3"
+          ></Script>
+          <Script id="google-analytics-script">
+            {`
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
+  
   gtag('config', 'G-2D5D0GH7J3');
 `}
-        </Script>
-        <Script 
-          src="https://www.google.com/recaptcha/api.js" 
-          async 
-          defer
-        />
-        <Navbar/>
-        {children}
-        <Footer />
-        <WhatsAppFAB />
-      </body>
-    </html>
+          </Script>
+          <Script
+            src="https://www.google.com/recaptcha/api.js"
+            async
+            defer
+          />
+          {children}
+        </body>
+      </html>
+    </ConvexWrapper>
   );
 }

@@ -3,10 +3,12 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Loader2 } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { MaxWidthWrapper } from "./max-width";
 import { useRouter } from "next/navigation";
+import { useQuery } from "convex/react";
+import { api } from "../../../convex/_generated/api";
 
 const NAV_ITEMS = [
   { label: "About Us", href: "/about-us" },
@@ -33,79 +35,9 @@ const NAV_ITEMS = [
   { label: "Contact", href: "/contact" },
 ];
 
-// Skin service groups/categories that redirect to services page
-const SKIN_SERVICE_GROUPS = [
-  "Acne and Acne Scars",
-  "Pigmentation",
-  "Skin Discoloration",
-  "Aging and Wrinkles",
-  "Skin Texture",
-  "Other Skin Concerns",
-  "Facials",
-  "Chemical Peel",
-  "Advanced Skin Treatment",
-  "Lifting and Tightening",
-  "Trending Services",
-  "Specialty Treatment",
-];
-
 // Helper function to generate section slugs
 const getSectionSlug = (sectionName: string): string => {
   return sectionName.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
-};
-
-const HAIR_SERVICES = [
-  "PRP Hair Treatment",
-  "Hair Loss Treatment",
-  "Hair Mesotherapy",
-  "QR678 Treatment",
-  "Hair Density Improvement",
-  "Hair Regrowth",
-  "Postnatal Hair Loss Treatment",
-  "Alopecia Areata Treatment",
-  "Hair Loss Treatment for Men",
-];
-
-const LASER_SERVICES = [
-  "Laser Hair Removal",
-  "Leg Hair Removal",
-  "Bikini Hair Removal",
-  "Laser Beard Shaping",
-  "Diode Laser Hair Removal",
-  "CO2 Laser for Skin",
-  "QSwitch ND YAG Laser",
-  "Carbon Laser Facial",
-  "Tattoo Removal",
-];
-
-// Service name to slug mapping for exact URL generation
-const SERVICE_TO_SLUG_MAP: Record<string, string> = {
-  "PRP Hair Treatment": "prp-hair-treatment",
-  "Hair Loss Treatment": "hair-loss-treatment",
-  "Hair Mesotherapy": "hair-mesotherapy",
-  "QR678 Treatment": "qr678-treatment",
-  "Hair Density Improvement": "hair-density-improvement",
-  "Hair Regrowth": "hair-regrowth",
-  "Postnatal Hair Loss Treatment": "postnatal-hair-loss-treatment",
-  "Alopecia Areata Treatment": "alopecia-areata-treatment",
-  "Hair Loss Treatment for Men": "hair-loss-treatment-for-men",
-  "Laser Hair Removal": "laser-hair-removal",
-  "Leg Hair Removal": "leg-hair-removal",
-  "Bikini Hair Removal": "bikini-hair-removal",
-  "Laser Beard Shaping": "laser-beard-shaping",
-  "Diode Laser Hair Removal": "diode-laser-hair-removal",
-  "CO2 Laser for Skin": "co2-laser-for-skin",
-  "QSwitch ND YAG Laser": "qswitch-nd-yag-laser",
-  "Carbon Laser Facial": "carbon-laser-facial",
-  "Tattoo Removal": "tattoo-removal",
-};
-
-// Helper function to convert service name to slug
-const getServiceSlug = (serviceName: string): string => {
-  return (
-    SERVICE_TO_SLUG_MAP[serviceName] ||
-    serviceName.toLowerCase().replace(/\s+/g, "-")
-  );
 };
 
 const logoVariants: Variants = {
@@ -147,6 +79,11 @@ export const Navbar = () => {
     string | null
   >(null);
   const router = useRouter();
+
+  // Fetch navbar data from Convex
+  const navbarData = useQuery(api.serviceCategories.queries.getNavbarData);
+  const isLoading = navbarData === undefined;
+  const hasError = navbarData === null;
 
   const closeDesktopDropdown = () => setActiveDesktopDropdown(null);
 
@@ -205,19 +142,38 @@ export const Navbar = () => {
   };
 
   const renderDropdownContent = (dropdownType: string) => {
+    // Show loading state
+    if (isLoading) {
+      return (
+        <div className="space-y-1 flex items-center justify-center py-4">
+          <Loader2 className="h-4 w-4 animate-spin text-[#D4A380]" />
+          <span className="ml-2 text-sm text-[#374151]">Loading...</span>
+        </div>
+      );
+    }
+
+    // Show error state
+    if (hasError || !navbarData) {
+      return (
+        <div className="space-y-1 py-4 text-center">
+          <span className="text-sm text-red-500">Failed to load services</span>
+        </div>
+      );
+    }
+
     switch (dropdownType) {
       case "skin":
         return (
           <div className="space-y-1">
-            {SKIN_SERVICE_GROUPS.map((group, index) => (
+            {navbarData.skinGroups.map((group, index) => (
               <motion.div
-                key={group}
+                key={group.title}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.02, duration: 0.2 }}
               >
                 <Link
-                  href={`/services#_${getSectionSlug(group)}`}
+                  href={`/services#_${getSectionSlug(group.title)}`}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
                   onMouseEnter={() => handleLinkHover("/services")}
                   onClick={() => {
@@ -225,7 +181,7 @@ export const Navbar = () => {
                     closeMobileMenu();
                   }}
                 >
-                  {group}
+                  {group.title}
                 </Link>
               </motion.div>
             ))}
@@ -235,25 +191,23 @@ export const Navbar = () => {
       case "hair":
         return (
           <div className="space-y-1">
-            {HAIR_SERVICES.map((service, index) => (
+            {navbarData.hairServices.map((service, index) => (
               <motion.div
-                key={service}
+                key={service.name}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.02, duration: 0.2 }}
               >
                 <Link
-                  href={`/services/${getServiceSlug(service)}`}
+                  href={service.href}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                  onMouseEnter={() =>
-                    handleServiceHover(getServiceSlug(service))
-                  }
+                  onMouseEnter={() => handleServiceHover(service.href)}
                   onClick={() => {
                     closeDesktopDropdown();
                     closeMobileMenu();
                   }}
                 >
-                  {service}
+                  {service.name}
                 </Link>
               </motion.div>
             ))}
@@ -263,25 +217,23 @@ export const Navbar = () => {
       case "laser":
         return (
           <div className="space-y-1">
-            {LASER_SERVICES.map((service, index) => (
+            {navbarData.laserServices.map((service, index) => (
               <motion.div
-                key={service}
+                key={service.name}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.02, duration: 0.2 }}
               >
                 <Link
-                  href={`/services/${getServiceSlug(service)}`}
+                  href={service.href}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                  onMouseEnter={() =>
-                    handleServiceHover(getServiceSlug(service))
-                  }
+                  onMouseEnter={() => handleServiceHover(service.href)}
                   onClick={() => {
                     closeDesktopDropdown();
                     closeMobileMenu();
                   }}
                 >
-                  {service}
+                  {service.name}
                 </Link>
               </motion.div>
             ))}
@@ -453,10 +405,26 @@ export const Navbar = () => {
                                 className="pb-4"
                               >
                                 <div className="bg-white/30 rounded-xl p-4 space-y-2">
-                                  {item.dropdownType === "skin" &&
-                                    SKIN_SERVICE_GROUPS.map((group, index) => (
+                                  {/* Loading state for mobile dropdown */}
+                                  {isLoading && (
+                                    <div className="flex items-center justify-center py-4">
+                                      <Loader2 className="h-4 w-4 animate-spin text-[#D4A380]" />
+                                      <span className="ml-2 text-sm text-[#374151]">Loading...</span>
+                                    </div>
+                                  )}
+
+                                  {/* Error state for mobile dropdown */}
+                                  {(hasError || !navbarData) && !isLoading && (
+                                    <div className="py-4 text-center">
+                                      <span className="text-sm text-red-500">Failed to load services</span>
+                                    </div>
+                                  )}
+
+                                  {/* Skin services */}
+                                  {item.dropdownType === "skin" && navbarData &&
+                                    navbarData.skinGroups.map((group, index) => (
                                       <motion.div
-                                        key={group}
+                                        key={group.title}
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{
@@ -466,7 +434,7 @@ export const Navbar = () => {
                                       >
                                         <Link
                                           href={`/services#_${getSectionSlug(
-                                            group
+                                            group.title
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
                                           onMouseEnter={() =>
@@ -474,15 +442,16 @@ export const Navbar = () => {
                                           }
                                           onClick={closeMobileMenu}
                                         >
-                                          {group}
+                                          {group.title}
                                         </Link>
                                       </motion.div>
                                     ))}
 
-                                  {item.dropdownType === "hair" &&
-                                    HAIR_SERVICES.map((service, index) => (
+                                  {/* Hair services */}
+                                  {item.dropdownType === "hair" && navbarData &&
+                                    navbarData.hairServices.map((service, index) => (
                                       <motion.div
-                                        key={service}
+                                        key={service.name}
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{
@@ -491,26 +460,23 @@ export const Navbar = () => {
                                         }}
                                       >
                                         <Link
-                                          href={`/services/${getServiceSlug(
-                                            service
-                                          )}`}
+                                          href={service.href}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
                                           onMouseEnter={() =>
-                                            handleServiceHover(
-                                              getServiceSlug(service)
-                                            )
+                                            handleServiceHover(service.href)
                                           }
                                           onClick={closeMobileMenu}
                                         >
-                                          {service}
+                                          {service.name}
                                         </Link>
                                       </motion.div>
                                     ))}
 
-                                  {item.dropdownType === "laser" &&
-                                    LASER_SERVICES.map((service, index) => (
+                                  {/* Laser services */}
+                                  {item.dropdownType === "laser" && navbarData &&
+                                    navbarData.laserServices.map((service, index) => (
                                       <motion.div
-                                        key={service}
+                                        key={service.name}
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{
@@ -519,18 +485,14 @@ export const Navbar = () => {
                                         }}
                                       >
                                         <Link
-                                          href={`/services/${getServiceSlug(
-                                            service
-                                          )}`}
+                                          href={service.href}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
                                           onMouseEnter={() =>
-                                            handleServiceHover(
-                                              getServiceSlug(service)
-                                            )
+                                            handleServiceHover(service.href)
                                           }
                                           onClick={closeMobileMenu}
                                         >
-                                          {service}
+                                          {service.name}
                                         </Link>
                                       </motion.div>
                                     ))}

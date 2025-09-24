@@ -5,6 +5,7 @@ import { Input } from "../ui/input";
 import Link from "next/link";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
 import ReCAPTCHA from "react-google-recaptcha";
 import {
   Calendar,
@@ -15,7 +16,17 @@ import {
   ChevronDown,
   CheckCircle,
   AlertTriangle,
+  Shield,
 } from "lucide-react";
+
+// Import validation utilities
+import { 
+  validateRateLimit, 
+  securityValidation, 
+  sanitizeInput,
+  validationUtils,
+  contactFormValidationSchema 
+} from "@/lib/validation";
 
 // Google Apps Script URL from environment variable
 const SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || 
@@ -37,6 +48,10 @@ export const BookYourConsultation = () => {
   >(null);
   const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  // Validation error states
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+  const [securityError, setSecurityError] = useState<string | null>(null);
 
   const services = [
     // Skin Services
@@ -102,27 +117,77 @@ export const BookYourConsultation = () => {
     event.preventDefault();
     setIsSubmitting(true);
     setSubmissionStatus(null);
+    setValidationErrors({});
+    setSecurityError(null);
 
-    if (!fullName || !phoneNumber || !email || !searchTerm) {
-      alert(
-        "Please fill out all required fields: Full Name, Phone, Email, and Service."
-      );
+    // Rate limiting check
+    if (!validateRateLimit('appointment_booking', 3, 300000)) { // 3 attempts per 5 minutes
+      setSecurityError("Too many booking attempts. Please wait 5 minutes before trying again.");
       setIsSubmitting(false);
       return;
     }
 
-    if (!recaptchaValue) {
-      alert("Please complete the reCAPTCHA verification.");
-      setIsSubmitting(false);
-      return;
-    }
-
+    // Prepare data for validation
     const formData = {
-      fullName,
-      phoneNumber,
-      email,
-      service: searchTerm,
-      additionalInfo,
+      name: fullName,
+      email: email,
+      phone: phoneNumber,
+      subject: `Appointment Request: ${searchTerm}`,
+      message: additionalInfo || `Appointment request for ${searchTerm}`,
+    };
+
+    // Validate using Zod schema
+    try {
+      const validatedData = contactFormValidationSchema.parse(formData);
+      
+      // Additional security validation
+      const fieldsToCheck = [fullName, email, phoneNumber, searchTerm, additionalInfo];
+      for (const field of fieldsToCheck) {
+        if (field && !securityValidation.isSecure(field)) {
+          setSecurityError("Invalid input detected. Please check your information for potentially unsafe content.");
+          setIsSubmitting(false);
+          return;
+        }
+      }
+
+      if (!recaptchaValue) {
+        setSecurityError("Please complete the reCAPTCHA verification.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Sanitize data before submission
+      const sanitizedFormData = {
+        fullName: sanitizeInput.text(fullName),
+        phoneNumber: sanitizeInput.text(phoneNumber),
+        email: sanitizeInput.text(email),
+        service: sanitizeInput.text(searchTerm),
+        additionalInfo: sanitizeInput.text(additionalInfo),
+        recaptchaToken: recaptchaValue,
+      };
+
+    } catch (error: any) {
+      // Handle validation errors
+      if (error.errors) {
+        const errors: Record<string, string> = {};
+        error.errors.forEach((err: any) => {
+          const field = err.path[0];
+          errors[field] = err.message;
+        });
+        setValidationErrors(errors);
+      } else {
+        setSecurityError("Please check your input and try again.");
+      }
+      setIsSubmitting(false);
+      return;
+    }
+
+    const sanitizedFormData = {
+      fullName: sanitizeInput.text(fullName),
+      phoneNumber: sanitizeInput.text(phoneNumber),
+      email: sanitizeInput.text(email),
+      service: sanitizeInput.text(searchTerm),
+      additionalInfo: sanitizeInput.text(additionalInfo),
       recaptchaToken: recaptchaValue,
     };
 
@@ -138,7 +203,7 @@ export const BookYourConsultation = () => {
           "Content-Type": "application/json",
         },
         redirect: "follow",
-        body: JSON.stringify(formData),
+        body: JSON.stringify(sanitizedFormData),
       });
 
       // Optimistically show success and reset the form.
@@ -259,9 +324,27 @@ export const BookYourConsultation = () => {
             </div>
           </div>
           <div className="p-6 sm:p-10 bg-white shadow-lg rounded-lg w-full max-w-xl mx-auto">
-            <h3 className="text-xl sm:text-2xl text-[#8A7B70]">
-              Request an Appointment
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <h3 className="text-xl sm:text-2xl text-[#8A7B70]">
+                Request an Appointment
+              </h3>
+              <Badge variant="secondary" className="flex items-center gap-1 bg-green-100 text-green-800 border-green-200">
+                <Shield className="h-3 w-3" />
+                Enhanced Security
+              </Badge>
+            </div>
+            <p className="text-sm text-gray-600 mb-6">
+              All inputs are validated and sanitized for your security and privacy.
+            </p>
+            
+            {/* Security Error Display */}
+            {securityError && (
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-md flex items-center gap-2">
+                <AlertTriangle className="h-4 w-4 text-red-600" />
+                <span className="text-sm text-red-700">{securityError}</span>
+              </div>
+            )}
+            
             <form onSubmit={handleSubmit}>
               <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-5">
                 <div className="w-full">
@@ -274,8 +357,13 @@ export const BookYourConsultation = () => {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
-                    className="shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC]"
+                    className={`shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC] ${
+                      validationErrors.name ? 'border-red-500 focus:border-red-500' : ''
+                    }`}
                   />
+                  {validationErrors.name && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.name}</p>
+                  )}
                 </div>
                 <div className="w-full">
                   <Label htmlFor="phoneNumber" className="text-[#8A7B70] mb-3">
@@ -288,8 +376,13 @@ export const BookYourConsultation = () => {
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     required
-                    className="shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC]"
+                    className={`shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC] ${
+                      validationErrors.phone ? 'border-red-500 focus:border-red-500' : ''
+                    }`}
                   />
+                  {validationErrors.phone && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.phone}</p>
+                  )}
                 </div>
               </div>
               <div className="mt-5">
@@ -303,8 +396,13 @@ export const BookYourConsultation = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="shadow-md text-xl placeholder:text-[#CCCCCC]"
+                  className={`shadow-md text-xl placeholder:text-[#CCCCCC] ${
+                    validationErrors.email ? 'border-red-500 focus:border-red-500' : ''
+                  }`}
                 />
+                {validationErrors.email && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.email}</p>
+                )}
               </div>
               <div className="mt-5" ref={dropdownRef}>
                 <Label htmlFor="service" className="text-[#8A7B70] mb-3">
@@ -315,7 +413,9 @@ export const BookYourConsultation = () => {
                     id="service"
                     name="service"
                     required
-                    className="shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC] pr-10"
+                    className={`shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC] pr-10 ${
+                      validationErrors.subject ? 'border-red-500 focus:border-red-500' : ''
+                    }`}
                     placeholder="Type to search or select a service"
                     value={searchTerm}
                     onChange={(e) => {
@@ -343,6 +443,9 @@ export const BookYourConsultation = () => {
                     </div>
                   )}
                 </div>
+                {validationErrors.subject && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.subject}</p>
+                )}
               </div>
               <div className="mt-5">
                 <Label htmlFor="additionalInfo" className="text-[#8A7B70] mb-3">
@@ -353,9 +456,14 @@ export const BookYourConsultation = () => {
                   name="additionalInfo"
                   value={additionalInfo}
                   onChange={(e) => setAdditionalInfo(e.target.value)}
-                  className="shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC] h-24 sm:h-28"
+                  className={`shadow-md text-base sm:text-xl placeholder:text-[#CCCCCC] h-24 sm:h-28 ${
+                    validationErrors.message ? 'border-red-500 focus:border-red-500' : ''
+                  }`}
                   placeholder="Tell us about your skin concerns"
                 />
+                {validationErrors.message && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.message}</p>
+                )}
               </div>
               <div className="mt-5 flex justify-center">
                 <ReCAPTCHA
