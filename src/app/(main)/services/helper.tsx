@@ -18,6 +18,7 @@ interface ServiceData {
   name: string;
   type: "skin" | "hair" | "laser";
   slug: string;
+  category?: string;
   data: {
     hero: {
       title: string;
@@ -54,25 +55,37 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
   const [currentData, setCurrentData] = useState<{ sections: ProcessedSection[] }>({ sections: [] });
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({});
 
-  // Process services data into sections format
+  // Process services data into sections format grouped by categories
   useEffect(() => {
     if (services) {
-      // Group services by treatment category
-      const processedSections: ProcessedSection[] = [
-        {
-          title: `${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Services`,
-          treatments: services.map((service: ServiceData) => ({
-            title: service.name,
-            description: service.data.hero.description,
-            imageSrc: service.data.about?.image || "/images/services/default.png",
-            slug: service.slug,
-          }))
+      // Group services by their category field
+      const servicesByCategory: { [key: string]: ServiceData[] } = {};
+      
+      services.forEach((service: ServiceData) => {
+        const category = service.category || 'Other Services';
+        if (!servicesByCategory[category]) {
+          servicesByCategory[category] = [];
         }
-      ];
+        servicesByCategory[category].push(service);
+      });
+
+      // Convert grouped services into sections format
+      const processedSections: ProcessedSection[] = Object.entries(servicesByCategory).map(([categoryName, categoryServices]) => ({
+        title: categoryName,
+        treatments: categoryServices.map((service: ServiceData) => ({
+          title: service.name,
+          description: service.data.hero.description,
+          imageSrc: service.data.about?.image || "/images/services/default.png",
+          slug: service.slug,
+        }))
+      }));
+
+      // Sort sections alphabetically for consistent ordering
+      processedSections.sort((a, b) => a.title.localeCompare(b.title));
 
       setCurrentData({ sections: processedSections });
 
-      // Initialize expanded sections
+      // Initialize expanded sections - all sections expanded by default
       const initialExpanded: { [key: string]: boolean } = {};
       processedSections.forEach((section) => {
         initialExpanded[section.title] = true;

@@ -1,5 +1,6 @@
 import { query } from "../_generated/server";
 import { v } from "convex/values";
+import * as data from './data.json'
 
 // Get all active service categories ordered by their order field
 export const getServiceCategories = query({
