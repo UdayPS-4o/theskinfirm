@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import serviceData from '@/app/services/[service]/data.json';
+import serviceData from '@/data/treatments.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = 'https://theskinfirm.in';
@@ -45,4 +45,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return [...staticRoutes, ...serviceRoutes];
-} 
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ConvexHttpClient } from 'convex/browser';
-import { api } from '../../../../convex/_generated/api';
+import { api } from '../../../../../convex/_generated/api';
 import AnimatedServicePage from './AnimatedServicePage';
 
 interface ServiceDetailsPageProps {
@@ -201,7 +201,7 @@ export async function generateStaticParams() {
     const services = await convex.query(api.services.queries.getServices);
 
     // Return array of service slugs for static generation
-    return services.map((service) => ({
+    return services.map((service: any) => ({
       service: service.slug,
     }));
   } catch (error) {
