@@ -176,27 +176,7 @@ export interface BaseServiceContent {
   schema: ServiceSchema;
 }
 
-// Specific service content interfaces that extend the base
-export interface ChemicalPeelContent extends BaseServiceContent {
-  // Chemical peel specific fields if any
-}
-
-export interface MoleRemovalContent extends BaseServiceContent {
-  // Mole removal specific fields if any
-}
-
-export interface MesotherapyContent extends BaseServiceContent {
-  // Mesotherapy specific fields if any
-}
-
-export interface PRPTreatmentContent extends BaseServiceContent {
-  // PRP treatment specific fields if any
-}
-
-export interface OpenPoresTreatmentContent extends BaseServiceContent {
-  // Open pores treatment specific fields if any
-}
-
+// Specific service content interfaces can be defined if they have unique fields
 export interface AcneTreatmentContent extends BaseServiceContent {
   // Acne treatment specific fields (for existing acne treatment page)
   whatIsAcne?: ServiceContent; // Optional for backward compatibility
@@ -204,10 +184,5 @@ export interface AcneTreatmentContent extends BaseServiceContent {
 
 // Generic service content type that can be used for any service
 export type ServiceContentType = 
-  | ChemicalPeelContent 
-  | MoleRemovalContent 
-  | MesotherapyContent 
-  | PRPTreatmentContent 
-  | OpenPoresTreatmentContent 
   | AcneTreatmentContent 
   | BaseServiceContent;

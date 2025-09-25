@@ -64,11 +64,6 @@ export const AcneTreatmentClientPage: React.FC<
 
   return (
     <>
-      <head>
-        <title>{typedContentData.meta.title}</title>
-        <meta name="description" content={typedContentData.meta.description} />
-        <meta name="keywords" content={typedContentData.meta.keywords} />
-      </head>
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative bg-[color:var(--color-light-background)]">
@@ -92,7 +87,7 @@ export const AcneTreatmentClientPage: React.FC<
                         : "translate-y-5 opacity-0"
                     }`}
                   >
-                    ACNE & SKIN CARE
+                    {typedContentData.hero.category}
                   </small>
                   <div className="flex flex-col gap-1">
                     <h1
@@ -363,13 +358,15 @@ export const AcneTreatmentClientPage: React.FC<
         </section>
 
         {/* Types of Treatments Section */}
+        {typedContentData.treatmentTypes && (
         <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12">
               {typedContentData.treatmentTypes.title}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {typedContentData.treatmentTypes.treatments.map((item, index) => (
+                {typedContentData.treatmentTypes.treatments.map(
+                  (item, index) => (
                 <div
                   key={index}
                   className="group p-6 md:p-7 rounded-xl border border-[color:var(--color-light-border)] bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center"
@@ -381,10 +378,12 @@ export const AcneTreatmentClientPage: React.FC<
                     {item.description}
                   </p>
                 </div>
-              ))}
+                  )
+                )}
             </div>
           </div>
         </section>
+        )}
         {/* Benefits Section */}
         <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
           <MaxWidthWrapper>
@@ -510,34 +509,64 @@ export const AcneTreatmentClientPage: React.FC<
                       : "translate-y-10 opacity-0"
                   }`}
                 >
-                  <p className="text-base leading-[22px] text-black mb-6 whitespace-pre-line">
-                    {typedContentData.postCare.description}
-                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-6">
+                    {typedContentData.postCare.description
+                      .split("\n")
+                      .map((item, index) => {
+                        const parts = item.split(" - ");
+                        const title = parts[0];
+                        const description = parts.slice(1).join(" - ");
+
+                        return (
+                          <div key={index} className="flex items-start gap-3">
+                            <div className="w-6 h-6 flex-shrink-0 mt-0.5">
+                              <img
+                                src="/post-care.svg"
+                                alt="Post Care"
+                                className="w-full h-full"
+                              />
+                            </div>
+                            <p className="text-base text-gray-800">
+                              <span className="font-semibold text-black">
+                                {title}
+                              </span>
+                              {description && (
+                                <span className="text-gray-700">
+                                  {" "}
+                                  - {description}
+                                </span>
+                              )}
+                            </p>
+                          </div>
+                        );
+                      })}
+                  </div>
                   <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
                     <h2 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6">
-                      Post-Care After Acne Treatments
+                      {typedContentData.postCare.tipsTitle ||
+                        "Post-Care Instructions"}
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {typedContentData.postCare.tips?.map((item, index) => (
                         <div
                           key={index}
-                          className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${
+                          className={`flex items-start gap-3 transform transition-all duration-500 ease-out hover:scale-105 ${
                             isVisible("postcare-content")
                               ? "translate-y-0 opacity-100"
                               : "translate-y-5 opacity-0"
                           }`}
-                          style={{ transitionDelay: `${600 + index * 100}ms` }}
+                          style={{
+                            transitionDelay: `${600 + index * 100}ms`,
+                          }}
                         >
-                          <div className="w-[30px] h-[30px] flex-shrink-0">
+                          <div className="w-6 h-6 flex-shrink-0 mt-0.5">
                             <img
                               src="/post-care.svg"
                               alt="Post Care"
                               className="w-full h-full"
                             />
                           </div>
-                          <p className="text-base leading-[22px] text-black mt-0.5 mt-[-4px]">
-                            {item}
-                          </p>
+                          <p className="text-base text-gray-800">{item}</p>
                         </div>
                       ))}
                     </div>
@@ -577,7 +606,7 @@ export const AcneTreatmentClientPage: React.FC<
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  {typedContentData.clinicFeatures.title}
+                {"Why The Skin Firm is Pune's Trusted Clinic"}
                 </h2>
               </div>
               <div
@@ -585,7 +614,153 @@ export const AcneTreatmentClientPage: React.FC<
                 data-animate
                 className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-wrap lg:justify-center gap-6 md:gap-8"
               >
-                {typedContentData.clinicFeatures.features.map((item, index) => (
+              {[
+                {
+                  title: "Dermatologist-Led Expertise",
+                  text: "Dr. Karishma Singh, Skin Specialist",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M20 12C16.686 12 14 14.686 14 18S16.686 24 20 24S26 21.314 26 18S23.314 12 20 12ZM20 22C17.794 22 16 20.206 16 18S17.794 14 20 14S24 15.794 24 18S22.206 22 20 22Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M28 28C28 24.691 25.309 22 22 22H18C14.691 22 12 24.691 12 28V30H14V28C14 25.794 15.794 24 18 24H22C24.206 24 26 25.794 26 28V30H28V28Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Personalised Treatment Plans",
+                  text: "no one-size-fits-all",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M16 14H24V16H16V14ZM16 18H28V20H16V18ZM16 22H28V24H16V22ZM16 26H24V28H16V26Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M12 10V30C12 31.1 12.9 32 14 32H26C27.1 32 28 31.1 28 30V10C28 8.9 27.1 8 26 8H14C12.9 8 12 8.9 12 10ZM14 10H26V30H14V10Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Advanced Technology",
+                  text: "medical-grade, safe & effective",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M20 8L22.09 13.26L28 12L26.91 17.74L32 20L26.91 22.26L28 28L22.09 26.74L20 32L17.91 26.74L12 28L13.09 22.26L8 20L13.09 17.74L12 12L17.91 13.26L20 8Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Proven Track Record",
+                  text: "thousands of happy patients",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M29 18H27C27 13.589 23.411 10 19 10S11 13.589 11 18H9C9 12.486 13.486 8 19 8S29 12.486 29 18Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M15.293 18.707L17 20.414L22.707 14.707L24.121 16.121L17 23.242L13.879 20.121L15.293 18.707Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M19 22C22.866 22 26 25.134 26 29V31H12V29C12 25.134 15.134 22 19 22ZM19 24C16.243 24 14 26.243 14 29H24C24 26.243 21.757 24 19 24Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Safety First",
+                  text: "evidence-based, dermatologist-approved care",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M20 8L26 12V22C26 26.418 23.314 30.347 19.5 31.5C15.686 30.347 13 26.418 13 22V12L20 8ZM20 10.273L15 13.454V22C15 25.283 16.885 28.22 19.5 29.135C22.115 28.22 24 25.283 24 22V13.454L20 10.273Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M18.293 19.707L19 20.414L22.707 16.707L24.121 18.121L19 23.242L16.879 21.121L18.293 19.707Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+              ].map((item, index) => (
                   <div
                     key={index}
                     className={`group rounded-xl border border-[color:var(--color-light-border)] p-6 md:p-8 bg-white shadow-lg transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 hover:border-[color:var(--color-primary-brown)] lg:w-[calc(33.333%-1.333rem)] ${
@@ -597,7 +772,7 @@ export const AcneTreatmentClientPage: React.FC<
                   >
                     <div className="flex flex-col items-center text-center gap-4 md:gap-6">
                       <div className="transform transition-all duration-300 group-hover:scale-110">
-                        <span className="text-4xl">{item.icon}</span>
+                      {item.icon}
                       </div>
                       <div className="flex flex-col gap-2">
                         <h6 className="text-lg md:text-xl font-semibold text-[color:var(--color-dark-text)] leading-tight">
@@ -797,16 +972,27 @@ export const AcneTreatmentClientPage: React.FC<
         <section className="py-12 md:py-20 px-4 md:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6">
-              {typedContentData.locations.title}
+              Patients Visit Us From Across Pune
             </h2>
             <p className="mb-4">
-              {typedContentData.locations.content}
+              At The Skin Firm, we proudly serve patients not only from Mohammad
+              Wadi and NIBM Road, but also from several nearby areas in Pune who
+              visit us for trusted treatments, skin care, and hair solutions.
             </p>
             <p className="mb-6 font-medium">
               Many of our patients travel to our clinic from:
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {typedContentData.locations.areas.map((loc) => (
+              {[
+                "Camp",
+                "Undri",
+                "Pisoli",
+                "Kondhwa",
+                "Hadapsar",
+                "Wanowrie",
+                "Handewadi",
+                "Lullanagar",
+              ].map((loc) => (
                 <span
                   key={loc}
                   className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full"
@@ -819,7 +1005,9 @@ export const AcneTreatmentClientPage: React.FC<
               </span>
             </div>
             <p>
-              {typedContentData.locations.footer}
+              Our convenient location makes it easy for people across South Pune
+              and Central Pune to access advanced treatments and other
+              dermatology services under the expert care of Dr. Karishma Singh.
             </p>
           </div>
         </section>
@@ -831,14 +1019,22 @@ export const AcneTreatmentClientPage: React.FC<
         >
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold mb-6 text-[color:var(--color-dark-text)]">
-              {typedContentData.finalCta.title}
+              Book Your Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune
             </h2>
             <p className="mb-6 text-[color:var(--color-dark-text)]">
-              {typedContentData.finalCta.content}
+              Don&apos;t let skin concerns hold back your confidence. At The Skin
+              Firm, we understand how skin issues can affect not just your
+              appearance, but also the way you feel about yourself. With Dr.
+              Karishma Singh&apos;s expert care and customized treatments, healthier
+              skin - and renewed confidence - can truly be yours.
+            </p>
+            <p className="font-semibold mb-8 text-[color:var(--color-dark-text)]">
+              Appointments fill quickly. Start your journey to healthier,
+              confident skin today.
             </p>
             <Link href="/contact">
               <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
-                {typedContentData.finalCta.cta}
+                Book Your Treatment Appointment →
               </button>
             </Link>
           </div>

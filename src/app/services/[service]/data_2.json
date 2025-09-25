@@ -1,5 +1,5 @@
 {
-  "laser-hair-removal-pune": {
+  "laser-hair-removal-in-pune": {
     "meta": {
       "title": "Laser Hair Removal in Pune | Safe & Painless Hair Reduction",
       "description": "Get hassle-free, silky skin with Dr. Karishma Singh's advanced laser hair removal in Pune. Quick, safe & effective treatments at The Skin Firm.",
@@ -8,7 +8,8 @@
     "hero": {
       "title": "Laser Hair Removal in Pune - Confidence Starts with Clear, Hair-Free Skin",
       "subtitle": "Safe, effective, and long-lasting results with Dr. Karishma Singh at The Skin Firm - trusted for painless laser hair removal in Pune.",
-      "cta": "Book Your Laser Hair Removal Consultation Today →"
+      "cta": "Book Your Laser Hair Removal Consultation Today →",
+      "category": "LASER & HAIR REMOVAL"
     },
     "whatIsService": {
       "title": "What Is Laser Hair Removal?",
@@ -28,7 +29,8 @@
     "whyChooseUs": {
       "title": "Why Choose Laser Hair Removal at The Skin Firm?",
       "description": "Tired of painful waxing sessions, ingrown hairs, or the endless cycle of shaving? We understand how frustrating it is to spend time and money on temporary solutions.",
-      "highlight": "At The Skin Firm, we use medical-grade, US-FDA approved laser technology to provide safe, effective, and virtually painless laser hair removal for all skin types. Under the expert care of the best dermatologist for laser hair removal in Pune, Dr. Karishma Singh, every session is customised to your skin tone, hair texture, and comfort level - ensuring smooth, long-lasting results you can trust."
+      "highlight": "At The Skin Firm, we use medical-grade, US-FDA approved laser technology to provide safe, effective, and virtually painless laser hair removal for all skin types. Under the expert care of the best dermatologist for laser hair removal in Pune, Dr. Karishma Singh, every session is customised to your skin tone, hair texture, and comfort level - ensuring smooth, long-lasting results you can trust.",
+      "image": "/images/services/laser hair removal.png"
     },
     "process": {
       "title": "How Our Laser Hair Removal Works",
@@ -68,25 +70,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Laser Hair Removal",
-        "points": [
-          "No Downtime - resume daily activities immediately",
-          "Mild Redness - may occur for a few hours post-treatment",
-          "Sun Sensitivity - strict SPF use recommended for 48 hours",
-          "Hair Shedding - treated hair will gradually fall out in 1-2 weeks"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Laser Hair Removal",
-        "points": [
-          "Avoid sun exposure and tanning for 1 week",
-          "Apply sunscreen daily on treated areas",
-          "Skip hot showers, steam, or sauna for 24 hours",
-          "Avoid waxing, threading, or plucking - shaving only if required",
-          "Moisturise skin regularly to keep it calm and hydrated"
-        ]
-      }
+      "title": "Downtime After Laser Hair Removal",
+      "description": "No Downtime - resume daily activities immediately\nMild Redness - may occur for a few hours post-treatment\nSun Sensitivity - strict SPF use recommended for 48 hours\nHair Shedding - treated hair will gradually fall out in 1-2 weeks",
+      "tipsTitle": "Post-Care After Laser Hair Removal",
+      "tips": [
+        "Avoid sun exposure and tanning for 1 week",
+        "Apply sunscreen daily on treated areas",
+        "Skip hot showers, steam, or sauna for 24 hours",
+        "Avoid waxing, threading, or plucking - shaving only if required",
+        "Moisturise skin regularly to keep it calm and hydrated"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Laser Hair Removal Clinic",
@@ -95,7 +88,8 @@
         "Advanced Technology - medical-grade, US-FDA approved lasers",
         "Customised Plans - designed for your skin & hair type",
         "Comfort First - virtually painless with advanced cooling systems",
-        "Proven Results - thousands of satisfied patients across Pune"
+        "Proven Results - thousands of satisfied patients across Pune",
+        "Gives an instant, long-lasting glow"
       ]
     },
     "transformations": {
@@ -167,7 +161,8 @@
     "hero": {
       "title": "Medi-Facials for Clear, Radiant Skin with The Skin Firm, Pune",
       "subtitle": "Dermatologist-led, Medi-facials at The Skin Firm, Pune that treat acne, dullness, pigmentation & ageing - giving you healthy, lasting glow beyond regular salon facials.",
-      "cta": "Book Your Medi Facial Appointment Today →"
+      "cta": "Book Your Medi Facial Appointment Today →",
+      "category": "SKIN CARE & FACIALS"
     },
     "whatIsService": {
       "title": "What Is a Medi-Facial?",
@@ -188,8 +183,9 @@
     },
     "whyChooseUs": {
       "title": "Why Choose Medi-Facial at The Skin Firm?",
-      "description": "Do you feel like your skin has lost its glow, looks congested, or simply doesn't respond to regular facials? We understand how frustrating it is when your skin doesn't reflect the way you feel inside. At The Skin Firm, our Medi-Facials are designed to treat your skin at a cellular level - not just temporarily brighten it. Whether your concern is acne-prone skin, pigmentation, or simply wanting a long-lasting glow, our dermatologist-led Medi-Facials are safe, customised, and results-driven.",
-      "highlight": "Led by Dr. Karishma Singh, one of Pune's trusted dermatologists, every Medi-Facial treatment at our clinic combines advanced technology with medical-grade ingredients for visible, lasting results."
+      "description": "Do you feel like your skin has lost its glow, looks congested, or simply doesn't respond to regular facials? We understand how frustrating it is when your skin doesn't look its best. At The Skin Firm, our Medi-Facials are designed to treat your skin at a cellular level - not just temporarily brighten it. Whether your concern is acne-prone skin, pigmentation, or simply wanting a long-lasting glow, our dermatologist-led Medi-Facials are safe, customised, and results-driven.",
+      "highlight": "Led by Dr. Karishma Singh, one of Pune's trusted dermatologists, every Medi-Facial treatment at our clinic combines advanced technology with medical-grade ingredients for visible, lasting results.",
+      "image": "/images/services/medicated facial.png"
     },
     "process": {
       "title": "How Our Medi Facial Works",
@@ -258,25 +254,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Medi Facials Treatment",
-        "points": [
-          "Minimal to No Downtime - most clients resume normal activities immediately",
-          "Mild Redness - may occur for a few hours depending on skin sensitivity",
-          "Peeling/Flaking - rare, but possible if combined with exfoliating treatment",
-          "Sun Sensitivity - sunscreen is essential post-treatment"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Medi-Facials Treatment",
-        "points": [
-          "Avoid heavy makeup for 12-24 hours",
-          "Apply sunscreen daily to protect your glow",
-          "Use a gentle, hydrating cleanser",
-          "Skip gym, steam, or saunas for 24 hours",
-          "Stay hydrated and follow dermatologist-advised skincare"
-        ]
-      }
+      "title": "Downtime After Medi Facials Treatment",
+      "description": "Minimal to No Downtime - most clients resume normal activities immediately\nMild Redness - may occur for a few hours depending on skin sensitivity\nPeeling/Flaking - rare, but possible if combined with exfoliating treatment\nSun Sensitivity - sunscreen is essential post-treatment",
+      "tipsTitle": "Post-Care After Medi-Facials Treatment",
+      "tips": [
+        "Avoid heavy makeup for 12-24 hours",
+        "Apply sunscreen daily to protect your glow",
+        "Use a gentle, hydrating cleanser",
+        "Skip gym, steam, or saunas for 24 hours",
+        "Stay hydrated and follow dermatologist-advised skincare"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Medi Facial Clinic?",
@@ -285,7 +272,8 @@
         "Customised Facials - every treatment tailored to your skin needs",
         "Advanced Technology - medical-grade equipment & products",
         "Visible Results - healthier, clearer, glowing skin",
-        "Safety First - dermatologist-approved, evidence-based protocols"
+        "Safety First - dermatologist-approved, evidence-based protocols",
+        "Boosts confidence with brighter eyes"
       ]
     },
     "transformations": {
@@ -352,7 +340,7 @@
       "cta": "Book Your Medi-Facial Appointment →"
     }
   },
-  "dark-circle-under-eye-treatment-pune": {
+  "dark-circle-under-eye-treatment-in-pune": {
     "meta": {
       "title": "Dark Circle & Under Eye Treatment in Pune | The Skin Firm Clinic",
       "description": "Get brighter, youthful eyes with dermatologist-led dark circle & under eye treatments at The Skin Firm, Pune. Safe, advanced & personalised care.",
@@ -361,7 +349,8 @@
     "hero": {
       "title": "Dark Circle Under Eye Treatment in Pune - Brighten Your Eyes, Refresh Your Look",
       "subtitle": "Dermatologist-led dark circle treatment in Pune for puffiness, hollowness & pigmentation.",
-      "cta": "Book Your Under Eye Consultation Today→"
+      "cta": "Book Your Under Eye Consultation Today→",
+      "category": "EYE CARE & SKIN"
     },
     "whatIsService": {
       "title": "What Are Dark Circles & Under Eye Concerns?",
@@ -381,7 +370,8 @@
     "whyChooseUs": {
       "title": "Why Choose Dark Circle & Under Eye Treatment at The Skin Firm?",
       "description": "Tired of concealing your under eyes with makeup or being asked if you're not sleeping well? We know how frustrating dark circles can be when nothing seems to help. At The Skin Firm, our dark circle under eye treatment is dermatologist-designed and technology-driven, addressing the real cause of dark circles - whether pigmentation, hollowness, puffiness, or ageing.",
-      "highlight": "Led by Dr. Karishma Singh, a trusted dermatologist for dark circles in Pune, our clinic provides personalised under eye treatment plans that combine safety, comfort, and proven results - so your eyes look as fresh and vibrant as you feel."
+      "highlight": "Led by Dr. Karishma Singh, a trusted dermatologist for dark circles in Pune, our clinic provides personalised under eye treatment plans that combine safety, comfort, and proven results - so your eyes look as fresh and vibrant as you feel.",
+      "image": "/images/services/dark circle.png"
     },
     "process": {
       "title": "How Our Dark Circle & Under Eye Treatment Works",
@@ -450,18 +440,10 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Dark Circle & Under Eye Treatments",
-        "points": [
-          "Minimal to No Downtime - resume normal activities immediately",
-          "Mild Redness/Swelling - subsides within hours or days depending on treatment",
-          "Temporary Bruising - may occur with PRP or fillers, fades quickly",
-          "Gradual Results - improvements appear progressively with each session"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Dark Circle & Under Eye Treatments",
-        "points": [
+      "title": "Downtime After Dark Circle & Under Eye Treatments",
+      "description": "Minimal to No Downtime - resume normal activities immediately\nMild Redness/Swelling - subsides within hours or days depending on treatment\nTemporary Bruising - may occur with PRP or fillers, fades quickly\nGradual Results - improvements appear progressively with each session",
+      "tipsTitle": "Post-Care After Dark Circle & Under Eye Treatments",
+      "tips": [
         "Apply sunscreen daily to protect delicate under eye skin",
         "Avoid rubbing, scratching, or tugging at the area",
         "Use dermatologist-recommended under eye cream",
@@ -469,16 +451,35 @@
         "Stay hydrated and prioritise adequate sleep",
         "Avoid strong actives (like retinol) around the eyes for 3-5 days post-procedure"
       ]
-      }
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Dark Circle & Under Eye Clinic",
       "features": [
-        "Dermatologist-Led Expertise - Dr. Karishma Singh, Skin Specialist",
-        "Advanced Technology - safe, medical-grade equipment",
-        "Tailored Plans - treatments customised to each client's needs",
-        "Proven Results - hundreds of happy patients with refreshed eyes",
-        "Safe & Hygienic Clinic - evidence-based, dermatologist-approved care"
+        {
+          "icon": "👩‍⚕️",
+          "title": "Dermatologist-Led Expertise",
+          "text": "Dr. Karishma Singh, Skin Specialist"
+        },
+        {
+          "icon": "🔬",
+          "title": "Advanced Technology",
+          "text": "Safe, medical-grade equipment"
+        },
+        {
+          "icon": "📝",
+          "title": "Tailored Plans",
+          "text": "Treatments customised to each client's needs"
+        },
+        {
+          "icon": "😊",
+          "title": "Proven Results",
+          "text": "Hundreds of happy patients with refreshed eyes"
+        },
+        {
+          "icon": "🧼",
+          "title": "Safe & Hygienic Clinic",
+          "text": "Evidence-based, dermatologist-approved care"
+        }
       ]
     },
     "transformations": {
@@ -551,7 +552,7 @@
       "title": "Patients Visit Us From Across Pune",
       "content": "At The Skin Firm, we proudly serve patients from Mohammad Wadi and NIBM Road, as well as other nearby areas of Pune. Many clients visit us for dark circle and under eye treatments from Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, Lullanagar, and more.",
       "areas": [],
-      "footer": "Our clinic's central location makes it easy for patients across South and Central Pune to access advanced under eye treatments under the expert care of Dr. Karishma Singh."
+      "footer": "Our clinic's central location makes it easy for patients across South Pune and Central Pune to access advanced under eye treatments under the expert care of Dr. Karishma Singh."
     },
     "finalCta": {
       "title": "Book Your Dark Circle & Under Eye Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
@@ -568,7 +569,8 @@
     "hero": {
       "title": "Skin Pigmentation & Melasma Treatment in Pune - Restore Clear, Even-Toned Skin",
       "subtitle": "Expert dermatologist-led care for dark patches, uneven tone & stubborn pigmentation",
-      "cta": "Book Your Skin Pigmentation Consultation Today →"
+      "cta": "Book Your Skin Pigmentation Consultation Today →",
+      "category": "SKIN TONE & PIGMENTATION"
     },
     "whatIsService": {
       "title": "What Is Skin Pigmentation (Melasma)?",
@@ -588,7 +590,8 @@
     "whyChooseUs": {
       "title": "Why Choose Pigmentation & Melasma Treatment at The Skin Firm?",
       "description": "Have dark patches or uneven tone left you hiding behind makeup or filters? We understand how frustrating it is when your skin no longer feels like yours. At The Skin Firm, our pigmentation and melasma treatments are designed to treat the root cause whether it's sun damage, hormones, inflammation, or genetics so you can enjoy brighter, even-toned skin again.",
-      "highlight": "Under the expert guidance of Dr. Karishma Singh, trusted skin pigmentation specialist in Pune, we use safe, medical-grade treatments that deliver visible results without damaging your skin."
+      "highlight": "Under the expert guidance of Dr. Karishma Singh, trusted skin pigmentation specialist in Pune, we use safe, medical-grade treatments that deliver visible results without damaging your skin.",
+      "image": "/images/services/pigmentation.png"
     },
     "process": {
       "title": "How Our Skin Pigmentation & Melasma Treatment Works",
@@ -656,25 +659,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Pigmentation & Melasma Treatments",
-        "points": [
-          "Minimal Downtime - most clients resume activities the same day",
-          "Mild Redness or Peeling - may last a few days depending on treatment",
-          "Sun Sensitivity - strict sun protection required for best results",
-          "Gradual Results - pigmentation lightens progressively with each session"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Pigmentation & Melasma Treatments",
-        "points": [
-          "Apply sunscreen daily without fail",
-          "Avoid direct sun exposure and tanning",
-          "Pause retinol/strong actives for 3–5 days",
-          "Use a gentle, hydrating cleanser",
-          "Stay consistent with dermatologist-recommended skincare"
-        ]
-      }
+      "title": "Downtime After Pigmentation & Melasma Treatments",
+      "description": "Minimal Downtime - most clients resume activities the same day\nMild Redness or Peeling - may last a few days depending on treatment\nSun Sensitivity - strict sun protection required for best results\nGradual Results - pigmentation lightens progressively with each session",
+      "tipsTitle": "Post-Care After Pigmentation & Melasma Treatments",
+      "tips": [
+        "Apply sunscreen daily without fail",
+        "Avoid direct sun exposure and tanning",
+        "Pause retinol/strong actives for 3-5 days",
+        "Use a gentle, hydrating cleanser",
+        "Stay consistent with dermatologist-recommended skincare"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Clinic for Pigmentation & Melasma",
@@ -683,7 +677,8 @@
         "Personalised Protocols - customised to your skin type & concern",
         "Advanced Technology - safe, proven, medical-grade treatments",
         "Visible, Lasting Results - clearer, brighter, even-toned skin",
-        "Best Pigmentation Clinic in Pune - trusted by thousands of happy patients"
+        "Best Pigmentation Clinic in Pune - trusted by thousands of happy patients",
+        "Boosts confidence with healthier, fuller hair"
       ]
     },
     "transformations": {
@@ -750,7 +745,7 @@
       "cta": "Book Your Pigmentation Appointment Now →"
     }
   },
-  "hair-loss-treatment-pune": {
+  "hair-loss-treatment-in-pune": {
     "meta": {
       "title": "Hair Loss & Hair Fall Treatment in Pune | The Skin Firm Clinic",
       "description": "Advanced hair loss & hair fall treatments in Pune. PRP, mesotherapy & laser therapy at The Skin Firm. Dermatologist-led care for healthier, fuller hair.",
@@ -759,7 +754,8 @@
     "hero": {
       "title": "Regrow Your Confidence with Advanced Hair Loss Treatments in Pune",
       "subtitle": "Dermatologist-led solutions for thinning hair, bald patches & hair fall treatment in Pune – tailored to your needs.",
-      "cta": "Book Your Hair Loss Consultation Today →"
+      "cta": "Book Your Hair Loss Consultation Today →",
+      "category": "HAIR CARE & RESTORATION"
     },
     "whatIsService": {
       "title": "What Is Hair Loss?",
@@ -779,7 +775,8 @@
     "whyChooseUs": {
       "title": "Why Choose Hair Loss Treatment at The Skin Firm?",
       "description": "Are you noticing more hair on your pillow or comb than on your head? We understand how distressing hair loss can be - it affects not just your appearance but also your confidence. At The Skin Firm, NIBM, Pune, our hair fall treatments are science-backed and dermatologist-supervised, ensuring effective and safe results.",
-      "highlight": "Under the expert care of Dr. Karishma Singh, we customise every plan based on your scalp condition, lifestyle, and goals - using the latest techniques for natural-looking, long-lasting improvement."
+      "highlight": "Under the expert care of Dr. Karishma Singh, we customise every plan based on your scalp condition, lifestyle, and goals - using the latest techniques for natural-looking, long-lasting improvement.",
+      "image": "/images/services/hair loss.png"
     },
     "process": {
       "title": "How Our Hair Loss Treatment Works",
@@ -843,24 +840,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Hair Loss Treatments",
-        "points": [
-          "Minimal Downtime - resume normal activities immediately",
-          "Mild Redness/Soreness - may occur at injection sites, settles within a day",
-          "Gradual Results - visible improvement in hair density over weeks to months"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Hair Loss Treatments",
-        "points": [
-          "Avoid oiling, colouring, or chemical treatments for a few days",
-          "Use mild, dermatologist-recommended shampoo",
-          "Stay hydrated and maintain a balanced diet",
-          "Protect scalp from excessive sun exposure",
-          "Follow your prescribed home care and supplements consistently"
-        ]
-      }
+      "title": "Downtime After Hair Loss Treatments",
+      "description": "Minimal Downtime - resume normal activities immediately\nMild Redness/Soreness - may occur at injection sites, settles within a day\nGradual Results - visible improvement in hair density over weeks to months",
+      "tipsTitle": "Post-Care After Hair Loss Treatments",
+      "tips": [
+        "Avoid oiling, colouring, or chemical treatments for a few days",
+        "Use mild, dermatologist-recommended shampoo",
+        "Stay hydrated and maintain a balanced diet",
+        "Protect scalp from excessive sun exposure",
+        "Follow your prescribed home care and supplements consistently"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Hair Loss Clinic",
@@ -869,7 +858,8 @@
         "Advanced Technology - safe, effective, medical-grade procedures",
         "Personalised Plans - customised to your hair type and severity",
         "Proven Track Record - thousands of successful treatments in Pune",
-        "Safe & Comfortable - evidence-based, non-surgical solutions"
+        "Safe & Comfortable - evidence-based, non-surgical solutions",
+        "Safe, fast, and medically supervised"
       ]
     },
     "transformations": {
@@ -949,7 +939,7 @@
       "cta": "Book Your Hair Loss Consultation →"
     }
   },
-  "iv-drips-therapy-pune": {
+  "iv-drips-therapy-in-pune": {
     "meta": {
       "title": "IV Drips in Pune | Advanced IV Therapy for Energy, Glow & Immunity",
       "description": "Boost your energy, immunity & skin health with dermatologist-supervised IV drips in Pune. Safe, customised IV therapy for hydration, glow & wellness at The Skin Firm.",
@@ -958,7 +948,8 @@
     "hero": {
       "title": "Recharge Your Body, Refresh Your Skin with IV Drips in Pune",
       "subtitle": "Advanced, dermatologist-supervised IV Therapy in Pune for glowing skin, stronger immunity, and instant energy boost. Hydration • Wellness • Glow • Recovery",
-      "cta": "Book Your IV Drip Session Today →"
+      "cta": "Book Your IV Drip Session Today →",
+      "category": "WELLNESS & HYDRATION"
     },
     "whatIsService": {
       "title": "What Is IV Therapy (IV Drips)?",
@@ -979,7 +970,8 @@
     "whyChooseUs": {
       "title": "Why Choose IV Therapy at The Skin Firm?",
       "description": "Feeling run-down, low on energy, or noticing your skin has lost its glow? We know how draining modern life can be.",
-      "highlight": "At The Skin Firm, NIBM our customised IV drips - like the Skin Glow Drip in Pune, Immunity Boost IV, and Hydration Drip - are carefully curated by Dr. Karishma Singh to restore balance, energy, and radiance. Unlike generic salon drips, our treatments are medical grade, dermatologist-supervised, and tailored to your needs - whether that's glowing skin, strong immunity, or full-body rejuvenation."
+      "highlight": "At The Skin Firm, NIBM our customised IV drips - like the Skin Glow Drip in Pune, Immunity Boost IV, and Hydration Drip - are carefully curated by Dr. Karishma Singh to restore balance, energy, and radiance. Unlike generic salon drips, our treatments are medical grade, dermatologist-supervised, and tailored to your needs - whether that's glowing skin, strong immunity, or full-body rejuvenation.",
+      "image": "/images/services/iv drip.png"
     },
     "process": {
       "title": "How Our IV Therapy Works",
@@ -1052,23 +1044,15 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After IV Therapy",
-        "points": [
-          "No Downtime - resume normal activities right after your session",
-          "Mild Soreness - at the injection site, if any, subsides quickly",
-          "Immediate Effect - many clients feel refreshed within hours"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After IV Therapy",
-        "points": [
-          "Stay hydrated with water post-session",
-          "Avoid alcohol and smoking for 24 hours",
-          "Maintain a balanced diet to prolong benefits",
-          "Follow your personalised IV schedule for continued wellness"
-        ]
-      }
+      "title": "Downtime After IV Therapy",
+      "description": "No Downtime - resume normal activities right after your session\nMild Soreness - at the injection site, if any, subsides quickly\nImmediate Effect - many clients feel refreshed within hours",
+      "tipsTitle": "Post-Care After IV Therapy",
+      "tips": [
+        "Stay hydrated with water post-session",
+        "Avoid alcohol and smoking for 24 hours",
+        "Maintain a balanced diet to prolong benefits",
+        "Follow your personalised IV schedule for continued wellness"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Clinic for IV Therapy",
@@ -1077,7 +1061,8 @@
         "Customised Drips - tailored for skin, health, and lifestyle needs",
         "Premium Experience - comfortable, relaxing sessions",
         "Proven Results - trusted by hundreds of patients in Pune",
-        "Holistic Care - combining skincare, wellness, and nutrition"
+        "Holistic Care - combining skincare, wellness, and nutrition",
+        "Boosts comfort and confidence"
       ]
     },
     "testimonials": {
@@ -1154,7 +1139,7 @@
       "cta": "Book Your IV Drip Appointment →"
     }
   },
-  "mole-skin-tag-removal-pune": {
+  "mole-skin-tag-removal-in-pune": {
     "meta": {
       "title": "Mole & Skin Tag Removal in Pune | Safe Dermatologist Treatment",
       "description": "Quick, safe & effective mole and skin tag removal in Pune by Dr. Karishma Singh. Advanced laser & radiofrequency treatments with minimal downtime.",
@@ -1163,7 +1148,8 @@
     "hero": {
       "title": "Mole & Skin Tag Removal in Pune - Clearer, Smoother Skin with The Skin Firm",
       "subtitle": "Get hassle-free, safe, and effective mole removal and skin tag removal under the expert care of Dr. Karishma Singh. Advanced, minimally invasive treatments with lasting results.",
-      "cta": "Book Your Mole Removal Consultation Today →"
+      "cta": "Book Your Mole Removal Consultation Today →",
+      "category": "SKIN & BODY CARE"
     },
     "whatIsService": {
       "title": "What Choose Mole & Skin Tag Removal?",
@@ -1182,7 +1168,8 @@
     "whyChooseUs": {
       "title": "Why Choose Skin Tag & Mole Removal at The Skin Firm?",
       "description": "Do you have skin tags or moles that bother you when dressing, grooming, or simply looking in the mirror? We understand how such small skin concerns can impact your comfort and confidence.",
-      "highlight": "At The Skin Firm, Dr. Karishma Singh performs precise, dermatologist-led procedures for skin tag and mole removal. Using advanced, medical-grade techniques, we ensure the process is safe, minimally invasive, and leaves minimal marks - so you can feel comfortable and confident in your skin again."
+      "highlight": "At The Skin Firm, Dr. Karishma Singh performs precise, dermatologist-led procedures for skin tag and mole removal. Using advanced, medical-grade techniques, we ensure the process is safe, minimally invasive, and leaves minimal marks - so you can feel comfortable and confident in your skin again.",
+      "image": "/images/services/tags.png"
     },
     "process": {
       "title": "How Our Skin Tag & Mole Removal Works",
@@ -1242,25 +1229,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Skin Tag & Mole Removal",
-        "points": [
-          "Minimal Downtime - resume normal activities immediately",
-          "Mild Redness or Scabbing - may occur for a few days as the skin heals",
-          "Small Mark - may lighten and fade over time",
-          "Sun Sensitivity - sunscreen is important to prevent pigmentation"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Skin Tag & Mole Removal",
-        "points": [
-          "Keep the treated area clean and dry for 24 hours",
-          "Avoid scratching or picking at the site",
-          "Apply prescribed ointment if advised",
-          "Protect skin from direct sun exposure with SPF",
-          "Avoid makeup on the treated area until healing is complete"
-        ]
-      }
+      "title": "Downtime After Skin Tag & Mole Removal",
+      "description": "Minimal Downtime - resume normal activities immediately\nMild Redness or Scabbing - may occur for a few days as the skin heals\nSmall Mark - may lighten and fade over time\nSun Sensitivity - sunscreen is important to prevent pigmentation",
+      "tipsTitle": "Post-Care After Skin Tag & Mole Removal",
+      "tips": [
+        "Keep the treated area clean and dry for 24 hours",
+        "Avoid scratching or picking at the site",
+        "Apply prescribed ointment if advised",
+        "Protect skin from direct sun exposure with SPF",
+        "Avoid makeup on the treated area until healing is complete"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Skin Tag & Mole Removal Clinic",
@@ -1269,7 +1247,8 @@
         "Advanced Technology - modern, minimally invasive methods",
         "Customised Approach - based on your skin type and concern",
         "Safe & Hygienic Clinic Environment",
-        "Trusted Care - thousands of satisfied patients across Pune choose us for cosmetic mole removal Pune and skin tag treatments"
+        "Trusted Care - thousands of satisfied patients across Pune choose us for cosmetic mole removal Pune and skin tag treatments",
+        "Safe, quick, and effective for all skin types"
       ]
     },
     "transformations": {
@@ -1360,7 +1339,8 @@
     "hero": {
       "title": "Chemical Peel in Pune – Brighter, Clearer, Glowing Skin with The Skin Firm",
       "subtitle": "Safe, dermatologist-supervised chemical peel treatments in Pune for acne scars, pigmentation, dullness, and uneven skin tone.",
-      "cta": "Book Your Chemical Peel Consultation Today →"
+      "cta": "Book Your Chemical Peel Consultation Today →",
+      "category": "SKIN CARE & PEELS"
     },
     "whatIsService": {
       "title": "What Is a Chemical Peel?",
@@ -1381,7 +1361,8 @@
     "whyChooseUs": {
       "title": "Why Choose Chemical Peel Treatment at The Skin Firm?",
       "description": "Frustrated with dull, uneven skin or stubborn marks that don't fade with creams? We know how it feels when your skin doesn't look its best. At The Skin Firm, our chemical peel treatments in Pune are medical-grade, safe, and dermatologist-led - not harsh salon facials that can cause further damage.",
-      "highlight": "Under the expert care of Dr. Karishma Singh, one of the best dermatologists in Pune, we select the right peel strength and formulation for your skin, ensuring visible results with minimal downtime. Whether your goal is clearer skin, a natural glow, or targeted treatment for acne scars and pigmentation, our customized chemical peels deliver results you can trust."
+      "highlight": "Under the expert care of Dr. Karishma Singh, one of the best dermatologists in Pune, we select the right peel strength and formulation for your skin, ensuring visible results with minimal downtime. Whether your goal is clearer skin, a natural glow, or targeted treatment for acne scars and pigmentation, our customized chemical peels deliver results you can trust.",
+      "image": "/images/services/chemical peel.png"
     },
     "process": {
       "title": "How Our Chemical Peel Treatment Works",
@@ -1449,25 +1430,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Chemical Peel",
-        "points": [
-          "Minimal to Mild Downtime - resume normal activities immediately",
-          "Mild Redness or Peeling - skin may flake for 2–5 days during renewal",
-          "Sun Sensitivity - sunscreen is mandatory for at least a week",
-          "Makeup Restrictions - avoid makeup for 24 hours post-peel"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Chemical Peel",
-        "points": [
-          "Avoid direct sun exposure; apply sunscreen daily",
-          "Do not pick or peel flaking skin",
-          "Use gentle, hydrating cleansers and moisturisers",
-          "Pause retinol, exfoliants, and strong actives for 3–5 days",
-          "Stay hydrated for faster recovery"
-        ]
-      }
+      "title": "Downtime After Chemical Peel",
+      "description": "Minimal to Mild Downtime - resume normal activities immediately\nMild Redness or Peeling - skin may flake for 2-5 days during renewal\nSun Sensitivity - sunscreen is mandatory for at least a week\nMakeup Restrictions - avoid makeup for 24 hours post-peel",
+      "tipsTitle": "Post-Care After Chemical Peel",
+      "tips": [
+        "Avoid direct sun exposure; apply sunscreen daily",
+        "Do not pick or peel flaking skin",
+        "Use gentle, hydrating cleansers and moisturisers",
+        "Pause retinol, exfoliants, and strong actives for 3-5 days",
+        "Stay hydrated for faster recovery"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Chemical Peel Clinic",
@@ -1476,7 +1448,8 @@
         "Customized Treatments - tailored peels for each skin concern",
         "Advanced Technology - medical-grade solutions, safe and effective",
         "Proven Results - brighter, clearer skin with consistent care",
-        "Safety First - all treatments dermatologist-approved"
+        "Safety First - all treatments dermatologist-approved",
+        "Boosts confidence with radiant, healthy skin"
       ]
     },
     "transformations": {
@@ -1549,7 +1522,7 @@
       "cta": "Book Your Chemical Peel Appointment →"
     }
   },
-  "tan-removal-treatment-pune": {
+  "tan-removal-treatment-in-pune": {
     "meta": {
       "title": "Tan Removal Treatment in Pune | Dermatologist for Tan Removal",
       "description": "Get safe, dermatologist-supervised tan removal treatments in Pune. Restore your natural skin tone with advanced procedures by Dr. Karishma Singh at The Skin Firm.",
@@ -1558,7 +1531,8 @@
     "hero": {
       "title": "Tan Removal Treatment in Pune - Reveal Your Natural Glow at The Skin Firm",
       "subtitle": "Safe, advanced tan removal treatments in Pune for sun tan, dullness, and uneven skin – by Dr. Karishma Singh.",
-      "cta": "Book Your Tan Removal Consultation Today →"
+      "cta": "Book Your Tan Removal Consultation Today →",
+      "category": "SKIN TONE & TAN REMOVAL"
     },
     "whatIsService": {
       "title": "What Is Tan Removal?",
@@ -1578,7 +1552,8 @@
     "whyChooseUs": {
       "title": "Why Choose Tan Removal at The Skin Firm?",
       "description": "Struggling with a stubborn tan that just won't fade? We understand how frustrating it feels when your natural skin tone is hidden under layers of sun damage.",
-      "highlight": "At The Skin Firm, our dermatologist-supervised tan removal solutions are\nSafe & medical-grade - far more effective than facials or home remedies\nCustomised for your skin - no one-size-fits-all approach\nDermatologist-supervised - treatments led by Skin Specialist Dr. Karishma Singh\nResults-focused - visible improvement in clarity, tone, and glow"
+      "highlight": "At The Skin Firm, our dermatologist-supervised tan removal solutions are\nSafe & medical-grade - far more effective than facials or home remedies\nCustomised for your skin - no one-size-fits-all approach\nDermatologist-supervised - treatments led by Skin Specialist Dr. Karishma Singh\nResults-focused - visible improvement in clarity, tone, and glow",
+      "image": "/images/services/tan removal.png"
     },
     "process": {
       "title": "How Our Tan Removal Treatment Works",
@@ -1642,25 +1617,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Tan Removal Treatments",
-        "points": [
-          "Minimal to None - most treatments let you return to your routine immediately",
-          "Mild Redness/Peeling - may occur for 2-4 days with peels",
-          "Sun Sensitivity - SPF is essential after treatment",
-          "Temporary Glow Peel Effect - skin may look slightly flushed before brightening fully"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Tan Removal Treatments",
-        "points": [
-          "Use sunscreen daily to prevent re-tanning",
-          "Avoid direct sun exposure for at least 48 hours",
-          "Stay away from harsh scrubs or actives for 3-5 days",
-          "Keep your skin hydrated with a gentle moisturiser",
-          "Do not pick or peel flaking skin"
-        ]
-      }
+      "title": "Downtime After Tan Removal Treatments",
+      "description": "Minimal to None - most treatments let you return to your routine immediately\nMild Redness/Peeling - may occur for 2-4 days with peels\nSun Sensitivity - SPF is essential after treatment\nTemporary Glow Peel Effect - skin may look slightly flushed before brightening fully",
+      "tipsTitle": "Post-Care After Tan Removal Treatments",
+      "tips": [
+        "Use sunscreen daily to prevent re-tanning",
+        "Avoid direct sun exposure for at least 48 hours",
+        "Stay away from harsh scrubs or actives for 3-5 days",
+        "Keep your skin hydrated with a gentle moisturiser",
+        "Do not pick or peel flaking skin"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Tan Removal Clinic",
@@ -1669,7 +1635,8 @@
         "Customised Plans - treatments tailored to your skin needs",
         "Safe, Medical-Grade Technology - dermatologist-recommended solutions",
         "Visible Results - clearer, brighter skin with consistent sessions",
-        "Trusted by Patients Across Pune - hundreds of happy clients"
+        "Trusted by Patients Across Pune - hundreds of happy clients",
+        "Safe and effective for all skin types"
       ]
     },
     "transformations": {
@@ -1741,7 +1708,7 @@
       "cta": "Book Your Tan Removal Appointment →"
     }
   },
-  "open-pores-treatment-pune": {
+  "open-pores-treatment-in-pune": {
     "meta": {
       "title": "Open Pores Treatment | Reduce Pores & Refine Skin – The Skin Firm, Pune",
       "description": "Get smooth, refined skin with advanced open pores treatment in Pune at The Skin Firm, NIBM. Expert dermatologist Dr. Karishma Singh offers safe, effective solutions.",
@@ -1750,7 +1717,8 @@
     "hero": {
       "title": "Open Pores Treatment in Pune - Smooth, Refined Skin with The Skin Firm",
       "subtitle": "Advanced dermatologist-supervised open pores treatments in Pune for enlarged pores, uneven texture, and oily skin.",
-      "cta": "Book Your Open Pores Consultation Today →"
+      "cta": "Book Your Open Pores Consultation Today →",
+      "category": "SKIN CARE & PORES"
     },
     "whatIsService": {
       "title": "What Are Open Pores?",
@@ -1770,7 +1738,8 @@
     "whyChooseUs": {
       "title": "Why Choose Open Pores Treatment at The Skin Firm?",
       "description": "Do enlarged pores make your skin look older or prevent makeup from sitting smoothly? We understand how this common concern can affect your confidence.",
-      "highlight": "At The Skin Firm, Pune our open pores treatment goes beyond surface-level fixes. Skin Specialist Dr. Karishma Singh uses advanced technology like laser resurfacing, peels, and medi facials to address the root causes oil control, collagen stimulation, and skin renewal. With personalised care for every skin type, we help you achieve smoother, clearer, and younger-looking skin."
+      "highlight": "At The Skin Firm, Pune our open pores treatment goes beyond surface-level fixes. Skin Specialist Dr. Karishma Singh uses advanced technology like laser resurfacing, peels, and medi facials to address the root causes oil control, collagen stimulation, and skin renewal. With personalised care for every skin type, we help you achieve smoother, clearer, and younger-looking skin.",
+      "image": "/images/services/open pores.png"
     },
     "process": {
       "title": "How Our Open Pores Treatment Works",
@@ -1835,25 +1804,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Open Pores Treatments",
-        "points": [
-          "Minimal Downtime - most clients resume routine immediately",
-          "Mild Redness or Sensitivity - may occur for a few hours",
-          "Sun Sensitivity - SPF is essential post-treatment",
-          "Skin Renewal - results improve progressively with sessions"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Open Pores Treatments",
-        "points": [
-          "Always apply sunscreen to protect results",
-          "Avoid heavy makeup for 24 hours",
-          "Use mild, dermatologist-recommended cleansers",
-          "Stay away from scrubs or harsh exfoliants for 3–5 days",
-          "Keep skin hydrated with a gentle moisturiser"
-        ]
-      }
+      "title": "Downtime After Open Pores Treatments",
+      "description": "Minimal Downtime - most clients resume routine immediately\nMild Redness or Sensitivity - may occur for a few hours\nSun Sensitivity - SPF is essential post-treatment\nSkin Renewal - results improve progressively with sessions",
+      "tipsTitle": "Post-Care After Open Pores Treatments",
+      "tips": [
+        "Always apply sunscreen to protect results",
+        "Avoid heavy makeup for 24 hours",
+        "Use mild, dermatologist-recommended cleansers",
+        "Stay away from scrubs or harsh exfoliants for 3-5 days",
+        "Keep skin hydrated with a gentle moisturiser"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Open Pores Clinic",
@@ -1862,7 +1822,8 @@
         "Advanced Technology - safe, medical-grade procedures",
         "Personalised Solutions -tailored to your skin needs",
         "Proven Results - smoother, refined skin with consistent care",
-        "Trusted by patients across Hadapsar, NIBM, Kondhwa, Wanowrie, Undri, Lullanagar"
+        "Trusted by patients across Hadapsar, NIBM, Kondhwa, Wanowrie, Undri, Lullanagar",
+        "Long-lasting results with proper care"
       ]
     },
     "transformations": {
@@ -1934,7 +1895,7 @@
       "cta": "Book Your Open Pores Treatment Appointment →"
     }
   },
-  "underarm-whitening-treatment-pune": {
+  "underarm-whitening-treatment-in-pune": {
     "meta": {
       "title": "Underarm Whitening | Dark Underarm Treatment at The Skin Firm, Pune",
       "description": "Safe & effective underarm whitening treatment in NIBM, Mohammad Wadi, Pune. Reduce dark underarms, smooth skin & boost confidence with Skin Specialist, Dr. Karishma Singh.",
@@ -1943,7 +1904,8 @@
     "hero": {
       "title": "Underarm Whitening Treatment in Pune - Smooth, Even-Toned Confidence with The Skin Firm",
       "subtitle": "Safe, advanced underarm whitening treatment in Pune for dark underarms, performed under the care of Skin Specialist Dr. Karishma Singh.",
-      "cta": "Book Your Underarm Whitening Consultation Today →"
+      "cta": "Book Your Underarm Whitening Consultation Today →",
+      "category": "BODY CARE & WHITENING"
     },
     "whatIsService": {
       "title": "What Is Underarm Whitening?",
@@ -1963,7 +1925,8 @@
     "whyChooseUs": {
       "title": "Why Choose Underarm Whitening at The Skin Firm?",
       "description": "Do you avoid wearing sleeveless clothes or feel embarrassed about your underarms? We understand how such a small concern can affect your self-esteem.",
-      "highlight": "Our medically supervised underarm treatment and smooth underarms treatment at The Skin Firm are:\nSafe for delicate skin - medical-grade solutions without harsh bleaching\nCustomised - based on your skin type and cause of pigmentation\nEffective - combining peels, lasers, and brightening treatments for visible results\nLed by Skin Specialist Dr. Karishma Singh - ensuring expert, personalised care"
+      "highlight": "Our medically supervised underarm treatment and smooth underarms treatment at The Skin Firm are:\nSafe for delicate skin - medical-grade solutions without harsh bleaching\nCustomised - based on your skin type and cause of pigmentation\nEffective - combining peels, lasers, and brightening treatments for visible results\nLed by Skin Specialist Dr. Karishma Singh - ensuring expert, personalised care",
+      "image": "/images/services/underarms.png"
     },
     "process": {
       "title": "How Our Underarm Whitening Treatment Works",
@@ -2027,25 +1990,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Underarm Whitening Treatments",
-        "points": [
-          "Minimal to None - resume normal activities immediately",
-          "Mild Redness/Peeling - may occur for 2–5 days with peels",
-          "Sun/Heat Sensitivity - avoid excessive sweating and gym for 24 hours",
-          "Visible Results - skin appears brighter and smoother within weeks"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Underarm Whitening Treatments",
-        "points": [
-          "Avoid harsh deodorants and perfumed sprays for a few days",
-          "Use a mild cleanser instead of harsh soaps",
-          "Apply sunscreen if underarms are exposed outdoors",
-          "Avoid waxing/shaving for a few days post-treatment",
-          "Moisturise daily to keep skin smooth and healthy"
-        ]
-      }
+      "title": "Downtime After Underarm Whitening Treatments",
+      "description": "Minimal to None - resume normal activities immediately\nMild Redness/Peeling - may occur for 2–5 days with peels\nSun/Heat Sensitivity - avoid excessive sweating and gym for 24 hours\nVisible Results - skin appears brighter and smoother within weeks",
+      "tipsTitle": "Post-Care After Underarm Whitening Treatments",
+      "tips": [
+        "Avoid harsh deodorants and perfumed sprays for a few days",
+        "Use a mild cleanser instead of harsh soaps",
+        "Apply sunscreen if underarms are exposed outdoors",
+        "Avoid waxing/shaving for a few days post-treatment",
+        "Moisturise daily to keep skin smooth and healthy"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Underarm Whitening Clinic",
@@ -2054,7 +2008,8 @@
         "Advanced Technology - medical-grade peels and lasers",
         "Customised Treatments - tailored for every patient",
         "Safe & Gentle - designed for delicate underarm skin",
-        "Trusted Results - hundreds of satisfied patients"
+        "Trusted Results - hundreds of satisfied patients",
+        "Natural-looking, youthful results"
       ]
     },
     "transformations": {
@@ -2126,7 +2081,7 @@
       "cta": "Book Your Underarm Whitening Appointment →"
     }
   },
-  "anti-ageing-treatment-pune": {
+  "anti-ageing-treatment-in-pune": {
     "meta": {
       "title": "Anti-Ageing Treatment in Pune | The Skin Firm Clinic",
       "description": "Restore youthful, radiant skin with advanced anti ageing treatments in Pune. Reduce wrinkles, sagging & dullness with Dr. Karishma Singh at The Skin Firm.",
@@ -2135,7 +2090,8 @@
     "hero": {
       "title": "Anti-Ageing Treatment in Pune - Youthful Skin, Timeless Confidence with The Skin Firm",
       "subtitle": "Advanced, dermatologist-supervised treatments for fine lines, wrinkles, sagging, and dullness under the care of Skin Specialist Dr. Karishma Singh, trusted for anti ageing treatments in Pune.",
-      "cta": "Book Your Anti-Ageing Consultation Today →"
+      "cta": "Book Your Anti-Ageing Consultation Today →",
+      "category": "ANTI-AGEING & SKIN CARE"
     },
     "whatIsService": {
       "title": "What Is Anti-Ageing Treatment?",
@@ -2156,7 +2112,8 @@
     "whyChooseUs": {
       "title": "Why Choose Anti Ageing Treatments at The Skin Firm?",
       "description": "Worried about fine lines, sagging, or dullness making you look older than you feel? We understand how ageing skin affects both appearance and confidence.",
-      "highlight": "At The Skin Firm, NIBM, Pune our approach is:\nDermatologist-supervised - ensuring safe, evidence-based care\nCustomised - no one-size-fits-all, every plan is tailored to your skin's needs\nAdvanced technology & treatments - including Botox, fillers, PRP therapy, peels and Lasers in Kondhwa, Undri & Wanowrie area\nLed by Skin Specialist Dr. Karishma Singh - South Pune's trusted dermatologist"
+      "highlight": "At The Skin Firm, NIBM, Pune our approach is:\nDermatologist-supervised - ensuring safe, evidence-based care\nCustomised - no one-size-fits-all, every plan is tailored to your skin's needs\nAdvanced technology & treatments - including Botox, fillers, PRP therapy, peels and Lasers in Kondhwa, Undri & Wanowrie area\nLed by Skin Specialist Dr. Karishma Singh - South Pune's trusted dermatologist",
+      "image": "/images/services/anti aging.png"
     },
     "process": {
       "title": "How Our Anti-Ageing Treatment Works",
@@ -2233,27 +2190,17 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Anti-Ageing Treatments",
-        "points": [
-          "Minimal to Moderate Downtime - depends on the procedure",
-          "Mild Redness/Swelling - may occur after injectables or lasers, subsides quickly",
-          "Peeling/Flaking - possible with chemical peels",
-          "Makeup & Sun Protection - usually resumed within 24–48 hours",
-          "Progressive Results - improvements build up over weeks to months"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Anti Ageing Treatments",
-        "points": [
-          "Apply sunscreen daily to protect treated skin",
-          "Avoid direct sun exposure and tanning beds",
-          "Stay hydrated and follow a healthy diet",
-          "Use dermatologist-recommended skincare products",
-          "Avoid strenuous workouts, steam, and saunas for 24 hours post-treatment",
-          "Pause retinol/strong actives for 3–5 days after peels or lasers"
-        ]
-      }
+      "title": "Downtime After Anti-Ageing Treatments",
+      "description": "Minimal to Moderate Downtime - depends on the procedure\nMild Redness/Swelling - may occur after injectables or lasers, subsides quickly\nPeeling/Flaking - possible with chemical peels\nMakeup & Sun Protection - usually resumed within 24–48 hours\nProgressive Results - improvements build up over weeks to months",
+      "tipsTitle": "Post-Care After Anti-Ageing Treatments",
+      "tips": [
+        "Apply sunscreen daily to protect treated skin",
+        "Avoid direct sun exposure and tanning beds",
+        "Stay hydrated and follow a healthy diet",
+        "Use dermatologist-recommended skincare products",
+        "Avoid strenuous workouts, steam, and saunas for 24 hours post-treatment",
+        "Pause retinol/strong actives for 3–5 days after peels or lasers"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Anti-Ageing Treatment Clinic",
@@ -2282,7 +2229,8 @@
           "icon": "🛡️",
           "title": "Safe & Effective",
           "text": "Safe, effective treatments with natural-looking outcomes"
-        }
+        },
+        "Boosts confidence with refreshed, younger-looking skin"
       ]
     },
     "transformations": {
@@ -2318,7 +2266,7 @@
         },
         {
           "question": "3. Will my results look natural?",
-          "answer": "Absolutely. Our approach is to enhance your natural beauty, no "frozen" or artificial look."
+          "answer": "Absolutely. Our approach is to enhance your natural beauty, no 'frozen' or artificial look."
         },
         {
           "question": "4. How soon will I see results from my anti ageing treatment?",
@@ -2354,7 +2302,7 @@
       "cta": "Book Your Anti-Ageing Treatment Appointment →"
     }
   },
-  "wrinkle-treatment-pune": {
+  "wrinkle-treatment-in-pune": {
     "meta": {
       "title": "Anti-Ageing Treatment in Pune | Wrinkle Care at The Skin Firm",
       "description": "Safe, advanced wrinkle treatments in Pune. Smooth lines and restore youthful skin with Botox, fillers, PRP, and laser at The Skin Firm.",
@@ -2363,7 +2311,8 @@
     "hero": {
       "title": "Wrinkle Treatment in Pune - Smooth, Youthful Skin with The Skin Firm",
       "subtitle": "Advanced, dermatologist-supervised solutions for fine lines and wrinkles, under the care of Skin Specialist Dr. Karishma Singh.",
-      "cta": "Book Your Wrinkle Treatment Consultation Today →"
+      "cta": "Book Your Wrinkle Treatment Consultation Today →",
+      "category": "ANTI-AGEING & WRINKLES"
     },
     "whatIsService": {
       "title": "What Is Wrinkle Treatment?",
@@ -2383,7 +2332,8 @@
     "whyChooseUs": {
       "title": "Why Choose Wrinkle Treatment at The Skin Firm?",
       "description": "Do you feel your skin looks older or more tired than you feel inside? We understand how wrinkles can impact self-confidence.",
-      "highlight": "At The Skin Firm, Pune we provide:\nCustomised wrinkle treatments in Pune – from Botox and fillers to lasers and PRP\nSafe & dermatologist-supervised care – led by Skin Specialist Dr. Karishma Singh\nAdvanced technology – non-surgical, medical-grade wrinkle solutions\nNatural results – smoother, refreshed skin without looking artificial"
+      "highlight": "At The Skin Firm, Pune we provide:\nCustomised wrinkle treatments in Pune – from Botox and fillers to lasers and PRP\nSafe & dermatologist-supervised care – led by Skin Specialist Dr. Karishma Singh\nAdvanced technology – non-surgical, medical-grade wrinkle solutions\nNatural results – smoother, refreshed skin without looking artificial",
+      "image": "/images/services/wrinkle.png"
     },
     "process": {
       "title": "How Our Wrinkle Treatment Works",
@@ -2455,25 +2405,16 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Wrinkle Treatments",
-        "points": [
-          "Minimal to Moderate Downtime - varies by treatment",
-          "Mild Redness/Swelling - may occur after injectables or lasers, subsides in 1–2 days",
-          "Peeling/Flaking - possible with peels or resurfacing",
-          "Quick Recovery - most clients resume normal routine quickly"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Wrinkle Treatments",
-        "points": [
-          "Apply sunscreen daily to protect results",
-          "Avoid rubbing or pressing treated areas",
-          "Skip gym, steam, or saunas for 24 hours post-injectables",
-          "Use dermatologist-recommended skincare products",
-          "Maintain hydration and a healthy lifestyle for lasting results"
-        ]
-      }
+      "title": "Downtime After Wrinkle Treatments",
+      "description": "Minimal to Moderate Downtime - varies by treatment\nMild Redness/Swelling - may occur after injectables or lasers, subsides in 1–2 days\nPeeling/Flaking - possible with peels or resurfacing\nQuick Recovery - most clients resume normal routine quickly",
+      "tipsTitle": "Post-Care After Wrinkle Treatments",
+      "tips": [
+        "Apply sunscreen daily to protect results",
+        "Avoid rubbing or pressing treated areas",
+        "Skip gym, steam, or saunas for 24 hours post-injectables",
+        "Use dermatologist-recommended skincare products",
+        "Maintain hydration and a healthy lifestyle for lasting results"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Wrinkle Treatment Clinic",
@@ -2481,8 +2422,9 @@
         "Led by Skin Specialist Dr. Karishma Singh",
         "Safe & advanced technology - medical-grade procedures",
         "Tailored Care - wrinkle treatments designed for your needs",
-        "Natural Results - refreshed, never "overdone"",
-        "Trusted Clinic - hundreds of happy patients across Pune"
+        "Natural Results - refreshed, never \"overdone\"",
+        "Trusted Clinic - hundreds of happy patients across Pune",
+        "Customised care for every skin type and concern"
       ]
     },
     "transformations": {
@@ -2522,7 +2464,7 @@
         },
         {
           "question": "4. Will the results look natural after my wrinkle treatment?",
-          "answer": "Yes - our focus is on natural wrinkle reduction, not an artificial "frozen" look."
+          "answer": "Yes - our focus is on natural wrinkle reduction, not an artificial \"frozen\" look."
         },
         {
           "question": "5. How long do results last?",
@@ -2554,20 +2496,21 @@
       "cta": "Book Your Wrinkle Treatment Appointment →"
     }
   },
-  "stretch-marks-removal-treatment-pune": {
+  "stretch-marks-removal-treatment-in-pune": {
     "meta": {
       "title": "Stretch Marks Removal in Pune | Dermatologist-Led Treatments at The Skin Firm",
       "description": "Get advanced stretch marks removal in Pune at The Skin Firm, NIBM. Dermatologist Dr. Karishma Singh offers safe laser, microneedling, PRP & peel treatments to fade stretch marks and restore smooth, confident skin.",
-      "keywords": "Stretch Marks Removal in Pune, Stretch Marks Treatment in Pune, Laser Stretch Marks Treatment Pune, Dermatologist for Stretch Marks in Pune, Microneedling for Stretch Marks Pune, Best Clinic for Stretch Marks Pune, Pregnancy stretch marks Pune, Mohammad Wadi, Pune, NIBM Road, Pune, Camp, Pune, Undri, Pune, Pisoli, Pune, Kondhwa, Pune, Hadapsar, Pune, Wanowrie, Pune, Handewadi, Pune, Lullanagar, Pune"
+      "keywords": "Stretch Marks Removal in Pune, Stretch Marks Treatment in Pune, Laser Stretch Marks Treatment Pune, Dermatologist for Stretch Marks in Pune, Microneedling for Stretch Marks Pune, Best Clinic for Stretch Marks Pune, Pregnancy stretch marks Pune"
     },
     "hero": {
       "title": "Stretch Marks Removal in Pune - Smooth, Confident Skin with The Skin Firm",
       "subtitle": "Safe and advanced stretch marks removal treatments in Pune to fade stubborn marks and improve skin texture, under the care of Skin Specialist Dr. Karishma Singh.",
-      "cta": "Book Your Stretch Marks Consultation Today →"
+      "cta": "Book Your Stretch Marks Consultation Today →",
+      "category": "BODY CARE & SKIN"
     },
     "whatIsService": {
       "title": "What Are Stretch Marks?",
-      "content": "Stretch marks, medically known as striae, are long, narrow streaks that develop when the skin stretches too quickly and the collagen and elastin fibers beneath the surface tear. They often start off as red, purple or pink lines and later fade into white or silvery marks. They are commonly found on the abdomen, thighs, hips, arms, breasts, and back—appearing after pregnancy, puberty, sudden weight changes, or heavy workouts. While harmless, they can affect self-confidence especially when wearing sleeveless clothes, swimwear, or fitted outfits. At The Skin Firm, Pune, we offer advanced stretch marks removal treatments that safely reduce their appearance, restore smoother skin, and help you feel confident again."
+      "content": "Stretch marks, medically known as striae, are long, narrow streaks that develop when the skin stretches too quickly and the collagen and elastin fibers beneath the surface tear. They often start off as red, purple or pink lines and later fade into white or silvery marks.\n\nThey are commonly found on the abdomen, thighs, hips, arms, breasts, and back— appearing after pregnancy, puberty, sudden weight changes, or heavy workouts.\n\nWhile harmless, they can affect self-confidence especially when wearing sleeveless clothes, swimwear, or fitted outfits.\n\nAt The Skin Firm, Pune, we offer advanced stretch marks removal treatments that safely reduce their appearance, restore smoother skin, and help you feel confident again."
     },
     "signsSymptoms": {
       "title": "Signs & Concerns of Stretch Marks",
@@ -2583,8 +2526,9 @@
     },
     "whyChooseUs": {
       "title": "Why Choose Stretch Marks Removal at The Skin Firm?",
-      "description": "Stretch marks are extremely common, but when they make you feel uncomfortable in your own skin, it's time to seek treatment. Many people try creams and oils, only to be disappointed with little to no improvement.",
-      "highlight": "At The Skin Firm, our dermatologist-supervised stretch marks treatments in Pune are:\nDermatologist-supervised – performed under the expert care of Skin Specialist Dr. Karishma Singh\nMedical-grade and safe – far more effective than over-the-counter products\nCustomised – tailored to your stretch mark type, skin tone, and body area\nAdvanced and proven – using lasers, microneedling, and PRP for visible results\nWe aim not just to treat marks, but to restore confidence in your own skin."
+      "description": "Stretch marks are extremely common, but when they make you feel uncomfortable in your own skin, it’s time to seek treatment. Many people try creams and oils, only to be disappointed with little to no improvement.",
+      "highlight": "At The Skin Firm, our dermatologist-supervised stretch marks treatments in Pune are:\n\n> **Dermatologist-supervised** – performed under the expert care of Skin\n> Specialist Dr. Karishma Singh\n>\n> **Medical-grade** **and** **safe** – far more effective than\n> over-the-counter products\n>\n> **Customised** – tailored to your stretch mark type, skin tone, and\n> body area\n>\n> **Advanced** **and** **proven** – using lasers, microneedling, and PRP\n> for visible results\n\nWe aim not just to treat marks, but to **restore** **confidence** in your own skin.",
+      "image": "/images/services/stretch mark removal.png"
     },
     "process": {
       "title": "How Our Stretch Removal Marks Treatment Works",
@@ -2607,7 +2551,7 @@
         {
           "step": "4",
           "title": "Aftercare & Maintenance",
-          "description": "You'll receive skincare guidance and lifestyle tips to maintain results and prevent worsening."
+          "description": "You’ll receive skincare guidance and lifestyle tips to maintain results and prevent worsening."
         }
       ]
     },
@@ -2653,30 +2597,20 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Stretch Marks Removal Treatments",
-        "points": [
-          "Minimal Downtime - resume daily routine immediately",
-          "Mild Redness or Sensitivity - may occur for 1–2 days post-session",
-          "Temporary Peeling or Flaking - common after chemical peels",
-          "Sun Sensitivity - SPF required for 48 hours after laser or peel treatments",
-          "Gradual Results - skin improves progressively with each session"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Stretch Marks Removal Treatments",
-        "points": [
-          "Apply sunscreen on treated areas if exposed",
-          "Avoid hot showers, steam, or gym for 24-48 hours",
-          "Keep the skin moisturised with a gentle cream",
-          "Do not scratch or pick at peeling/flaking skin",
-          "Follow the prescribed homecare routine",
-          "Maintain hydration and a balanced diet for better healing"
-        ]
-      }
+      "title": "Downtime After Stretch Marks Removal Treatments",
+      "description": "> **Minimal** **Downtime** - resume daily routine immediately\n>\n> **Mild** **Redness** **or** **Sensitivity** - may occur for 1–2 days\n> post-session\n>\n> **Temporary** **Peeling** **or** **Flaking** - common after chemical\n> peels\n>\n> **Sun** **Sensitivity** - SPF required for 48 hours after laser or\n> peel treatments\n>\n> **Gradual** **Results** - skin improves progressively with each\n> session",
+      "tipsTitle": "Post-Care After Stretch Marks Removal Treatments",
+      "tips": [
+        "Apply sunscreen on treated areas if exposed",
+        "Avoid hot showers, steam, or gym for 24-48 hours",
+        "Keep the skin moisturised with a gentle cream",
+        "Do not scratch or pick at peeling/flaking skin",
+        "Follow the prescribed homecare routine",
+        "Maintain hydration and a balanced diet for better healing"
+      ]
     },
     "clinicFeatures": {
-      "title": "Why The Skin Firm Clinic in Pune's is Trusted for Stretch Marks Removal Treatment",
+      "title": "Why The Skin Firm Clinic in Pune’s is Trusted for Stretch Marks Removal Treatment",
       "features": [
         "Led by Skin Specialist Dr. Karishma Singh",
         "Medical-Grade, Advanced Technology - safe and effective treatments",
@@ -2692,8 +2626,13 @@
     "testimonials": {
       "title": "Patient Testimonials for Stretch Marks Removal in Pune",
       "reviews": [
-        "“I had stubborn stretch marks after pregnancy that really affected my confidence. After a few sessions at The Skin Firm, they have lightened so much and now I feel comfortable in sleeveless clothes again."
+        "“I had stubborn stretch marks after pregnancy that really affected my confidence. After a few sessions at The Skin Firm, they have lightened so much and now I feel comfortable in sleeveless clothes again.”",
+        "“I tried many creams but nothing worked. Dr. Karishma Singh recommended a combination of microneedling and PRP. The results are amazing. Over time my marks have faded and my skin feels smoother.”"
       ]
+    },
+    "relatedVideos": {
+      "title": "Related Stretch Marks Removal Videos",
+      "description": "Watch Dr. Karishma Singh explain how stretch marks form, which treatments work best, and what results you can expect."
     },
     "whoBenefits": {
       "title": "Who Can Benefit from Stretch Marks Removal Treatment?",
@@ -2727,7 +2666,7 @@
         },
         {
           "question": "5. When will I see results of my stretch marks removal treatment?",
-          "answer": "You'll notice improvement after 2-3 sessions, with best results after completing the treatment plan."
+          "answer": "You’ll notice improvement after 2-3 sessions, with best results after completing the treatment plan."
         },
         {
           "question": "6. Are stretch marks removal results permanent?",
@@ -2754,16 +2693,15 @@
     "locations": {
       "title": "Patients Visit Us From Across Pune",
       "content": "At The Skin Firm, we proudly serve patients from Mohammad Wadi and NIBM Road, along with nearby areas like Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, and Lullanagar.",
-      "areas": [],
       "footer": "Our convenient location makes it easy for patients across South and Central Pune to access dermatologist-supervised stretch marks removal treatments."
     },
     "finalCta": {
       "title": "Book Your Stretch Marks Removal Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
-      "content": "Don't let stretch marks affect your confidence. At The Skin Firm, NIBM, Mohammad Wadi, Pune, we provide customised stretch marks removal treatments help fade marks, smoothen texture, and restore healthier-looking skin. Appointments are limited. Book your consultation today and take the first step towards confident, flawless skin.",
+      "content": "Don’t let stretch marks affect your confidence. At The Skin Firm, NIBM, Mohammad Wadi, Pune, we provide customised stretch marks removal treatments help fade marks, smoothen texture, and restore healthier-looking skin.\n\nAppointments are limited. Book your consultation today and take the first step towards confident, flawless skin.",
       "cta": "Book Your Stretch Marks Treatment Appointment Today →"
     }
   },
-  "wart-removal-treatment-pune": {
+  "wart-removal-treatment-in-pune": {
     "meta": {
       "title": "Wart Removal in Pune | Safe & Effective Wart Treatment at The Skin Firm",
       "description": "Get safe, effective wart removal treatment in Pune at The Skin Firm. Dermatologist-supervised treatments including laser, cryotherapy & cautery for clear, smooth skin.",
@@ -2772,7 +2710,8 @@
     "hero": {
       "title": "Wart Removal in Pune - Safe, Effective, Dermatologist-Supervised Treatments with The Skin Firm",
       "subtitle": "Advanced medical procedures to remove warts, prevent recurrence, and restore smooth, healthy skin under the care of Skin Specialist Dr. Karishma Singh.",
-      "cta": "Book Your Wart Removal Consultation Today →"
+      "cta": "Book Your Wart Removal Consultation Today →",
+      "category": "SKIN & BODY CARE"
     },
     "whatIsService": {
       "title": "What Is Wart Removal?",
@@ -2793,7 +2732,8 @@
     "whyChooseUs": {
       "title": "Why Choose Wart Removal Treatment at The Skin Firm?",
       "description": "Warts are not just a cosmetic concern - they are viral in origin and can spread if untreated. Many people try home remedies or over-the-counter solutions, but these often fail to remove the wart completely, leading to regrowth.",
-      "highlight": "At The Skin Firm, we provide:\nDermatologist-supervised care - safe, effective procedures for Wart Removal is performed by our Skin Specialist Dr. Karishma Singh\nAdvanced removal methods - including laser, cryotherapy, and cauterization\nCustomised approach - based on wart size, type, and location\nReduced recurrence risk - by targeting the root cause effectively\nOur goal is not just removal, but long-lasting relief with minimal discomfort and quick healing."
+      "highlight": "At The Skin Firm, we provide:\nDermatologist-supervised care - safe, effective procedures for Wart Removal is performed by our Skin Specialist Dr. Karishma Singh\nAdvanced removal methods - including laser, cryotherapy, and cauterization\nCustomised approach - based on wart size, type, and location\nReduced recurrence risk - by targeting the root cause effectively\nOur goal is not just removal, but long-lasting relief with minimal discomfort and quick healing.",
+      "image": "/images/services/wart.png"
     },
     "process": {
       "title": "How Our Wart Removal Treatment Works",
@@ -2862,26 +2802,17 @@
       ]
     },
     "postCare": {
-      "downtime": {
-        "title": "Downtime After Wart Removal Treatment",
-        "points": [
-          "Minimal Downtime - most patients resume daily activities immediately",
-          "Mild Redness or Sensitivity - common for a few hours post-procedure",
-          "Small Scab Formation - may occur and fall off naturally within 7–10 days",
-          "Quick Recovery - most warts heal fully within 1–2 weeks depending on size and location"
-        ]
-      },
-      "instructions": {
-        "title": "Post-Care After Wart Removal Treatment",
-        "points": [
-          "Keep the treated area clean and dry",
-          "Avoid scratching, rubbing, or picking at the area",
-          "Apply prescribed ointments or creams as directed",
-          "Protect the skin with sunscreen if the area is exposed",
-          "Avoid swimming pools or sharing personal items until healed",
-          "Attend follow-up appointments if recommended"
-        ]
-      }
+      "title": "Downtime After Wart Removal Treatment",
+      "description": "Minimal Downtime - most patients resume daily activities immediately\nMild Redness or Sensitivity - common for a few hours post-procedure\nSmall Scab Formation - may occur and fall off naturally within 7–10 days\nQuick Recovery - most warts heal fully within 1–2 weeks depending on size and location",
+      "tipsTitle": "Post-Care After Wart Removal Treatment",
+      "tips": [
+        "Keep the treated area clean and dry",
+        "Avoid scratching, rubbing, or picking at the area",
+        "Apply prescribed ointments or creams as directed",
+        "Protect the skin with sunscreen if the area is exposed",
+        "Avoid swimming pools or sharing personal items until healed",
+        "Attend follow-up appointments if recommended"
+      ]
     },
     "clinicFeatures": {
       "title": "Why The Skin Firm is Pune's Trusted Clinic for Wart Removal Treatment",
@@ -2890,7 +2821,8 @@
         "Advanced Technology - safe and effective removal methods",
         "Personalised Care - customised treatments based on wart type and location",
         "Proven Results - successful removal with low recurrence rates",
-        "Trusted by Patients Across Pune - hundreds of happy, wart-free patients"
+        "Trusted by Patients Across Pune - hundreds of happy, wart-free patients",
+        "Suitable for all ages and skin types"
       ]
     },
     "transformations": {
@@ -2969,6 +2901,2216 @@
       "title": "Book Your Wart Removal Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
       "content": "Don't let warts affect your comfort or confidence. At The Skin Firm, our safe and effective wart removal treatments in Pune ensure smooth, clear skin with minimal risk of recurrence. Appointments are limited. Book your visit with the Best Wart Removal Doctor in Pune today.",
       "cta": "Book Your Wart Removal Appointment →"
+    }
+  },
+  "acne-treatment-in-pune": {
+    "meta": {
+      "title": "Acne Treatment in Pune | Best Dermatologist for Pimples & Scars",
+      "description": "Clear pimples, scars & acne with expert dermatologist-led treatments in Pune. The Skin Firm offers safe, customised acne solutions. Book your consultation today!",
+      "keywords": "Acne treatment in Pune, Best dermatologist for acne in Pune, Acne scar treatment Pune, Pimples treatment Pune, Chemical peel for acne Pune, Laser treatment for acne scars Pune, Acne care clinic in Pune"
+    },
+    "hero": {
+      "title": "Acne Treatment in Pune - Clear Skin, Real Confidence with The Skin Firm",
+      "subtitle": "Expert dermatologist-led solutions for pimples, acne scars & breakouts.",
+      "cta": "Book Your Acne Consultation Today →",
+      "category": "ACNE & SKIN CARE"
+    },
+    "whatIsService": {
+      "title": "What Is Acne?",
+      "content": "Acne is a common skin condition that occurs when hair follicles get clogged with oil, dead skin cells, and bacteria. This leads to pimples, blackheads, whiteheads, or deeper, painful bumps that may cause scarring or pigmentation if left untreated."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Symptoms of Acne",
+      "items": [
+        "Whiteheads (closed clogged pores)",
+        "Blackheads (open clogged pores)",
+        "Small red, tender bumps (papules)",
+        "Pimples with pus (pustules)",
+        "Large, painful lumps under the skin (nodules)",
+        "Cystic lesions filled with pus (cysts)",
+        "Oily skin and shiny appearance",
+        "Redness, swelling, or inflammation",
+        "Dark spots or scars after breakouts"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Acne Treatment at The Skin Firm?",
+      "description": "Struggling with breakouts, acne scars, or oily skin? We know how frustrating it feels to hide blemishes with makeup, avoid photos, and try endless products without success.",
+      "highlight": "At The Skin Firm, we treat acne at its root - whether it’s hormonal imbalance, excess oil, inflammation, or clogged pores - so you can finally enjoy smooth, confident skin.\n\nRecognized as one of the **best** **dermatologists** **for** **acne** **in** **Pune**, Dr. Karishma Singh leads every treatment plan with care and precision. As a trusted **acne** **care** **clinic** **in** **Pune**, we provide safe, advanced, and proven solutions for every skin type.",
+      "image": "/images/services/acne treatment.png"
+    },
+    "process": {
+      "title": "How Our Acne Treatment Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Skin Consultation & Analysis",
+          "description": "A detailed assessment of your acne type, severity, and triggers."
+        },
+        {
+          "step": "2",
+          "title": "Personalised Acne Care Plan",
+          "description": "Your customised plan may include medicated facials, **chemical** **peel** **for** **acne** **in** **Pune**, laser therapy, LED light therapy, or a combination approach."
+        },
+        {
+          "step": "3",
+          "title": "Advanced Procedure",
+          "description": "Sessions are comfortable, with minimal downtime. Treatments may include deep cleansing, gentle exfoliation, targeted active ingredients, and **laser** **treatment** **for** **acne** **scars** **in** **Pune** to accelerate healing and prevent recurrence."
+        },
+        {
+          "step": "4",
+          "title": "Aftercare & Maintenance",
+          "description": "We equip you with dermatologist-approved skincare and lifestyle guidance to maintain clear skin long-term."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of Acne & Pimples Treatments We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Medicated Facials",
+          "description": "for acne-prone and congested skin"
+        },
+        {
+          "title": "Chemical Peels for Acne in Pune",
+          "description": "for active acne & post-acne marks"
+        },
+        {
+          "title": "Laser Treatment for Acne Scars in Pune",
+          "description": "for stubborn pimples & scars"
+        },
+        {
+          "title": "LED Light Therapy",
+          "description": "reduces inflammation & redness"
+        },
+        {
+          "title": "Pimples Treatment in Pune",
+          "description": "targeted solutions for frequent or severe breakouts"
+        },
+        {
+          "title": "Combination Treatments",
+          "description": "designed for your unique skin"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of Acne Treatment at The Skin Firm",
+      "items": [
+        "Clears active acne and prevents new breakouts",
+        "Reduces redness, swelling & inflammation",
+        "Fades post-acne marks and pigmentation",
+        "Controls excess oil, improves texture & tone",
+        "Boosts confidence with clear, radiant skin"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After Acne Treatments",
+      "description": "> **Minimal** **to** **No** **Downtime** - resume normal activities\n> immediately\n>\n> **Mild** **Redness** - lasts a few hours post-treatment\n>\n> **Peeling/Flaking** - possible for 2-5 days depending on procedure\n>\n> **Sun** **Sensitivity** - requires SPF for at least 48 hours\n>\n> **Avoid** **Makeup** **&** **Heat** - skip makeup, gym, saunas for 24\n> hours",
+      "tipsTitle": "Post-Care After Acne Treatments",
+      "tips": [
+        "Avoid touching or picking your skin",
+        "Use a gentle, non-exfoliating cleanser for 3 days",
+        "Apply sunscreen daily to avoid pigmentation",
+        "Skip workouts & saunas for 24 hours",
+        "Pause retinol/strong actives for 3-5 days"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted Acne Clinic",
+      "features": [
+        "Dermatologist-Led Expertise - Dr. Karishma Singh, MD (Dermatology)",
+        "Personalised Treatment Plans - no one-size-fits-all",
+        "Advanced Technology - medical-grade, safe & effective",
+        "Proven Track Record - thousands of happy acne-free patients",
+        "Safety First - evidence-based, dermatologist-approved care"
+      ]
+    },
+    "transformations": {
+      "title": "Real Acne Transformations (Before & After)",
+      "subtitle": "Swipe through real patient journeys that show reduced breakouts, calmer skin, and fading post-acne marks over time. *(Insert* *gallery* *carousel* *from* *this* *service.)*"
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for Acne & Pimples Treatment Pune",
+      "reviews": [
+        "“I had been struggling with stubborn acne for years. After starting acne treatment at The Skin Firm, NIBM, Pune, the breakouts reduced drastically, and my skin finally feels healthy and confident again.”",
+        "“The team explained every step of the treatment clearly. Within a few sessions that I took at The Skin Firm Clinic located at Mohammad Wadi, I noticed visible improvement - not just fewer pimples but also clearer, brighter skin overall.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related Acne & Pimples Treatment Videos",
+      "description": "Watch Dr. Karishma explain how we personalise acne care and see what to expect in a session. *(Embed* *explainer/demo* *if* *available.)*"
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from Our Acne Treatments?",
+      "candidates": [
+        "Teenagers with active acne or oily skin",
+        "Adults struggling with recurring breakouts",
+        "Anyone with acne scars or pigmentation",
+        "Safe for all skin tones and skin types"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on Acne Treatment in Pune",
+      "questions": [
+        {
+          "question": "How long does an acne treatment session last?",
+          "answer": "Most sessions take 45-60 minutes."
+        },
+        {
+          "question": "Is there downtime?",
+          "answer": "Minimal to none; only slight redness or peeling in some cases."
+        },
+        {
+          "question": "When will I see results?",
+          "answer": "Noticeable improvement in 2-3 weeks; best results after completing your plan."
+        },
+        {
+          "question": "How many sessions do I need?",
+          "answer": "Usually 4-8 sessions spaced 2-4 weeks apart, depending on severity."
+        },
+        {
+          "question": "Is acne treatment safe for darker skin tones?",
+          "answer": "Yes-our treatments are safe and customised for all skin tones."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "At The Skin Firm, we proudly serve patients not only from **Mohammad** **Wadi** and **NIBM** **Road**, but also from several nearby areas in Pune who visit us for trusted acne treatment, skin care, and hair solutions. Many of our patients travel to our clinic from: **Camp,** **Undri,** **Pisoli,** **Kondhwa,** **Hadapsar,** **Wanowrie,** **Handewadi,** **Lullanagar,** & many other far locations in Pune as well.",
+      "footer": "Our convenient location makes it easy for people across **South** **Pune** and **Central** **Pune** to access advanced acne treatments and other dermatology services under the expert care of Dr. Karishma Singh."
+    },
+    "finalCta": {
+      "title": "Book Your Acne Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "**Don’t** **let** **acne** **hold** **back** **your** **confidence.** At The Skin Firm, we understand how breakouts and scars can affect not just your skin, but also the way you feel about yourself. With Dr. Karishma Singh’s expert care and customized acne treatments, clearer skin - and renewed confidence - can truly be yours.\n\n**Appointments** **fill** **quickly.** **Start** **your** **journey** **to** **clear,** **confident** **skin** **today.**",
+      "cta": "Book Your Acne Treatment Appointment →"
+    }
+  },
+  "fire-and-ice-facial-in-pune": {
+    "meta": {
+      "title": "Fire & Ice Facial in Pune | Hollywood Red Carpet Facial",
+      "description": "Get the celebrity glow with the Fire & Ice Facial at The Skin Firm, Pune. Dermatologist-supervised by Dr. Karishma Singh for brighter & youthful-looking skin.",
+      "keywords": "Fire & Ice Facial in Pune, Hollywood Red Carpet Facial Pune, Fire & Ice Medi Facial Pune, Best Fire & Ice Facial Clinic in Pune, Dermatologist for Fire & Ice Facial in Pune, Anti-Ageing Facial in Pune, Pre-Event Glow Facial Pune, Bridal Fire & Ice Facial Pune"
+    },
+    "hero": {
+      "title": "Fire & Ice Facial in Pune - Hollywood’s Red-Carpet Facial, Now at The Skin Firm",
+      "subtitle": "The ultimate medi-facial for instant glow in Pune, refined texture, and anti-ageing benefits, performed under the care of Dermatologist Dr. Karishma Singh, at the best skin care clinic in Pune.",
+      "cta": "Book Your Fire & Ice Facial Consultation Today →",
+      "category": "SKIN CARE & FACIALS"
+    },
+    "whatIsService": {
+      "title": "What Is a Fire & Ice Facial?",
+      "content": "Known worldwide as the Hollywood Red Carpet Facial, the Fire & Ice Facial in Pune is a medical-grade treatment designed to instantly resurface the skin, reduce fine lines, clear blemishes and deliver a radiant glow all with zero downtime.\n\nThis two-step treatment uses a combination of an intensive resurfacing mask (the Fire) and a cooling, rejuvenating mask (the Ice). Together, they safely exfoliate, hydrate, and refresh the skin, making it the go-to facial for celebrities before big events.\n\nAt The Skin Firm, NIBM, Pune, we bring this luxurious yet medically effective treatment to you, tailored to your skin’s needs for maximum results."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Skin Concerns a Fire & Ice Facial Can Address",
+      "items": [
+        "Dull or tired-looking skin",
+        "Uneven skin tone or rough texture",
+        "Fine lines and early wrinkles",
+        "Acne-prone or congested skin",
+        "Enlarged pores",
+        "Mild pigmentation and blemishes",
+        "Dehydrated, lackluster skin",
+        "Pre-event glow requirement (weddings, parties, shoots)"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Fire & Ice Facial at The Skin Firm?",
+      "description": "Do you want instantly radiant skin without downtime? The Fire & Ice Facial at The Skin Firm, Pune is the perfect choice. Unlike regular salon facials, this treatment is dermatologist-supervised and medical-grade, ensuring both safety and visible results.",
+      "highlight": "At The Skin Firm, our Fire & Ice Facials are:\n\n> **Performed** **by** **experts** - under the guidance of Skin\n> Specialist Dr. Karishma Singh\n>\n> **Medical-grade,** **not** **cosmetic** - far more effective than\n> basic facials\n>\n> **Customised** - tailored for acne-prone, sensitive, or ageing skin\n>\n> **Results-driven** - delivers instant glow and long-term skin benefits",
+      "image": "/images/services/ice facials.png"
+    },
+    "process": {
+      "title": "How Our Fire & Ice Facial Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Consultation & Skin Prep",
+          "description": "We begin with a gentle cleanse and assessment of your skin."
+        },
+        {
+          "step": "2",
+          "title": "The “Fire” Resurfacing Mask",
+          "description": "A powerful mask with glycolic acid, retinol, and niacinamide is applied to exfoliate dead cells, unclog pores, and resurface the skin."
+        },
+        {
+          "step": "3",
+          "title": "The “Ice” Rejuvenating Mask",
+          "description": "A cooling, hydrating mask with aloe vera, hyaluronic acid, and green tea soothes and refreshes, restoring balance and radiance."
+        },
+        {
+          "step": "4",
+          "title": "Finishing Touch",
+          "description": "Dermatologist-approved serums, moisturisers, and SPF are applied to lock in results."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of Fire & Ice Facial Treatments We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Classic Fire & Ice Facial",
+          "description": "for instant glow and resurfacing"
+        },
+        {
+          "title": "Acne-Control Fire & Ice Facial",
+          "description": "tailored for oily, acne-prone skin"
+        },
+        {
+          "title": "Anti-Ageing Fire & Ice Facial",
+          "description": "focuses on fine lines and early wrinkles"
+        },
+        {
+          "title": "Brightening Fire & Ice Facial",
+          "description": "targets dullness and uneven tone"
+        },
+        {
+          "title": "Hydration-Boost Fire & Ice Facial",
+          "description": "restores moisture and glow"
+        },
+        {
+          "title": "Bridal/Event Fire & Ice Facial",
+          "description": "pre-event protocol for flawless radiance"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of Fire & Ice Facial at The Skin Firm",
+      "items": [
+        "Instant glow with no downtime",
+        "Refines skin texture and minimizes pores",
+        "Reduces fine lines and early wrinkles",
+        "Clears clogged pores and reduces breakouts",
+        "Hydrates and plumps tired, dull skin",
+        "Brightens skin tone for a youthful radiance",
+        "Safe and effective for all skin types"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After Fire & Ice Facial",
+      "description": "> **Zero** **Downtime** - resume daily routine immediately\n>\n> **Mild** **Redness** - may occur briefly but settles within hours\n>\n> **Immediate** **Results** - skin looks radiant right after the session\n>\n> **Perfect** **Pre-Event** **Treatment** - can be done 1–2 days before\n> any occasion",
+      "tipsTitle": "Post-Care After Fire & Ice Facial",
+      "tips": [
+        "Apply sunscreen daily to maintain results",
+        "Avoid harsh scrubs or exfoliants for 3-5 days",
+        "Use gentle, hydrating skincare recommended by our dermatologist",
+        "Keep skin moisturised for enhanced glow",
+        "Stay hydrated for longer-lasting results"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted Fire & Ice Facial Clinic",
+      "features": [
+        "Led by Skin Specialist Dr. Karishma Singh",
+        "Medical-Grade Treatment - safer and more effective than salon facials",
+        "Customised Care - designed for your unique skin concerns",
+        "Trusted by Patients Across Pune - popular for weddings, events, and special occasions",
+        "Visible Results - instant glow plus long-term benefits"
+      ]
+    },
+    "transformations": {
+      "title": "Real Fire & Ice Facial Transformations (Before & After)",
+      "subtitle": "Swipe through real patient results showing brighter, smoother, and radiant skin immediately after the Fire & Ice Facial at The Skin Firm."
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for Fire & Ice Facial in Pune",
+      "reviews": [
+        "“I did the Fire & Ice Facial before my engagement and the glow was unbelievable. My skin felt so smooth and radiant!”",
+        "“This is unlike any facial I’ve tried at a salon. The results were instant and lasted weeks. Dr. Karishma Singh explained each step and made me feel very comfortable.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related Fire & Ice Facial Videos",
+      "description": "Watch Dr. Karishma Singh explain how the Fire & Ice Facial works, what results to expect, and why it’s a celebrity favorite."
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from Fire & Ice Facial?",
+      "candidates": [
+        "Men & women looking for instant glow and hydration",
+        "Brides & grooms preparing for their big day",
+        "Professionals needing pre-event skin rejuvenation",
+        "Adults with fine lines, dullness, or mild acne scars",
+        "Safe for all skin tones and types"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on Fire & Ice Facial in Pune",
+      "questions": [
+        {
+          "question": "1. What makes the Fire & Ice Facial different from regular facials?",
+          "answer": "Unlike salon facials, the Fire & Ice Facial is a medical-grade treatment that resurfaces, hydrates, and rejuvenates at a deeper level under the supervision of a dermatologist for Fire & Ice Facial in Pune."
+        },
+        {
+          "question": "2. Is the Fire & Ice Facial safe for sensitive skin?",
+          "answer": "Yes, the Hollywood Red Carpet Facial is customised to your skin type, and the “Ice” step ensures soothing, calming, and hydration even for sensitive skin."
+        },
+        {
+          "question": "3. How long does the Fire & Ice Facial session take?",
+          "answer": "Each Fire & Ice Medi Facial session takes about 45–60 minutes, making it perfect for busy professionals and brides-to-be."
+        },
+        {
+          "question": "4. Is there any downtime?",
+          "answer": "No, you can return to your normal routine immediately after this Fire and Ice Facial."
+        },
+        {
+          "question": "5. When will I see results?",
+          "answer": "Instantly! After your Fire & Ice Facial, your skin will look brighter, smoother, and more refreshed with an instant celebrity-like glow."
+        },
+        {
+          "question": "6. How often can I do the Fire & Ice Facial?",
+          "answer": "The Fire & Ice Medi Facial can be done every 4–6 weeks for maintenance, or before special occasions as a pre-event glow facial Pune treatment."
+        },
+        {
+          "question": "7. Can men also get the Fire & Ice Facial?",
+          "answer": "Absolutely. Many male clients visit The Skin Firm, considered the best Fire & Ice Facial clinic in Pune, for a refreshed and youthful appearance."
+        },
+        {
+          "question": "8. Is Fire & Ice Facial suitable before weddings or photoshoots?",
+          "answer": "Yes, this is why it’s called the Hollywood Red Carpet Facial. It’s ideal as a bridal Fire & Ice Facial or for pre-wedding, parties, and professional shoots."
+        },
+        {
+          "question": "9. Does Fire & Ice Facial help with acne scars and pigmentation?",
+          "answer": "Yes, the Fire & Ice Facial gently resurfaces and brightens the skin, reducing mild acne scars, pigmentation, and uneven skin tone."
+        },
+        {
+          "question": "10. How long do the Fire & Ice Facial results last?",
+          "answer": "The glow from the Fire & Ice Medi Facial can last for weeks. With regular sessions at The Skin Firm, your skin’s health, texture, and radiance improve long-term."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "At The Skin Firm, we proudly serve patients from Mohammad Wadi and NIBM Road, as well as Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, and Lullanagar.",
+      "footer": "Our central location makes it easy for South and Central Pune residents to access premium Fire & Ice Facial treatments."
+    },
+    "finalCta": {
+      "title": "Book Your Fire & Ice Facial Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "Don’t settle for salon facials when your skin deserves medical-grade luxury treatments. At The Skin Firm, our Fire & Ice Facial in Pune delivers instant glow, refined texture, and youthful radiance - safely and effectively.\n\nAppointments fill quickly. Book your consultation today and experience the celebrity glow facial.",
+      "cta": "Book Your Fire & Ice Facial Appointment →"
+    }
+  },
+  "hollywood-facial-in-pune": {
+    "meta": {
+      "title": "Hollywood Facial | Carbon Laser Facial at The Skin Firm",
+      "description": "Get the red carpet glow with Hollywood Facial in Pune at The Skin Firm. Dermatologist-led carbon laser facial for instant radiance, pore refinement & anti-ageing.",
+      "keywords": "Hollywood Facial in Pune, Carbon Laser Facial in Pune, Red Carpet Facial in Pune, Best Hollywood Facial Pune, Hollywood Facial for Brides Pune, Anti-ageing Hollywood Facial Pune, Acne Hollywood Facial Pune, Dermatologist-supervised facial Pune, Instant glow facial Pune"
+    },
+    "hero": {
+      "title": "Hollywood Facial in Pune – The Red Carpet Glow, Now at The Skin Firm",
+      "subtitle": "Advanced medi-facial, loved by celebrities worldwide, is performed under the expert care of Dr. Karishma Singh, making The Skin Firm the trusted choice for the best Hollywood Facial Pune.",
+      "cta": "Book Your Hollywood Facial Consultation Today →",
+      "category": "SKIN CARE & FACIALS"
+    },
+    "whatIsService": {
+      "title": "What Is a Hollywood Facial?",
+      "content": "The Hollywood Facial in Pune (also called Carbon Laser Facial or Red Carpet Facial) is a cutting-edge, dermatologist-supervised facial in Pune that uses medical-grade carbon with advanced laser technology.\n\nThis non-invasive procedure deeply cleanses the skin, reduces oiliness, refines pores, and brightens the complexion—all with zero downtime. Popular among Hollywood celebrities before events, it delivers a refreshed, youthful glow in just one session.\n\nAt The Skin Firm, Pune, we provide the authentic Hollywood Facial using advanced laser technology, tailored to your skin needs for safe, visible, and long-lasting results."
+    },
+    "signsSymptoms": {
+      "title": "Signs & concerns our Hollywood Facial Can Address",
+      "items": [
+        "Dull, tired-looking skin",
+        "Uneven skin tone and rough texture",
+        "Enlarged pores and excess oil",
+        "Fine lines and mild wrinkles",
+        "Acne-prone or congested skin",
+        "Pigmentation and tanning",
+        "Early ageing concerns",
+        "Need for instant glow before an event"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Hollywood Facial at The Skin Firm?",
+      "description": "Do you want a facial that gives you an instant glow and long-term skin benefits? Unlike salon facials that only work on the surface, the Hollywood Medi Facial in Pune works at a deeper level to cleanse, resurface, and rejuvenate the skin.",
+      "highlight": "At The Skin Firm, our Hollywood Facials are:\n\n> Dermatologist-supervised – performed safely by trained professionals\n> under Skin Specialist Dr. Karishma Singh\n>\n> Advanced & medical-grade – far superior to cosmetic facials\n>\n> Customised – designed to suit oily, sensitive, acne-prone, or ageing\n> skin\n>\n> Results-driven – instant glow with progressive improvement in skin\n> quality",
+      "image": "/images/services/hollywood facial.png"
+    },
+    "process": {
+      "title": "How Our Hollywood Facial Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Consultation & Skin Prep",
+          "description": "Your skin is cleansed and assessed to ensure the treatment is customised to your concerns."
+        },
+        {
+          "step": "2",
+          "title": "Carbon Application",
+          "description": "A thin layer of medical-grade carbon lotion is applied to the skin, which penetrates deep into pores and absorbs impurities."
+        },
+        {
+          "step": "3",
+          "title": "Laser Treatment",
+          "description": "A laser passes over the skin, destroying the carbon particles. This process gently exfoliates, unclogs pores, and stimulates collagen."
+        },
+        {
+          "step": "4",
+          "title": "Cooling & Hydration",
+          "description": "Soothing serums and hydrating masks are applied to restore balance, leaving your skin fresh and glowing."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of Hollywood Facial Treatments We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Classic Hollywood Facial",
+          "description": "for instant glow and pore refinement"
+        },
+        {
+          "title": "Acne-Control Hollywood Facial",
+          "description": "reduces oil, acne, and blackheads"
+        },
+        {
+          "title": "Anti-Ageing Hollywood Facial",
+          "description": "stimulates collagen and smooths fine lines"
+        },
+        {
+          "title": "Brightening Hollywood Facial",
+          "description": "targets pigmentation and dullness"
+        },
+        {
+          "title": "Bridal/Event Hollywood Facial",
+          "description": "pre-event treatment for flawless radiance"
+        },
+        {
+          "title": "Combination Hollywood Protocols",
+          "description": "designed for long-term skin rejuvenation"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of Hollywood Facial at The Skin Firm",
+      "items": [
+        "Instant glow with no downtime",
+        "Deep cleansing of pores and impurities",
+        "Reduces oiliness and prevents acne breakouts",
+        "Refines large pores for smoother skin",
+        "Brightens uneven skin tone and pigmentation",
+        "Stimulates collagen for firmer, youthful skin",
+        "Safe and effective for all skin types"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After Hollywood Facial",
+      "description": "> **Zero** **Downtime** – you can resume activities immediately\n>\n> **Mild** **Warmth** **or** **Redness** – may occur for a few hours\n> only\n>\n> **Event-Ready** **Glow** – ideal 1–2 days before weddings, parties, or\n> shoots\n>\n> **Progressive** **Results** – skin quality improves with repeated\n> sessions",
+      "tipsTitle": "Post-Care After Hollywood Facial",
+      "tips": [
+        "Apply sunscreen daily to protect treated skin",
+        "Avoid scrubs or exfoliants for 3–5 days",
+        "Keep skin hydrated with moisturisers and serums",
+        "Avoid steam or hot showers for 24 hours",
+        "Follow the dermatologist’s recommended skincare for longer-lasting results"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted Hollywood Facial Clinic",
+      "features": [
+        "Led by Skin Specialist Dr. Karishma Singh",
+        "Advanced Laser Technology – authentic Hollywood Facial procedure",
+        "Customised Care – protocols designed for your unique skin needs",
+        "Safe & Effective – dermatologist-supervised treatments",
+        "Trusted by Clients Across Pune – popular among brides, grooms, and professionals"
+      ]
+    },
+    "transformations": {
+      "title": "Real Hollywood Facial Transformations (Before & After)",
+      "subtitle": "Swipe through real patient results showing visibly brighter, clearer, and smoother skin after the Hollywood Facial."
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for Hollywood Facial in Pune",
+      "reviews": [
+        "“I got the Hollywood Facial before my wedding photoshoot and the glow was unreal. My skin looked flawless in pictures.”",
+        "“This is the best facial I’ve ever had. My pores are smaller, my skin feels cleaner, and the brightness lasted for weeks.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related Hollywood Facial Videos",
+      "description": "Watch Dr. Karishma Singh explain how the Hollywood Facial works, who it’s for, and what results you can expect."
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from Hollywood Facial?",
+      "candidates": [
+        "Men & women wanting instant glow and refreshed skin",
+        "Brides & grooms preparing for their big day",
+        "Working professionals with dull or stressed skin",
+        "Adults with oily, acne-prone, or congested skin",
+        "Anyone looking for safe, medical-grade skin rejuvenation"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on Hollywood Facial in Pune",
+      "questions": [
+        {
+          "question": "1. What makes the Hollywood Facial different from regular facials?",
+          "answer": "Unlike salon facials, the Hollywood Facial in Pune (also known as the Carbon Laser Facial in Pune or Red Carpet Facial in Pune) uses advanced technology to deeply cleanse, rejuvenate, and deliver both instant and long-term results."
+        },
+        {
+          "question": "2. Is the Hollywood Facial safe for all skin types?",
+          "answer": "Yes—it’s a dermatologist-supervised facial in Pune that is safe and effective for all skin tones and types, including oily, sensitive, and acne-prone skin."
+        },
+        {
+          "question": "3. How long does the treatment take?",
+          "answer": "Each Hollywood Facial in Pune session takes about 45–60 minutes, making it a quick yet powerful instant glow facial Pune."
+        },
+        {
+          "question": "4. Is the Hollywood Facial painful?",
+          "answer": "No—most patients only feel mild warmth or tingling during the laser step of the Carbon Laser Facial in Pune."
+        },
+        {
+          "question": "5. How soon will I see results?",
+          "answer": "Immediately! After the Red Carpet Facial in Pune, your skin looks brighter, smoother, and refreshed with an instant glow."
+        },
+        {
+          "question": "6. How often should I get the Hollywood Facial?",
+          "answer": "For best results, the Hollywood Medi Facial in Pune can be done every 4–6 weeks for maintenance, or before special occasions like weddings and photoshoots for instant glow."
+        },
+        {
+          "question": "7. Does it help with acne and pores?",
+          "answer": "Yes—the Acne Hollywood Facial Pune works by using carbon to absorb oil and impurities, while the laser unclogs pores, reduces blackheads, and prevents future breakouts."
+        },
+        {
+          "question": "8. Can men also get the Hollywood Facial?",
+          "answer": "Absolutely—the Hollywood Facial in Pune is popular with both men and women who want clearer, brighter, and more youthful skin."
+        },
+        {
+          "question": "9. Is there any downtime?",
+          "answer": "No downtime! You can resume your normal routine immediately after the Hollywood Facial in Pune, making it the perfect pre-event or instant glow facial Pune."
+        },
+        {
+          "question": "10. How long do results last?",
+          "answer": "The glow from the Hollywood Facial for Brides Pune or general sessions lasts 2–3 weeks. With regular anti-ageing Hollywood Facial Pune treatments, overall skin texture and health improve long-term."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "At The Skin Firm, we welcome patients from Mohammad Wadi and NIBM Road, as well as nearby areas like Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, and Lullanagar.",
+      "footer": "Our central location makes it easy for South and Central Pune residents to access advanced Hollywood Facial treatments."
+    },
+    "finalCta": {
+      "title": "Book Your Hollywood Facial Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "Experience the celebrity glow with the Hollywood Facial in Pune—a medical-grade Carbon Laser Facial that deeply cleanses, brightens, and rejuvenates instantly. Perfect as a Red Carpet Facial in Pune, this dermatologist-supervised facial is safe for all skin types and delivers radiant, youthful skin in just one session.\n\nAppointments fill quickly. Book your consultation today and step out with red carpet-ready skin.",
+      "cta": "Book Your Hollywood Facial Appointment →"
+    }
+  },
+  "prp-facial-in-pune": {
+    "meta": {
+      "title": "PRP Facial | Vampire Facial for Skin Rejuvenation = The Skin Firm, Pune",
+      "description": "Discover the PRP Facial in Pune at The Skin Firm. Also known as the Vampire Facial, this advanced PRP therapy reduces acne scars, wrinkles and dark circles. Book your slot today.",
+      "keywords": "PRP Facial in Pune, Vampire Facial in Pune, Best PRP Facial Clinic Pune, PRP treatment for acne scars Pune, PRP for skin rejuvenation Pune, PRP for under-eye dark circles Pune, Anti-ageing PRP facial Pune, Natural skin rejuvenation Pune, PRP microneedling Pune, Dr. Karishma Singh PRP Facial"
+    },
+    "hero": {
+      "title": "PRP Facial in Pune - Natural Skin Rejuvenation with The Skin Firm",
+      "subtitle": "Also known as the Vampire Facial, this advanced PRP (Platelet-Rich Plasma) therapy restores youthful skin, reduces scars, and brings back your natural glow under the care of Skin Specialist Dr. Karishma Singh, at the Best PRP Facial Clinic in Pune.",
+      "cta": "Book Your PRP Facial Consultation Today →",
+      "category": "SKIN CARE & REJUVENATION"
+    },
+    "whatIsService": {
+      "title": "What Is a PRP (Vampire) Facial?",
+      "content": "The PRP Facial, popularly called the Vampire Facial, is a revolutionary anti-ageing PRP Facial in Pune that uses the healing power of your own blood.\n\nA small sample of your blood is drawn, processed in a centrifuge to extract platelet-rich plasma (PRP) - a golden fluid packed with growth factors. When applied or injected, PRP stimulates collagen and elastin production, repairs scars, and enhances hydration and glow.\n\nUnlike chemical facials, the PRP treatment for skin rejuvenation is 100% natural and safe for all skin types. At The Skin Firm, NIBM, Pune we provide medical-grade PRP microneedling and customised treatments for long-lasting results."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Concerns PRP Facial Can Address",
+      "items": [
+        "Fine lines and wrinkles (anti-ageing)",
+        "Acne scars and post-acne marks",
+        "Uneven skin texture and enlarged pores",
+        "Dull, tired-looking skin",
+        "PRP for under-eye dark circles and hollows",
+        "Early signs of sagging and loss of elasticity",
+        "Pigmentation and sun damage",
+        "Dehydrated, ageing skin"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose PRP Facial at The Skin Firm?",
+      "description": "While the Vampire Facial is globally popular, results depend on expertise. At The Skin Firm, we use advanced centrifuge systems and dermatologist-led techniques to ensure high-quality, safe treatments.",
+      "highlight": "**Here’s** **why** **patients** **trust** **us** **for** **PRP** **skin** **rejuvenation** **in** **Pune:**\n\n> **Skin** **Specialist** **Supervision** - Dr. Karishma Singh ensures\n> precise, safe results\n>\n> **Medical-Grade** **PRP** **Processing** - advanced centrifuge for\n> high-quality plasma\n>\n> **Customised** **Protocols** - PRP with microneedling, mesotherapy, or\n> lasers as needed\n>\n> **Natural,** **Chemical-Free** **Results** - glow and rejuvenation\n> from within\n>\n> **Trusted** **by** **Patients** **Across** **Pune** - proven track\n> record in anti-ageing & scar repair\n\nAt The Skin Firm, we don’t just treat skin—we restore confidence with natural, graceful rejuvenation.",
+      "image": "/images/services/prp.png"
+    },
+    "process": {
+      "title": "How Our PRP Facial Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Skin Consultation & Assessment",
+          "description": "Your skin is analysed to determine concerns like scars, ageing, or dullness."
+        },
+        {
+          "step": "2",
+          "title": "Blood Draw & PRP Extraction",
+          "description": "A small blood sample is collected and processed to separate platelet-rich plasma."
+        },
+        {
+          "step": "3",
+          "title": "Application/Injections",
+          "description": "PRP is applied with microneedling (PRP microneedling in Pune) or injected under-eyes, scars, or fine lines."
+        },
+        {
+          "step": "4",
+          "title": "Healing & Results",
+          "description": "Over weeks, PRP stimulates natural healing, repairing damaged skin, fading scars, and restoring youthful glow."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of PRP Facials We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Classic PRP (Vampire Facial)",
+          "description": "for overall rejuvenation and glow"
+        },
+        {
+          "title": "PRP with Microneedling",
+          "description": "ideal for acne scars and texture improvement"
+        },
+        {
+          "title": "PRP for Under-Eyes",
+          "description": "reduces dark circles, hollows, and fine lines"
+        },
+        {
+          "title": "Anti-Ageing PRP Facial",
+          "description": "improves wrinkles and early sagging"
+        },
+        {
+          "title": "PRP for Pigmentation & Sun Damage",
+          "description": "brightens and evens skin tone"
+        },
+        {
+          "title": "Combination PRP Treatments",
+          "description": "PRP with lasers/peels for enhanced results"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of PRP Facial at The Skin Firm",
+      "items": [
+        "Natural rejuvenation with your own plasma",
+        "Improves skin texture, tone, and elasticity",
+        "Reduces fine lines and wrinkles naturally",
+        "Fades acne scars and pigmentation",
+        "Restores hydration and plumpness",
+        "Brightens under-eye dark circles with PRP",
+        "Non-surgical, minimally invasive",
+        "Safe for all skin types and tones"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After PRP Facial",
+      "description": "> **Minimal** **Downtime** – most patients return to routine in 24 hours\n>\n> **Mild** **Redness** **or** **Swelling** – settles within 1–2 days\n>\n> **Skin** **Renewal** – results appear progressively over 2–4 weeks\n>\n> **Sun** **Sensitivity** – sunscreen is essential for 48 hours",
+      "tipsTitle": "Post-Care After PRP Facial",
+      "tips": [
+        "Avoid touching or rubbing your face for 24 hours",
+        "Skip makeup, gym, or saunas for 1–2 days",
+        "Apply gentle moisturisers and hydrating serums",
+        "Avoid retinol, peels, or scrubs for 5 days",
+        "Drink water and maintain a healthy diet",
+        "Follow maintenance sessions for best results"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted PRP Facial Clinic",
+      "features": [
+        "Led by Skin Specialist Dr. Karishma Singh",
+        "Advanced PRP Extraction Technology - ensures maximum growth factors",
+        "Customised Care - every plan is tailored to your needs",
+        "Safe & Sterile Protocols - evidence-based, dermatologist-supervised",
+        "Proven Results = smoother, firmer, more radiant skin"
+      ]
+    },
+    "transformations": {
+      "title": "Real PRP Facial Transformations (Before & After)",
+      "subtitle": "Swipe through real patient results showing smoother texture, faded scars, and youthful glow after PRP Facial at The Skin Firm, Pune."
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for PRP Facial in Pune",
+      "reviews": [
+        "“I did the PRP Facial for my acne scars, and the difference is amazing. My skin feels smoother, and the marks have lightened.”",
+        "“The under-eye PRP worked wonders on my dark circles. I look fresher and well-rested. Highly recommend The Skin Firm!”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related PRP Facial Videos",
+      "description": "Watch Dr. Karishma Singh explain how the PRP Facial (Vampire Facial) works, its safety, and expected results."
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from PRP Facial?",
+      "candidates": [
+        "Adults with acne scars or uneven texture",
+        "Men & women noticing early wrinkles or sagging",
+        "Patients with dark circles or under-eye hollows",
+        "Brides & grooms-to-be preparing for a big day glow",
+        "Anyone wanting safe, natural skin rejuvenation",
+        "Suitable for all skin tones and types"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on PRP Facial",
+      "questions": [
+        {
+          "question": "1. What is the difference between a PRP Facial and Vampire Facial?",
+          "answer": "They are the same treatment. PRP Facial is the medical term, while Vampire Facial is its popular name."
+        },
+        {
+          "question": "2. Is the PRP Facial safe?",
+          "answer": "Yes = since it uses your own blood plasma, there’s no risk of allergy or rejection. At The Skin Firm, Pune, our PRP for skin rejuvenation is performed under dermatologist supervision, ensuring complete safety."
+        },
+        {
+          "question": "3. Does the PRP Facial hurt?",
+          "answer": "A numbing cream is applied before the procedure. Most patients feel only mild tingling during PRP microneedling or injections."
+        },
+        {
+          "question": "4. How many sessions are required for the PRP Facial?",
+          "answer": "Usually, 3–4 sessions of PRP treatment, spaced 4 weeks apart, give the best results for acne scars, anti-ageing, and under-eye rejuvenation."
+        },
+        {
+          "question": "5. When will I see results from my PRP Facial?",
+          "answer": "A healthy glow appears within a week. Collagen stimulation from the PRP anti-ageing facial continues to improve skin texture and elasticity over 2–4 weeks."
+        },
+        {
+          "question": "6. How long do results last from my PRP Facial?",
+          "answer": "Results from the PRP Facial typically last 12–18 months, depending on lifestyle, skincare routine, and maintenance sessions."
+        },
+        {
+          "question": "7. Can PRP Facial help with acne scars?",
+          "answer": "Yes - PRP treatment for acne scars is one of the most effective ways to reduce marks, refine skin texture, and promote natural healing."
+        },
+        {
+          "question": "8. Does PRP Facial work for dark circles?",
+          "answer": "Absolutely. PRP for under-eye dark circles helps improve pigmentation, fine lines, and hollows, making the eyes look brighter and well-rested."
+        },
+        {
+          "question": "9. Is there a downtime after PRP facial?",
+          "answer": "Minimal. Most patients resume routine within 24 hours. Mild redness or swelling from the PRP Vampire Facial fades in 1-2 days."
+        },
+        {
+          "question": "10. Can men also get PRP Facials?",
+          "answer": "Yes, many men in Pune choose PRP Facial for anti-ageing, acne scars, and overall skin rejuvenation. It is equally effective for both men and women."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "At The Skin Firm, we welcome patients from Mohammad Wadi and NIBM Road, as well as Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, and Lullanagar.",
+      "footer": "Our convenient location makes it easy for South and Central Pune residents to access dermatologist-supervised PRP (Vampire) Facial treatments."
+    },
+    "finalCta": {
+      "title": "Book Your PRP Facial Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "Rejuvenate naturally with the PRP Facial in Pune at the Skin Firm = a safe, advanced treatment that repairs, renews, and restores youthful glow.\n\nAppointments are limited. Book your consultation today and experience natural skin transformation with PRP Facials.",
+      "cta": "Book Your PRP Facial Appointment →"
+    }
+  },
+  "carbon-peel-facial-in-pune": {
+    "meta": {
+      "title": "Carbon Peel Facial in Pune | Hollywood Laser Peel at The Skin Firm",
+      "description": "Get clear, glowing skin with Carbon Peel Facial in Pune at The Skin Firm. Treat acne, pigmentation & pores with dermatologist Dr. Karishma Singh.",
+      "keywords": "Carbon Peel Facial in Pune, Carbon Laser Facial in Pune, Hollywood Peel in Pune, Best Carbon Peel Treatment Pune, Acne & Pigmentation Treatment, Laser Facial for Oily Skin, Pore Cleansing Facial, Bridal Glow Facial, Dr. Karishma Singh Skin Specialist Pune"
+    },
+    "hero": {
+      "title": "Carbon Peel Facial in Pune - Clear, Glowing Skin with The Skin Firm",
+      "subtitle": "Experience advanced carbon laser facial for acne, pigmentation, and instant glow, performed under the expert care of Dr. Karishma Singh, Skin Specialist in Pune.",
+      "cta": "Book Your Carbon Peel Facial Consultation Today →",
+      "category": "SKIN CARE & FACIALS"
+    },
+    "whatIsService": {
+      "title": "What Is a Carbon Peel Facial?",
+      "content": "The Carbon Peel Facial, also known as the Carbon Laser Facial or Hollywood Peel, is a non-invasive laser treatment designed to deeply cleanse pores, reduce oiliness, fade pigmentation, and leave the skin instantly refreshed.\n\nThe procedure involves applying a thin layer of medical-grade liquid carbon to the skin, which penetrates deep into the pores. When activated with a laser, the carbon particles absorb oil, dirt, and dead skin cells - providing a powerful pore cleansing facial while stimulating collagen production.\n\nAt The Skin Firm, NIBM, Pune we use advanced carbon peel technology for acne & pigmentation treatment, helping patients achieve clearer, brighter, and younger-looking skin - with zero downtime."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Concerns Carbon Peel Facial Can Address",
+      "items": [
+        "Oily or acne-prone skin",
+        "Blackheads, whiteheads, and clogged pores",
+        "Enlarged pores and rough texture",
+        "Uneven tone and mild pigmentation",
+        "Dull, tired-looking skin",
+        "Early fine lines and wrinkles",
+        "Sun-damaged skin",
+        "Pre-event glow requirement"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Carbon Peel (Hollywood Peel) Facial at The Skin Firm?",
+      "description": "Unlike salon facials that only work on the surface, our Carbon Peel treatment is medical-grade and dermatologist-supervised, ensuring safe and visible results.",
+      "highlight": "At The Skin Firm, our Carbon Peel Facials are:\n\n> **Performed** **by** **experts** - under the care of Skin Specialist\n> Dr. Karishma Singh\n>\n> **Advanced** **&** **precise** - using FDA-approved carbon laser\n> technology\n>\n> **Customised** - protocols tailored for acne, pigmentation, or ageing\n> concerns\n>\n> **Results-driven** - offering both instant glow and long-term\n> improvements\n\nWhether you want **laser** **facial** **for** **oily** **skin**, need help with pigmentation, or want a **Bridal** **Glow** **Facial** **in** **Pune**, the Carbon Peel facial is the perfect choice.",
+      "image": "/images/services/carbon facial.png"
+    },
+    "process": {
+      "title": "How Our Carbon Peel Facial Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Cleansing & Prep",
+          "description": "The skin is cleansed, and a thin layer of carbon lotion is applied, which penetrates deep into pores."
+        },
+        {
+          "step": "2",
+          "title": "Carbon Activation with Laser",
+          "description": "A laser passes over the skin, heating and shattering the carbon particles along with oil, impurities, and dead skin."
+        },
+        {
+          "step": "3",
+          "title": "Exfoliation & Collagen Boost",
+          "description": "The process gently exfoliates, unclogs pores, and stimulates collagen production for smoother, firmer skin."
+        },
+        {
+          "step": "4",
+          "title": "Cooling & Hydration",
+          "description": "The treatment is finished with soothing serums and SPF, leaving the skin soft, fresh, and radiant."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of Carbon Peel Facials We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Classic Carbon Peel Facial",
+          "description": "deep cleansing and instant glow"
+        },
+        {
+          "title": "Acne-Control Carbon Peel",
+          "description": "reduces oiliness, breakouts, and clogged pores"
+        },
+        {
+          "title": "Brightening Carbon Peel",
+          "description": "targets pigmentation and uneven skin tone"
+        },
+        {
+          "title": "Anti-Ageing Carbon Peel",
+          "description": "refines fine lines and stimulates collagen"
+        },
+        {
+          "title": "Bridal/Event Carbon Peel",
+          "description": "pre-event treatment for flawless radiance"
+        },
+        {
+          "title": "Combination Carbon Peel Protocols",
+          "description": "with peels or PRP for enhanced results"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of Carbon Peel (Hollywood Peel) Facial at The Skin Firm",
+      "items": [
+        "Deeply cleanses and detoxifies pores",
+        "Effective acne & pigmentation treatment",
+        "Shrinks enlarged pores for refined texture",
+        "Brightens dull and uneven skin tone",
+        "Stimulates collagen for firmness and glow",
+        "Smoothens fine lines and early wrinkles",
+        "Zero downtime, instant results",
+        "Safe for all skin types"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After Carbon Peel (Hollywood Peel) Facial",
+      "description": "> **Zero** **Downtime** - return to routine immediately\n>\n> **Mild** **Warmth** **or** **Redness** - may occur briefly but fades\n> in hours\n>\n> **Immediate** **Glow** - skin looks clearer and brighter right away\n>\n> **Progressive** **Improvement** - long-term results with regular\n> sessions",
+      "tipsTitle": "Post-Care After Carbon Peel (Hollywood Peel) Facial",
+      "tips": [
+        "Apply sunscreen daily to protect new skin",
+        "Avoid exfoliants or retinol for 3-5 days",
+        "Keep skin hydrated with gentle moisturisers",
+        "Avoid gym, steam, or hot showers for 24 hours",
+        "Follow maintenance sessions every 4-6 weeks"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted Carbon Peel Facial Clinic",
+      "features": [
+        "Led by Dr. Karishma Singh - Best Skin Specialist in Pune",
+        "Advanced Carbon Laser Technology - authentic Hollywood Peel procedure",
+        "Customised Care - protocols tailored to acne, ageing, or glow concerns",
+        "Safe & Effective - dermatologist-supervised treatments",
+        "Proven Track Record - trusted by patients across Pune for advanced facials"
+      ]
+    },
+    "transformations": {
+      "title": "Real Carbon Peel Facial Transformations (Before & After)",
+      "subtitle": "Swipe through real patient results showing clearer pores, brighter skin, and smoother texture after the Carbon Peel Facial at The Skin Firm, Pune."
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for Carbon Peel Facial in Pune",
+      "reviews": [
+        "“I struggled with oily skin and breakouts. After just two sessions of Carbon Peel at The Skin Firm, my skin feels so much clearer and healthier.”",
+        "“I had the Carbon Peel Facial before my wedding week and the glow was unbelievable— smooth skin and refined pores without makeup.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related Carbon Peel Facial Videos",
+      "description": "Watch Dr. Karishma Singh explain how the Carbon Peel Facial works, who it’s for, and what results to expect."
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from Carbon Peel Facial?",
+      "candidates": [
+        "Men & women with oily, acne-prone skin",
+        "Adults with pigmentation, tanning, or uneven tone",
+        "Brides & grooms preparing for their big day",
+        "Professionals needing a quick, effective glow treatment",
+        "Anyone with enlarged pores or dullness",
+        "Safe for all Indian skin types and tones"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on Carbon Peel Facial in Pune",
+      "questions": [
+        {
+          "question": "1. What is a Carbon Peel Facial?",
+          "answer": "The Carbon Peel Facial, also known as the Carbon Laser Facial or Hollywood Peel, is a laser-based treatment where carbon lotion is applied to the skin and then activated with a laser. It deeply cleanses pores, provides pore cleansing facial benefits, exfoliates, and rejuvenates the skin."
+        },
+        {
+          "question": "2. Is the Carbon Peel safe for all skin types?",
+          "answer": "Yes - the Carbon Peel treatment is safe, non-invasive, and customised for your skin type under dermatologist supervision by Dr. Karishma Singh."
+        },
+        {
+          "question": "3. Does Carbon Peel Facial hurt?",
+          "answer": "No - it feels like a warm tingling or light snapping sensation, which is easily tolerable during the laser facial for oily skin."
+        },
+        {
+          "question": "4. How long does one session of Carbon Peel Facial take?",
+          "answer": "Each session of the Carbon Laser Facial takes about 45-60 minutes."
+        },
+        {
+          "question": "5. When will I see results after my Carbon Peel Facial?",
+          "answer": "Results are visible immediately after the Carbon Peel Facial - skin looks brighter, pores appear refined, and the glow is perfect for pre-event treatments like a bridal glow facial."
+        },
+        {
+          "question": "6. How many sessions do I need?",
+          "answer": "For acne or pigmentation, 3-6 sessions of the best Carbon Peel treatment spaced 3-4 weeks apart are recommended for long-term results."
+        },
+        {
+          "question": "7. Is there downtime after the Carbon peel treatment?",
+          "answer": "Minimal to none - you can resume daily activities right away. This is why the Hollywood Peel or the carbon peel treatment is called the “lunchtime facial.”"
+        },
+        {
+          "question": "8. Can Carbon Peel Facial help with acne scars?",
+          "answer": "Yes - the Carbon Peel for acne & pigmentation treatment helps improve skin texture and reduces scars gradually with repeated sessions."
+        },
+        {
+          "question": "9. Is the Carbon Peel good for men too?",
+          "answer": "Absolutely - the Carbon Peel Facial is highly effective for men with oily, acne-prone, or dull skin."
+        },
+        {
+          "question": "10. Can I get Carbon Peel Facial done before a wedding or event?",
+          "answer": "Yes - it’s one of the best bridal glow facials in Pune, offering instant glow and photo-ready skin with no downtime."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "At The Skin Firm, we proudly serve patients from Mohammad Wadi and NIBM Road, as well as Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, and Lullanagar.",
+      "footer": "Our central location makes it convenient for South and Central Pune residents to access advanced Carbon Peel Facials."
+    },
+    "finalCta": {
+      "title": "Book Your Carbon Peel Facial Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "Reveal your natural glow with the Carbon Peel Facial at The Skin Firm, NIBM, Mohammad Wadi. Whether you’re battling oily skin, pigmentation, or need a quick bridal glow facial for your special event, our advanced laser treatment delivers visible results.\n\nAppointments fill quickly. Book your consultation today and experience the celebrity-favourite Hollywood Peel.",
+      "cta": "Book Your Carbon Peel Facial Appointment →"
+    }
+  },
+  "hyperhidrosis-treatment-in-pune": {
+    "meta": {
+      "title": "Hyperhidrosis Treatment in Pune | Botox, Laser & Sweating Solutions",
+      "description": "Stay fresh with advanced hyperhidrosis treatment in Pune. Botox, iontophoresis & laser solutions for excessive sweating by Dr. Karishma Singh.",
+      "keywords": "Hyperhidrosis treatment in Pune, Excessive sweating treatment in Pune, Botox for sweating in Pune, Laser treatment for hyperhidrosis Pune, Iontophoresis treatment Pune, Best dermatologist for sweating in Pune, Underarm sweating treatment Pune, Palms and soles sweating treatment Pune, Non-surgical sweating solution Pune, Excessive sweating doctor Pune"
+    },
+    "hero": {
+      "title": "Hyperhidrosis (Excessive Sweating) Treatment in Pune - Stay Fresh & Confident with The Skin Firm",
+      "subtitle": "Safe, advanced solutions for excessive sweating in Pune affecting underarms, palms, feet, and face under the expert care of Skin Specialist & Dermatologist Dr. Karishma Singh.",
+      "cta": "Book Your Hyperhidrosis Consultation Today →",
+      "category": "BODY CARE & WELLNESS"
+    },
+    "whatIsService": {
+      "title": "What Is Hyperhidrosis?",
+      "content": "Hyperhidrosis is a medical condition where the body produces excessive sweat beyond what’s needed to regulate temperature. It can affect specific areas like the underarms, palms, soles, or face, or occur across the body.\n\nWhile sweating is natural, excessive sweating in Pune’s climate can be uncomfortable, embarrassing, and disruptive - making handshakes, public speaking, or even wearing light-colored clothes stressful.\n\nAt The Skin Firm, we offer safe, advanced, and dermatologist-supervised hyperhidrosis treatment in Pune to reduce sweating, restore comfort, and boost confidence in daily life."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Symptoms of Hyperhidrosis",
+      "items": [
+        "Excessive sweating even in cool weather",
+        "Constantly damp underarms, palms, feet, or face",
+        "Visible sweat marks on clothes",
+        "Difficulty gripping objects due to sweaty palms",
+        "Foul odor due to sweat build-up",
+        "Embarrassment in social or professional settings",
+        "Skin irritation or fungal infections due to constant moisture"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Hyperhidrosis Treatment at The Skin Firm?",
+      "description": "Living with excessive sweating can feel frustrating and isolating - but you don’t have to struggle anymore. At The Skin Firm, we provide medical-grade, dermatologist-supervised treatments that address the root cause of hyperhidrosis.",
+      "highlight": "Here’s why patients choose us:\n\n> **Expert** **Supervision** - led by **Skin** **Specialist** **Dr.**\n> **Karishma** **Singh**\n>\n> **Advanced** **Solutions** - including Botox, iontophoresis, and\n> lasers\n>\n> **Customised** **Plans** - tailored to the severity and site of\n> sweating\n>\n> **Safe** **&** **Effective** - long-lasting relief with minimal\n> discomfort\n>\n> **Holistic** **Care** - combining treatment with lifestyle guidance\n> for best results",
+      "image": "/images/services/Hyperhidrosis.png"
+    },
+    "process": {
+      "title": "How Our Hyperhidrosis Treatment Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Consultation & Diagnosis",
+          "description": "We assess the severity, triggers, and areas affected by hyperhidrosis."
+        },
+        {
+          "step": "2",
+          "title": "Personalised Treatment Plan",
+          "description": "Based on your needs, we may recommend Botox injections, iontophoresis, medications, or lasers."
+        },
+        {
+          "step": "3",
+          "title": "Advanced Procedure",
+          "description": "> Botox injections block the nerves that activate sweat glands.\n>\n> Iontophoresis uses mild electrical current to reduce palm/sole\n> sweating.\n>\n> Laser therapy targets sweat glands for lasting results."
+        },
+        {
+          "step": "4",
+          "title": "Aftercare & Maintenance",
+          "description": "We provide skincare advice and schedule follow-ups for consistent relief."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of Hyperhidrosis Treatments We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Botox for Sweating",
+          "description": "highly effective for underarms, palms, feet, and face"
+        },
+        {
+          "title": "Iontophoresis",
+          "description": "non-invasive option for sweaty palms and soles"
+        },
+        {
+          "title": "Laser Treatment",
+          "description": "reduces sweat gland activity"
+        },
+        {
+          "title": "Prescription Topicals/Orals",
+          "description": "for mild to moderate hyperhidrosis"
+        },
+        {
+          "title": "Combination Protocols",
+          "description": "designed for severe or resistant cases"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of Hyperhidrosis Treatment at The Skin Firm",
+      "items": [
+        "Significantly reduces excessive sweating",
+        "Provides long-lasting comfort (6-12 months with Botox)",
+        "Restores confidence in social and professional life",
+        "Improves clothing comfort (no more sweat marks)",
+        "Prevents fungal infections and skin irritation",
+        "Non-surgical, safe, and effective",
+        "Customised to your unique needs"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After Hyperhidrosis Treatments",
+      "description": "> **Minimal** **to** **No** **Downtime** - resume activities immediately\n>\n> **Mild** **Discomfort/Redness** - after Botox or laser, subsides in\n> hours\n>\n> **Temporary** **Tenderness** - possible at injection sites for 1–2\n> days\n>\n> **Quick** **Relief** - results visible in 5-7 days for Botox, longer\n> for other methods",
+      "tipsTitle": "Post-Care After Hyperhidrosis Treatments",
+      "tips": [
+        "Avoid gym/steam for 24 hours post-treatment",
+        "Keep treated areas clean and dry",
+        "Apply sunscreen on exposed areas",
+        "Avoid massaging or pressing injection sites",
+        "Follow dermatologist’s aftercare instructions"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted Hyperhidrosis Clinic",
+      "features": [
+        "Led by Dr. Karishma Singh - Best Dermatologist in Pune",
+        "Advanced, Evidence-Based Treatments - Botox, lasers, iontophoresis",
+        "Customised Care - protocols tailored for each patient",
+        "Proven Success Stories - long-lasting relief from excessive sweating",
+        "Trusted by Patients Across South & Central Pune - for skin, hair, and body concerns"
+      ]
+    },
+    "transformations": {
+      "title": "Real Hyperhidrosis Transformations (Before & After)",
+      "subtitle": "Swipe through real patient results showing reduced sweating, fresher underarms, and improved confidence."
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for Hyperhidrosis Treatment in Pune",
+      "reviews": [
+        "“I had severe underarm sweating for years. After Botox for sweating treatment in Pune at The Skin Firm, I finally feel comfortable in my clothes again.”",
+        "“Sweaty palms made my job difficult. Iontophoresis treatment at The Skin Firm in Pune worked wonderfully and gave me dry hands for the first time.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related Hyperhidrosis Treatment Videos",
+      "description": "Watch Dr. Karishma Singh explain hyperhidrosis, advanced treatments like Botox, lasers, and iontophoresis, and what results you can expect."
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from Hyperhidrosis Treatment?",
+      "candidates": [
+        "Adults with excessive sweating on underarms, palms, feet, or face",
+        "Teenagers with hereditary or early-onset hyperhidrosis",
+        "Professionals embarrassed by sweat marks during work",
+        "Brides & grooms-to-be wanting confidence for wedding functions",
+        "Anyone whose sweating disrupts daily life and comfort"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on Hyperhidrosis Treatment in Pune",
+      "questions": [
+        {
+          "question": "1. What is hyperhidrosis?",
+          "answer": "It’s a condition where sweat glands overproduce, causing excessive sweating beyond body temperature needs."
+        },
+        {
+          "question": "2. Can hyperhidrosis be cured permanently?",
+          "answer": "It cannot be fully “cured,” but treatments like Botox, iontophoresis, and lasers provide long-lasting relief."
+        },
+        {
+          "question": "3. Is Botox safe for sweating?",
+          "answer": "Yes - it’s FDA-approved and highly effective for underarms, palms, feet, and face."
+        },
+        {
+          "question": "4. How long do Botox results last?",
+          "answer": "Typically 6-12 months, after which repeat sessions may be required."
+        },
+        {
+          "question": "5. Is hyperhidrosis treatment painful?",
+          "answer": "Mild discomfort may occur with injections, but numbing creams make it comfortable."
+        },
+        {
+          "question": "6. How many sessions are needed for getting the hyperhidrosis treatment done?",
+          "answer": "Depends on the method - Botox usually requires one session; iontophoresis/lasers may need multiple."
+        },
+        {
+          "question": "7. Are there side effects after the hyperhidrosis treatment?",
+          "answer": "Minimal - temporary redness, swelling, or tenderness may occur, resolving in a few days."
+        },
+        {
+          "question": "8. Can home remedies treat hyperhidrosis?",
+          "answer": "No - antiperspirants may help mild cases, but medical treatments are required for effective relief."
+        },
+        {
+          "question": "9. Is hyperhidrosis treatment safe for all skin types?",
+          "answer": "Yes - treatments are safe and customised for all Indian skin types."
+        },
+        {
+          "question": "10. Can men also get hyperhidrosis treatment?",
+          "answer": "Absolutely - excessive sweating affects both men and women equally."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "At The Skin Firm, we proudly serve patients from Mohammad Wadi and NIBM Road, as well as Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, and Lullanagar.",
+      "footer": "Our central location makes it convenient for South and Central Pune residents to access advanced hyperhidrosis treatments."
+    },
+    "finalCta": {
+      "title": "Book Your Hyperhidrosis Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "Excessive sweating doesn’t have to hold you back. At The Skin Firm, our customised hyperhidrosis treatments in Pune help you stay fresh, confident, and worry-free.\n\n✨ Appointments are limited. Book your consultation today and experience the comfort of dry, confident skin.",
+      "cta": "Book Your Hyperhidrosis Treatment Appointment →"
+    }
+  },
+  "gfc-therapy-in-pune": {
+    "meta": {
+      "title": "GFC Therapy in Pune | Growth Factor Treatment for Hair & Skin",
+      "description": "Advanced GFC Therapy in Pune by Dr. Karishma Singh. Safe, natural growth factor treatment for hair loss, acne scars, anti-ageing & skin rejuvenation.",
+      "keywords": "GFC therapy in Pune, GFC hair treatment Pune, GFC therapy for acne scars Pune, Growth factor treatment Pune, Hair loss treatment Pune, Skin rejuvenation treatment Pune, Best dermatologist for GFC in Pune, PRP vs GFC treatment Pune, GFC for under-eye dark circles Pune, Anti-ageing treatment Pune, Acne scar treatment Pune"
+    },
+    "hero": {
+      "title": "GFC Therapy in Pune - Advanced Hair & Skin Regeneration with The Skin Firm",
+      "subtitle": "Latest growth factor-based treatment for hair loss, acne scars, and anti-ageing under the care of Skin Specialist Dr. Karishma Singh.",
+      "cta": "Book Your GFC Therapy Consultation Today →",
+      "category": "HAIR & SKIN REJUVENATION"
+    },
+    "whatIsService": {
+      "title": "What Is GFC Therapy?",
+      "content": "GFC Therapy (Growth Factor Concentrate Therapy) is an advanced, autologous (your own blood-derived) treatment that harnesses the power of natural growth factors to stimulate healing, regeneration, and rejuvenation.\n\nA small amount of your blood is processed in a special kit to extract a highly concentrated solution of platelet-derived growth factors. These growth factors are then injected into the scalp (for hair regrowth) or skin (for scars, wrinkles, or dullness).\n\nCompared to traditional PRP, GFC Therapy in Pune is more refined, more concentrated, and delivers better, faster results - with minimal discomfort and zero risk of allergies.\n\nAt The Skin Firm, Pune, we offer GFC Therapy for both hair restoration and skin rejuvenation, using advanced kits under dermatologist supervision."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Concerns GFC Therapy Can Treat",
+      "items": [
+        "For Hair",
+        "o Hair thinning and weak hair roots",
+        "o Early to moderate hair loss",
+        "o Male & female pattern baldness",
+        "o Post-hair transplant healing support",
+        "For Skin",
+        "o Acne scars and uneven texture",
+        "o Fine lines and early wrinkles",
+        "o Dull, tired-looking skin",
+        "o Enlarged pores",
+        "o Under-eye hollows & dark circles",
+        "o Loss of firmness and elasticity"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose GFC Therapy at The Skin Firm?",
+      "description": "Hair fall and scars can affect confidence, and with so many treatments available, choosing the right one can feel confusing. At The Skin Firm, we focus on evidence-based, safe, and effective solutions like GFC Therapy in Pune, ensuring safety and visible results.",
+      "highlight": "**Here’s** **why** **patients** **choose** **us:**\n\n> Led by **Skin** **Specialist** **Dr.** **Karishma** **Singh** -\n> ensuring expert care and precision\n>\n> **Advanced** **GFC** **Kits** - medical-grade, sterile, and reliable\n> for maximum growth factor yield\n>\n> **Dual** **Benefits** - equally effective for hair restoration and\n> skin rejuvenation\n>\n> **Safe** **&** **Natural** - uses your own blood, no chemicals or\n> foreign substances\n>\n> **Customised** **Protocols** - designed based on your age, concern,\n> and severity\n\nOur goal is to help you regain your confidence with healthier hair and smoother, glowing skin.",
+      "image": "/images/services/gfc.png"
+    },
+    "process": {
+      "title": "How Our GFC Therapy Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Consultation & Assessment",
+          "description": "We evaluate your scalp or skin concerns to design a personalised plan."
+        },
+        {
+          "step": "2",
+          "title": "Blood Collection & Processing",
+          "description": "A small amount of blood is collected and processed in a specialised kit to extract concentrated growth factors."
+        },
+        {
+          "step": "3",
+          "title": "Injection/Application",
+          "description": "> For hair loss - GFC is injected into the scalp to stimulate dormant\n> follicles.\n>\n> For skin - GFC is injected or micro needled into targeted areas like\n> scars, under-eyes, or wrinkles."
+        },
+        {
+          "step": "4",
+          "title": "Healing & Regeneration",
+          "description": "The growth factors trigger natural repair, collagen stimulation, and hair/skin rejuvenation over the next few weeks."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of GFC (Growth Factor Concentrate) Therapy We Offer in Pune",
+      "treatments": [
+        {
+          "title": "GFC for Hair Loss",
+          "description": "strengthens roots, reduces hair fall, promotes new growth"
+        },
+        {
+          "title": "GFC for Acne Scars",
+          "description": "improves texture and reduces marks"
+        },
+        {
+          "title": "GFC for Anti-Ageing",
+          "description": "reduces fine lines and boosts elasticity"
+        },
+        {
+          "title": "GFC for Under-Eyes",
+          "description": "treats dark circles and hollows naturally"
+        },
+        {
+          "title": "GFC with Microneedling",
+          "description": "for enhanced skin rejuvenation"
+        },
+        {
+          "title": "Combination Protocols",
+          "description": "with PRP, lasers, or mesotherapy for best outcomes"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of GFC Therapy at The Skin Firm",
+      "items": [
+        "Highly effective for both hair & skin",
+        "More refined & concentrated than PRP",
+        "Natural regeneration using your own blood",
+        "Reduces hair fall and strengthens follicles",
+        "Fades acne scars & improves skin texture",
+        "Reduces fine lines, wrinkles, and sagging",
+        "Improves under-eye hollows & pigmentation",
+        "Safe, minimally invasive, no downtime"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After GFC Therapy",
+      "description": "> **Minimal** **Downtime** - resume daily activities in 24 hrs **Mild**\n> **Redness** **or** **Tenderness** - subsides in 1-2 days\n>\n> **Gradual** **Results** - visible in 3-4 weeks, best after full\n> sessions\n>\n> **Sun** **Sensitivity** - use SPF after skin GFC sessions",
+      "tipsTitle": "Post-Care After GFC Therapy",
+      "tips": [
+        "Don’t touch or massage treated areas for 24 hrs",
+        "Skip makeup, gym, or steam for 1-2 days post skin GFC",
+        "Wash hair gently after scalp GFC (next day)",
+        "Avoid alcohol & smoking for 24-48 hrs",
+        "Follow dermatologist-approved skincare/haircare",
+        "Stay hydrated, eat a protein-rich diet"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted GFC Therapy Clinic",
+      "features": [
+        "Supervised by Dr. Karishma Singh - Best Dermatologist in Pune",
+        "Latest GFC Kits & Technology - for high-concentration growth factors",
+        "Customised Protocols - designed for your unique concerns",
+        "Safe & Evidence-Based - scientifically backed results",
+        "Trusted by Patients Across Pune - proven track record in skin & hair solutions"
+      ]
+    },
+    "transformations": {
+      "title": "Real GFC Therapy Transformations (Before & After)",
+      "subtitle": "Swipe through real patient results showing thicker hair regrowth and smoother skin after GFC Therapy."
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for GFC Therapy in Pune",
+      "reviews": [
+        "“I was losing hair rapidly, but after 4 sessions of GFC hair treatment at The Skin Firm, my hair fall reduced drastically and I see new baby hair growing.”",
+        "“I tried GFC therapy for my acne scars, and the results are unbelievable - my skin is smoother and clearer.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related GFC Therapy Videos",
+      "description": "Watch Dr. Karishma Singh explain how GFC Therapy works for hair and skin, what makes it different from PRP, and expected results."
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from GFC Therapy?",
+      "candidates": [
+        "Men & women with early to moderate hair loss",
+        "Adults with thinning hair or weak follicles",
+        "Patients with acne scars or uneven texture",
+        "Individuals with fine lines, wrinkles, or early sagging",
+        "Patients with dark circles or under-eye hollows",
+        "Anyone looking for natural, safe regeneration"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on GFC Therapy in Pune",
+      "questions": [
+        {
+          "question": "1. What is the difference between GFC and PRP?",
+          "answer": "Both use your blood, but GFC is more refined and concentrated, with higher growth factor yield and better results."
+        },
+        {
+          "question": "2. Is GFC Therapy safe?",
+          "answer": "Yes - since it uses your own blood-derived growth factors, it is completely safe and natural."
+        },
+        {
+          "question": "3. How many sessions are required?",
+          "answer": "For hair, 4-6 sessions are recommended. For skin, 3-4 sessions give visible improvements."
+        },
+        {
+          "question": "4. When will I see results?",
+          "answer": "Hair fall reduces within weeks; new growth shows in 2-3 months. Skin results appear in 3-4 weeks."
+        },
+        {
+          "question": "5. Is GFC Therapy painful?",
+          "answer": "Mild pricks are felt, but numbing cream makes it comfortable."
+        },
+        {
+          "question": "6. Does it work for advanced baldness?",
+          "answer": "It works best for early to moderate hair loss. Advanced baldness may need hair transplant."
+        },
+        {
+          "question": "7. Can GFC help under-eye dark circles?",
+          "answer": "Yes - it improves pigmentation and hollowness naturally."
+        },
+        {
+          "question": "8. Are results permanent?",
+          "answer": "Results are long-lasting, but maintenance sessions may be needed yearly."
+        },
+        {
+          "question": "9. Is there downtime?",
+          "answer": "Minimal - you can resume daily routine the next day."
+        },
+        {
+          "question": "10. Can men and women both get GFC?",
+          "answer": "Yes - it is equally safe and effective for both."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "At The Skin Firm, we proudly serve patients from Mohammad Wadi and NIBM Road, as well as Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, and Lullanagar.",
+      "footer": "Our central location makes it easy for South and Central Pune residents to access advanced GFC Therapy for hair and skin."
+    },
+    "finalCta": {
+      "title": "Book Your GFC Therapy Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "Don’t let hair loss or scars affect your confidence. At The Skin Firm, our advanced GFC Therapy in Pune offers safe, natural regeneration for both hair and skin.\n\n✨ Appointments are limited. Book your consultation today and start your journey to healthier hair and glowing skin.",
+      "cta": "Book Your GFC Therapy Appointment →"
+    }
+  },
+  "double-chin-removal-in-pune": {
+    "meta": {
+      "title": "Double Chin Removal in Pune | HIFU & Fat Dissolving Treatments",
+      "description": "Redefine your jawline with non-surgical double chin removal in Pune. HIFU, lipolysis & skin tightening by Dr. Karishma Singh. Book a consultation today.",
+      "keywords": "Double chin removal in Pune, Double chin reduction Pune, HIFU jawline sculpting Pune, Lipolysis injections Pune, Non-surgical double chin removal Pune, Jawline contouring Pune, Best double chin treatment Pune, Fat dissolving injections Pune, Non-surgical jawline contouring Pune, HIFU for double chin Pune, Radiofrequency chin tightening Pune"
+    },
+    "hero": {
+      "title": "Double Chin Removal in Pune - Redefine Your Jawline with The Skin Firm",
+      "subtitle": "Advanced, non-surgical treatments for double chin reduction, facial contouring, and skin tightening under the care of Skin Specialist & Dermatologist Dr. Karishma Singh.",
+      "cta": "Book Your Double Chin Consultation Today →",
+      "category": "FACE & JAWLINE CONTOURING"
+    },
+    "whatIsService": {
+      "title": "What Is Double Chin Removal?",
+      "content": "A double chin, medically known as submental fat, is the extra layer of fat and loose skin that forms beneath the chin. It may result from weight gain, genetics, ageing, or skin laxity.\n\nWhile harmless, a double chin can affect facial profile, jawline definition, and confidence. Even with diet and exercise, this stubborn pocket of fat is often hard to lose.\n\nAt The Skin Firm, Pune, we offer safe and effective non-surgical double chin removal treatments to sculpt, tighten, and define your jawline - helping you look slimmer and more youthful without surgery."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Concerns of Double Chin",
+      "items": [
+        "Extra fat under the chin",
+        "Sagging or loose skin in the neck area",
+        "Blurred jawline definition",
+        "Heavier or older appearance despite healthy weight",
+        "Poor facial profile in photos",
+        "Genetic predisposition to chin fullness"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Double Chin Removal at The Skin Firm?",
+      "description": "A double chin can feel frustrating - especially when lifestyle changes don’t work. At The Skin Firm, we provide medical-grade, advanced solutions designed for Indian skin and body types.",
+      "highlight": "Here’s why patients trust us:\n\n> **Supervised** **by** **Skin** **Specialist** **Dr.** **Karishma**\n> **Singh** - ensuring safe, precise treatments\n>\n> **Non-surgical** **options** - no cuts, stitches, or hospitalisation\n> required\n>\n> **Latest** **technology** - HIFU, lipolysis injections, and skin\n> tightening lasers\n>\n> **Customised** **plans** - tailored based on fat amount, skin laxity,\n> and face shape\n>\n> **Natural-looking** **results** - redefine the jawline without\n> over-correction\n\nOur focus is not just fat reduction but complete contouring - for a slimmer, sharper, and youthful profile.",
+      "image": "/images/services/double chin.png"
+    },
+    "process": {
+      "title": "How Our Double Chin Removal Treatment Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Consultation & Assessment",
+          "description": "We evaluate your double chin - whether it’s fat, loose skin, or both - to design a suitable plan."
+        },
+        {
+          "step": "2",
+          "title": "Personalised Treatment Plan",
+          "description": "Options may include HIFU, lipolysis injections, laser tightening, or a combination."
+        },
+        {
+          "step": "3",
+          "title": "Advanced Procedure",
+          "description": "> Lipolysis injections break down stubborn fat cells.\n>\n> HIFU (High-Intensity Focused Ultrasound) tightens and sculpts the\n> jawline.\n>\n> Laser skin tightening improves collagen, reducing sagging."
+        },
+        {
+          "step": "4",
+          "title": "Aftercare & Maintenance",
+          "description": "Post-treatment guidance ensures lasting results with healthy lifestyle support."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of Double Chin Removal Treatments We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Lipolysis Injections (Fat Dissolving)",
+          "description": "break down and eliminate fat cells naturally"
+        },
+        {
+          "title": "HIFU (Ultrasound Jawline Sculpting)",
+          "description": "lifts and tightens skin for sharper contour"
+        },
+        {
+          "title": "Laser Skin Tightening",
+          "description": "reduces sagging, stimulates collagen"
+        },
+        {
+          "title": "Radiofrequency Therapy",
+          "description": "smoothens skin and improves elasticity"
+        },
+        {
+          "title": "Combination Double Chin Protocols",
+          "description": "fat reduction + tightening for best results"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of Double Chin Removal at The Skin Firm",
+      "items": [
+        "Defines and sharpens jawline",
+        "Reduces stubborn submental fat",
+        "Tightens loose or sagging skin",
+        "Non-surgical, safe, and minimally invasive",
+        "Little to no downtime",
+        "Natural, long-lasting results",
+        "Boosts facial harmony and confidence"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After Double Chin Removal Treatments",
+      "description": "> Minimal Downtime - most resume activities immediately\n>\n> Mild Swelling/Redness - may occur with injections, fades in 1-2 days\n>\n> Mild Tenderness - possible after HIFU or laser, subsides quickly\n>\n> Gradual Results - visible improvements in 3-6 weeks, best after full\n> sessions",
+      "tipsTitle": "Post-Care After Double Chin Removal Treatments",
+      "tips": [
+        "Apply ice packs if mild swelling occurs",
+        "Avoid gym, steam, or hot showers for 24 hours after injections",
+        "Use sunscreen daily for laser-based treatments",
+        "Stay hydrated and maintain a healthy lifestyle",
+        "Follow-up sessions as advised for best outcomes"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted Double Chin Removal Clinic",
+      "features": [
+        "Supervised by Skin Specialist Dr. Karishma Singh",
+        "Advanced Technology - safe, non-surgical, and effective",
+        "Customised Care - tailored for every individual’s face shape and concern",
+        "Trusted Clinic - proven success with body contouring and facial rejuvenation",
+        "Natural Results - slim, defined look without artificial appearance"
+      ]
+    },
+    "transformations": {
+      "title": "Real Double Chin Removal Transformations (Before & After)",
+      "subtitle": "Swipe through real patient results showing sharper jawlines and reduced double chin after treatments."
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for Double Chin Removal in Pune",
+      "reviews": [
+        "“I was always conscious about my double chin in pictures. After HIFU at The Skin Firm, my jawline looks sharper and more defined.”",
+        "“Lipolysis injections worked so well for me. The treatment was quick, and within a month I saw a visible reduction in my double chin.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related Double Chin Removal Videos",
+      "description": "Watch Dr. Karishma Singh explain how double chin treatments work, what to expect, and which option may be right for you."
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from Double Chin Removal?",
+      "candidates": [
+        "Men & women with stubborn fat under the chin",
+        "Adults with sagging skin or weak jawline definition",
+        "Brides & grooms preparing for wedding photography",
+        "Professionals who want to look more confident in photos/videos",
+        "Anyone seeking a sharper, youthful profile",
+        "Safe for all skin types"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on Double Chin Removal in Pune",
+      "questions": [
+        {
+          "question": "1. What causes a double chin?",
+          "answer": "It can be due to excess fat, genetics, ageing, or skin laxity."
+        },
+        {
+          "question": "2. Can a double chin go away with exercise?",
+          "answer": "In some cases, yes, but often it persists even with diet and exercise. Treatments target stubborn fat directly."
+        },
+        {
+          "question": "3. What is the best treatment for double chin removal?",
+          "answer": "Options include lipolysis injections, HIFU, or laser tightening - your dermatologist will recommend the best one."
+        },
+        {
+          "question": "4. Is double chin removal painful?",
+          "answer": "Most treatments are comfortable. Injections may cause mild stinging, while HIFU feels like gentle heat."
+        },
+        {
+          "question": "5. How many sessions are required for double chin removal?",
+          "answer": "Usually 2-4 sessions spaced weeks apart give visible results."
+        },
+        {
+          "question": "6. How soon will I see results after my treatment for double chin removal?",
+          "answer": "Results start in 3-4 weeks, with best results after 2-3 months."
+        },
+        {
+          "question": "7. Are results permanent?",
+          "answer": "Fat cells removed with injections do not return, but new fat may form with weight gain. Maintenance may be required."
+        },
+        {
+          "question": "8. Is there downtime after the double chin removal treatment?",
+          "answer": "Minimal. You can resume daily routine the same day in most cases."
+        },
+        {
+          "question": "9. Can men also get double chin removal?",
+          "answer": "Absolutely - it’s popular among men for sharper jawlines and improved profile."
+        },
+        {
+          "question": "10. Is double chin treatment safe?",
+          "answer": "Yes - all procedures are dermatologist-supervised, safe, and customised for your needs."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "At The Skin Firm, we welcome patients from Mohammad Wadi and NIBM Road, as well as nearby areas like Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, and Lullanagar.",
+      "footer": "Our location makes it easy for South and Central Pune residents to access double chin removal treatments under expert care."
+    },
+    "finalCta": {
+      "title": "Book Your Double Chin Removal Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "Don’t let a double chin hide your natural beauty. At The Skin Firm, our advanced double chin removal treatments in Pune sculpt, define, and restore confidence - without surgery.\n\n✨ Appointments are limited. Book your consultation today and achieve the profile you’ve always wanted.",
+      "cta": "Book Your Double Chin Removal Appointment →"
+    }
+  },
+  "acne-scars-marks-treatment-in-pune": {
+    "meta": {
+      "title": "Acne Scars & Marks Treatment in Pune | Laser, Microneedling & PRP",
+      "description": "Get smoother, scar-free skin with advanced acne scar & marks treatments in Pune. Laser, RF microneedling, chemical peels & PRP by Dr. Karishma Singh. Book today.",
+      "keywords": "Acne scars treatment in Pune, Acne marks treatment in Pune, Acne scar removal Pune, Laser treatment for acne scars Pune, Microneedling RF for acne scars Pune, PRP treatment for acne scars Pune, Best dermatologist for acne scars Pune, Chemical peel for acne marks Pune, Sub Cision for acne scars Pune, Pitted acne scar treatment Pune, Acne pigmentation treatment Pune"
+    },
+    "hero": {
+      "title": "Acne Scars & Marks Treatment in Pune - Smooth, Clear Skin with The Skin Firm",
+      "subtitle": "Advanced dermatologist-led treatments to fade acne scars, lighten marks, and restore even skin texture under the care of Skin Specialist & Dermatologist Dr. Karishma Singh.",
+      "cta": "Book Your Acne Scars Consultation Today →",
+      "category": "ACNE & SCAR TREATMENT"
+    },
+    "whatIsService": {
+      "title": "What Are Acne Scars & Marks?",
+      "content": "Even after acne heals, many people are left with scars and marks that can linger for years.\n\n> Acne Scars - Permanent changes in skin texture such as pits,\n> depressions, or raised areas caused by deep acne inflammation.\n>\n> Acne Marks (Post-Inflammatory Hyperpigmentation) - Dark spots or\n> reddish-brown patches left behind after pimples heal.\n\nBoth can affect your skin’s smoothness and your confidence but with the right treatment, they can be effectively reduced."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Types of Acne Scars/Marks",
+      "items": [
+        "Flat brown/black spots after pimples (marks)",
+        "Depressed or pitted scars (ice-pick, boxcar, rolling)",
+        "Raised or thickened scars (hypertrophic/keloid)",
+        "Uneven skin tone and texture",
+        "Dull, patchy appearance",
+        "Emotional distress or lowered self-esteem"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Acne Scar & Mark Treatment at The Skin Firm?",
+      "description": "We know how frustrating it feels when breakouts fade, but scars and marks remain. At The Skin Firm, we go beyond surface-level fixes; all our treatments are designed to heal, resurface and rejuvenate your skin.",
+      "highlight": "Why patients trust us:\n\n> **Led** **by** **Skin** **Specialist** **Dr.** **Karishma**\n> **Singh** - expert in acne scar management\n>\n> **Customised** **Solutions** - no one-size-fits-all, plans based on\n> scar type & skin tone\n>\n> **Advanced** **Technology** - lasers, microneedling RF, peels, and PRP\n> therapy\n>\n> **Safe** **&** **Effective** - evidence-based treatments, suitable for\n> Indian skin\n>\n> **Visible** **Results** - smoother, clearer, brighter skin with each\n> session",
+      "image": "/images/services/acne scars.png"
+    },
+    "process": {
+      "title": "How Our Acne Scar Treatment Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Consultation & Skin Analysis",
+          "description": "We identify scar types (ice-pick, boxcar, rolling, pigmentation) and design a personalised plan."
+        },
+        {
+          "step": "2",
+          "title": "Personalised Treatment Plan",
+          "description": "May include lasers, microneedling RF, chemical peels, or combination therapy."
+        },
+        {
+          "step": "3",
+          "title": "Advanced Procedure",
+          "description": "Sessions are comfortable and target scars at their root by stimulating collagen and skin renewal."
+        },
+        {
+          "step": "4",
+          "title": "Aftercare & Maintenance",
+          "description": "We provide dermatologist-approved skincare and sun protection to maintain results."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of Acne Scars & Marks Treatments We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Laser Resurfacing",
+          "description": "smoothens texture, fades pigmentation"
+        },
+        {
+          "title": "Microneedling RF",
+          "description": "boosts collagen, improves pits and depressions"
+        },
+        {
+          "title": "Chemical Peels for Acne Marks",
+          "description": "lighten pigmentation and even out skin tone"
+        },
+        {
+          "title": "PRP Therapy (Vampire Facial)",
+          "description": "accelerates healing and tissue repair"
+        },
+        {
+          "title": "Sub Cision",
+          "description": "releases tethered scars for smoother skin"
+        },
+        {
+          "title": "Combination Treatments",
+          "description": "tailored for best outcomes"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of Acne Scar & Marks Treatment at The Skin Firm",
+      "items": [
+        "Reduces acne scars & smoothens pits",
+        "Lightens dark spots and pigmentation",
+        "Improves skin texture and tone",
+        "Stimulates collagen & natural healing",
+        "Safe for all skin tones",
+        "Boosts skin confidence and appearance"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After Acne Scar Treatments",
+      "description": "> Minimal to Moderate Downtime - depends on procedure\n>\n> Mild Redness/Swelling - usually subsides in 1-3 days\n>\n> Peeling/Flaking - common after peels or laser\n>\n> Makeup & Sun Protection - sunscreen essential; makeup can usually be\n> resumed 24-48 hrs\n>\n> Gradual Results - scars fade over multiple sessions",
+      "tipsTitle": "Post-Care After Acne Scar Treatments",
+      "tips": [
+        "Avoid touching or picking your skin",
+        "Use a good gentle, hydrating cleanser",
+        "Apply sunscreen daily to prevent pigmentation",
+        "Skip retinoids/strong actives for 3–5 days post-session",
+        "Stay hydrated and follow the dermatologist’s plan"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted Acne Scars & Marks Clinic",
+      "features": [
+        "Skin Specialist Dr. Karishma Singh with expertise in scar management",
+        "Advanced Technology - safe for Indian skin",
+        "Customised Treatments - each scar type addressed individually",
+        "Proven Results - thousands of successful patient outcomes",
+        "Holistic Care - scar fading + pigmentation control"
+      ]
+    },
+    "transformations": {
+      "title": "Real Acne Scar Transformations (Before & After)",
+      "subtitle": "See real patients achieve smoother, clearer skin with reduced acne scars and marks. (Insert gallery carousel here)"
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for Acne Scars Treatment in Pune",
+      "reviews": [
+        "“I struggled with pitted acne scars for years. But just after a few sessions at The Skin Firm, the texture of my skin improved dramatically.”",
+        "“My acne marks finally faded with the peel and laser combination recommended by Dr. Karishma. My skin looks brighter and even-toned now.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related Acne Scars Treatment Videos",
+      "description": "Watch Dr. Karishma Singh explain how different scar types are treated and see what to expect in a session."
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from Acne Scar & Marks Treatment?",
+      "candidates": [
+        "Teenagers & adults with post-acne pigmentation",
+        "People with pitted or depressed scars",
+        "Those with stubborn dark spots from acne",
+        "Brides/grooms preparing for weddings",
+        "Safe for all skin tones and types"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on Acne Scars & Marks Treatment in Pune",
+      "questions": [
+        {
+          "question": "1. Can acne scars be completely removed?",
+          "answer": "Most scars can be significantly improved, though very deep scars may not vanish 100%. Treatments smoothen and lighten them greatly."
+        },
+        {
+          "question": "2. How many sessions are needed for results?",
+          "answer": "Usually 3-6 sessions, depending on scar severity and treatment type."
+        },
+        {
+          "question": "3. Is acne scar treatment painful?",
+          "answer": "Most treatments are well-tolerated. Numbing cream is used to keep you comfortable."
+        },
+        {
+          "question": "4. How soon will I see results?",
+          "answer": "Improvements begin after 2–3 sessions, with continued results over months."
+        },
+        {
+          "question": "5. Are acne scar treatments safe for darker skin?",
+          "answer": "Yes, all our procedures at The Skin Firm are customised and safe for Indian skin tones."
+        },
+        {
+          "question": "6. Do acne marks (dark spots) fade on their own?",
+          "answer": "Mild marks may fade with time, but deeper pigmentation often needs treatment."
+        },
+        {
+          "question": "7. Which treatment is best for pitted scars?",
+          "answer": "Microneedling RF and fractional lasers work best for deep scars."
+        },
+        {
+          "question": "8. Is there downtime after treatment?",
+          "answer": "Minimal to moderate, depending on the procedure. Most people return to work the next day."
+        },
+        {
+          "question": "9. Can men also get acne scar treatment?",
+          "answer": "Absolutely, many of our patients are men looking to improve their skin confidence."
+        },
+        {
+          "question": "10. Will scars return after treatment?",
+          "answer": "Treated scars don’t return, but new acne can cause new scars. Maintenance skincare is key."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "At The Skin Firm, we proudly serve patients from Mohammad Wadi, NIBM Road, Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, Lullanagar, and beyond.",
+      "footer": "Our location makes it easy for South & Central Pune residents to access advanced acne scar and mark treatments under expert care."
+    },
+    "finalCta": {
+      "title": "Book Your Acne Scars Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "Don’t let acne scars or marks hold you back. At The Skin Firm, we combine expertise with advanced technology to restore smooth, radiant skin.\n\n✨ Your journey to scar-free, confident skin begins here.",
+      "cta": "Book Your Acne Scars Treatment Appointment →"
+    }
+  },
+  "skin-whitening-treatment-in-pune": {
+    "meta": {
+      "title": "Skin Whitening Treatment in Pune | Laser, Peels & Brightening Facials",
+      "description": "Get glowing, radiant skin with advanced skin whitening treatments in Pune. Chemical peels, laser toning, facials & IV drips by Dr. Karishma Singh. Book today.",
+      "keywords": "Skin whitening treatment in Pune, Skin brightening treatment Pune, Laser skin whitening Pune, Chemical peel for skin whitening Pune, IV glutathione skin whitening Pune, Skin whitening facial Pune, Best skin whitening clinic in Pune, Pigmentation treatment Pune, Skin lightening treatment Pune, Skin glow treatment Pune, Skin whitening for men Pune"
+    },
+    "hero": {
+      "title": "Skin Whitening Treatment in Pune - Bright, Even-Toned Skin at The Skin Firm",
+      "subtitle": "Advanced skin specialist-led treatments to reduce pigmentation, improve complexion, and restore natural radiance.",
+      "cta": "Book Your Skin Whitening Consultation Today →",
+      "category": "SKIN TONE & WHITENING"
+    },
+    "whatIsService": {
+      "title": "What Is Skin Whitening?",
+      "content": "Skin whitening treatments are designed to address uneven skin tone, tanning, pigmentation and dullness by reducing excess melanin production. These procedures don’t change your natural skin colour but instead work to:\n\n> Brighten dull skin\n>\n> Reduce tanning\n>\n> Lighten dark spots\n>\n> Improve overall clarity and glow\n\nAt The Skin Firm, Pune, we provide safe, evidence-based treatments tailored to your skin type for a radiant and even-toned appearance."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Concerns for Skin Whitening Treatment",
+      "items": [
+        "Uneven or patchy skin tone",
+        "Sun tan and dullness",
+        "Pigmentation or dark spots",
+        "Melasma or hyperpigmentation",
+        "Post-acne marks and blemishes",
+        "Lack of glow or radiance"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Skin Whitening at The Skin Firm?",
+      "description": "At The Skin Firm, we understand that clear, glowing skin is more than just a cosmetic goal, it’s about confidence and comfort in your own skin.",
+      "highlight": "Here’s why patients choose us:\n\n> Led by **Skin** **Specialist** **Dr.** **Karishma** **Singh** -\n> expertise in pigmentation & brightening treatments\n>\n> **Customised** **Protocols** - based on skin type, concern, and goals\n>\n> **Medical-Grade** **Treatments** - safe, effective, and\n> dermatologist-approved\n>\n> **Advanced** **Technology** - lasers, peels, and IV therapies designed\n> for Indian skin\n>\n> **Proven** **Results** - visible improvement in complexion and\n> radiance",
+      "image": "/images/services/skin whitening.png"
+    },
+    "process": {
+      "title": "How Our Skin Whitening Treatment Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Skin Consultation & Assessment",
+          "description": "We assess your skin tone, sun exposure, pigmentation, and sensitivity."
+        },
+        {
+          "step": "2",
+          "title": "Personalised Treatment Plan",
+          "description": "Options may include chemical peels, laser toning, skin whitening facials, or IV drip therapy."
+        },
+        {
+          "step": "3",
+          "title": "Advanced Procedure",
+          "description": "Sessions may involve exfoliation, laser light, infusion of active ingredients, or vitamin-based drips to restore glow."
+        },
+        {
+          "step": "4",
+          "title": "Aftercare & Maintenance",
+          "description": "We provide sun protection, skincare guidance, and maintenance plans to sustain results."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of Skin Whitening Treatments We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Chemical Peels for Whitening",
+          "description": "exfoliate dead cells and reduce pigmentation"
+        },
+        {
+          "title": "Laser Toning (Q-Switch Nd:YAG)",
+          "description": "lightens dark spots, improves skin tone"
+        },
+        {
+          "title": "Skin Whitening Facials",
+          "description": "medical-grade brightening facials for dull skin"
+        },
+        {
+          "title": "IV Drip Therapy (Glutathione + Vitamins)",
+          "description": "nourishes skin from within for natural glow"
+        },
+        {
+          "title": "Combination Treatments",
+          "description": "customised for stubborn pigmentation or tanning"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of Skin Whitening at The Skin Firm",
+      "items": [
+        "Brighter, radiant complexion",
+        "Reduction in pigmentation and dark spots",
+        "Lightens tan and uneven skin tone",
+        "Safe, non-invasive treatments",
+        "Boosts confidence with glowing, healthy skin",
+        "Suitable for all skin types"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After Skin Whitening Treatments",
+      "description": "> Minimal Downtime - most treatments allow immediate return to routine\n>\n> Mild Redness/Peeling - may occur for a few days with peels\n>\n> Sun Sensitivity - sunscreen is essential post-treatment\n>\n> Gradual Results - improvements visible in 2–4 weeks",
+      "tipsTitle": "Post-Care After Skin Whitening Treatments",
+      "tips": [
+        "Apply sunscreen daily to prevent tanning",
+        "Avoid excessive sun exposure for at least 48 hrs",
+        "Skip makeup and gym for 24 hrs post-treatment",
+        "Use gentle, hydrating skincare as advised",
+        "Follow maintenance sessions for sustained glow"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted Skin Whitening Clinic",
+      "features": [
+        "Supervised by Skin Specialist Dr. Karishma Singh",
+        "Safe for Indian Skin - treatments tailored for melanin-rich tones",
+        "Proven Track Record - thousands of happy clients",
+        "Latest Technology - advanced lasers and medical-grade procedures",
+        "Personalised Approach - each treatment customised to your skin’s needs"
+      ]
+    },
+    "transformations": {
+      "title": "Real Skin Whitening Transformations (Before & After)",
+      "subtitle": "Swipe through real patient journeys showing reduced tan, lighter pigmentation, and glowing skin after treatments."
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for Skin Whitening in Pune",
+      "reviews": [
+        "“My skin had become very dull and tanned. Within 3 sessions at The Skin Firm, I can see visible brightness and clarity.”",
+        "“I had stubborn pigmentation on my cheeks. The laser toning sessions really helped lighten it, now my skin looks much more even.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related Skin Whitening Treatment Videos",
+      "description": "Watch Dr. Karishma Singh explain how we customise skin whitening treatments and what results to expect."
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from Skin Whitening Treatment?",
+      "candidates": [
+        "Men & women with dull or uneven skin tone",
+        "Those struggling with pigmentation or tanning",
+        "Brides/grooms preparing for their wedding",
+        "Professionals wanting fresher, confident appearance",
+        "Safe for all skin tones and types"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on Skin Whitening in Pune",
+      "questions": [
+        {
+          "question": "1. Do skin whitening treatments make you fairer?",
+          "answer": "No, they don’t change your natural skin colour but reduce pigmentation, tan, and dullness to restore your natural glow."
+        },
+        {
+          "question": "2. How many sessions are needed for results from my skin whitening treatment?",
+          "answer": "Most people see results in 3-6 sessions, depending on skin condition."
+        },
+        {
+          "question": "3. Is skin whitening safe for sensitive skin?",
+          "answer": "Yes, treatments are customised and dermatologist-supervised for sensitive or acne-prone skin."
+        },
+        {
+          "question": "4. Are results from skin whitening treatment permanent?",
+          "answer": "Results are long-lasting with maintenance and sun protection. Without care, tanning and pigmentation may return."
+        },
+        {
+          "question": "5. Can men also get skin whitening?",
+          "answer": "Absolutely, many men opt for skin brightening to reduce tan and achieve fresher-looking skin."
+        },
+        {
+          "question": "6. Is there downtime?",
+          "answer": "Minimal, you may experience mild peeling or redness, but most patients return to daily activities immediately."
+        },
+        {
+          "question": "7. What is the best treatment for acne marks and dullness?",
+          "answer": "A combination of chemical peels and laser toning often works best."
+        },
+        {
+          "question": "8. Can skin whitening treatments be done before weddings?",
+          "answer": "Yes, many brides and grooms choose brightening facials or IV drips for a radiant look before their big day."
+        },
+        {
+          "question": "9. How soon will I see results from my skin whitening treatment?",
+          "answer": "Mild glow is seen after the first session; best results appear after completing the full plan."
+        },
+        {
+          "question": "10. Do I need maintenance sessions?",
+          "answer": "Yes, regular follow-up treatments help sustain long-term glow and clarity."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "We welcome patients not only from Mohammad Wadi and NIBM Road, but also from Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, Lullanagar, and other parts of Pune.",
+      "footer": "Our central location makes advanced skin whitening treatments easily accessible across South & Central Pune."
+    },
+    "finalCta": {
+      "title": "Book Your Skin Whitening Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "At The Skin Firm, we combine advanced technology with personalised care to help you achieve bright, even, radiant skin.\n\nStart your journey to glowing skin today.",
+      "cta": "Book Your Skin Whitening Treatment Appointment →"
+    }
+  },
+  "hydrafacial-in-pune": {
+    "meta": {
+      "title": "HydraFacial in Pune | Instant Glow & Skin Rejuvenation at The Skin Firm",
+      "description": "Get clear, radiant skin with HydraFacial in Pune. Medical-grade facial by Dr. Karishma Singh that cleanses, hydrates & brightens skin in just 45 minutes. Book now.",
+      "keywords": "HydraFacial in Pune, HydraFacial treatment Pune, Best HydraFacial clinic in Pune, Medical-grade HydraFacial Pune, Instant glow facial Pune, HydraFacial MD Pune, HydraFacial for acne Pune, HydraFacial for pigmentation Pune, HydraFacial facial Pune, Bridal HydraFacial Pune, Pre-event facial Pune, Monthly skin maintenance Pune"
+    },
+    "hero": {
+      "title": "HydraFacial in Pune - The Ultimate Skin Rejuvenation at The Skin Firm",
+      "subtitle": "Medical-grade facial that deeply cleanses, hydrates, and nourishes your skin in just 45 minutes. Instant glow with zero downtime.",
+      "cta": "Book Your HydraFacial Session Today →",
+      "category": "SKIN CARE & FACIALS"
+    },
+    "whatIsService": {
+      "title": "What Is HydraFacial?",
+      "content": "HydraFacial is a non-invasive skin rejuvenation treatment that combines deep cleansing, exfoliation, extraction, hydration, and antioxidant infusion all in one session.\n\nUnlike regular facials, HydraFacial uses a patented vortex technology to:\n\n> Remove dirt, oil, and impurities\n>\n> Infuse skin with hydrating serums\n>\n> Deliver immediate radiance with long-lasting results\n\nSafe for all skin types, it’s the go-to treatment for red-carpet-ready glow."
+    },
+    "signsSymptoms": {
+      "title": "Signs & Concerns HydraFacial Can Address",
+      "items": [
+        "Dull and tired-looking skin",
+        "Blackheads and clogged pores",
+        "Oily or congested skin",
+        "Dryness and dehydration",
+        "Uneven skin tone and texture",
+        "Fine lines and early ageing signs",
+        "Acne-prone skin"
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose HydraFacial at The Skin Firm?",
+      "description": "At The Skin Firm, we elevate HydraFacial from a beauty treatment to a medical-grade skin therapy, tailored by our expert team.",
+      "highlight": "Here’s why patients love it:\n\n> Skin Specialist Dr. Karishma Singh supervises each treatment protocol\n>\n> Advanced HydraFacial MD device for safe, effective results\n>\n> Customised boosters for pigmentation, acne, or anti-ageing concerns\n>\n> Instant results with no pain or downtime\n>\n> Suitable for all skin types & occasions",
+      "image": "/images/services/hydra.png"
+    },
+    "process": {
+      "title": "How Our HydraFacial Treatment Works",
+      "steps": [
+        {
+          "step": "1",
+          "title": "Consultation & Skin Analysis",
+          "description": "We assess your skin’s hydration, oil balance, and concerns."
+        },
+        {
+          "step": "2",
+          "title": "HydraFacial Customisation",
+          "description": "The procedure is customised with boosters for whitening, anti-ageing, or acne control."
+        },
+        {
+          "step": "3",
+          "title": "5-in-1 Advanced Procedure",
+          "description": "1. Cleansing & Exfoliation - removes dead skin cells\n\n> 2. Acid Peel - gentle exfoliation to brighten skin\n>\n> 3. Extraction - vortex suction clears pores\n>\n> 4. Hydration - infusion of antioxidants, peptides, and hyaluronic\n> acid\n>\n> 5. Protection - skin shielded with hydration and SPF"
+        },
+        {
+          "step": "4",
+          "title": "Aftercare Guidance",
+          "description": "You’ll leave with an instant glow and skincare advice to maintain results."
+        }
+      ]
+    },
+    "treatmentTypes": {
+      "title": "Types of HydraFacial Treatments We Offer in Pune",
+      "treatments": [
+        {
+          "title": "Signature HydraFacial",
+          "description": "deep cleanse + hydration"
+        },
+        {
+          "title": "HydraFacial Brightening",
+          "description": "targets pigmentation & dullness"
+        },
+        {
+          "title": "HydraFacial Anti-Ageing",
+          "description": "collagen-boosting with peptide serums"
+        },
+        {
+          "title": "HydraFacial for Acne",
+          "description": "controls oil and clears clogged pores"
+        },
+        {
+          "title": "Platinum HydraFacial",
+          "description": "includes lymphatic drainage + LED light therapy"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits of HydraFacial at The Skin Firm",
+      "items": [
+        "Instant glow in just 45 minutes",
+        "Deep cleanses pores and removes impurities",
+        "Hydrates and plumps skin",
+        "Improves tone and texture",
+        "Reduces fine lines and early ageing signs",
+        "Safe for all skin types, including sensitive skin",
+        "No downtime perfect before events"
+      ]
+    },
+    "postCare": {
+      "title": "Downtime After HydraFacial",
+      "description": "> No Downtime - resume activities immediately\n>\n> Mild Redness - if any, resolves in 1–2 hrs\n>\n> Makeup Friendly - can be applied the same day\n>\n> Sun Protection Needed - SPF is recommended",
+      "tipsTitle": "Post-Care After HydraFacial",
+      "tips": [
+        "Use gentle skincare for 24 hrs",
+        "Avoid heavy workouts, saunas, or steam for 24 hrs",
+        "Apply sunscreen daily",
+        "Hydrate well to prolong results",
+        "Repeat sessions monthly for best glow"
+      ]
+    },
+    "clinicFeatures": {
+      "title": "Why The Skin Firm is Pune’s Trusted HydraFacial Clinic",
+      "features": [
+        "Supervised by Skin Specialist Dr. Karishma Singh",
+        "Authentic HydraFacial MD technology - safe & effective",
+        "Customised protocols - targeted for acne, pigmentation, or anti-ageing",
+        "Thousands of satisfied clients",
+        "Central location - easy access for South & Central Pune residents"
+      ]
+    },
+    "transformations": {
+      "title": "Real HydraFacial Transformations (Before & After)",
+      "subtitle": "See how patients achieve clearer pores, brighter tone, and radiant glow after HydraFacial. (Insert gallery carousel here)"
+    },
+    "testimonials": {
+      "title": "Patient Testimonials for HydraFacial in Pune",
+      "reviews": [
+        "“I tried HydraFacial before my engagement, and my skin looked so fresh and glowing. The compliments didn’t stop coming.”",
+        "“Unlike salon facials, this felt professional and effective. My blackheads were gone instantly, and my skin looked hydrated.”",
+        "“I have sensitive skin, but HydraFacial at The Skin Firm was gentle yet powerful. It’s now my go-to monthly ritual.”"
+      ]
+    },
+    "relatedVideos": {
+      "title": "Related HydraFacial Videos",
+      "description": "Watch Dr. Karishma Singh explain the HydraFacial process and why it’s loved worldwide. (Video placeholder here)"
+    },
+    "whoBenefits": {
+      "title": "Who Can Benefit from HydraFacial?",
+      "candidates": [
+        "Brides & grooms before weddings",
+        "Professionals before events, meetings, or shoots",
+        "Teenagers with oily, acne-prone skin",
+        "Adults with pigmentation or dullness",
+        "Anyone looking for a monthly skin maintenance routine"
+      ]
+    },
+    "faqs": {
+      "title": "FAQs on HydraFacial in Pune",
+      "questions": [
+        {
+          "question": "1. Is HydraFacial painful?",
+          "answer": "No it’s gentle, soothing, and relaxing with no discomfort."
+        },
+        {
+          "question": "2. How long does the HydraFacial procedure take?",
+          "answer": "About 40–50 minutes."
+        },
+        {
+          "question": "3. When will I see results from my HydraFacial treatment?",
+          "answer": "Immediately you’ll notice smoother, brighter, and more hydrated skin after just one session."
+        },
+        {
+          "question": "4. How many sessions are needed?",
+          "answer": "One session gives instant results, but monthly treatments maintain long-term glow."
+        },
+        {
+          "question": "5. Is HydraFacial safe for sensitive or acne-prone skin?",
+          "answer": "Yes it’s designed for all skin types, including sensitive and acne-prone skin."
+        },
+        {
+          "question": "6. Can HydraFacial remove blackheads?",
+          "answer": "Yes the vortex suction effectively removes blackheads and unclogs pores."
+        },
+        {
+          "question": "7. How is HydraFacial different from regular facials?",
+          "answer": "Unlike salon facials, HydraFacial uses medical-grade technology to cleanse, hydrate, and infuse actives deeply into the skin."
+        },
+        {
+          "question": "8. Can men also get HydraFacial?",
+          "answer": "Absolutely many male clients choose it for clear, refreshed skin."
+        },
+        {
+          "question": "9. How long do results last?",
+          "answer": "The glow typically lasts 2–4 weeks, depending on skin type and lifestyle."
+        },
+        {
+          "question": "10. Can I do HydraFacial before an event?",
+          "answer": "Yes it’s perfect as a pre-event treatment since there’s no downtime."
+        }
+      ]
+    },
+    "locations": {
+      "title": "Patients Visit Us From Across Pune",
+      "content": "Our HydraFacial patients visit us from Mohammad Wadi, NIBM Road, Camp, Undri, Pisoli, Kondhwa, Hadapsar, Wanowrie, Handewadi, and Lullanagar.",
+      "footer": "The Skin Firm’s central location makes it easy for South & Central Pune residents to enjoy authentic HydraFacial treatments."
+    },
+    "finalCta": {
+      "title": "Book Your HydraFacial at The Skin Firm, NIBM, Mohammad Wadi, Pune",
+      "content": "If you’re looking for instant glow, clear pores, and refreshed skin, HydraFacial at The Skin Firm is your go-to solution.\n\n✨ Loved by celebrities, trusted by dermatologists, and now available for you in Pune.",
+      "cta": "Book Your HydraFacial Session Today →"
     }
   }
 }

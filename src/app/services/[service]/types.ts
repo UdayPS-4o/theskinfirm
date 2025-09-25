@@ -5,6 +5,7 @@ export interface ServiceContent {
     keywords: string;
   };
   hero: {
+    category: string;
     title: string;
     subtitle: string;
     cta: string;
@@ -55,6 +56,7 @@ export interface ServiceContent {
       items: string[];
     };
     tips?: string[];
+    tipsTitle?: string;
   };
   clinicFeatures: {
     title: string;
