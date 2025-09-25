@@ -180,42 +180,42 @@ const serviceValidationSchema = z.object({
       }).optional(),
     }).optional(),
     faq: z.object({
-        title: z.string().optional(),
-        subtitle: z.string().optional(),
-        questions: z.array(z.object({
-          question: z.string().optional(),
-          answer: z.string().optional(),
-        })).optional(),
-      }).optional(),
-      signsSymptoms: z.object({
-        subtitle: z.string().optional(),
-        title: z.string().optional(),
-        items: z.array(z.string()).optional(),
-      }).optional(),
-      treatments: z.object({
-        subtitle: z.string().optional(),
-        title: z.string().optional(),
-        items: z.array(z.string()).optional(),
-      }).optional(),
-      transformations: z.object({
-        subtitle: z.string().optional(),
-        title: z.string().optional(),
-        description: z.string().optional(),
-        images: z.array(z.object({
-          src: z.string().optional(),
-          alt: z.string().optional(),
-          storageId: z.string().optional(),
-        })).optional(),
-      }).optional(),
-      testimonials: z.object({
-        subtitle: z.string().optional(),
-        title: z.string().optional(),
-        items: z.array(z.string()).optional(),
-      }).optional(),
-      whoBenefits: z.object({
-        title: z.string().optional(),
-        items: z.array(z.string()).optional(),
-      }).optional(),
+      title: z.string().optional(),
+      subtitle: z.string().optional(),
+      questions: z.array(z.object({
+        question: z.string().optional(),
+        answer: z.string().optional(),
+      })).optional(),
+    }).optional(),
+    signsSymptoms: z.object({
+      subtitle: z.string().optional(),
+      title: z.string().optional(),
+      items: z.array(z.string()).optional(),
+    }).optional(),
+    treatments: z.object({
+      subtitle: z.string().optional(),
+      title: z.string().optional(),
+      items: z.array(z.string()).optional(),
+    }).optional(),
+    transformations: z.object({
+      subtitle: z.string().optional(),
+      title: z.string().optional(),
+      description: z.string().optional(),
+      images: z.array(z.object({
+        src: z.string().optional(),
+        alt: z.string().optional(),
+        storageId: z.string().optional(),
+      })).optional(),
+    }).optional(),
+    testimonials: z.object({
+      subtitle: z.string().optional(),
+      title: z.string().optional(),
+      items: z.array(z.string()).optional(),
+    }).optional(),
+    whoBenefits: z.object({
+      title: z.string().optional(),
+      items: z.array(z.string()).optional(),
+    }).optional(),
   }),
 });
 
@@ -234,12 +234,12 @@ const generateSlug = (name: string): string => {
 /**
  * Memoized components for performance optimization
  */
-const MemoizedArraySection = memo(({ 
-  title, 
-  items, 
-  onAdd, 
-  onRemove, 
-  onUpdate, 
+const MemoizedArraySection = memo(({
+  title,
+  items,
+  onAdd,
+  onRemove,
+  onUpdate,
   fieldPath,
   itemType = 'string'
 }: {
@@ -304,7 +304,7 @@ MemoizedArraySection.displayName = 'MemoizedArraySection';
  */
 export default function EditServicePage({ params }: EditServicePageProps) {
   const router = useRouter();
-  
+
   // State management
   const [serviceId, setServiceId] = useState<Id<"services"> | null>(null);
   const [formData, setFormData] = useState<ServiceFormData | null>(null);
@@ -315,14 +315,14 @@ export default function EditServicePage({ params }: EditServicePageProps) {
   const [networkError, setNetworkError] = useState<string | null>(null);
   const [retryCount, setRetryCount] = useState(0);
   const [isRetrying, setIsRetrying] = useState(false);
-  
+
   // Ref to prevent duplicate array item additions
   const lastAddCallRef = useRef<{ field: string; timestamp: number } | null>(null);
 
   // Error handling utilities
   const handleError = useCallback((error: unknown, context: string) => {
     console.error(`Error in ${context}:`, error);
-    
+
     if (error instanceof Error) {
       if (error.message.includes('network') || error.message.includes('fetch')) {
         setNetworkError(`Network error: ${error.message}`);
@@ -334,14 +334,14 @@ export default function EditServicePage({ params }: EditServicePageProps) {
         return 'permission';
       }
     }
-    
+
     return 'unknown';
   }, []);
 
   // Retry mechanism for network failures
   const retryOperation = useCallback(async (operation: () => Promise<void>, maxRetries = 3) => {
     setIsRetrying(true);
-    
+
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
       try {
         await operation();
@@ -350,7 +350,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
         break;
       } catch (error) {
         const errorType = handleError(error, `retry attempt ${attempt}`);
-        
+
         if (errorType === 'network' && attempt < maxRetries) {
           setRetryCount(attempt);
           // Exponential backoff
@@ -360,7 +360,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
         }
       }
     }
-    
+
     setIsRetrying(false);
   }, [handleError]);
 
@@ -381,7 +381,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
     api.services.queries.getServiceById,
     serviceId ? { id: serviceId } : "skip"
   );
-  
+
   const categories = useQuery(api.serviceCategories.queries.getServiceCategories, {});
   const updateService = useMutation(api.services.mutations.updateService);
 
@@ -410,11 +410,11 @@ export default function EditServicePage({ params }: EditServicePageProps) {
           },
           process: service.data.process ? {
             title: service.data.process.title || '',
-            steps: Array.isArray(service.data.process.steps) 
+            steps: Array.isArray(service.data.process.steps)
               ? service.data.process.steps.map((step: ProcessStep | any): ProcessStep => ({
-                  title: (step as ProcessStep).title || '',
-                  description: (step as ProcessStep).description || ''
-                }))
+                title: (step as ProcessStep).title || '',
+                description: (step as ProcessStep).description || ''
+              }))
               : []
           } : {
             title: '',
@@ -422,10 +422,10 @@ export default function EditServicePage({ params }: EditServicePageProps) {
           },
           benefits: service.data.benefits ? {
             title: service.data.benefits.title || '',
-            items: Array.isArray(service.data.benefits.items) 
-              ? service.data.benefits.items.map((item: any) => 
-                  typeof item === 'string' ? item : item.title || item.description || ''
-                )
+            items: Array.isArray(service.data.benefits.items)
+              ? service.data.benefits.items.map((item: any) =>
+                typeof item === 'string' ? item : item.title || item.description || ''
+              )
               : []
           } : {
             title: '',
@@ -452,11 +452,11 @@ export default function EditServicePage({ params }: EditServicePageProps) {
           faq: service.data.faq ? {
             title: service.data.faq.title || '',
             subtitle: service.data.faq.subtitle || '',
-            questions: Array.isArray(service.data.faq.questions) 
+            questions: Array.isArray(service.data.faq.questions)
               ? service.data.faq.questions.map((q: FAQQuestion | any): FAQQuestion => ({
-                  question: (q as FAQQuestion).question || '',
-                  answer: (q as FAQQuestion).answer || ''
-                }))
+                question: (q as FAQQuestion).question || '',
+                answer: (q as FAQQuestion).answer || ''
+              }))
               : []
           } : {
             title: '',
@@ -466,50 +466,50 @@ export default function EditServicePage({ params }: EditServicePageProps) {
           signsSymptoms: {
             subtitle: service.data.signsSymptoms?.subtitle || '',
             title: service.data.signsSymptoms?.title || '',
-            items: Array.isArray(service.data.signsSymptoms?.items) 
-              ? service.data.signsSymptoms.items.map((item: any) => 
-                  typeof item === 'string' ? item : item.title || item.description || ''
-                )
+            items: Array.isArray(service.data.signsSymptoms?.items)
+              ? service.data.signsSymptoms.items.map((item: any) =>
+                typeof item === 'string' ? item : item.title || item.description || ''
+              )
               : []
           },
           treatments: {
             subtitle: service.data.treatments?.subtitle || '',
             title: service.data.treatments?.title || '',
-            items: Array.isArray(service.data.treatments?.items) 
-              ? service.data.treatments.items.map((item: TreatmentItem | string | any): TreatmentItem => 
-                  typeof item === 'string' 
-                    ? { title: item, description: '' }
-                    : { title: (item as TreatmentItem).title || '', description: (item as TreatmentItem).description || '' }
-                )
+            items: Array.isArray(service.data.treatments?.items)
+              ? service.data.treatments.items.map((item: TreatmentItem | string | any): TreatmentItem =>
+                typeof item === 'string'
+                  ? { title: item, description: '' }
+                  : { title: (item as TreatmentItem).title || '', description: (item as TreatmentItem).description || '' }
+              )
               : []
           },
           transformations: {
             subtitle: service.data.transformations?.subtitle || '',
             title: service.data.transformations?.title || '',
             description: service.data.transformations?.description || '',
-            images: Array.isArray(service.data.transformations?.images) 
+            images: Array.isArray(service.data.transformations?.images)
               ? service.data.transformations.images.map((item: TransformationImage | any): TransformationImage => ({
-                  src: (item as TransformationImage).src || '',
-                  alt: (item as TransformationImage).alt || '',
-                  storageId: (item as TransformationImage).storageId
-                }))
+                src: (item as TransformationImage).src || '',
+                alt: (item as TransformationImage).alt || '',
+                storageId: (item as TransformationImage).storageId
+              }))
               : []
           },
           testimonials: {
             subtitle: service.data.testimonials?.subtitle || '',
             title: service.data.testimonials?.title || '',
-            items: Array.isArray(service.data.testimonials?.items) 
-              ? service.data.testimonials.items.map((item: any) => 
-                  typeof item === 'string' ? item : item.review || item.name || ''
-                )
+            items: Array.isArray(service.data.testimonials?.items)
+              ? service.data.testimonials.items.map((item: any) =>
+                typeof item === 'string' ? item : item.review || item.name || ''
+              )
               : []
           },
           whoBenefits: {
             title: service.data.whoBenefits?.title || '',
-            items: Array.isArray(service.data.whoBenefits?.items) 
-              ? service.data.whoBenefits.items.map((item: any) => 
-                  typeof item === 'string' ? item : item.title || item.description || ''
-                )
+            items: Array.isArray(service.data.whoBenefits?.items)
+              ? service.data.whoBenefits.items.map((item: any) =>
+                typeof item === 'string' ? item : item.title || item.description || ''
+              )
               : []
           },
         },
@@ -535,12 +535,12 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
   // Debounced field change for performance optimization
   const debouncedFieldChangeRef = useRef<NodeJS.Timeout | null>(null);
-  
+
   const debouncedFieldChange = useCallback(<T = unknown>(field: string, value: T, immediate = false) => {
     if (debouncedFieldChangeRef.current) {
       clearTimeout(debouncedFieldChangeRef.current);
     }
-    
+
     if (immediate) {
       handleFieldChangeImmediate(field, value);
     } else {
@@ -556,10 +556,10 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
     setFormData(prev => {
       if (!prev) return prev;
-      
+
       const newData = { ...prev };
       const fieldPath = field.split('.');
-      
+
       let current: Record<string, unknown> = newData as Record<string, unknown>;
       for (let i = 0; i < fieldPath.length - 1; i++) {
         if (!current[fieldPath[i]] || typeof current[fieldPath[i]] !== 'object') {
@@ -578,7 +578,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
     });
 
     setHasChanges(true);
-    
+
     // Clear field-specific error
     if (errors[field]) {
       setErrors(prev => {
@@ -595,10 +595,10 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
     setFormData(prev => {
       if (!prev) return prev;
-      
+
       const newData = { ...prev };
       const fieldPath = field.split('.');
-      
+
       let current: Record<string, unknown> = newData as Record<string, unknown>;
       for (let i = 0; i < fieldPath.length - 1; i++) {
         if (!current[fieldPath[i]] || typeof current[fieldPath[i]] !== 'object') {
@@ -617,7 +617,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
     });
 
     setHasChanges(true);
-    
+
     // Clear field-specific error
     if (errors[field]) {
       setErrors(prev => {
@@ -634,10 +634,10 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
     setFormData(prev => {
       if (!prev) return prev;
-      
+
       const newData = { ...prev };
       const fieldPath = field.split('.');
-      
+
       let current: Record<string, unknown> = newData as Record<string, unknown>;
       for (const path of fieldPath) {
         if (!current[path] || typeof current[path] !== 'object') {
@@ -658,7 +658,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
       }
 
       (arrayField[index] as Record<string, unknown>)[subField] = value;
-      
+
       return newData;
     });
 
@@ -672,7 +672,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
     // Check if this is a duplicate call within 100ms
     const now = Date.now();
     const lastCall = lastAddCallRef.current;
-    
+
     if (lastCall && lastCall.field === field && (now - lastCall.timestamp) < 100) {
       console.log('Preventing duplicate addArrayItem call for field:', field);
       return;
@@ -683,10 +683,10 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
     setFormData(prev => {
       if (!prev) return prev;
-      
+
       const newData = { ...prev };
       const fieldPath = field.split('.');
-      
+
       // Navigate to the parent object
       let current: Record<string, unknown> = newData as Record<string, unknown>;
       for (let i = 0; i < fieldPath.length - 1; i++) {
@@ -699,7 +699,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
       // Get the final array field name
       const arrayFieldName = fieldPath[fieldPath.length - 1];
-      
+
       // Initialize array if it doesn't exist or isn't an array
       if (!Array.isArray(current[arrayFieldName])) {
         current[arrayFieldName] = [];
@@ -708,7 +708,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
       // Add the new item
       const targetArray = current[arrayFieldName] as T[];
       targetArray.push(defaultItem);
-      
+
       return newData;
     });
 
@@ -721,10 +721,10 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
     setFormData(prev => {
       if (!prev) return prev;
-      
+
       const newData = { ...prev };
       const fieldPath = field.split('.');
-      
+
       let current: Record<string, unknown> = newData as Record<string, unknown>;
       for (const path of fieldPath) {
         if (!current[path]) {
@@ -744,7 +744,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
       } else {
         console.warn(`Expected array at field path: ${field}`);
       }
-      
+
       return newData;
     });
 
@@ -754,7 +754,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
   // Handle form submission with comprehensive error handling
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData || !serviceId) {
       toast.error('Form data or service ID is missing');
       return;
@@ -766,7 +766,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
     try {
       // Validate form data
       const validationResult = serviceValidationSchema.safeParse(formData);
-      
+
       if (!validationResult.success) {
         const fieldErrors: Record<string, string> = {};
         validationResult.error.issues.forEach((issue) => {
@@ -780,79 +780,79 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
       // Transform data to match Convex mutation schema
       const { data: formDataContent, ...otherFields } = validationResult.data;
-      
+
       // Build the transformed data object with proper typing
       interface TransformedServiceData {
         [key: string]: unknown;
         data: {
-           hero: {
-             title: string;
-             description: string;
-           };
+          hero: {
+            title: string;
+            description: string;
+          };
           about?: {
-             title: string;
-             description: string;
-             highlight: string;
-             image: string;
-             imageStorageId?: Id<"_storage">;
-           };
+            title: string;
+            description: string;
+            highlight: string;
+            image: string;
+            imageStorageId?: Id<"_storage">;
+          };
           process?: {
             title: string;
             steps: ProcessStep[];
           };
           benefits?: {
-             title: string;
-             items: string[];
-           };
+            title: string;
+            items: string[];
+          };
           postCare?: {
-             title: string;
-             subtitle: string;
-             downtime: {
-               title: string;
-               items: string[];
-             };
-             postCare: {
-               title: string;
-               items: string[];
-             };
-           };
+            title: string;
+            subtitle: string;
+            downtime: {
+              title: string;
+              items: string[];
+            };
+            postCare: {
+              title: string;
+              items: string[];
+            };
+          };
           faq?: {
-             title: string;
-             subtitle: string;
-             questions: FAQQuestion[];
-           };
+            title: string;
+            subtitle: string;
+            questions: FAQQuestion[];
+          };
           signsSymptoms?: {
-             subtitle: string;
-             title: string;
-             items: string[];
-           };
-           treatments?: {
-             subtitle: string;
-             title: string;
-             items: Array<{
-               title: string;
-               description: string;
-             }>;
-           };
-           transformations?: {
-             subtitle: string;
-             title: string;
-             description: string;
-             images: Array<{
-               src: string;
-               alt: string;
-               storageId?: Id<"_storage">;
-             }>;
-           };
-           testimonials?: {
-             subtitle: string;
-             title: string;
-             items: string[];
-           };
-           whoBenefits?: {
-             title: string;
-             items: string[];
-           };
+            subtitle: string;
+            title: string;
+            items: string[];
+          };
+          treatments?: {
+            subtitle: string;
+            title: string;
+            items: Array<{
+              title: string;
+              description: string;
+            }>;
+          };
+          transformations?: {
+            subtitle: string;
+            title: string;
+            description: string;
+            images: Array<{
+              src: string;
+              alt: string;
+              storageId?: Id<"_storage">;
+            }>;
+          };
+          testimonials?: {
+            subtitle: string;
+            title: string;
+            items: string[];
+          };
+          whoBenefits?: {
+            title: string;
+            items: string[];
+          };
         };
       }
 
@@ -862,7 +862,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
           hero: formDataContent.hero,
         }
       };
-      
+
       // Ensure about object has all required fields or is omitted
       if (formDataContent.about) {
         const about = formDataContent.about;
@@ -963,14 +963,14 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
       if (formDataContent.transformations?.title && formDataContent.transformations?.subtitle && formDataContent.transformations?.description && formDataContent.transformations?.images?.length) {
         // Validate and filter transformation images
-        const validImages = formDataContent.transformations.images.filter(img => 
+        const validImages = formDataContent.transformations.images.filter(img =>
           img && typeof img === 'object' && img.src && img.alt
         ).map(img => ({
           src: img.src!,
           alt: img.alt!,
           storageId: img.storageId as Id<"_storage"> | undefined,
         }));
-        
+
         if (validImages.length > 0) {
           transformedData.data.transformations = {
             title: formDataContent.transformations.title,
@@ -1005,7 +1005,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
       setHasChanges(false);
       setLastSaved(new Date());
       toast.success('Service updated successfully!');
-      
+
       // Redirect to services list after successful update
       setTimeout(() => {
         router.push('/manage-services');
@@ -1013,7 +1013,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
 
     } catch (error) {
       const errorType = handleError(error, 'form submission');
-      
+
       if (errorType === 'network') {
         // Offer retry for network errors
         toast.error('Network error occurred. Click retry to try again.', {
@@ -1093,7 +1093,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
             </p>
           </div>
         </div>
-        
+
         <div className="flex items-center space-x-2">
           {lastSaved && (
             <div className="flex items-center text-sm text-muted-foreground">
@@ -1141,14 +1141,14 @@ export default function EditServicePage({ params }: EditServicePageProps) {
                 </Button>
               ) : (
                 <>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={() => setNetworkError(null)}
                   >
                     Dismiss
                   </Button>
-                  <Button 
+                  <Button
                     size="sm"
                     onClick={() => retryOperation(async () => {
                       // Retry the last failed operation
@@ -1259,7 +1259,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="hero-title">Hero Title *</Label>
-              <Input
+              <Textarea
                 id="hero-title"
                 value={formData.data.hero.title}
                 onChange={(e) => handleFieldChange('data.hero.title', e.target.value)}
@@ -1510,7 +1510,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
               <div className="flex items-center justify-between">
                 <Label className="text-base font-medium">Downtime Information</Label>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="postCareDowntimeTitle">Downtime Title</Label>
                 <Input
@@ -1570,7 +1570,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
               <div className="flex items-center justify-between">
                 <Label className="text-base font-medium">Post-Care Information</Label>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="postCarePostCareTitle">Post-Care Title</Label>
                 <Input
@@ -1688,7 +1688,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor={`faqQuestion${index}`}>Question</Label>
                       <Input
@@ -1877,9 +1877,9 @@ export default function EditServicePage({ params }: EditServicePageProps) {
                       value={item.title || ''}
                       onChange={(e) => {
                         const newItems = [...(formData.data.treatments?.items || [])];
-                        newItems[index] = { 
-                          ...(newItems[index] || { title: '', description: '' }), 
-                          title: e.target.value 
+                        newItems[index] = {
+                          ...(newItems[index] || { title: '', description: '' }),
+                          title: e.target.value
                         };
                         handleFieldChange('data.treatments.items', newItems);
                       }}
@@ -1889,9 +1889,9 @@ export default function EditServicePage({ params }: EditServicePageProps) {
                       value={item.description || ''}
                       onChange={(e) => {
                         const newItems = [...(formData.data.treatments?.items || [])];
-                        newItems[index] = { 
-                          ...(newItems[index] || { title: '', description: '' }), 
-                          description: e.target.value 
+                        newItems[index] = {
+                          ...(newItems[index] || { title: '', description: '' }),
+                          description: e.target.value
                         };
                         handleFieldChange('data.treatments.items', newItems);
                       }}
@@ -1987,7 +1987,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor={`transformationImageSrc${index}`}>Image URL</Label>
                       <Input
@@ -2091,7 +2091,7 @@ export default function EditServicePage({ params }: EditServicePageProps) {
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor={`testimonial${index}`}>Testimonial Text</Label>
                       <Textarea

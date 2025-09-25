@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "Expert skincare treatments in Pune. Acne, pigmentation, anti-aging & laser solutions. Book consultation now!",
     images: [
       {
-        url: "/hero-graphic-2.png",
+        url: "/hero-graphic-2.webp",
         width: 800,
         height: 600,
         alt: "Professional skincare treatment at The Skin Firm Pune",

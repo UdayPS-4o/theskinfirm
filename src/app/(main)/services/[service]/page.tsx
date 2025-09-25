@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: ServiceDetailsPageProps): Pro
         description: shortDescription,
         images: [
           {
-            url: serviceData.data.about?.image || '/hero-graphic-2.png',
+            url: serviceData.data.about?.image || '/hero-graphic-2.webp',
             width: 800,
             height: 600,
             alt: `${serviceName} treatment at The Skin Firm`,
@@ -87,13 +87,19 @@ const ServiceDetailsPage = async ({ params }: ServiceDetailsPageProps) => {
       notFound();
     }
 
+    // Normalize About image: if missing or invalid, use valid webp fallback
+    const isValidSrc = (src?: string) => !!src && (/^https?:\/\//.test(src) || src.startsWith('/')) && !src.endsWith('.png');
+    const aboutImage = isValidSrc(serviceData.data.about?.image)
+      ? serviceData.data.about!.image
+      : '/hero-graphic-2.webp';
+
     // Transform Convex data to match the expected format for AnimatedServicePage
     const transformedServiceData = {
       hero: {
         serviceCategory: serviceData.type.charAt(0).toUpperCase() + serviceData.type.slice(1),
         title: serviceData.data.hero.title,
         description: serviceData.data.hero.description,
-        image: serviceData.data.about?.image || '/hero-graphic-2.png',
+        image: aboutImage,
         doctor: {
           name: "Dr. Karishma Singh",
           title: "Dermatologist & Aesthetic Physician"
@@ -103,12 +109,12 @@ const ServiceDetailsPage = async ({ params }: ServiceDetailsPageProps) => {
         title: serviceData.data.about.title,
         description: serviceData.data.about.description,
         highlight: serviceData.data.about.highlight || '',
-        image: serviceData.data.about.image
+        image: aboutImage
       } : {
         title: "About " + serviceData.name,
         description: serviceData.data.hero.description,
         highlight: '',
-        image: '/hero-graphic-2.png'
+        image: '/hero-graphic-2.webp'
       },
       process: serviceData.data.process ? {
         title: serviceData.data.process.title,

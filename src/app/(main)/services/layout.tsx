@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "Professional skin and hair treatments in Pune. Expert solutions for all your skincare needs. Book your consultation today!",
     images: [
       {
-        url: "/hero-graphic-2.png",
+        url: "/hero-graphic-2.webp",
         width: 800,
         height: 600,
         alt: "Advanced skin and hair treatments at The Skin Firm",

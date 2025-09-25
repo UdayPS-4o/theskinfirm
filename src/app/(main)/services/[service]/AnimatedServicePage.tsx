@@ -261,13 +261,15 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
       <section className="py-12 md:py-[100px] px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
-            <div className="rounded-xl w-full lg:w-[470px] h-[280px] lg:h-[360px] overflow-hidden hover:shadow-xl transition-all duration-1000 ease-out">
-              <img
+            <div className="rounded-xl w-full lg:w-[470px] h-[280px] lg:h-[360px] relative overflow-hidden hover:shadow-xl transition-all duration-1000 ease-out">
+              <Image
                 id="about-image"
                 data-animate
-                src={serviceData.about.image}
+                src={serviceData.about.image || "/hero-graphic-2.webp"}
                 alt={`${serviceData.hero.title} Process`}
-                className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${isVisible("about-image")
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 470px"
+                className={`object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${isVisible("about-image")
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-10 opacity-0"
                   }`}
@@ -670,73 +672,210 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           </div>
         </div>
       </section>
-
-
-      {/* Why Choose Acne Treatment at The Skin Firm? Section */}
-      <section className="py-12 md:py-[100px] px-4 md:px-8">
+      {/* Why The Skin Firm is Pune's Trusted Acne Clinic */}
+      <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
-            <div className="rounded-xl w-full lg:w-[470px] h-[280px] lg:h-[360px] overflow-hidden hover:shadow-xl transition-all duration-1000 ease-out">
-              <img
-                id="about-image"
-                data-animate
-                src="/images/services/acne treatment.png"
-                alt="Professional Acne Treatment Process"
-                className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${isVisible("about-image")
-                  ? "translate-x-0 opacity-100"
-                  : "-translate-x-10 opacity-0"
-                  }`}
-              />
-            </div>
+          <div className="flex flex-col gap-12 md:gap-16">
             <div
-              id="about-content"
+              id="clinic-header"
               data-animate
-              className={`flex flex-col gap-4 w-full lg:w-[500px] transform transition-all duration-1000 delay-200 ease-out ${isVisible("about-content")
-                ? "translate-x-0 opacity-100"
-                : "translate-x-10 opacity-0"
+              className={`text-center max-w-[700px] mx-auto transform transition-all duration-1000 ease-out ${isVisible("clinic-header")
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
                 }`}
             >
+              <h4
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${isVisible("clinic-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
+                  }`}
+              >
+                ---------- Why Choose Us ----------
+              </h4>
               <h2
-                className={`text-xl md:text-2xl text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("about-content")
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${isVisible("clinic-header")
                   ? "translate-y-0 opacity-100"
                   : "translate-y-5 opacity-0"
                   }`}
               >
-                Why Choose Acne Treatment at The Skin Firm?
+                {"Why The Skin Firm is Pune's Trusted Acne Clinic"}
               </h2>
-              <p
-                className={`text-base leading-[22px] text-[color:var(--color-dark-text)] font-medium transform transition-all duration-700 delay-400 ease-out ${isVisible("about-content")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-5 opacity-0"
-                  }`}
-              >
-                Struggling with breakouts, acne scars, or oily skin? We know how
-                frustrating it feels to hide blemishes with makeup, avoid
-                photos, and try endless products without success.
-              </p>
-              <p
-                className={`text-base leading-[22px] text-[color:var(--color-dark-text)] font-medium transform transition-all duration-700 delay-500 ease-out ${isVisible("about-content")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-5 opacity-0"
-                  }`}
-              >
+            </div>
+            <div
+              id="clinic-features"
+              data-animate
+              className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-wrap lg:justify-center gap-6 md:gap-8"
+            >
+              {[
                 {
-                  "At The Skin Firm, we treat acne at its root - whether it's hormonal imbalance, excess oil, inflammation, or clogged pores - so you can finally enjoy smooth, confident skin."
-                }
-              </p>
-              <div
-                className={`rounded-[10px] px-5 py-4 bg-[color:var(--color-light-background)] transform transition-all duration-700 delay-600 ease-out hover:scale-105 hover:shadow-md ${isVisible("about-content")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-5 opacity-0"
-                  }`}
-              >
-                <p className="text-base leading-5 text-black">
-                  Recognized as one of the best dermatologists for acne in Pune,
-                  Dr. Karishma Singh leads every treatment plan with care and
-                  precision. As a trusted acne care clinic in Pune, we provide
-                  safe, advanced, and proven solutions for every skin type.
-                </p>
-              </div>
+                  title: "Dermatologist-Led Expertise",
+                  text: "Dr. Karishma Singh, Skin Specialist",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M20 12C16.686 12 14 14.686 14 18S16.686 24 20 24S26 21.314 26 18S23.314 12 20 12ZM20 22C17.794 22 16 20.206 16 18S17.794 14 20 14S24 15.794 24 18S22.206 22 20 22Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M28 28C28 24.691 25.309 22 22 22H18C14.691 22 12 24.691 12 28V30H14V28C14 25.794 15.794 24 18 24H22C24.206 24 26 25.794 26 28V30H28V28Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Personalised Treatment Plans",
+                  text: "no one-size-fits-all",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M16 14H24V16H16V14ZM16 18H28V20H16V18ZM16 22H28V24H16V22ZM16 26H24V28H16V26Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M12 10V30C12 31.1 12.9 32 14 32H26C27.1 32 28 31.1 28 30V10C28 8.9 27.1 8 26 8H14C12.9 8 12 8.9 12 10ZM14 10H26V30H14V10Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Advanced Technology",
+                  text: "medical-grade, safe & effective",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M20 8L22.09 13.26L28 12L26.91 17.74L32 20L26.91 22.26L28 28L22.09 26.74L20 32L17.91 26.74L12 28L13.09 22.26L8 20L13.09 17.74L12 12L17.91 13.26L20 8Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Proven Track Record",
+                  text: "thousands of happy acne-free patients",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M29 18H27C27 13.589 23.411 10 19 10S11 13.589 11 18H9C9 12.486 13.486 8 19 8S29 12.486 29 18Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M15.293 18.707L17 20.414L22.707 14.707L24.121 16.121L17 23.242L13.879 20.121L15.293 18.707Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M19 22C22.866 22 26 25.134 26 29V31H12V29C12 25.134 15.134 22 19 22ZM19 24C16.243 24 14 26.243 14 29H24C24 26.243 21.757 24 19 24Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Safety First",
+                  text: "evidence-based, dermatologist-approved care",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M20 8L26 12V22C26 26.418 23.314 30.347 19.5 31.5C15.686 30.347 13 26.418 13 22V12L20 8ZM20 10.273L15 13.454V22C15 25.283 16.885 28.22 19.5 29.135C22.115 28.22 24 25.283 24 22V13.454L20 10.273Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M18.293 19.707L19 20.414L22.707 16.707L24.121 18.121L19 23.242L16.879 21.121L18.293 19.707Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className={`group rounded-xl border border-[color:var(--color-light-border)] p-6 md:p-8 bg-white shadow-lg transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 hover:border-[color:var(--color-primary-brown)] lg:w-[calc(33.333%-1.333rem)] ${isVisible("clinic-features")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                    }`}
+                  style={{ transitionDelay: `${400 + index * 150}ms` }}
+                >
+                  <div className="flex flex-col items-center text-center gap-4 md:gap-6">
+                    <div className="transform transition-all duration-300 group-hover:scale-110">
+                      {item.icon}
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <h6 className="text-lg md:text-xl font-semibold text-[color:var(--color-dark-text)] leading-tight">
+                        {item.title}
+                      </h6>
+                      <p className="text-sm md:text-base text-[color:var(--color-light-text)] leading-relaxed">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
