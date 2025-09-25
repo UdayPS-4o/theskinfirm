@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState, useRef } from "react";
 
@@ -12,11 +12,11 @@ import { MaxWidthWrapper } from "@/components/layout/max-width";
 
 // Import the JSON content
 import contentData from './content.json';
-import type { PRPTreatmentContent } from '../shared-types';
+import type { BaseServiceContent } from '../../services/shared-types';
 
-const PRPTreatmentClientPage = () => {
+const MediFacialsClientPage = () => {
   // Type assertion for the imported JSON data
-  const typedContentData = contentData as PRPTreatmentContent;
+  const typedContentData = contentData as BaseServiceContent;
 
   // Safe function to render text with markdown-style bold formatting
   const renderTextWithBold = (text: string) => {
@@ -84,7 +84,7 @@ const PRPTreatmentClientPage = () => {
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  PRP TREATMENT
+                  MEDI FACIALS
                 </small>
                 <div className="flex flex-col gap-1">
                   <h1
@@ -142,7 +142,7 @@ const PRPTreatmentClientPage = () => {
             <Image
               src={"/TSF-Hero-Section.png"}
               fill
-              alt={"PRP Treatment"}
+              alt={"Medi Facials Treatment"}
               className="object-cover"
             />
             {/* Left edge blur/fade overlay */}
@@ -1003,4 +1003,4 @@ const PRPTreatmentClientPage = () => {
   );
 };
 
-export default PRPTreatmentClientPage;
+export default MediFacialsClientPage;

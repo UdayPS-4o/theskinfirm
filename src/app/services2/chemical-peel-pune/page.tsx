@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState, useRef } from "react";
 
@@ -12,11 +12,12 @@ import { MaxWidthWrapper } from "@/components/layout/max-width";
 
 // Import the JSON content
 import contentData from './content.json';
-import type { MesotherapyContent } from '../shared-types';
+import { ChemicalPeelContent } from '../../services/shared-types';
+// Force recompilation to apply shared types
 
-const MesotherapyClientPage = () => {
+const ChemicalPeelClientPage = () => {
   // Type assertion for the imported JSON data
-  const typedContentData = contentData as MesotherapyContent;
+  const typedContentData = contentData as ChemicalPeelContent;
 
   // Safe function to render text with markdown-style bold formatting
   const renderTextWithBold = (text: string) => {
@@ -84,7 +85,7 @@ const MesotherapyClientPage = () => {
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  MESOTHERAPY
+                  ACNE & SKIN CARE
                 </small>
                 <div className="flex flex-col gap-1">
                   <h1
@@ -142,7 +143,7 @@ const MesotherapyClientPage = () => {
             <Image
               src={"/TSF-Hero-Section.png"}
               fill
-              alt={"Mesotherapy Treatment"}
+              alt={"Acne Treatment Collage"}
               className="object-cover"
             />
             {/* Left edge blur/fade overlay */}
@@ -151,22 +152,22 @@ const MesotherapyClientPage = () => {
         </div>
       </section>
 
-      {/* What Is Section */}
+      {/* What Is Acne? Section */}
       <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-8 md:gap-12">
             <div
-              id="what-is-header"
+              id="what-is-acne-header"
               data-animate
               className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
-                isVisible("what-is-header")
+                isVisible("what-is-acne-header")
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
               }`}
             >
               <h2
                 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("what-is-header")
+                  isVisible("what-is-acne-header")
                     ? "translate-y-0 opacity-100"
                     : "translate-y-5 opacity-0"
                 }`}
@@ -175,7 +176,7 @@ const MesotherapyClientPage = () => {
               </h2>
               <p
                 className={`text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
-                  isVisible("what-is-header")
+                  isVisible("what-is-acne-header")
                     ? "translate-y-0 opacity-100"
                     : "translate-y-5 opacity-0"
                 }`}
@@ -187,7 +188,7 @@ const MesotherapyClientPage = () => {
         </div>
       </section>
 
-      {/* Signs & Symptoms Section */}
+      {/* Signs & Symptoms of Acne Section */}
       <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-8 md:gap-12">
@@ -240,7 +241,7 @@ const MesotherapyClientPage = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* Why Choose Acne Treatment at The Skin Firm? Section */}
       <section className="py-12 md:py-[100px] px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
@@ -249,7 +250,7 @@ const MesotherapyClientPage = () => {
                 id="about-image"
                 data-animate
                 src="/images/services/acne treatment.png"
-                alt="Professional Treatment Process"
+                alt="Professional Acne Treatment Process"
                 className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${
                   isVisible("about-image")
                     ? "translate-x-0 opacity-100"
@@ -489,6 +490,7 @@ const MesotherapyClientPage = () => {
               </h2>
             </div>
             <div className="max-w-4xl mx-auto">
+              {/* Downtime and Post-Care Information */}
               <div
                 id="postcare-content"
                 data-animate
@@ -503,7 +505,7 @@ const MesotherapyClientPage = () => {
               </p>
                 <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
                   <h2 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6">
-                    Post-Care Instructions
+                    Post-Care After Acne Treatments
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {typedContentData.postCare.tips.map((item, index) => (
@@ -536,7 +538,7 @@ const MesotherapyClientPage = () => {
         </div>
       </section>
 
-      {/* Why The Skin Firm Section */}
+      {/* Why The Skin Firm is Pune's Trusted Acne Clinic */}
       <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-12 md:gap-16">
@@ -565,7 +567,7 @@ const MesotherapyClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                {"Why The Skin Firm is Pune's Trusted Clinic"}
+                {"Why The Skin Firm is Pune's Trusted Acne Clinic"}
               </h2>
             </div>
             <div
@@ -659,7 +661,7 @@ const MesotherapyClientPage = () => {
                 },
                 {
                   title: "Proven Track Record",
-                  text: "thousands of happy patients",
+                  text: "thousands of happy acne-free patients",
                   icon: (
                     <svg
                       width="40"
@@ -749,7 +751,7 @@ const MesotherapyClientPage = () => {
         </div>
       </section>
 
-      {/* Before & After Results */}
+      {/* Real Acne Transformations (Before & After) */}
       <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-12 md:gap-16">
@@ -778,7 +780,7 @@ const MesotherapyClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Before & After Results
+                Before & After Results - Acne Transformations
               </h2>
               <p
                 className={`text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed transform transition-all duration-700 delay-400 ease-out ${
@@ -787,7 +789,8 @@ const MesotherapyClientPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Real patient transformations showing the effectiveness of our treatments.
+                Swipe through real patient journeys that show reduced breakouts,
+                calmer skin, and fading post-acne marks over time.
               </p>
             </div>
             <div
@@ -800,9 +803,9 @@ const MesotherapyClientPage = () => {
               }`}
             >
               {[
-                { src: "/gallery/2.png", alt: "Treatment Results" },
-                { src: "/gallery/4.png", alt: "Treatment Results" },
-                { src: "/gallery/9.png", alt: "Treatment Results" },
+                { src: "/gallery/2.png", alt: "Acne Scars Treatment" },
+                { src: "/gallery/4.png", alt: "Acne Marks Treatment" },
+                { src: "/gallery/9.png", alt: "Under Eye Treatment" },
               ].map((image, index) => (
                 <div
                   key={index}
@@ -852,7 +855,7 @@ const MesotherapyClientPage = () => {
             data-animate
             className="grid grid-cols-1 lg:grid-cols-2 gap-8"
           >
-            {typedContentData.testimonials.reviews.map((review, index) => (
+            {typedContentData.testimonials.reviews.map((text, index) => (
               <div
                 key={index}
                 className={`relative bg-white p-6 md:p-8 rounded-2xl border border-[color:var(--color-light-border)] shadow-lg overflow-hidden transform transition-all duration-700 ease-out hover:shadow-xl hover:-translate-y-2 ${
@@ -863,10 +866,10 @@ const MesotherapyClientPage = () => {
                 style={{ transitionDelay: `${400 + index * 150}ms` }}
               >
                 <div className="absolute -top-6 -left-2 text-[64px] text-[color:var(--color-primary-brown)]/20 select-none">
-                  "
+                  “
                 </div>
                 <p className="italic text-[color:var(--color-dark-text)] leading-relaxed">
-                  {typeof review === 'string' ? `"${review}"` : `"${review.review}"`}
+                  {`“${text}”`}
                 </p>
                 <div className="mt-6 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[color:var(--color-primary-brown)]/20"></div>
@@ -877,6 +880,73 @@ const MesotherapyClientPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Related Videos */}
+      {/*
+      <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col gap-12 md:gap-16">
+            <div
+              id="videos-header"
+              data-animate
+              className={`text-center max-w-[700px] mx-auto transform transition-all duration-1000 ease-out ${
+                isVisible("videos-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
+            >
+              <h4
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
+                  isVisible("videos-header")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                }`}
+              >
+                ---------- Educational Videos ----------
+              </h4>
+              <h2
+                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4 transform transition-all duration-700 delay-300 ease-out ${
+                  isVisible("videos-header")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                } md:whitespace-nowrap`}
+              >
+                Related Acne & Pimples Treatment Videos
+              </h2>
+              <p
+                className={`text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed transform transition-all duration-700 delay-400 ease-out ${
+                  isVisible("videos-header")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                } md:whitespace-nowrap`}
+              >
+                Watch Dr. Karishma explain how we personalise acne care and see what to expect in a session.
+              </p>
+            </div>
+            <div
+              id="videos-grid"
+              data-animate
+              className={`transform transition-all duration-1000 delay-500 ease-out ${
+                isVisible("videos-grid")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
+            >
+              <div className="rounded-lg overflow-hidden shadow-lg group">
+                <iframe
+                  src="https://www.youtube.com/embed/s64-J_nE3w4"
+                  title="How to get rid of acne scars?"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full aspect-video"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      */}
 
       {/* Who can benefit */}
       <section className="py-12 mt-10 md:py-20 px-4 md:px-8">
@@ -899,7 +969,7 @@ const MesotherapyClientPage = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section (Accordion format for consistency) */}
       <section className="py-12 md:py-20 px-4 md:px-8">
         <MaxWidthWrapper>
           <div className="mx-6 lg:mx-24">
@@ -936,7 +1006,7 @@ const MesotherapyClientPage = () => {
            <p className="mb-4">
              At The Skin Firm, we proudly serve patients not only from Mohammad
              Wadi and NIBM Road, but also from several nearby areas in Pune who
-             visit us for trusted treatments, skin care, and hair solutions.
+             visit us for trusted acne treatment, skin care, and hair solutions.
            </p>
            <p className="mb-6 font-medium">
              Many of our patients travel to our clinic from:
@@ -965,7 +1035,7 @@ const MesotherapyClientPage = () => {
           </div>
           <p>
             Our convenient location makes it easy for people across South Pune
-            and Central Pune to access advanced treatments and other
+            and Central Pune to access advanced acne treatments and other
             dermatology services under the expert care of Dr. Karishma Singh.
           </p>
         </div>
@@ -978,22 +1048,23 @@ const MesotherapyClientPage = () => {
       >
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold mb-6 text-[color:var(--color-dark-text)]">
-            Book Your Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune
+            Book Your Acne Consultation at The Skin Firm, NIBM, Mohammad Wadi,
+            Pune
           </h2>
           <p className="mb-6 text-[color:var(--color-dark-text)]">
-            Don't let skin concerns hold back your confidence. At The Skin Firm, we
-            understand how skin issues can affect not just your appearance,
-            but also the way you feel about yourself. With Dr. Karishma Singh's
-            expert care and customized treatments, healthier skin - and
+            Don’t let acne hold back your confidence. At The Skin Firm, we
+            understand how breakouts and scars can affect not just your skin,
+            but also the way you feel about yourself. With Dr. Karishma Singh’s
+            expert care and customized acne treatments, clearer skin - and
             renewed confidence - can truly be yours.
           </p>
           <p className="font-semibold mb-8 text-[color:var(--color-dark-text)]">
-            Appointments fill quickly. Start your journey to healthier,
-            confident skin today.
+            Appointments fill quickly. Start your journey to clear, confident
+            skin today.
           </p>
           <Link href="/contact">
             <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
-              Book Your Treatment Appointment â†’
+              Book Your Acne Treatment Appointment →
             </button>
           </Link>
         </div>
@@ -1003,4 +1074,4 @@ const MesotherapyClientPage = () => {
   );
 };
 
-export default MesotherapyClientPage;
+export default ChemicalPeelClientPage;

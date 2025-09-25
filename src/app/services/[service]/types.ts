@@ -1,5 +1,4 @@
-// Type definitions for acne treatment content
-export interface AcneTreatmentContent {
+export interface ServiceContent {
   meta: {
     title: string;
     description: string;
@@ -10,7 +9,7 @@ export interface AcneTreatmentContent {
     subtitle: string;
     cta: string;
   };
-  whatIsAcne: {
+  whatIsService: {
     title: string;
     content: string;
   };
@@ -20,25 +19,24 @@ export interface AcneTreatmentContent {
   };
   whyChooseUs: {
     title: string;
-    content: string;
-    features: Array<{
-      title: string;
-      text: string;
-    }>;
+    description: string;
+    highlight: string | null;
+    image: string;
   };
   process: {
     title: string;
-    steps: Array<{
+    steps: {
+      step: string;
       title: string;
       description: string;
-    }>;
+    }[];
   };
   treatmentTypes: {
     title: string;
-    treatments: Array<{
+    treatments: {
       title: string;
-      subtitle: string;
-    }>;
+      description: string;
+    }[];
   };
   benefits: {
     title: string;
@@ -47,61 +45,57 @@ export interface AcneTreatmentContent {
   postCare: {
     title: string;
     description: string;
-    downtime: {
+    recovery?: {
+      title: string;
+      timeline: string[];
+    };
+    instructions?: string[];
+    downtime?: {
       title: string;
       items: string[];
     };
-    tips: string[];
+    tips?: string[];
   };
   clinicFeatures: {
     title: string;
-    features: Array<{
+    features: {
+      icon: string;
       title: string;
-      description: string;
-    }>;
+      text: string;
+    }[];
   };
   transformations: {
     title: string;
     subtitle: string;
-    beforeAfter: Array<{
-      before: string;
-      after: string;
-      description: string;
-    }>;
+    images: {
+      src: string;
+      alt: string;
+    }[];
   };
   testimonials: {
     title: string;
-    reviews: Array<{
-      name: string;
-      rating: number;
-      review: string;
-      treatment: string;
-    }>;
+    reviews: string[];
   };
   whoBenefits: {
     title: string;
-    groups: string[];
+    candidates: string[];
   };
   faqs: {
     title: string;
-    questions: Array<{
+    questions: {
       question: string;
       answer: string;
-    }>;
+    }[];
   };
   locations: {
     title: string;
-    clinics: Array<{
-      name: string;
-      address: string;
-      phone: string;
-      hours: string;
-    }>;
+    content: string;
+    areas: string[];
+    footer: string;
   };
   finalCta: {
     title: string;
-    subtitle: string;
-    buttonText: string;
+    content: string;
+    cta: string;
   };
-  schema: any; // JSON-LD schema
 }

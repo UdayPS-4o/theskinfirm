@@ -1,20 +1,30 @@
 "use client";
-
-import React, { useEffect, useState, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+import React, { useEffect, useState, useRef } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { DashedSeparator } from "@/components/sections/dashed-separator";
+import { MaxWidthWrapper } from "@/components/layout/max-width";
 
 interface ServiceData {
   hero: {
     serviceCategory: string;
     title: string;
     description: string;
-    image: string;
+    buttons: {
+      primary: string;
+      secondary: string;
+    };
     doctor: {
       name: string;
       title: string;
     };
+    image: string;
   };
   about: {
     title: string;
@@ -23,21 +33,21 @@ interface ServiceData {
     image: string;
   };
   process: {
-    title: string;
-    subtitle: string;
-    steps: Array<{
+    title:string;
+    subtitle:string;
+    steps: {
       title: string;
       description: string;
-    }>;
+    }[];
   };
   benefits: {
-    title: string;
-    subtitle: string;
+    title:string;
+    subtitle:string;
     items: string[];
   };
   postCare: {
-    title: string;
-    subtitle: string;
+    title:string;
+    subtitle:string;
     downtime: {
       title: string;
       items: string[];
@@ -48,20 +58,18 @@ interface ServiceData {
     };
   };
   faq: {
-    title: string;
-    subtitle: string;
-    questions: Array<{
+    title:string;
+    subtitle:string;
+    questions: {
       question: string;
       answer: string;
-    }>;
+    }[];
   };
 }
 
-interface AnimatedServicePageProps {
-  serviceData: ServiceData;
-}
-
-const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
+const AnimatedServicePage: React.FC<{ serviceData: ServiceData }> = ({
+  serviceData,
+}) => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(
     new Set()
   );
@@ -82,7 +90,6 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
       }
     );
 
-    // Observe all animated sections
     const sections = document.querySelectorAll("[data-animate]");
     sections.forEach((section) => {
       if (observerRef.current) {
@@ -102,123 +109,118 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="px-4 md:px-8 lg:px-[100px] py-8 md:py-12 lg:py-20 bg-[color:var(--color-light-background)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col xl:flex-row justify-between items-center gap-6 md:gap-8 xl:gap-12">
+      <section className="relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-[-1]">
+          <img
+            src="/details/rounded-hero.png"
+            alt="Hero Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
+
+        <MaxWidthWrapper>
+          <div className="flex flex-col xl:flex-row min-h-[500px] xl:min-h-[600px] py-12 md:py-20">
             {/* Left Content */}
-            <div
-              id="hero-left"
-              data-animate
-              className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full xl:w-[511px] transform transition-all duration-1000 ease-out ${
-                isVisible("hero-left")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-            >
-              <div className="flex flex-col gap-2.5">
-                <small
-                  className={`text-sm leading-[17px] uppercase text-[#b76e79] font-semibold transform transition-all duration-700 delay-200 ease-out ${
-                    isVisible("hero-left")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
-                  }`}
-                >
-                  {serviceData.hero.serviceCategory}
-                </small>
-                <h1
-                  className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                    isVisible("hero-left")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
-                  }`}
-                >
-                  {serviceData.hero.title}
-                </h1>
-                <h4
-                  className={`text-base sm:text-lg md:text-xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${
-                    isVisible("hero-left")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
-                  }`}
-                >
-                  {serviceData.hero.description}
-                </h4>
-              </div>
+            <div className="flex items-center justify-center xl:w-1/2 px-4 md:px-8 lg:px-[100px] text-center xl:text-left">
               <div
-                className={`flex flex-col sm:flex-row gap-3 md:gap-5 transform transition-all duration-700 delay-500 ease-out ${
+                id="hero-left"
+                data-animate
+                className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full max-w-[511px] transform transition-all duration-1000 ease-out ${
                   isVisible("hero-left")
                     ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
+                    : "translate-y-10 opacity-0"
                 }`}
               >
-                <Link href="/contact">
-                  <button className="w-full sm:w-auto rounded-lg px-4 md:px-[22px] py-3 md:py-[15px] bg-[#d4a380] text-white font-medium text-base md:text-lg flex items-center justify-center gap-2 hover:bg-[#c19970] hover:scale-105 transition-all duration-300 hover:shadow-lg">
-                    Book Consultation
-                    <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
-                  </button>
-                </Link>
-                <Link href="/services">
-                  <button className="w-full sm:w-auto rounded-lg border border-[color:var(--color-primary-brown)] px-4 md:px-[22px] py-3 md:py-[15px] bg-white text-[color:var(--color-dark-text)] font-medium text-base md:text-lg hover:bg-gray-50 hover:scale-105 transition-all duration-300 hover:shadow-lg">
-                    Explore Services
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Content */}
-            <div
-              id="hero-right"
-              data-animate
-              className={`flex flex-col items-center xl:items-end w-full xl:w-[523px] relative transform transition-all duration-1000 delay-300 ease-out ${
-                isVisible("hero-right")
-                  ? "translate-x-0 opacity-100"
-                  : "translate-x-10 opacity-0"
-              }`}
-            >
-              <div className="relative">
-                <div
-                  className={`shadow-lg rounded-full border-4 md:border-8 border-[color:var(--color-light-background)] w-full max-w-[400px] md:max-w-[450px] xl:max-w-[504px] h-[250px] sm:h-[280px] md:h-[320px] xl:h-[355px] mx-auto transform transition-all duration-700 delay-600 ease-out hover:scale-105 overflow-hidden ${
-                    isVisible("hero-right") ? "scale-100" : "scale-95"
-                  }`}
-                >
-                  <Image
-                    src={"/images/dr/Karishma_Singh.png"}
-                    width={504}
-                    height={355}
-                    alt={"Dr. Karishma Singh"}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
+                <div className="flex flex-col gap-2.5">
+                  <small
+                    className={`text-sm leading-[17px] uppercase text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-200 ease-out ${
+                      isVisible("hero-left")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                    }`}
+                  >
+                    {serviceData.hero.serviceCategory}
+                  </small>
+                  <h1
+                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+                      isVisible("hero-left")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                    }`}
+                  >
+                    {serviceData.hero.title}
+                  </h1>
+                  <h4
+                    className={`text-base sm:text-lg md:text-xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${
+                      isVisible("hero-left")
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-5 opacity-0"
+                    }`}
+                  >
+                    {serviceData.hero.description}
+                  </h4>
                 </div>
                 <div
-                  className={`absolute -bottom-2 md:-bottom-4 right-2 md:right-4 xl:right-0 shadow-lg rounded-lg border border-[color:var(--color-light-border)] p-3 md:p-4 bg-white max-w-[150px] md:max-w-[178px] transform transition-all duration-700 delay-800 ease-out hover:scale-105 ${
-                    isVisible("hero-right")
+                  className={`flex flex-col sm:flex-row gap-3 md:gap-5 justify-center xl:justify-start transform transition-all duration-700 delay-500 ease-out ${
+                    isVisible("hero-left")
                       ? "translate-y-0 opacity-100"
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  <div className="text-xs md:text-[13.6px] font-medium text-[color:var(--color-dark-text)]">
-                    {serviceData.hero.doctor.name}
-                  </div>
-                  <div className="text-[10px] md:text-[11.9px] text-[color:var(--color-light-text)]">
-                    {serviceData.hero.doctor.title}
+                  <Link href="/contact">
+                    <button className="w-full sm:w-auto rounded-lg px-4 md:px-[22px] py-3 md:py-[15px] bg-[#d4a380] text-white font-medium text-base md:text-lg flex items-center justify-center gap-2 hover:bg-[#c19970] hover:scale-105 transition-all duration-300 hover:shadow-lg">
+                      {serviceData.hero.buttons.primary}
+                      <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+                    </button>
+                  </Link>
+                  <Link href="/services">
+                    <button className="w-full sm:w-auto rounded-lg border border-[color:var(--color-primary-brown)] px-4 md:px-[22px] py-3 md:py-[15px] bg-white text-[color:var(--color-dark-text)] font-medium text-base md:text-lg hover:bg-gray-50 hover:scale-105 transition-all duration-300 hover:shadow-lg">
+                      {serviceData.hero.buttons.secondary}
+                    </button>
+                  </Link>
+                </div>
+                {/* Doctor Info */}
+                <div
+                  id="doctor-info"
+                  data-animate
+                  className={`flex items-center justify-center xl:justify-start gap-4 transform transition-all duration-1000 delay-700 ease-out ${
+                    isVisible("doctor-info")
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
+                  }`}
+                >
+                  <img
+                    src="/images/dr/Karishma_Singh.png"
+                    alt="Dr. Karishma Singh"
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-semibold text-lg">
+                      {serviceData.hero.doctor.name}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      {serviceData.hero.doctor.title}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </MaxWidthWrapper>
       </section>
 
       {/* About Section */}
       <section className="py-12 md:py-[100px] px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
+        <MaxWidthWrapper>
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
             <div className="rounded-xl w-full lg:w-[470px] h-[280px] lg:h-[360px] overflow-hidden hover:shadow-xl transition-all duration-1000 ease-out">
               <img
                 id="about-image"
                 data-animate
                 src={serviceData.about.image}
-                alt={`${serviceData.hero.title} Process`}
+                alt={serviceData.about.title}
                 className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${
                   isVisible("about-image")
                     ? "translate-x-0 opacity-100"
@@ -235,43 +237,29 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                   : "translate-x-10 opacity-0"
               }`}
             >
-              <h4
-                className={`text-xl md:text-2xl uppercase text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+              <h2
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                   isVisible("about-content")
                     ? "translate-y-0 opacity-100"
                     : "translate-y-5 opacity-0"
                 }`}
               >
                 {serviceData.about.title}
-              </h4>
-              <p
-                className={`text-sm leading-[22px] text-[color:var(--color-dark-text)] font-medium transform transition-all duration-700 delay-400 ease-out ${
-                  isVisible("about-content")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-              >
+              </h2>
+              <div className="whitespace-pre-line">
                 {serviceData.about.description}
-              </p>
-              <div
-                className={`rounded-[10px] px-5 py-4 bg-[color:var(--color-light-background)] transform transition-all duration-700 delay-500 ease-out hover:scale-105 hover:shadow-md ${
-                  isVisible("about-content")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-              >
-                <p className="text-sm leading-5 text-black">
-                  {serviceData.about.highlight}
-                </p>
               </div>
+              <p className="mt-4 text-gray-700 italic">
+                {serviceData.about.highlight}
+              </p>
             </div>
           </div>
-        </div>
+        </MaxWidthWrapper>
       </section>
 
       {/* Process Section */}
       <section className="py-12 md:py-20 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
+        <MaxWidthWrapper>
           <div className="flex flex-col gap-12 md:gap-[90px]">
             <div
               id="process-header"
@@ -304,11 +292,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             <div
               id="process-steps"
               data-animate
-              className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 ${
-                serviceData.process.steps.length === 4
-                  ? "lg:grid-cols-2"
-                  : "lg:grid-cols-3"
-              }`}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
             >
               {serviceData.process.steps.map((step, index) => (
                 <div
@@ -337,12 +321,12 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               ))}
             </div>
           </div>
-        </div>
+        </MaxWidthWrapper>
       </section>
 
       {/* Benefits Section */}
       <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
-        <div className="max-w-6xl mx-auto">
+        <MaxWidthWrapper>
           <div className="flex flex-col gap-12 md:gap-20">
             <div
               id="benefits-header"
@@ -380,7 +364,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               {serviceData.benefits.items.map((benefit, index) => (
                 <div
                   key={index}
-                  className={`rounded-[10px] border border-[color:var(--color-light-background)] p-4 md:p-5 bg-white flex flex-row items-start gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
+                  className={`rounded-[10px] border border-[color:var(--color-light-background)] p-4 md:p-5 bg-white flex flex-row items-center gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
                     isVisible("benefits-grid")
                       ? "translate-y-0 opacity-100"
                       : "translate-y-10 opacity-0"
@@ -419,12 +403,12 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               ))}
             </div>
           </div>
-        </div>
+        </MaxWidthWrapper>
       </section>
 
       {/* Post Care Section */}
       <section className="py-12 md:py-20 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
+        <MaxWidthWrapper>
           <div className="flex flex-col gap-12 md:gap-20">
             <div
               id="postcare-header"
@@ -454,151 +438,76 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 {serviceData.postCare.title}
               </h2>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[84px]">
-              {/* Downtime Information */}
+            <div className="max-w-4xl mx-auto">
               <div
-                id="postcare-downtime"
+                id="postcare-content"
                 data-animate
-                className={`flex flex-col gap-4 transform transition-all duration-1000 delay-400 ease-out ${
-                  isVisible("postcare-downtime")
-                    ? "translate-x-0 opacity-100"
-                    : "-translate-x-10 opacity-0"
+                className={`flex flex-col gap-6 transform transition-all duration-1000 delay-400 ease-out ${
+                  isVisible("postcare-content")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
                 }`}
               >
-                <h5 className="text-xl text-[color:var(--color-dark-text)] font-semibold">
-                  {serviceData.postCare.downtime.title}
-                </h5>
-                <div className="rounded-[10px] border border-[color:var(--color-light-background)] p-5 bg-[color:var(--color-light-background-alt)] flex flex-col gap-[30px] hover:shadow-lg transition-shadow duration-300">
-                  {serviceData.postCare.downtime.items.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${
-                        isVisible("postcare-downtime")
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-5 opacity-0"
-                      }`}
-                      style={{ transitionDelay: `${600 + index * 100}ms` }}
-                    >
-                      <div className="w-[30px] h-[30px] flex-shrink-0">
-                        <img
-                          src="/alert-circle.svg"
-                          alt="Alert"
-                          className="w-full h-full"
-                        />
-                      </div>
-                      <p className="text-base leading-[22px] text-black">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
+                {/* Downtime Information */}
+                <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+                  <h3 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-4">
+                    {serviceData.postCare.downtime.title}
+                  </h3>
+                  <ul className="list-disc list-inside space-y-2">
+                    {serviceData.postCare.downtime.items.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-
-              {/* Post-Care Information */}
-              <div
-                id="postcare-info"
-                data-animate
-                className={`flex flex-col gap-[30px] transform transition-all duration-1000 delay-500 ease-out ${
-                  isVisible("postcare-info")
-                    ? "translate-x-0 opacity-100"
-                    : "translate-x-10 opacity-0"
-                }`}
-              >
-                <h5 className="text-xl text-[color:var(--color-dark-text)] font-semibold">
-                  {serviceData.postCare.postCare.title}
-                </h5>
-                <div className="flex flex-col gap-[30px]">
-                  {serviceData.postCare.postCare.items.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`flex gap-[14px] items-start transform transition-all duration-500 ease-out hover:scale-105 ${
-                        isVisible("postcare-info")
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-5 opacity-0"
-                      }`}
-                      style={{ transitionDelay: `${700 + index * 100}ms` }}
-                    >
-                      <div className="w-[30px] h-[30px] flex-shrink-0">
-                        <img
-                          src="/post-care.svg"
-                          alt="Post Care"
-                          className="w-full h-full"
-                        />
-                      </div>
-                      <p className="text-base leading-[22px] text-black">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
+                {/* Post-Care Information */}
+                <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+                  <h3 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-4">
+                    {serviceData.postCare.postCare.title}
+                  </h3>
+                  <ul className="list-disc list-inside space-y-2">
+                    {serviceData.postCare.postCare.items.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </MaxWidthWrapper>
       </section>
 
       {/* FAQ Section */}
       <section className="py-12 md:py-20 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col gap-12 md:gap-20">
-            <div
-              id="faq-header"
-              data-animate
-              className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
-                isVisible("faq-header")
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-            >
-              <h4
-                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("faq-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-              >
-                ---------- {serviceData.faq.subtitle} ----------
-              </h4>
-              <h2
-                className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                  isVisible("faq-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-              >
-                {serviceData.faq.title}
-              </h2>
+        <MaxWidthWrapper>
+          <div className="mx-6 lg:mx-24">
+            <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2">
+              <DashedSeparator />
+              <h3 className="text-[#EC7754] text-3xl font-medium">
+                {serviceData.faq.subtitle}
+              </h3>
+              <DashedSeparator />
             </div>
-            <div
-              id="faq-grid"
-              data-animate
-              className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]"
-            >
+            <h2 className="mt-2 text-[#333333] text-3xl lg:text-5xl font-semibold text-center">
+              {serviceData.faq.title}
+            </h2>
+            <Accordion type="single" collapsible className="mt-10">
               {serviceData.faq.questions.map((faq, index) => (
-                <div
+                <AccordionItem
+                  value={`${index + 1}`}
                   key={index}
-                  className={`shadow-lg rounded-[10px] border border-[color:var(--color-border-light)] p-6 bg-white transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
-                    isVisible("faq-grid")
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-10 opacity-0"
-                  }`}
-                  style={{ transitionDelay: `${400 + index * 150}ms` }}
+                  className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
                 >
-                  <div className="flex flex-col gap-[30px]">
-                    <div className="flex gap-2.5 items-center">
-                      <p className="text-base leading-[22px] tracking-[-0.01em] text-[#d4a380] font-semibold">
-                        {faq.question}
-                      </p>
-                    </div>
-                    <small className="text-sm leading-[22px] text-[#333333]">
-                      {faq.answer}
-                    </small>
-                  </div>
-                </div>
+                  <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[#4B5563] text-2xl">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </div>
-        </div>
+        </MaxWidthWrapper>
       </section>
     </div>
   );

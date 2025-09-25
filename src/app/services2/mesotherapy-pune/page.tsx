@@ -12,11 +12,11 @@ import { MaxWidthWrapper } from "@/components/layout/max-width";
 
 // Import the JSON content
 import contentData from './content.json';
-import type { OpenPoresTreatmentContent } from '../shared-types';
+import type { MesotherapyContent } from '../../services/shared-types';
 
-const OpenPoresTreatmentClientPage = () => {
+const MesotherapyClientPage = () => {
   // Type assertion for the imported JSON data
-  const typedContentData = contentData as OpenPoresTreatmentContent;
+  const typedContentData = contentData as MesotherapyContent;
 
   // Safe function to render text with markdown-style bold formatting
   const renderTextWithBold = (text: string) => {
@@ -84,7 +84,7 @@ const OpenPoresTreatmentClientPage = () => {
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  OPEN PORES TREATMENT
+                  MESOTHERAPY
                 </small>
                 <div className="flex flex-col gap-1">
                   <h1
@@ -142,7 +142,7 @@ const OpenPoresTreatmentClientPage = () => {
             <Image
               src={"/TSF-Hero-Section.png"}
               fill
-              alt={"Open Pores Treatment"}
+              alt={"Mesotherapy Treatment"}
               className="object-cover"
             />
             {/* Left edge blur/fade overlay */}
@@ -1003,4 +1003,4 @@ const OpenPoresTreatmentClientPage = () => {
   );
 };
 
-export default OpenPoresTreatmentClientPage;
+export default MesotherapyClientPage;

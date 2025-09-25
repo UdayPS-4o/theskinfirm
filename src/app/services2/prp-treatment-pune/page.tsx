@@ -12,11 +12,11 @@ import { MaxWidthWrapper } from "@/components/layout/max-width";
 
 // Import the JSON content
 import contentData from './content.json';
-import type { MoleRemovalContent } from '../shared-types';
+import type { PRPTreatmentContent } from '../../services/shared-types';
 
-const MoleRemovalClientPage = () => {
+const PRPTreatmentClientPage = () => {
   // Type assertion for the imported JSON data
-  const typedContentData = contentData as MoleRemovalContent;
+  const typedContentData = contentData as PRPTreatmentContent;
 
   // Safe function to render text with markdown-style bold formatting
   const renderTextWithBold = (text: string) => {
@@ -84,7 +84,7 @@ const MoleRemovalClientPage = () => {
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  MOLE REMOVAL
+                  PRP TREATMENT
                 </small>
                 <div className="flex flex-col gap-1">
                   <h1
@@ -142,7 +142,7 @@ const MoleRemovalClientPage = () => {
             <Image
               src={"/TSF-Hero-Section.png"}
               fill
-              alt={"Mole Removal Treatment"}
+              alt={"PRP Treatment"}
               className="object-cover"
             />
             {/* Left edge blur/fade overlay */}
@@ -1003,4 +1003,4 @@ const MoleRemovalClientPage = () => {
   );
 };
 
-export default MoleRemovalClientPage;
+export default PRPTreatmentClientPage;

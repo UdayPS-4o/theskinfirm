@@ -12,52 +12,50 @@ interface HelperProps {
   activeTab: TabKey;
 }
 
-// Create a motion wrapper for Next.js Image
 const MotionImage = motion(Image);
 
 const Helper: React.FC<HelperProps> = ({ activeTab }) => {
   const router = useRouter();
 
-  const [currentData, setCurrentData] = useState(treatmentsData[activeTab]);
   const [currentData, setCurrentData] = useState(treatmentsData[activeTab as keyof typeof treatmentsData]);
-      return () => clearTimeout(timer);
-    }
-  }, [activeTab, currentData]);
-      ...treatmentsData,
-      general: {
-          sections: [
-              {
-                  title: "All Services",
-                  treatments: newServicesData.map(service => ({
-                      title: service.title,
-                      description: service.content.split('\n')[2], // A short description from the content
-                      imageSrc: `/images/services/acne treatment.png` // A default image
-                  }))
-              }
-          ]
-      }
-  }
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    setCurrentData(treatmentsData[activeTab as keyof typeof treatmentsData]);
+  }, [activeTab]);
+
+  const toggleSection = (title: string) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [title]: !prev[title]
+    }));
+  };
+  
+  const handleCardClick = (treatmentTitle: string) => {
+    const serviceSlug = treatmentTitle.toLowerCase().replace(/\s+/g, '-');
+    router.push(`/services/${serviceSlug}`);
+  };
+
+  const handleCardHover = (treatmentTitle: string) => {
     const serviceSlug = treatmentTitle.toLowerCase().replace(/\s+/g, '-');
     router.prefetch(`/services/${serviceSlug}`);
   };
 
-    const dataToUse = activeTab === 'general' ? allData.general : treatmentsData[activeTab as keyof typeof treatmentsData];
+  return (
     <div className="flex flex-col gap-[20px] w-full">
       {currentData.sections.map((section) => {
         const isExpanded = expandedSections[section.title] ?? true;
-        
-  }, [activeTab]);
+
+        return (
           <div
             key={section.title}
-    const dataToUse = activeTab === 'general' ? allData.general : treatmentsData[activeTab as keyof typeof treatmentsData];
             className="mb-[20px] last:mb-0"
           >
-        setCurrentData(dataToUse as any);
             <div className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[26px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full">
-              <div 
+              <div
                 className="flex items-center justify-between cursor-pointer"
                 onClick={() => toggleSection(section.title)}
-  }, [activeTab, currentData]);
+              >
                 <h2 className="text-[color:var(--color-primary-brown)] text-[24px] font-semibold leading-[24px] uppercase m-0">
                   {section.title}
                 </h2>
@@ -67,13 +65,10 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                   viewBox="0 0 30 30"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-    // Convert treatment title to URL-friendly format
-    const serviceSlug = treatmentTitle.toLowerCase().replace(/\s+/g, '-');
-    const newService = newServicesData.find(s => s.slug.includes(serviceSlug))
-    if(newService) {
-        router.push(`/services/${newService.slug}`);
-    } else {
-        router.push(`/services/${serviceSlug}`);
+                  className={`transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                >
+                  <path
+                    d="M22.5 11.25L15 18.75L7.5 11.25"
                     stroke="var(--color-dark-text)"
                     strokeWidth="2.5"
                     strokeLinecap="round"
@@ -81,13 +76,11 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                   />
                 </svg>
               </div>
-              
-              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                isExpanded ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
-              }`}>
+
+              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}>
                 <div className="mt-[32px]">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
-                    
                     {section.treatments.map((treatment: any, treatmentIndex) => (
                       <motion.div
                         key={`treatment-${treatmentIndex}`}
@@ -109,10 +102,9 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                           ease: "easeOut",
                           delay: isExpanded ? treatmentIndex * 0.1 : 0
                         }}
-                      > 
-                        <div className="target ignore relative top-[-100px]" id={'_'+treatment?.title}></div>
+                      >
+                        <div className="target ignore relative top-[-100px]" id={'_' + treatment?.title}></div>
                         <div className="flex gap-[16px] items-start">
-                          {/* Image container with blur fade transition */}
                           <div className="w-[140px] h-[140px] flex-shrink-0 rounded-[8px] overflow-hidden relative">
                             <AnimatePresence mode="wait">
                               <MotionImage
@@ -145,8 +137,7 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                               />
                             </AnimatePresence>
                           </div>
-                          
-                          {/* Text content with smooth transformations */}
+
                           <div className="flex-1 flex flex-col justify-start">
                             <AnimatePresence mode="wait">
                               <motion.h3
@@ -173,7 +164,7 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                                 {treatment?.title || "Treatment Title"}
                               </motion.h3>
                             </AnimatePresence>
-                            
+
                             <AnimatePresence mode="wait">
                               <motion.p
                                 key={`${activeTab}-desc-${treatment?.description}`}
@@ -199,9 +190,9 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                                 {treatment?.description || "Treatment description"}
                               </motion.p>
                             </AnimatePresence>
-                            
+
                             <AnimatePresence mode="wait">
-                              <motion.div 
+                              <motion.div
                                 key={`${activeTab}-learn-more-${treatmentIndex}`}
                                 className="flex items-center gap-[6px] cursor-pointer group"
                                 initial={{
@@ -222,25 +213,25 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
                                   delay: treatmentIndex * 0.05 + 0.4
                                 }}
                               >
-                              <span className="text-[#000000] text-[12px] font-medium leading-[16px] group-hover:text-[color:var(--color-dark-text)] transition-colors duration-300">
-                                Learn More
-                              </span>
-                              <svg
-                                width="10"
-                                height="10"
-                                viewBox="0 0 10 10"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="group-hover:translate-x-[2px] transition-transform duration-300"
-                              >
-                                <path
-                                  d="M2.33333 1H9V7.66667M9 1L1 9L9 1Z"
-                                  stroke="var(--color-primary-brown)"
-                                  strokeWidth="1.2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
+                                <span className="text-[#000000] text-[12px] font-medium leading-[16px] group-hover:text-[color:var(--color-dark-text)] transition-colors duration-300">
+                                  Learn More
+                                </span>
+                                <svg
+                                  width="10"
+                                  height="10"
+                                  viewBox="0 0 10 10"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="group-hover:translate-x-[2px] transition-transform duration-300"
+                                >
+                                  <path
+                                    d="M2.33333 1H9V7.66667M9 1L1 9L9 1Z"
+                                    stroke="var(--color-primary-brown)"
+                                    strokeWidth="1.2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
                               </motion.div>
                             </AnimatePresence>
                           </div>
