@@ -23,7 +23,11 @@ export const AcneTreatmentClientPage: React.FC<
 > = ({ contentData: typedContentData }) => {
   // Safe function to render text with markdown-style bold formatting
   const renderTextWithBold = (text: string) => {
-    return text.replace(/\\*\\*(.*?)\\*\\*/g, "<strong>$1</strong>");
+    if (!text) return "";
+    return text
+      .replace(/^\s*>\s*/gm, "") // Remove markdown blockquote characters
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/(\r\n|\n|\r)/gm, "<br/>"); // Preserve line breaks
   };
 
   const [visibleSections, setVisibleSections] = useState<Set<string>>(
@@ -279,12 +283,22 @@ export const AcneTreatmentClientPage: React.FC<
                 >
                   {typedContentData.whyChooseUs.title}
                 </h2>
-                <div className="whitespace-pre-line">
-                  {typedContentData.whyChooseUs.description}
-                </div>
-                <p className="mt-4 text-gray-700 italic">
-                  {typedContentData.whyChooseUs.highlight}
-                </p>
+                <div
+                  className="whitespace-pre-line"
+                  dangerouslySetInnerHTML={{
+                    __html: renderTextWithBold(
+                      typedContentData.whyChooseUs.description
+                    ),
+                  }}
+                />
+                <p
+                  className="mt-4 text-gray-700 italic"
+                  dangerouslySetInnerHTML={{
+                    __html: renderTextWithBold(
+                      typedContentData.whyChooseUs.highlight ?? ""
+                    ),
+                  }}
+                />
               </div>
             </div>
           </MaxWidthWrapper>
@@ -346,9 +360,12 @@ export const AcneTreatmentClientPage: React.FC<
                       <p className="text-lg font-medium text-black">
                         {step.title}
                       </p>
-                      <small className="text-sm leading-5 text-[color:var(--color-dark-text)]">
-                        {step.description}
-                      </small>
+                      <small
+                        className="text-sm leading-5 text-[color:var(--color-dark-text)]"
+                        dangerouslySetInnerHTML={{
+                          __html: renderTextWithBold(step.description),
+                        }}
+                      />
                     </div>
                   </div>
                 ))}
@@ -512,6 +529,7 @@ export const AcneTreatmentClientPage: React.FC<
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-6">
                     {typedContentData.postCare.description
                       .split("\n")
+                      .filter((item) => item.trim())
                       .map((item, index) => {
                         const parts = item.split(" - ");
                         const title = parts[0];
@@ -527,14 +545,21 @@ export const AcneTreatmentClientPage: React.FC<
                               />
                             </div>
                             <p className="text-base text-gray-800">
-                              <span className="font-semibold text-black">
-                                {title}
-                              </span>
+                              <span
+                                className="font-semibold text-black"
+                                dangerouslySetInnerHTML={{
+                                  __html: renderTextWithBold(title),
+                                }}
+                              />
                               {description && (
-                                <span className="text-gray-700">
-                                  {" "}
-                                  - {description}
-                                </span>
+                                <span
+                                  className="text-gray-700"
+                                  dangerouslySetInnerHTML={{
+                                    __html: ` - ${renderTextWithBold(
+                                      description
+                                    )}`,
+                                  }}
+                                />
                               )}
                             </p>
                           </div>
@@ -922,7 +947,11 @@ export const AcneTreatmentClientPage: React.FC<
               {typedContentData.whoBenefits.title}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {(typedContentData.whoBenefits.candidates || (typedContentData.whoBenefits as any).groups).map((item: string) => (
+              {(
+                typedContentData.whoBenefits.candidates ||
+                (typedContentData.whoBenefits as any).groups ||
+                []
+              ).map((item: string) => (
                 <div
                   key={item}
                   className="p-6 rounded-lg bg-white shadow-md border border-[color:var(--color-light-border)] hover:border-[color:var(--color-primary-brown)]/50 hover:bg-[color:var(--color-light-background)] hover:shadow-xl transition-all duration-300 flex items-center justify-center"
