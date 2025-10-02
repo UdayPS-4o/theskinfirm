@@ -6,30 +6,43 @@
  * and re-run `payload generate:db-schema` to regenerate this file.
  */
 
-import type {} from "@payloadcms/db-sqlite";
+import type {} from "@payloadcms/db-postgres";
 import {
-  sqliteTable,
+  pgTable,
   index,
   uniqueIndex,
   foreignKey,
   integer,
-  text,
+  varchar,
+  timestamp,
+  serial,
   numeric,
-} from "@payloadcms/db-sqlite/drizzle/sqlite-core";
-import { sql, relations } from "@payloadcms/db-sqlite/drizzle";
+  text,
+  jsonb,
+  pgEnum,
+} from "@payloadcms/db-postgres/drizzle/pg-core";
+import { sql, relations } from "@payloadcms/db-postgres/drizzle";
+export const enum_service_categories_type = pgEnum(
+  "enum_service_categories_type",
+  ["skin", "hair", "laser"],
+);
 
-export const users_sessions = sqliteTable(
+export const users_sessions = pgTable(
   "users_sessions",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    createdAt: text("created_at").default(
-      sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`,
-    ),
-    expiresAt: text("expires_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
+    id: varchar("id").primaryKey(),
+    createdAt: timestamp("created_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    }),
+    expiresAt: timestamp("expires_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    }).notNull(),
   },
   (columns) => ({
     _orderIdx: index("users_sessions_order_idx").on(columns._order),
@@ -42,27 +55,39 @@ export const users_sessions = sqliteTable(
   }),
 );
 
-export const users = sqliteTable(
+export const users = pgTable(
   "users",
   {
-    id: integer("id").primaryKey(),
-    updatedAt: text("updated_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
-    email: text("email").notNull(),
-    resetPasswordToken: text("reset_password_token"),
-    resetPasswordExpiration: text("reset_password_expiration").default(
-      sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`,
-    ),
-    salt: text("salt"),
-    hash: text("hash"),
+    id: serial("id").primaryKey(),
+    updatedAt: timestamp("updated_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    createdAt: timestamp("created_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    email: varchar("email").notNull(),
+    resetPasswordToken: varchar("reset_password_token"),
+    resetPasswordExpiration: timestamp("reset_password_expiration", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    }),
+    salt: varchar("salt"),
+    hash: varchar("hash"),
     loginAttempts: numeric("login_attempts").default("0"),
-    lockUntil: text("lock_until").default(
-      sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`,
-    ),
+    lockUntil: timestamp("lock_until", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    }),
   },
   (columns) => ({
     users_updated_at_idx: index("users_updated_at_idx").on(columns.updatedAt),
@@ -71,21 +96,30 @@ export const users = sqliteTable(
   }),
 );
 
-export const media = sqliteTable(
+export const media = pgTable(
   "media",
   {
-    id: integer("id").primaryKey(),
-    alt: text("alt").notNull(),
-    updatedAt: text("updated_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
-    url: text("url"),
-    thumbnailURL: text("thumbnail_u_r_l"),
-    filename: text("filename"),
-    mimeType: text("mime_type"),
+    id: serial("id").primaryKey(),
+    alt: varchar("alt").notNull(),
+    _key: varchar("_key"),
+    updatedAt: timestamp("updated_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    createdAt: timestamp("created_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    url: varchar("url"),
+    thumbnailURL: varchar("thumbnail_u_r_l"),
+    filename: varchar("filename"),
+    mimeType: varchar("mime_type"),
     filesize: numeric("filesize"),
     width: numeric("width"),
     height: numeric("height"),
@@ -99,19 +133,19 @@ export const media = sqliteTable(
   }),
 );
 
-export const services_blocks_hero = sqliteTable(
+export const services_blocks_hero = pgTable(
   "services_blocks_hero",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    description: text("description", { mode: "json" }).notNull(),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    description: jsonb("description").notNull(),
     image: integer("image_id").references(() => media.id, {
       onDelete: "set null",
     }),
-    blockName: text("block_name"),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_hero_order_idx").on(columns._order),
@@ -130,16 +164,16 @@ export const services_blocks_hero = sqliteTable(
   }),
 );
 
-export const services_blocks_info = sqliteTable(
+export const services_blocks_info = pgTable(
   "services_blocks_info",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    description: text("description", { mode: "json" }).notNull(),
-    blockName: text("block_name"),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    description: jsonb("description").notNull(),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_info_order_idx").on(columns._order),
@@ -155,21 +189,21 @@ export const services_blocks_info = sqliteTable(
   }),
 );
 
-export const services_blocks_about = sqliteTable(
+export const services_blocks_about = pgTable(
   "services_blocks_about",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    description: text("description", { mode: "json" }).notNull(),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    description: jsonb("description").notNull(),
     image: integer("image_id")
       .notNull()
       .references(() => media.id, {
         onDelete: "set null",
       }),
-    blockName: text("block_name"),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_about_order_idx").on(columns._order),
@@ -188,13 +222,13 @@ export const services_blocks_about = sqliteTable(
   }),
 );
 
-export const services_blocks_bullet_points_items = sqliteTable(
+export const services_blocks_bullet_points_items = pgTable(
   "services_blocks_bullet_points_items",
   {
     _order: integer("_order").notNull(),
-    _parentID: text("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    content: text("content", { mode: "json" }),
+    _parentID: varchar("_parent_id").notNull(),
+    id: varchar("id").primaryKey(),
+    content: jsonb("content"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_bullet_points_items_order_idx").on(
@@ -211,15 +245,15 @@ export const services_blocks_bullet_points_items = sqliteTable(
   }),
 );
 
-export const services_blocks_bullet_points = sqliteTable(
+export const services_blocks_bullet_points = pgTable(
   "services_blocks_bullet_points",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    blockName: text("block_name"),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_bullet_points_order_idx").on(
@@ -237,14 +271,14 @@ export const services_blocks_bullet_points = sqliteTable(
   }),
 );
 
-export const services_blocks_process_items = sqliteTable(
+export const services_blocks_process_items = pgTable(
   "services_blocks_process_items",
   {
     _order: integer("_order").notNull(),
-    _parentID: text("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    description: text("description", { mode: "json" }).notNull(),
+    _parentID: varchar("_parent_id").notNull(),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    description: jsonb("description").notNull(),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_process_items_order_idx").on(
@@ -261,15 +295,15 @@ export const services_blocks_process_items = sqliteTable(
   }),
 );
 
-export const services_blocks_process = sqliteTable(
+export const services_blocks_process = pgTable(
   "services_blocks_process",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    blockName: text("block_name"),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_process_order_idx").on(columns._order),
@@ -285,14 +319,14 @@ export const services_blocks_process = sqliteTable(
   }),
 );
 
-export const services_blocks_treatments_items = sqliteTable(
+export const services_blocks_treatments_items = pgTable(
   "services_blocks_treatments_items",
   {
     _order: integer("_order").notNull(),
-    _parentID: text("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    description: text("description", { mode: "json" }).notNull(),
+    _parentID: varchar("_parent_id").notNull(),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    description: jsonb("description").notNull(),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_treatments_items_order_idx").on(
@@ -309,15 +343,15 @@ export const services_blocks_treatments_items = sqliteTable(
   }),
 );
 
-export const services_blocks_treatments = sqliteTable(
+export const services_blocks_treatments = pgTable(
   "services_blocks_treatments",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    blockName: text("block_name"),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_treatments_order_idx").on(columns._order),
@@ -333,13 +367,13 @@ export const services_blocks_treatments = sqliteTable(
   }),
 );
 
-export const services_blocks_benifits_items = sqliteTable(
+export const services_blocks_benifits_items = pgTable(
   "services_blocks_benifits_items",
   {
     _order: integer("_order").notNull(),
-    _parentID: text("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    content: text("content", { mode: "json" }).notNull(),
+    _parentID: varchar("_parent_id").notNull(),
+    id: varchar("id").primaryKey(),
+    content: jsonb("content").notNull(),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_benifits_items_order_idx").on(
@@ -356,15 +390,15 @@ export const services_blocks_benifits_items = sqliteTable(
   }),
 );
 
-export const services_blocks_benifits = sqliteTable(
+export const services_blocks_benifits = pgTable(
   "services_blocks_benifits",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    blockName: text("block_name"),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_benifits_order_idx").on(columns._order),
@@ -380,13 +414,13 @@ export const services_blocks_benifits = sqliteTable(
   }),
 );
 
-export const services_blocks_post_care_downtime = sqliteTable(
+export const services_blocks_post_care_downtime = pgTable(
   "services_blocks_post_care_downtime",
   {
     _order: integer("_order").notNull(),
-    _parentID: text("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    content: text("content", { mode: "json" }).notNull(),
+    _parentID: varchar("_parent_id").notNull(),
+    id: varchar("id").primaryKey(),
+    content: jsonb("content").notNull(),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_post_care_downtime_order_idx").on(
@@ -403,13 +437,13 @@ export const services_blocks_post_care_downtime = sqliteTable(
   }),
 );
 
-export const services_blocks_post_care_post_care_items = sqliteTable(
+export const services_blocks_post_care_post_care_items = pgTable(
   "services_blocks_post_care_post_care_items",
   {
     _order: integer("_order").notNull(),
-    _parentID: text("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    content: text("content", { mode: "json" }).notNull(),
+    _parentID: varchar("_parent_id").notNull(),
+    id: varchar("id").primaryKey(),
+    content: jsonb("content").notNull(),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_post_care_post_care_items_order_idx").on(
@@ -426,16 +460,16 @@ export const services_blocks_post_care_post_care_items = sqliteTable(
   }),
 );
 
-export const services_blocks_post_care = sqliteTable(
+export const services_blocks_post_care = pgTable(
   "services_blocks_post_care",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    downtimeTitle: text("downtime_title").notNull(),
-    postCareTitle: text("post_care_title").notNull(),
-    blockName: text("block_name"),
+    id: varchar("id").primaryKey(),
+    downtimeTitle: varchar("downtime_title").notNull(),
+    postCareTitle: varchar("post_care_title").notNull(),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_post_care_order_idx").on(columns._order),
@@ -451,13 +485,13 @@ export const services_blocks_post_care = sqliteTable(
   }),
 );
 
-export const services_blocks_testimonials_items = sqliteTable(
+export const services_blocks_testimonials_items = pgTable(
   "services_blocks_testimonials_items",
   {
     _order: integer("_order").notNull(),
-    _parentID: text("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    content: text("content", { mode: "json" }).notNull(),
+    _parentID: varchar("_parent_id").notNull(),
+    id: varchar("id").primaryKey(),
+    content: jsonb("content").notNull(),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_testimonials_items_order_idx").on(
@@ -474,15 +508,15 @@ export const services_blocks_testimonials_items = sqliteTable(
   }),
 );
 
-export const services_blocks_testimonials = sqliteTable(
+export const services_blocks_testimonials = pgTable(
   "services_blocks_testimonials",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    blockName: text("block_name"),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_testimonials_order_idx").on(
@@ -500,13 +534,13 @@ export const services_blocks_testimonials = sqliteTable(
   }),
 );
 
-export const services_blocks_eligibility_items = sqliteTable(
+export const services_blocks_eligibility_items = pgTable(
   "services_blocks_eligibility_items",
   {
     _order: integer("_order").notNull(),
-    _parentID: text("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    content: text("content", { mode: "json" }).notNull(),
+    _parentID: varchar("_parent_id").notNull(),
+    id: varchar("id").primaryKey(),
+    content: jsonb("content").notNull(),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_eligibility_items_order_idx").on(
@@ -523,15 +557,15 @@ export const services_blocks_eligibility_items = sqliteTable(
   }),
 );
 
-export const services_blocks_eligibility = sqliteTable(
+export const services_blocks_eligibility = pgTable(
   "services_blocks_eligibility",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    blockName: text("block_name"),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_eligibility_order_idx").on(
@@ -549,14 +583,14 @@ export const services_blocks_eligibility = sqliteTable(
   }),
 );
 
-export const services_blocks_faq_items = sqliteTable(
+export const services_blocks_faq_items = pgTable(
   "services_blocks_faq_items",
   {
     _order: integer("_order").notNull(),
-    _parentID: text("_parent_id").notNull(),
-    id: text("id").primaryKey(),
-    question: text("question").notNull(),
-    answer: text("answer", { mode: "json" }).notNull(),
+    _parentID: varchar("_parent_id").notNull(),
+    id: varchar("id").primaryKey(),
+    question: varchar("question").notNull(),
+    answer: jsonb("answer").notNull(),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_faq_items_order_idx").on(columns._order),
@@ -571,15 +605,15 @@ export const services_blocks_faq_items = sqliteTable(
   }),
 );
 
-export const services_blocks_faq = sqliteTable(
+export const services_blocks_faq = pgTable(
   "services_blocks_faq",
   {
     _order: integer("_order").notNull(),
     _parentID: integer("_parent_id").notNull(),
     _path: text("_path").notNull(),
-    id: text("id").primaryKey(),
-    title: text("title").notNull(),
-    blockName: text("block_name"),
+    id: varchar("id").primaryKey(),
+    title: varchar("title").notNull(),
+    blockName: varchar("block_name"),
   },
   (columns) => ({
     _orderIdx: index("services_blocks_faq_order_idx").on(columns._order),
@@ -595,23 +629,31 @@ export const services_blocks_faq = sqliteTable(
   }),
 );
 
-export const services = sqliteTable(
+export const services = pgTable(
   "services",
   {
-    id: integer("id").primaryKey(),
-    title: text("title").notNull(),
-    slug: text("slug").notNull(),
+    id: serial("id").primaryKey(),
+    title: varchar("title").notNull(),
+    slug: varchar("slug").notNull(),
     category: integer("category_id")
       .notNull()
       .references(() => service_categories.id, {
         onDelete: "set null",
       }),
-    updatedAt: text("updated_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
+    updatedAt: timestamp("updated_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    createdAt: timestamp("created_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
   },
   (columns) => ({
     services_slug_idx: uniqueIndex("services_slug_idx").on(columns.slug),
@@ -625,18 +667,26 @@ export const services = sqliteTable(
   }),
 );
 
-export const service_categories = sqliteTable(
+export const service_categories = pgTable(
   "service_categories",
   {
-    id: integer("id").primaryKey(),
-    name: text("name").notNull(),
-    type: text("type", { enum: ["skin", "hair", "laser"] }),
-    updatedAt: text("updated_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
+    id: serial("id").primaryKey(),
+    name: varchar("name").notNull(),
+    type: enum_service_categories_type("type"),
+    updatedAt: timestamp("updated_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    createdAt: timestamp("created_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
   },
   (columns) => ({
     service_categories_updated_at_idx: index(
@@ -648,17 +698,25 @@ export const service_categories = sqliteTable(
   }),
 );
 
-export const payload_locked_documents = sqliteTable(
+export const payload_locked_documents = pgTable(
   "payload_locked_documents",
   {
-    id: integer("id").primaryKey(),
-    globalSlug: text("global_slug"),
-    updatedAt: text("updated_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
+    id: serial("id").primaryKey(),
+    globalSlug: varchar("global_slug"),
+    updatedAt: timestamp("updated_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    createdAt: timestamp("created_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
   },
   (columns) => ({
     payload_locked_documents_global_slug_idx: index(
@@ -673,13 +731,13 @@ export const payload_locked_documents = sqliteTable(
   }),
 );
 
-export const payload_locked_documents_rels = sqliteTable(
+export const payload_locked_documents_rels = pgTable(
   "payload_locked_documents_rels",
   {
-    id: integer("id").primaryKey(),
+    id: serial("id").primaryKey(),
     order: integer("order"),
     parent: integer("parent_id").notNull(),
-    path: text("path").notNull(),
+    path: varchar("path").notNull(),
     usersID: integer("users_id"),
     mediaID: integer("media_id"),
     servicesID: integer("services_id"),
@@ -731,18 +789,26 @@ export const payload_locked_documents_rels = sqliteTable(
   }),
 );
 
-export const payload_preferences = sqliteTable(
+export const payload_preferences = pgTable(
   "payload_preferences",
   {
-    id: integer("id").primaryKey(),
-    key: text("key"),
-    value: text("value", { mode: "json" }),
-    updatedAt: text("updated_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
+    id: serial("id").primaryKey(),
+    key: varchar("key"),
+    value: jsonb("value"),
+    updatedAt: timestamp("updated_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    createdAt: timestamp("created_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
   },
   (columns) => ({
     payload_preferences_key_idx: index("payload_preferences_key_idx").on(
@@ -757,13 +823,13 @@ export const payload_preferences = sqliteTable(
   }),
 );
 
-export const payload_preferences_rels = sqliteTable(
+export const payload_preferences_rels = pgTable(
   "payload_preferences_rels",
   {
-    id: integer("id").primaryKey(),
+    id: serial("id").primaryKey(),
     order: integer("order"),
     parent: integer("parent_id").notNull(),
-    path: text("path").notNull(),
+    path: varchar("path").notNull(),
     usersID: integer("users_id"),
   },
   (columns) => ({
@@ -786,18 +852,26 @@ export const payload_preferences_rels = sqliteTable(
   }),
 );
 
-export const payload_migrations = sqliteTable(
+export const payload_migrations = pgTable(
   "payload_migrations",
   {
-    id: integer("id").primaryKey(),
-    name: text("name"),
+    id: serial("id").primaryKey(),
+    name: varchar("name"),
     batch: numeric("batch"),
-    updatedAt: text("updated_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
-    createdAt: text("created_at")
-      .notNull()
-      .default(sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`),
+    updatedAt: timestamp("updated_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    createdAt: timestamp("created_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
   },
   (columns) => ({
     payload_migrations_updated_at_idx: index(
@@ -1173,6 +1247,7 @@ export const relations_payload_migrations = relations(
 );
 
 type DatabaseSchema = {
+  enum_service_categories_type: typeof enum_service_categories_type;
   users_sessions: typeof users_sessions;
   users: typeof users;
   media: typeof media;
@@ -1235,7 +1310,7 @@ type DatabaseSchema = {
   relations_payload_migrations: typeof relations_payload_migrations;
 };
 
-declare module "@payloadcms/db-sqlite" {
+declare module "@payloadcms/db-postgres" {
   export interface GeneratedDatabaseSchema {
     schema: DatabaseSchema;
   }

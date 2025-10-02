@@ -1,12 +1,11 @@
-// storage-adapter-import-placeholder
-import { sqliteAdapter } from "@payloadcms/db-sqlite";
+import { postgresAdapter } from "@payloadcms/db-postgres";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
-
+import { uploadthingStorage } from "@payloadcms/storage-uploadthing";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Services } from "./collections/Services";
@@ -28,14 +27,22 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
-  db: sqliteAdapter({
-    client: {
-      url: process.env.DATABASE_URI || "",
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI as string,
     },
   }),
   sharp,
   plugins: [
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    uploadthingStorage({
+      collections: {
+        media: true,
+      },
+      options: {
+        token: process.env.UPLOADTHING_TOKEN,
+        acl: "public-read",
+      },
+    }),
   ],
 });

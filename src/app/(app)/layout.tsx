@@ -5,7 +5,8 @@ import { Navbar } from "@/components/layout/navbar";
 import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
-
+import config from "@payload-config";
+import { getPayload } from "payload";
 const jsonLd = {
   "@context": "https://schema.org",
   "@id": "https://theskinfirm.in/",
@@ -125,12 +126,25 @@ export const metadata: Metadata = {
     default: "The Skin Firm - Premium Skincare & Advanced Treatments in Pune",
     template: `%s | The Skin Firm`,
   },
-  description: "The Skin Firm offers exceptional skincare services and advanced treatments including acne treatment, laser hair removal, anti-aging, and pigmentation solutions in Pune. Book your consultation today!",
+  description:
+    "The Skin Firm offers exceptional skincare services and advanced treatments including acne treatment, laser hair removal, anti-aging, and pigmentation solutions in Pune. Book your consultation today!",
   keywords: [
-    "skincare Pune", "skin treatments Pune", "acne treatment Pune", "laser hair removal Pune", 
-    "anti-aging treatment", "pigmentation treatment", "facial treatment", "dermatology clinic Pune", 
-    "beauty clinic Pune", "skin whitening treatment", "botox Pune", "chemical peel treatment",
-    "hydrafacial Pune", "microneedling", "stretch marks removal", "dark circle treatment"
+    "skincare Pune",
+    "skin treatments Pune",
+    "acne treatment Pune",
+    "laser hair removal Pune",
+    "anti-aging treatment",
+    "pigmentation treatment",
+    "facial treatment",
+    "dermatology clinic Pune",
+    "beauty clinic Pune",
+    "skin whitening treatment",
+    "botox Pune",
+    "chemical peel treatment",
+    "hydrafacial Pune",
+    "microneedling",
+    "stretch marks removal",
+    "dark circle treatment",
   ],
   authors: [{ name: "The Skin Firm" }],
   creator: "The Skin Firm",
@@ -142,7 +156,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "The Skin Firm - Premium Skincare & Advanced Treatments in Pune",
-    description: "Discover advanced skincare solutions at The Skin Firm Pune. Expert treatments for acne, pigmentation, anti-aging, laser hair removal & more. Book consultation now!",
+    description:
+      "Discover advanced skincare solutions at The Skin Firm Pune. Expert treatments for acne, pigmentation, anti-aging, laser hair removal & more. Book consultation now!",
     url: "https://theskinfirm.in",
     siteName: "The Skin Firm",
     images: [
@@ -159,7 +174,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "The Skin Firm - Premium Skincare & Advanced Treatments in Pune",
-    description: "Expert skincare treatments in Pune. Acne, pigmentation, anti-aging & laser solutions. Book your consultation today!",
+    description:
+      "Expert skincare treatments in Pune. Acne, pigmentation, anti-aging & laser solutions. Book your consultation today!",
     images: ["/twitter-image.png"],
     creator: "@theskinfirm",
   },
@@ -171,9 +187,9 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       noimageindex: false,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
@@ -181,11 +197,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const payload = await getPayload({
+    config,
+  });
+  const { docs } = await payload.find({
+    collection: "service-categories",
+  });
   return (
     <html lang="en">
       <body
@@ -208,12 +230,8 @@ export default function RootLayout({
   gtag('config', 'G-2D5D0GH7J3');
 `}
         </Script>
-        <Script 
-          src="https://www.google.com/recaptcha/api.js" 
-          async 
-          defer
-        />
-        <Navbar/>
+        <Script src="https://www.google.com/recaptcha/api.js" async defer />
+        <Navbar serviceCategories={docs} />
         {children}
         <Footer />
         <WhatsAppFAB />
