@@ -1,0 +1,25 @@
+import { Block } from "payload";
+
+export const TreatmentsBlock: Block = {
+  slug: "treatments",
+  fields: [
+    { name: "title", type: "text", required: true },
+    {
+      name: "items",
+      type: "array",
+      required: true,
+      fields: [
+        {
+          name: "title",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "description",
+          type: "richText",
+          required: true,
+        },
+      ],
+    },
+  ],
+};

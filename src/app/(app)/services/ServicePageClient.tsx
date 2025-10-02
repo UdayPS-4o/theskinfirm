@@ -3,11 +3,20 @@
 import { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Helper from "./helper";
+import { Service, ServiceCategory } from "@/payload-types";
 
 type TabKey = "skin" | "hair" | "laser";
 
+interface ServicePageProps {
+  services: (Service & { category: ServiceCategory })[];
+}
+
+interface ServicePageContentProps {
+  services: (Service & { category: ServiceCategory })[];
+}
+
 // Extract search params logic into separate component
-function ServicePageContent() {
+function ServicePageContent({ services }: ServicePageContentProps) {
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabKey>("skin");
   const servicesRef = useRef<HTMLElement>(null);
@@ -171,7 +180,7 @@ function ServicePageContent() {
 
           {/* Cards Grid */}
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8">
-            <Helper activeTab={activeTab} />
+            <Helper activeTab={activeTab} services={services} />
           </div>
         </section>
       </main>
@@ -180,7 +189,7 @@ function ServicePageContent() {
 }
 
 // Fallback component for loading state
-function ServicePageFallback() {
+function ServicePageFallback({ services }: ServicePageContentProps) {
   return (
     <div className="w-full min-h-screen flex flex-col bg-[color:var(--color-light-background)] overflow-x-hidden">
       <main className="flex-1 w-full">
@@ -236,7 +245,7 @@ function ServicePageFallback() {
           </div>
 
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8">
-            <Helper activeTab="skin" />
+            <Helper activeTab="skin" services={services} />
           </div>
         </section>
       </main>
@@ -244,10 +253,10 @@ function ServicePageFallback() {
   );
 }
 
-export default function ServicePage() {
+export default function ServicePageClient({ services }: ServicePageProps) {
   return (
-    <Suspense fallback={<ServicePageFallback />}>
-      <ServicePageContent />
+    <Suspense fallback={<ServicePageFallback services={services} />}>
+      <ServicePageContent services={services} />
     </Suspense>
   );
 }

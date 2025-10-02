@@ -4,103 +4,118 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import treatmentsData from '@/data/treatments.json';
-import allServices from './[service]/data_2.json';
+import { Service, ServiceCategory } from '@/payload-types';
 
 type TabKey = "skin" | "hair" | "laser";
 
 interface HelperProps {
   activeTab: TabKey;
+  services: (Service & { category: ServiceCategory })[];
 }
 
 const MotionImage = motion(Image);
 
-const HAIR_SERVICE_TITLES = [
-  "PRP Hair Treatment", "Hair Loss Treatment", "Hair Mesotherapy",
-  "QR678 Treatment", "GFC Therapy", "Hair Density Improvement",
-  "Hair Regrowth", "Postnatal Hair Loss Treatment", "Alopecia Areata Treatment",
-  "Hair Loss Treatment for Men",
-];
-
-const LASER_SERVICE_TITLES = [
-  "Laser Hair Removal", "Leg Hair Removal", "Bikini Hair Removal",
-  "Laser Beard Shaping", "Diode Laser Hair Removal", "CO2 Laser for Skin",
-  "QSwitch ND YAG Laser", "Carbon Laser Facial", "Tattoo Removal",
-];
-
-const Helper: React.FC<HelperProps> = ({ activeTab }) => {
+const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
   const router = useRouter();
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
 
   const handleCardClick = (treatment: any) => {
-    const slug = treatment.slug || treatment.title.toLowerCase().replace(/\s+/g, '-');
+    const slug = treatment.slug;
     router.push(`/services/${slug}`);
   };
 
   const handleCardHover = (treatment: any) => {
-    const slug = treatment.slug || treatment.title.toLowerCase().replace(/\s+/g, '-');
+    const slug = treatment.slug;
     router.prefetch(`/services/${slug}`);
   };
 
-  // Data processing logic...
-  const services: { [key in TabKey]: any[] } = {
+  // Process services by category
+  const processedServices: { [key in TabKey]: any[] } = {
     skin: [],
     hair: [],
     laser: [],
   };
 
-  // This part remains unchanged
-  Object.entries(allServices).forEach(([slug, serviceData]) => {
-    const title = serviceData.hero.title.split(" in Pune")[0];
-    let category: TabKey = 'skin';
-
-    if (HAIR_SERVICE_TITLES.some(hairTitle => title.includes(hairTitle))) {
-      category = 'hair';
-    } else if (LASER_SERVICE_TITLES.some(laserTitle => title.includes(laserTitle))) {
-      category = 'laser';
+  // Group services by category type
+  services.forEach(service => {
+    // Ensure service has a category and it's populated
+    if (!service.category || typeof service.category !== 'object') {
+      return;
     }
 
-    if (!services[category].find(s => s.title === title)) {
-      services[category].push({
-        title: title,
-        slug: slug,
-        description: serviceData.whatIsService.content.substring(0, 150) + "...",
-        imageSrc: (serviceData as any).whyChooseUs.image || "/images/services/53.png",
-      });
-    }
-  });
-
-  (['hair', 'laser'] as TabKey[]).forEach(category => {
-    const cat = category as keyof typeof treatmentsData;
-    if (treatmentsData[cat] && treatmentsData[cat].sections) {
-      treatmentsData[cat].sections.forEach(section => {
-        section.treatments.forEach(treatment => {
-          if (!services[category].find(s => s.title === treatment.title)) {
-            services[category].push(treatment);
+    const categoryType = service.category.type as TabKey;
+    if (categoryType && processedServices[categoryType]) {
+      // Get description from the first info section if available
+      let description = "Professional treatment available at The Skin Firm.";
+      if (service.sections && Array.isArray(service.sections)) {
+        const infoSection = service.sections.find(section => section.blockType === 'info');
+        if (infoSection && 'description' in infoSection) {
+          // Extract plain text from rich text content
+          const richTextContent = infoSection.description;
+          if (richTextContent?.root?.children && Array.isArray(richTextContent.root.children)) {
+            const textContent = richTextContent.root.children
+              .map((child: any) => {
+                if (child.children && Array.isArray(child.children)) {
+                  return child.children.map((textNode: any) => textNode.text || '').join('');
+                }
+                return '';
+              })
+              .join(' ')
+              .trim();
+            if (textContent.length > 0) {
+              description = textContent.length > 150 ? textContent.substring(0, 150) + "..." : textContent;
+            }
           }
-        });
+        }
+      }
+
+      // Get image from hero section if available
+      let imageSrc = "/placeholder.svg";
+      if (service.sections && Array.isArray(service.sections)) {
+        const aboutSection = service.sections.find(section => section.blockType === 'about');
+        if (aboutSection && 'image' in aboutSection && aboutSection.image) {
+          if (typeof aboutSection.image === 'object' && aboutSection.image && 'url' in aboutSection.image) {
+            imageSrc = aboutSection.image.url || imageSrc;
+          }
+        }
+      }
+
+      processedServices[categoryType].push({
+        title: service.title,
+        slug: service.slug,
+        description,
+        imageSrc,
       });
     }
   });
 
-  const skinSections = treatmentsData.skin.sections.map(section => ({
-    ...section,
-    treatments: section.treatments.map(treatment => {
-      const service = Object.entries(allServices).find(([_slug, data]) =>
-        data.hero.title.toLowerCase().includes(treatment.title.toLowerCase())
-      );
-      return service ? { ...treatment, slug: service[0] } : treatment;
-    })
-  }));
+  // Group services by category for skin services
+  const skinServicesByCategory = processedServices.skin.reduce((acc: any, service: any) => {
+    // Find the service in the original services array to get the category
+    const originalService = services.find(s => s.slug === service.slug);
+    const categoryName = originalService?.category?.name || 'General Skin Services';
+    
+    if (!acc[categoryName]) {
+      acc[categoryName] = [];
+    }
+    acc[categoryName].push(service);
+    return acc;
+  }, {});
 
-  const hairSections = [{ title: "Hair Services", treatments: services.hair }];
-  const laserSections = [{ title: "Laser Services", treatments: services.laser }];
-
+  // Create sections structure
   const sections: { [key in TabKey]: any[] } = {
-    skin: skinSections,
-    hair: hairSections,
-    laser: laserSections,
+    skin: Object.keys(skinServicesByCategory).map(categoryName => ({
+      title: categoryName,
+      treatments: skinServicesByCategory[categoryName]
+    })),
+    hair: processedServices.hair.length > 0 ? [{ title: "Hair Services", treatments: processedServices.hair }] : [],
+    laser: processedServices.laser.length > 0 ? [{ title: "Laser Services", treatments: processedServices.laser }] : [],
   };
+
+  // If no categorized sections for skin, create a single section
+  if (sections.skin.length === 0 && processedServices.skin.length > 0) {
+    sections.skin = [{ title: "Skin Services", treatments: processedServices.skin }];
+  }
 
   const renderService = (treatment: any, treatmentIndex: number) => (
     <motion.div
@@ -115,8 +130,8 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
       <div className="flex gap-[16px] items-start">
         <div className="w-[140px] h-[140px] flex-shrink-0 rounded-[8px] overflow-hidden relative">
           <MotionImage
-            src={treatment?.imageSrc || "/images/services/53.png"}
-            alt={treatment?.title || "Treatment"}
+            src={treatment.imageSrc}
+            alt={treatment}
             fill
             sizes="140px"
             className="object-cover"
@@ -198,6 +213,20 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
       </div>
     );
   };
+
+  // Show message if no services are available for the active tab
+  if (!sections[activeTab] || sections[activeTab].length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12 text-center">
+        <h3 className="text-xl font-semibold text-[color:var(--color-dark-text)] mb-2">
+          No {activeTab} services available
+        </h3>
+        <p className="text-[color:var(--color-light-text)]">
+          Please check back later or contact us for more information.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-[20px] w-full">
