@@ -3,7 +3,7 @@ import { Block } from "payload";
 export const EligibilityBlock: Block = {
   slug: "eligibility",
   fields: [
-    { name: "title", type: "text", required: true },
+    { name: "title", type: "richText", required: true },
     {
       name: "items",
       type: "array",

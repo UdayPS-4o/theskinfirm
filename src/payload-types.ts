@@ -173,7 +173,21 @@ export interface Service {
   sections?:
     | (
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             description: {
               root: {
                 type: string;
@@ -195,7 +209,21 @@ export interface Service {
             blockType: 'hero';
           }
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             description: {
               root: {
                 type: string;
@@ -216,7 +244,21 @@ export interface Service {
             blockType: 'info';
           }
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             description: {
               root: {
                 type: string;
@@ -238,7 +280,21 @@ export interface Service {
             blockType: 'about';
           }
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             items: {
               content?: {
                 root: {
@@ -262,7 +318,21 @@ export interface Service {
             blockType: 'bullet-points';
           }
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             items: {
               title: string;
               description: {
@@ -287,7 +357,21 @@ export interface Service {
             blockType: 'process';
           }
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             items: {
               title: string;
               description: {
@@ -312,7 +396,21 @@ export interface Service {
             blockType: 'treatments';
           }
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             items: {
               content: {
                 root: {
@@ -336,7 +434,21 @@ export interface Service {
             blockType: 'benifits';
           }
         | {
-            downtimeTitle: string;
+            downtimeTitle: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             downtime: {
               content: {
                 root: {
@@ -355,7 +467,21 @@ export interface Service {
               };
               id?: string | null;
             }[];
-            postCareTitle: string;
+            postCareTitle: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             postCareItems: {
               content: {
                 root: {
@@ -379,7 +505,21 @@ export interface Service {
             blockType: 'post-care';
           }
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             items: {
               content: {
                 root: {
@@ -403,7 +543,21 @@ export interface Service {
             blockType: 'testimonials';
           }
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             items: {
               content: {
                 root: {
@@ -427,7 +581,21 @@ export interface Service {
             blockType: 'eligibility';
           }
         | {
-            title: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             items: {
               question: string;
               answer: {
@@ -463,7 +631,7 @@ export interface Service {
 export interface ServiceCategory {
   id: number;
   name: string;
-  type?: ('skin' | 'hair' | 'laser') | null;
+  type: 'skin' | 'hair' | 'laser';
   updatedAt: string;
   createdAt: string;
 }

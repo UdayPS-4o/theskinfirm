@@ -46,7 +46,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"description" jsonb NOT NULL,
   	"image_id" integer,
   	"block_name" varchar
@@ -57,7 +57,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"description" jsonb NOT NULL,
   	"block_name" varchar
   );
@@ -67,7 +67,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"description" jsonb NOT NULL,
   	"image_id" integer NOT NULL,
   	"block_name" varchar
@@ -85,7 +85,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"block_name" varchar
   );
   
@@ -102,7 +102,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"block_name" varchar
   );
   
@@ -119,7 +119,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"block_name" varchar
   );
   
@@ -135,7 +135,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"block_name" varchar
   );
   
@@ -158,8 +158,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"downtime_title" varchar NOT NULL,
-  	"post_care_title" varchar NOT NULL,
+  	"downtime_title" jsonb NOT NULL,
+  	"post_care_title" jsonb NOT NULL,
   	"block_name" varchar
   );
   
@@ -175,7 +175,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"block_name" varchar
   );
   
@@ -191,7 +191,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"block_name" varchar
   );
   
@@ -208,7 +208,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" integer NOT NULL,
   	"_path" text NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
+  	"title" jsonb NOT NULL,
   	"block_name" varchar
   );
   

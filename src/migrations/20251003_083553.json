@@ -1,5 +1,5 @@
 {
-  "id": "f939d137-c075-4c54-8545-bdfce46f6097",
+  "id": "01bee138-af3b-4b21-b442-c3550f98bf01",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -389,7 +389,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -538,7 +538,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -653,7 +653,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -884,7 +884,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -1081,7 +1081,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -1278,7 +1278,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -1469,7 +1469,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -1742,13 +1742,13 @@
         },
         "downtime_title": {
           "name": "downtime_title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
         "post_care_title": {
           "name": "post_care_title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -1939,7 +1939,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -2130,7 +2130,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
@@ -2327,7 +2327,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },

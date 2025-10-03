@@ -18,6 +18,7 @@ export const ServiceCategories: CollectionConfig = {
     {
       name: "type",
       type: "select",
+      required: true,
       options: [
         {
           label: "Skin",

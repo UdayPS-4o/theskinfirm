@@ -5,7 +5,7 @@ export const PostCareBlock: Block = {
   fields: [
     {
       name: "downtimeTitle",
-      type: "text",
+      type: "richText",
       required: true,
     },
     {
@@ -16,7 +16,7 @@ export const PostCareBlock: Block = {
     },
     {
       name: "postCareTitle",
-      type: "text",
+      type: "richText",
       required: true,
     },
     {

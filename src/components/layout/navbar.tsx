@@ -8,7 +8,8 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import { MaxWidthWrapper } from "./max-width";
 import { useRouter } from "next/navigation";
 import { getPayload } from "payload";
-import { ServiceCategory } from "@/payload-types";
+import { Service, ServiceCategory } from "@/payload-types";
+import { SERVICE_TYPE } from "@/collections/ServiceCategory";
 
 const NAV_ITEMS = [
   { label: "About Us", href: "/about-us" },
@@ -167,8 +168,12 @@ const navItemVariants: Variants = {
 
 export const Navbar = ({
   serviceCategories,
+  hairServices,
+  laserServices,
 }: {
   serviceCategories: ServiceCategory[];
+  hairServices: Pick<Service, "title" | "slug">[];
+  laserServices: Pick<Service, "title" | "slug">[];
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -202,7 +207,7 @@ export const Navbar = ({
 
   const toggleMobileDropdown = (dropdownType: string) => {
     setActiveMobileDropdown(
-      activeMobileDropdown === dropdownType ? null : dropdownType,
+      activeMobileDropdown === dropdownType ? null : dropdownType
     );
   };
 
@@ -236,94 +241,59 @@ export const Navbar = ({
   };
 
   const renderDropdownContent = (dropdownType: ServiceCategory["type"]) => {
-    switch (dropdownType) {
-      case "skin":
-        return (
-          <div className="space-y-1">
-            {serviceCategories
-              .filter((service) => service.type === "skin")
-              .map((group, index) => (
-                <motion.div
-                  key={group.name}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.02, duration: 0.2 }}
-                >
-                  <Link
-                    href={`/services#_${getSectionSlug(group.name)}`}
-                    className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                    onMouseEnter={() => handleLinkHover("/services")}
-                    onClick={() => {
-                      closeDesktopDropdown();
-                      closeMobileMenu();
-                    }}
-                  >
-                    {group.name}
-                  </Link>
-                </motion.div>
-              ))}
-          </div>
-        );
-
-      case "hair":
-        return (
-          <div className="space-y-1">
-            {serviceCategories.map((service, index) => (
+    if (dropdownType === "skin") {
+      return (
+        <div className="space-y-1">
+          {serviceCategories
+            .filter((service) => service.type === "skin")
+            .map((group, index) => (
               <motion.div
-                key={service.name}
+                key={group.name}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.02, duration: 0.2 }}
               >
                 <Link
-                  href={`/services/${getServiceSlug(service.name)}`}
+                  href={`/services#_${getSectionSlug(group.name)}`}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                  onMouseEnter={() =>
-                    handleServiceHover(getServiceSlug(service.name))
-                  }
+                  onMouseEnter={() => handleLinkHover("/services")}
                   onClick={() => {
                     closeDesktopDropdown();
                     closeMobileMenu();
                   }}
                 >
-                  {service.name}
+                  {group.name}
                 </Link>
               </motion.div>
             ))}
-          </div>
-        );
-
-      case "laser":
-        return (
-          <div className="space-y-1">
-            {serviceCategories.map((service, index) => (
-              <motion.div
-                key={service.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.02, duration: 0.2 }}
-              >
-                <Link
-                  href={`/services/${getServiceSlug(service.name)}`}
-                  className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                  onMouseEnter={() =>
-                    handleServiceHover(getServiceSlug(service.name))
-                  }
-                  onClick={() => {
-                    closeDesktopDropdown();
-                    closeMobileMenu();
-                  }}
-                >
-                  {service.name}
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        );
-
-      default:
-        return null;
+        </div>
+      );
     }
+    const servicesToRender = dropdownType === 'hair' ? hairServices : laserServices
+    return (
+      <div className="space-y-1">
+        {servicesToRender.map((service, index) => (
+          <motion.div
+            key={service.title}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.02, duration: 0.2 }}
+          >
+            <Link
+              href={`/services/${service.slug}`}
+              className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
+              onMouseEnter={() => handleServiceHover(service.slug)}
+              onClick={() => {
+                closeDesktopDropdown();
+                closeMobileMenu();
+              }}
+            >
+              {service.title}
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -365,7 +335,9 @@ export const Navbar = ({
               variants={navItemVariants}
               className="relative"
             >
-              {item.hasDropdown ? (
+              {(item.hasDropdown && item.dropdownType === "skin") ||
+              item.dropdownType === "hair" ||
+              item.dropdownType === "laser" ? (
                 <div
                   className="relative group"
                   onMouseEnter={() =>
@@ -401,37 +373,7 @@ export const Navbar = ({
                         className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50"
                       >
                         <div className="bg-gradient-to-br from-[#FBEDE4] to-[#F5E6D3] backdrop-blur-xl rounded-2xl shadow-2xl border border-[#D4A380]/20 p-6 w-80">
-                          <div className="space-y-1">
-                            {serviceCategories
-                              .filter(
-                                (service) => service.type === item.dropdownType,
-                              )
-                              .map((category, index) => (
-                                <motion.div
-                                  key={category.name}
-                                  initial={{ opacity: 0, y: -10 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{
-                                    delay: index * 0.02,
-                                    duration: 0.2,
-                                  }}
-                                >
-                                  <Link
-                                    href={`/services#_${getSectionSlug(category.name)}`}
-                                    className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                                    onMouseEnter={() =>
-                                      handleLinkHover("/services")
-                                    }
-                                    onClick={() => {
-                                      closeDesktopDropdown();
-                                      closeMobileMenu();
-                                    }}
-                                  >
-                                    {category.name}
-                                  </Link>
-                                </motion.div>
-                              ))}
-                          </div>
+                          {renderDropdownContent(item.dropdownType)}
                         </div>
                       </motion.div>
                     )}
@@ -529,7 +471,7 @@ export const Navbar = ({
                                       >
                                         <Link
                                           href={`/services#_${getSectionSlug(
-                                            group,
+                                            group
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
                                           onMouseEnter={() =>
@@ -555,12 +497,12 @@ export const Navbar = ({
                                       >
                                         <Link
                                           href={`/services/${getServiceSlug(
-                                            service,
+                                            service
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
                                           onMouseEnter={() =>
                                             handleServiceHover(
-                                              getServiceSlug(service),
+                                              getServiceSlug(service)
                                             )
                                           }
                                           onClick={closeMobileMenu}
@@ -583,12 +525,12 @@ export const Navbar = ({
                                       >
                                         <Link
                                           href={`/services/${getServiceSlug(
-                                            service,
+                                            service
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
                                           onMouseEnter={() =>
                                             handleServiceHover(
-                                              getServiceSlug(service),
+                                              getServiceSlug(service)
                                             )
                                           }
                                           onClick={closeMobileMenu}

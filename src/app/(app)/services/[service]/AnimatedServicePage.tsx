@@ -8,14 +8,19 @@ import { Service, ServiceCategory } from "@/payload-types";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { MaxWidthWrapper } from "@/components/layout/max-width";
 import { DashedSeparator } from "@/components/sections/dashed-separator";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 
 interface AnimatedServicePageProps {
   serviceData: Service & {
     category: ServiceCategory; // Ensure category is populated
   };
 }
-
 
 const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(
@@ -74,11 +79,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               >
                 <div className="flex flex-col xl:flex-row min-h-[500px] xl:min-h-[600px]">
                   {/* Left Content */}
-                  <div className="flex items-center justify-center xl:w-1/2 px-4 md:px-8 lg:px-[100px] py-8 md:py-12 lg:py-20">
+                  <div className="flex items-center justify-center xl:w-1/2 px-4 md:px-8 lg:px-[50px] py-8 md:py-12 lg:py-20">
                     <div
                       id="hero-left"
                       data-animate
-                      className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full max-w-[511px] transform transition-all duration-1000 ease-out ${
+                      className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full max-w-[650px] transform transition-all duration-1000 ease-out ${
                         isVisible("hero-left")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
@@ -94,16 +99,15 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         >
                           {serviceData.category.name}
                         </small>
-                        <div className="flex flex-col gap-1">
-                          <h1
-                            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                              isVisible("hero-left")
+                        <div className="flex flex-col rich-text">
+                          <RichText
+                            data={section.title}
+                            className={
+                              cn(isVisible("hero-left")
                                 ? "translate-y-0 opacity-100"
                                 : "translate-y-5 opacity-0"
-                            }`}
-                          >
-                            {section.title}
-                          </h1>
+                            )}
+                          />
                         </div>
                         <RichText
                           className={`text-base sm:text-lg md:text-xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${
@@ -174,21 +178,20 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="what-is-acne-header"
                       data-animate
-                      className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
+                      className={`max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
                         isVisible("what-is-acne-header")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
                       }`}
                     >
-                      <h2
-                        className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6 transform transition-all duration-700 delay-200 ease-out ${
+                      <RichText
+                        className={`rich-text text-[color:var(--color-dark-text)] mb-6 transform transition-all duration-700 delay-200 ease-out ${
                           isVisible("what-is-acne-header")
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
-                      >
-                        {section.title}
-                      </h2>
+                        data={section.title}
+                      />
                       <div
                         className={`text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
                           isVisible("what-is-acne-header")
@@ -220,15 +223,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           : "translate-y-10 opacity-0"
                       }`}
                     >
-                      <h2
+                      <RichText
                         className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-8 transform transition-all duration-700 delay-200 ease-out ${
                           isVisible("symptoms-header")
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
-                      >
-                        {section.title}
-                      </h2>
+                        data={section.title}
+                      />
                     </div>
                     <div
                       id="symptoms-grid"
@@ -281,7 +283,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           id="about-image"
                           data-animate
                           src={section.image?.url || "/placeholder.svg"}
-                          alt={section.title}
+                          alt={serviceData.title}
                           className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${
                             isVisible("about-image")
                               ? "translate-x-0 opacity-100"
@@ -299,15 +301,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           : "translate-x-10 opacity-0"
                       }`}
                     >
-                      <h2
+                      <RichText
                         className={`text-xl md:text-2xl text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                           isVisible("about-content")
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
-                      >
-                        {section.title}
-                      </h2>
+                        data={section.title}
+                      />
                       <RichText
                         className="whitespace-pre-line"
                         data={section.description}
@@ -343,15 +344,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       >
                         ---------- Process ----------
                       </h4>
-                      <h2
+                      <RichText
                         className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                           isVisible("process-header")
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
-                      >
-                        {section.title}
-                      </h2>
+                        data={section.title}
+                      />
                     </div>
                     <div
                       id="process-steps"
@@ -396,9 +396,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <div className="max-w-6xl mx-auto text-center">
-                  <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12">
-                    {section.title}
-                  </h2>
+                  <RichText
+                    className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12"
+                    data={section.title}
+                  />
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {section.items.map((item, index) => (
                       <div
@@ -444,15 +445,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       >
                         ---------- Benefits ----------
                       </h4>
-                      <h2
+                      <RichText
                         className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                           isVisible("benefits-header")
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
-                      >
-                        {section.title}
-                      </h2>
+                        data={section.title}
+                      />
                     </div>
                     <div
                       id="benefits-grid"
@@ -531,15 +531,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       >
                         ---------- Post Care ----------
                       </h4>
-                      <h2
+                      <RichText
                         className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                           isVisible("postcare-header")
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
-                      >
-                        {section.downtimeTitle}
-                      </h2>
+                        data={section.downtimeTitle}
+                      />
                     </div>
                     <div className="max-w-4xl mx-auto">
                       {/* Downtime and Post-Care Information */}
@@ -563,18 +562,16 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                                 />
                               </div>
                               <div className="text-base text-gray-800">
-                                <RichText
-                                  data={item.content}
-
-                                />
+                                <RichText data={item.content} />
                               </div>
                             </div>
                           ))}
                         </div>
                         <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                          <h2 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6">
-                            {section.postCareTitle}
-                          </h2>
+                          <RichText
+                            className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6"
+                            data={section.postCareTitle}
+                          />
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {section.postCareItems.map((item, index) => (
                               <div
@@ -635,9 +632,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     >
                       ---------- Testimonials ----------
                     </h4>
-                    <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-center text-[color:var(--color-dark-text)] font-semibold mb-12">
-                      {section.title}
-                    </h2>
+                    <RichText
+                      className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-center text-[color:var(--color-dark-text)] font-semibold mb-12"
+                      data={section.title}
+                    />
                   </div>
                   <div
                     id="testimonials-grid"
@@ -678,9 +676,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 className="py-12 mt-10 md:py-20 px-4 md:px-8"
               >
                 <div className="max-w-6xl mx-auto text-center">
-                  <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12">
-                    {section.title}
-                  </h2>
+                  <RichText
+                    className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12"
+                    data={section.title}
+                  />
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {section.items.map((item) => (
                       <div
@@ -697,114 +696,336 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 </div>
               </section>
             );
-          
-          case 'faq':
+
+          case "faq":
             return (
-               <section key={section.blockType} className="py-12 md:py-20 px-4 md:px-8">
-                        <MaxWidthWrapper>
-                          <div className="mx-6 lg:mx-24">
-                            <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2">
-                              <DashedSeparator />
-                              <h3 className="text-[#EC7754] text-3xl font-medium">FAQ</h3>
-                              <DashedSeparator />
-                            </div>
-                            <h2 className="mt-2 text-[#333333] text-3xl lg:text-5xl font-semibold text-center">
-                              {section.title}
-                            </h2>
-                            <Accordion type="single" collapsible className="mt-10">
-                              {section.items.map((faq, index) => (
-                                <AccordionItem
-                                  value={`${index + 1}`}
-                                  key={index}
-                                  className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
-                                >
-                                  <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
-                                    {faq.question}
-                                  </AccordionTrigger>
-                                  <AccordionContent asChild className="text-[#4B5563] text-2xl">
-                                    <RichText data={faq.answer}/>
-                                  </AccordionContent>
-                                </AccordionItem>
-                              ))}
-                            </Accordion>
-                          </div>
-                        </MaxWidthWrapper>
-                      </section>
-            )
+              <section
+                key={section.blockType}
+                className="py-12 md:py-20 px-4 md:px-8"
+              >
+                <MaxWidthWrapper>
+                  <div className="mx-6 lg:mx-24">
+                    <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2">
+                      <DashedSeparator />
+                      <h3 className="text-[#EC7754] text-3xl font-medium">
+                        FAQ
+                      </h3>
+                      <DashedSeparator />
+                    </div>
+                    <RichText
+                      className="mt-2 text-[#333333] text-3xl lg:text-5xl font-semibold text-center"
+                      data={section.title}
+                    />
+                    <Accordion type="single" collapsible className="mt-10">
+                      {section.items.map((faq, index) => (
+                        <AccordionItem
+                          value={`${index + 1}`}
+                          key={index}
+                          className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+                        >
+                          <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
+                            {faq.question}
+                          </AccordionTrigger>
+                          <AccordionContent
+                            asChild
+                            className="text-[#4B5563] text-2xl"
+                          >
+                            <RichText data={faq.answer} />
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </div>
+                </MaxWidthWrapper>
+              </section>
+            );
         }
       })}
 
-       {/* Patients Visit Us From Section */}
-              <section className="py-12 md:py-20 px-4 md:px-8">
-                <div className="max-w-4xl mx-auto text-center">
-                  <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6">
-                    Patients Visit Us From Across Pune
-                  </h2>
-                  <p className="mb-4">
-                    At The Skin Firm, we proudly serve patients not only from Mohammad
-                    Wadi and NIBM Road, but also from several nearby areas in Pune who
-                    visit us for trusted treatments, skin care, and hair solutions.
-                  </p>
-                  <p className="mb-6 font-medium">
-                    Many of our patients travel to our clinic from:
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-4 mb-8">
-                    {[
-                      "Camp",
-                      "Undri",
-                      "Pisoli",
-                      "Kondhwa",
-                      "Hadapsar",
-                      "Wanowrie",
-                      "Handewadi",
-                      "Lullanagar",
-                    ].map((loc) => (
-                      <span
-                        key={loc}
-                        className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full"
-                      >
-                        {loc}
-                      </span>
-                    ))}
-                    <span className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full">
-                      & many other far locations in Pune as well.
-                    </span>
-                  </div>
-                  <p>
-                    Our convenient location makes it easy for people across South Pune
-                    and Central Pune to access advanced treatments and other
-                    dermatology services under the expert care of Dr. Karishma Singh.
-                  </p>
-                </div>
-              </section>
-      
-              {/* Final CTA */}
-              <section
-                className="py-12 md:py-20 px-4 md:px-8 bg-cover bg-center mb-12"
-                style={{ backgroundColor: "#F8F4EB" }}
+      {/* Why Choose Us */}
+      <section className="py-12 md:py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col gap-12 md:gap-16">
+            <div
+              id="clinic-header"
+              data-animate
+              className={`text-center max-w-[700px] mx-auto transform transition-all duration-1000 ease-out ${
+                isVisible("clinic-header")
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
+            >
+              <h4
+                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
+                  isVisible("clinic-header")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                }`}
               >
-                <div className="max-w-4xl mx-auto text-center">
-                  <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold mb-6 text-[color:var(--color-dark-text)]">
-                    Book Your Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune
-                  </h2>
-                  <p className="mb-6 text-[color:var(--color-dark-text)]">
-                    Don&apos;t let skin concerns hold back your confidence. At The Skin
-                    Firm, we understand how skin issues can affect not just your
-                    appearance, but also the way you feel about yourself. With Dr.
-                    Karishma Singh&apos;s expert care and customized treatments, healthier
-                    skin - and renewed confidence - can truly be yours.
-                  </p>
-                  <p className="font-semibold mb-8 text-[color:var(--color-dark-text)]">
-                    Appointments fill quickly. Start your journey to healthier,
-                    confident skin today.
-                  </p>
-                  <Link href="/contact">
-                    <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
-                      Book Your Treatment Appointment →
-                    </button>
-                  </Link>
+                ---------- Why Choose Us ----------
+              </h4>
+              <h2
+                className={`text-3xl md:text-[35px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+                  isVisible("clinic-header")
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-5 opacity-0"
+                }`}
+              >
+                {"Why The Skin Firm is Pune's Trusted Clinic"}
+              </h2>
+            </div>
+            <div
+              id="clinic-features"
+              data-animate
+              className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-wrap lg:justify-center gap-6 md:gap-8"
+            >
+              {[
+                {
+                  title: "Dermatologist-Led Expertise",
+                  text: "Dr. Karishma Singh, Skin Specialist",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M20 12C16.686 12 14 14.686 14 18S16.686 24 20 24S26 21.314 26 18S23.314 12 20 12ZM20 22C17.794 22 16 20.206 16 18S17.794 14 20 14S24 15.794 24 18S22.206 22 20 22Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M28 28C28 24.691 25.309 22 22 22H18C14.691 22 12 24.691 12 28V30H14V28C14 25.794 15.794 24 18 24H22C24.206 24 26 25.794 26 28V30H28V28Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Personalised Treatment Plans",
+                  text: "no one-size-fits-all",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M16 14H24V16H16V14ZM16 18H28V20H16V18ZM16 22H28V24H16V22ZM16 26H24V28H16V26Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M12 10V30C12 31.1 12.9 32 14 32H26C27.1 32 28 31.1 28 30V10C28 8.9 27.1 8 26 8H14C12.9 8 12 8.9 12 10ZM14 10H26V30H14V10Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Advanced Technology",
+                  text: "medical-grade, safe & effective",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M20 8L22.09 13.26L28 12L26.91 17.74L32 20L26.91 22.26L28 28L22.09 26.74L20 32L17.91 26.74L12 28L13.09 22.26L8 20L13.09 17.74L12 12L17.91 13.26L20 8Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Proven Track Record",
+                  text: "thousands of happy patients",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M29 18H27C27 13.589 23.411 10 19 10S11 13.589 11 18H9C9 12.486 13.486 8 19 8S29 12.486 29 18Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M15.293 18.707L17 20.414L22.707 14.707L24.121 16.121L17 23.242L13.879 20.121L15.293 18.707Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M19 22C22.866 22 26 25.134 26 29V31H12V29C12 25.134 15.134 22 19 22ZM19 24C16.243 24 14 26.243 14 29H24C24 26.243 21.757 24 19 24Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Safety First",
+                  text: "evidence-based, dermatologist-approved care",
+                  icon: (
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      className="w-8 h-8 md:w-10 md:h-10"
+                    >
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="12"
+                        fill="var(--color-primary-brown)"
+                        fillOpacity="0.1"
+                      />
+                      <path
+                        d="M20 8L26 12V22C26 26.418 23.314 30.347 19.5 31.5C15.686 30.347 13 26.418 13 22V12L20 8ZM20 10.273L15 13.454V22C15 25.283 16.885 28.22 19.5 29.135C22.115 28.22 24 25.283 24 22V13.454L20 10.273Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                      <path
+                        d="M18.293 19.707L19 20.414L22.707 16.707L24.121 18.121L19 23.242L16.879 21.121L18.293 19.707Z"
+                        fill="var(--color-primary-brown)"
+                      />
+                    </svg>
+                  ),
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className={`group rounded-xl border border-[color:var(--color-light-border)] p-6 md:p-8 bg-white shadow-lg transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 hover:border-[color:var(--color-primary-brown)] lg:w-[calc(33.333%-1.333rem)] ${
+                    isVisible("clinic-features")
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${400 + index * 150}ms` }}
+                >
+                  <div className="flex flex-col items-center text-center gap-4 md:gap-6">
+                    <div className="transform transition-all duration-300 group-hover:scale-110">
+                      {item.icon}
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <h6 className="text-lg md:text-xl font-semibold text-[color:var(--color-dark-text)] leading-tight">
+                        {item.title}
+                      </h6>
+                      <p className="text-sm md:text-base text-[color:var(--color-light-text)] leading-relaxed">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </section>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Patients Visit Us From Section */}
+      <section className="py-12 md:py-20 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6">
+            Patients Visit Us From Across Pune
+          </h2>
+          <p className="mb-4">
+            At The Skin Firm, we proudly serve patients not only from Mohammad
+            Wadi and NIBM Road, but also from several nearby areas in Pune who
+            visit us for trusted treatments, skin care, and hair solutions.
+          </p>
+          <p className="mb-6 font-medium">
+            Many of our patients travel to our clinic from:
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {[
+              "Camp",
+              "Undri",
+              "Pisoli",
+              "Kondhwa",
+              "Hadapsar",
+              "Wanowrie",
+              "Handewadi",
+              "Lullanagar",
+            ].map((loc) => (
+              <span
+                key={loc}
+                className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full"
+              >
+                {loc}
+              </span>
+            ))}
+            <span className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full">
+              & many other far locations in Pune as well.
+            </span>
+          </div>
+          <p>
+            Our convenient location makes it easy for people across South Pune
+            and Central Pune to access advanced treatments and other dermatology
+            services under the expert care of Dr. Karishma Singh.
+          </p>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section
+        className="py-12 md:py-20 px-4 md:px-8 bg-cover bg-center mb-12"
+        style={{ backgroundColor: "#F8F4EB" }}
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold mb-6 text-[color:var(--color-dark-text)]">
+            Book Your Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune
+          </h2>
+          <p className="mb-6 text-[color:var(--color-dark-text)]">
+            Don&apos;t let skin concerns hold back your confidence. At The Skin
+            Firm, we understand how skin issues can affect not just your
+            appearance, but also the way you feel about yourself. With Dr.
+            Karishma Singh&apos;s expert care and customized treatments,
+            healthier skin - and renewed confidence - can truly be yours.
+          </p>
+          <p className="font-semibold mb-8 text-[color:var(--color-dark-text)]">
+            Appointments fill quickly. Start your journey to healthier,
+            confident skin today.
+          </p>
+          <Link href="/contact">
+            <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
+              Book Your Treatment Appointment →
+            </button>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 };

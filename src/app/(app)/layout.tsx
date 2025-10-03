@@ -205,9 +205,34 @@ export default async function RootLayout({
   const payload = await getPayload({
     config,
   });
-  const { docs } = await payload.find({
+  const { docs: categories } = await payload.find({
     collection: "service-categories",
   });
+
+  const { docs: hairServices } = categories.length > 0 ? await payload.find({
+    collection: "services",
+    where: {
+      category: {
+        in: categories.filter((category) => category.type === "hair").map(category => category.id),
+      },
+    },
+    select: {
+      title: true,
+      slug: true,
+    },
+  }) : {docs: []}
+  const { docs: laserServices } = categories.length > 0 ? await payload.find({
+    collection: "services",
+    where: {
+      category: {
+        in: categories.filter((category) => category.type === "laser").map(category => category.id),
+      },
+    },
+    select: {
+      title: true,
+      slug: true,
+    },
+  }) : {docs: []}
   return (
     <html lang="en">
       <body
@@ -231,7 +256,11 @@ export default async function RootLayout({
 `}
         </Script>
         <Script src="https://www.google.com/recaptcha/api.js" async defer />
-        <Navbar serviceCategories={docs} />
+        <Navbar
+          serviceCategories={categories}
+          hairServices={hairServices}
+          laserServices={laserServices}
+        />
         {children}
         <Footer />
         <WhatsAppFAB />
