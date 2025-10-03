@@ -274,7 +274,7 @@ export interface Service {
               };
               [k: string]: unknown;
             };
-            image: number | Media;
+            image?: (number | null) | Media;
             id?: string | null;
             blockName?: string | null;
             blockType: 'about';
