@@ -240,15 +240,16 @@ export const Navbar = ({
     router.prefetch(`/services/${serviceSlug}`);
   };
 
+
   const renderDropdownContent = (dropdownType: ServiceCategory["type"]) => {
     if (dropdownType === "skin") {
       return (
         <div className="space-y-1">
           {serviceCategories
-            .filter((service) => service.type === "skin")
+            .filter((service) => service.type.toLowerCase() === "skin")
             .map((group, index) => (
               <motion.div
-                key={group.name}
+                key={group.name+index}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.02, duration: 0.2 }}

@@ -207,7 +207,10 @@ export default async function RootLayout({
   });
   const { docs: categories } = await payload.find({
     collection: "service-categories",
+    limit: 100,
+    sort: 'name'
   });
+
 
   const { docs: hairServices } = categories.length > 0 ? await payload.find({
     collection: "services",
