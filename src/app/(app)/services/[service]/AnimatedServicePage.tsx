@@ -102,11 +102,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         <div className="flex flex-col rich-text">
                           <RichText
                             data={section.title}
-                            className={cn(
+                            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                               isVisible("hero-left")
                                 ? "translate-y-0 opacity-100"
                                 : "translate-y-5 opacity-0"
-                            )}
+                            }`}
                           />
                         </div>
                         <RichText
@@ -152,7 +152,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                   >
                     <Image
                       src={
-                        typeof section.image !== 'string' &&
+                        typeof section.image !== "string" &&
                         typeof section.image?.url === "string"
                           ? section.image?.url
                           : "/TSF-Hero-Section.png"
@@ -285,7 +285,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         <img
                           id="about-image"
                           data-animate
-                          src={typeof section.image !== 'string' && section.image?.url || "/placeholder.svg"}
+                          src={
+                            (typeof section.image !== "string" &&
+                              section.image?.url) ||
+                            "/placeholder.svg"
+                          }
                           alt={serviceData.title}
                           className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${
                             isVisible("about-image")
@@ -305,16 +309,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       }`}
                     >
                       <RichText
-                        className={`text-xl md:text-2xl text-[color:var(--color-primary-brown)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+                        className={`[&>h2]:text-xl [&>h2]:md:text-2xl [&>h2]:text-[color:var(--color-primary-brown)] [&>h2]:font-semibold transform transition-all duration-700 delay-300 ease-out ${
                           isVisible("about-content")
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
                         data={section.title}
                       />
-                      <RichText
-                        data={section.description}
-                      />
+                      <RichText data={section.description} />
                     </div>
                   </div>
                 </MaxWidthWrapper>
