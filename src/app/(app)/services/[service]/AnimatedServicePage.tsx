@@ -102,8 +102,8 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         <div className="flex flex-col rich-text">
                           <RichText
                             data={section.title}
-                            className={
-                              cn(isVisible("hero-left")
+                            className={cn(
+                              isVisible("hero-left")
                                 ? "translate-y-0 opacity-100"
                                 : "translate-y-5 opacity-0"
                             )}
@@ -199,7 +199,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             : "translate-y-5 opacity-0"
                         }`}
                       >
-                        <RichText data={section.description} />
+                        <RichText
+                          className="prose"
+                          data={section.description}
+                        />
                       </div>
                     </div>
                   </div>
@@ -295,7 +298,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="about-content"
                       data-animate
-                      className={`flex flex-col gap-4 w-full lg:w-[500px] transform transition-all duration-1000 delay-200 ease-out ${
+                      className={`prose flex flex-col w-full lg:w-[500px] transform transition-all duration-1000 delay-200 ease-out ${
                         isVisible("about-content")
                           ? "translate-x-0 opacity-100"
                           : "translate-x-10 opacity-0"
@@ -310,7 +313,6 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         data={section.title}
                       />
                       <RichText
-                        className="whitespace-pre-line"
                         data={section.description}
                       />
                     </div>
@@ -606,7 +608,6 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 </div>
               </section>
             );
-
           case "testimonials":
             return (
               <section
@@ -696,7 +697,6 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 </div>
               </section>
             );
-
           case "faq":
             return (
               <section
