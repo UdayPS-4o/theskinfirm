@@ -152,7 +152,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                   >
                     <Image
                       src={
-                        typeof section.image !== "number" &&
+                        typeof section.image !== 'string' &&
                         typeof section.image?.url === "string"
                           ? section.image?.url
                           : "/TSF-Hero-Section.png"
@@ -285,7 +285,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         <img
                           id="about-image"
                           data-animate
-                          src={section.image?.url || "/placeholder.svg"}
+                          src={typeof section.image !== 'string' && section.image?.url || "/placeholder.svg"}
                           alt={serviceData.title}
                           className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${
                             isVisible("about-image")
