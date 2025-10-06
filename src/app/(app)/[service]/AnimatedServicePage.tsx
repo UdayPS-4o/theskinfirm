@@ -173,20 +173,20 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8"
               >
-                <div className="max-w-6xl mx-auto">
+                <div className="w-full md:w-4/5 mx-auto">
                   <div className="flex flex-col gap-8 md:gap-12">
                     <div
-                      id="what-is-acne-header"
+                      id={`info-header-${index}`}
                       data-animate
-                      className={`max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
-                        isVisible("what-is-acne-header")
+                      className={`text-center transform transition-all duration-1000 ease-out ${
+                        isVisible(`info-header-${index}`)
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
                       }`}
                     >
                       <RichText
                         className={`rich-text text-[color:var(--color-dark-text)] mb-6 transform transition-all duration-700 delay-200 ease-out ${
-                          isVisible("what-is-acne-header")
+                          isVisible(`info-header-${index}`)
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
@@ -194,13 +194,13 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       />
                       <div
                         className={`text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
-                          isVisible("what-is-acne-header")
+                          isVisible(`info-header-${index}`)
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
                       >
                         <RichText
-                          className="prose"
+                          className="prose max-w-none"
                           data={section.description}
                         />
                       </div>
