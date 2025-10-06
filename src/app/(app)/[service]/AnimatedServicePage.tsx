@@ -69,12 +69,12 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   };
   return (
     <div className="min-h-screen">
-      {serviceData.sections?.map((section) => {
+      {serviceData.sections?.map((section, index) => {
         switch (section.blockType) {
           case "hero":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="relative bg-[color:var(--color-light-background)]"
               >
                 <div className="flex flex-col xl:flex-row min-h-[500px] xl:min-h-[600px]">
@@ -170,7 +170,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "info":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8"
               >
                 <div className="max-w-6xl mx-auto">
@@ -212,7 +212,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "bullet-points":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <div className="max-w-6xl mx-auto">
@@ -275,7 +275,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "about":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-[100px] px-4 md:px-8"
               >
                 <MaxWidthWrapper>
@@ -325,7 +325,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "process":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8"
               >
                 <div className="max-w-6xl mx-auto">
@@ -396,7 +396,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "treatments":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <div className="max-w-6xl mx-auto text-center">
@@ -426,7 +426,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "before-after":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <div className="max-w-6xl mx-auto">
@@ -500,7 +500,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "benifits":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <MaxWidthWrapper>
@@ -586,7 +586,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "post-care":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8"
               >
                 <div className="max-w-6xl mx-auto">
@@ -687,7 +687,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "testimonials":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8"
               >
                 <div className="max-w-6xl mx-auto">
@@ -749,7 +749,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "eligibility":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 mt-10 md:py-20 px-4 md:px-8"
               >
                 <div className="max-w-6xl mx-auto text-center">
@@ -776,7 +776,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           case "faq":
             return (
               <section
-                key={section.blockType}
+                key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8"
               >
                 <MaxWidthWrapper>
