@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { Service, ServiceCategory } from '@/payload-types';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { Service, ServiceCategory } from "@/payload-types";
 
 type TabKey = "skin" | "hair" | "laser";
 
@@ -17,11 +17,13 @@ const MotionImage = motion(Image);
 
 const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
   const router = useRouter();
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
+  const [expandedSections, setExpandedSections] = useState<
+    Record<string, boolean>
+  >({});
 
   const handleCardClick = (treatment: any) => {
     const slug = treatment.slug;
-    router.push(`/services/${slug}`);
+    router.push(`/${slug}`);
   };
 
   const handleCardHover = (treatment: any) => {
@@ -37,9 +39,9 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
   };
 
   // Group services by category type
-  services.forEach(service => {
+  services.forEach((service) => {
     // Ensure service has a category and it's populated
-    if (!service.category || typeof service.category !== 'object') {
+    if (!service.category || typeof service.category !== "object") {
       return;
     }
 
@@ -48,22 +50,32 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
       // Get description from the first info section if available
       let description = "Professional treatment available at The Skin Firm.";
       if (service.sections && Array.isArray(service.sections)) {
-        const infoSection = service.sections.find(section => section.blockType === 'info');
-        if (infoSection && 'description' in infoSection) {
+        const infoSection = service.sections.find(
+          (section) => section.blockType === "info"
+        );
+        if (infoSection && "description" in infoSection) {
           // Extract plain text from rich text content
           const richTextContent = infoSection.description;
-          if (richTextContent?.root?.children && Array.isArray(richTextContent.root.children)) {
+          if (
+            richTextContent?.root?.children &&
+            Array.isArray(richTextContent.root.children)
+          ) {
             const textContent = richTextContent.root.children
               .map((child: any) => {
                 if (child.children && Array.isArray(child.children)) {
-                  return child.children.map((textNode: any) => textNode.text || '').join('');
+                  return child.children
+                    .map((textNode: any) => textNode.text || "")
+                    .join("");
                 }
-                return '';
+                return "";
               })
-              .join(' ')
+              .join(" ")
               .trim();
             if (textContent.length > 0) {
-              description = textContent.length > 150 ? textContent.substring(0, 150) + "..." : textContent;
+              description =
+                textContent.length > 150
+                  ? textContent.substring(0, 150) + "..."
+                  : textContent;
             }
           }
         }
@@ -72,9 +84,15 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
       // Get image from hero section if available
       let imageSrc = "/placeholder.svg";
       if (service.sections && Array.isArray(service.sections)) {
-        const aboutSection = service.sections.find(section => section.blockType === 'about');
-        if (aboutSection && 'image' in aboutSection && aboutSection.image) {
-          if (typeof aboutSection.image === 'object' && aboutSection.image && 'url' in aboutSection.image) {
+        const aboutSection = service.sections.find(
+          (section) => section.blockType === "about"
+        );
+        if (aboutSection && "image" in aboutSection && aboutSection.image) {
+          if (
+            typeof aboutSection.image === "object" &&
+            aboutSection.image &&
+            "url" in aboutSection.image
+          ) {
             imageSrc = aboutSection.image.url || imageSrc;
           }
         }
@@ -90,31 +108,43 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
   });
 
   // Group services by category for skin services
-  const skinServicesByCategory = processedServices.skin.reduce((acc: any, service: any) => {
-    // Find the service in the original services array to get the category
-    const originalService = services.find(s => s.slug === service.slug);
-    const categoryName = originalService?.category?.name || 'General Skin Services';
-    
-    if (!acc[categoryName]) {
-      acc[categoryName] = [];
-    }
-    acc[categoryName].push(service);
-    return acc;
-  }, {});
+  const skinServicesByCategory = processedServices.skin.reduce(
+    (acc: any, service: any) => {
+      // Find the service in the original services array to get the category
+      const originalService = services.find((s) => s.slug === service.slug);
+      const categoryName =
+        originalService?.category?.name || "General Skin Services";
+
+      if (!acc[categoryName]) {
+        acc[categoryName] = [];
+      }
+      acc[categoryName].push(service);
+      return acc;
+    },
+    {}
+  );
 
   // Create sections structure
   const sections: { [key in TabKey]: any[] } = {
-    skin: Object.keys(skinServicesByCategory).map(categoryName => ({
+    skin: Object.keys(skinServicesByCategory).map((categoryName) => ({
       title: categoryName,
-      treatments: skinServicesByCategory[categoryName]
+      treatments: skinServicesByCategory[categoryName],
     })),
-    hair: processedServices.hair.length > 0 ? [{ title: "Hair Services", treatments: processedServices.hair }] : [],
-    laser: processedServices.laser.length > 0 ? [{ title: "Laser Services", treatments: processedServices.laser }] : [],
+    hair:
+      processedServices.hair.length > 0
+        ? [{ title: "Hair Services", treatments: processedServices.hair }]
+        : [],
+    laser:
+      processedServices.laser.length > 0
+        ? [{ title: "Laser Services", treatments: processedServices.laser }]
+        : [],
   };
 
   // If no categorized sections for skin, create a single section
   if (sections.skin.length === 0 && processedServices.skin.length > 0) {
-    sections.skin = [{ title: "Skin Services", treatments: processedServices.skin }];
+    sections.skin = [
+      { title: "Skin Services", treatments: processedServices.skin },
+    ];
   }
 
   const renderService = (treatment: any, treatmentIndex: number) => (
@@ -125,7 +155,11 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
       onMouseEnter={() => handleCardHover(treatment)}
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut", delay: treatmentIndex * 0.1 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeOut",
+        delay: treatmentIndex * 0.1,
+      }}
     >
       <div className="flex gap-[16px] items-start">
         <div className="w-[140px] h-[140px] flex-shrink-0 rounded-[8px] overflow-hidden relative">
@@ -149,8 +183,21 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
             <span className="text-[#000000] text-[12px] font-medium leading-[16px] group-hover:text-[color:var(--color-dark-text)] transition-colors duration-300">
               Learn More
             </span>
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:translate-x-[2px] transition-transform duration-300">
-              <path d="M2.33333 1H9V7.66667M9 1L1 9L9 1Z" stroke="var(--color-primary-brown)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="group-hover:translate-x-[2px] transition-transform duration-300"
+            >
+              <path
+                d="M2.33333 1H9V7.66667M9 1L1 9L9 1Z"
+                stroke="var(--color-primary-brown)"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </div>
         </div>
@@ -169,7 +216,12 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
         <div className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[26px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full">
           <div
             className="flex items-center justify-between cursor-pointer"
-            onClick={() => setExpandedSections(prev => ({ ...prev, [section.title]: !isExpanded }))}
+            onClick={() =>
+              setExpandedSections((prev) => ({
+                ...prev,
+                [section.title]: !isExpanded,
+              }))
+            }
           >
             <h2 className="text-[color:var(--color-primary-brown)] text-[24px] font-semibold leading-[24px] uppercase m-0">
               {section.title}
@@ -180,7 +232,7 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
               viewBox="0 0 30 30"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className={`transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+              className={`transform transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
             >
               <path
                 d="M22.5 11.25L15 18.75L7.5 11.25"
@@ -196,9 +248,9 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
             {isExpanded && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
+                animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
                 <div className="mt-[32px]">

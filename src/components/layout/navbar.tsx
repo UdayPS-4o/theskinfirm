@@ -237,9 +237,8 @@ export const Navbar = ({
 
   // Preload function for service pages
   const handleServiceHover = (serviceSlug: string) => {
-    router.prefetch(`/services/${serviceSlug}`);
+    router.prefetch(`/${serviceSlug}`);
   };
-
 
   const renderDropdownContent = (dropdownType: ServiceCategory["type"]) => {
     if (dropdownType === "skin") {
@@ -249,7 +248,7 @@ export const Navbar = ({
             .filter((service) => service.type.toLowerCase() === "skin")
             .map((group, index) => (
               <motion.div
-                key={group.name+index}
+                key={group.name + index}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.02, duration: 0.2 }}
@@ -270,7 +269,8 @@ export const Navbar = ({
         </div>
       );
     }
-    const servicesToRender = dropdownType === 'hair' ? hairServices : laserServices
+    const servicesToRender =
+      dropdownType === "hair" ? hairServices : laserServices;
     return (
       <div className="space-y-1">
         {servicesToRender.map((service, index) => (
@@ -281,7 +281,7 @@ export const Navbar = ({
             transition={{ delay: index * 0.02, duration: 0.2 }}
           >
             <Link
-              href={`/services/${service.slug}`}
+              href={`/${service.slug}`}
               className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
               onMouseEnter={() => handleServiceHover(service.slug)}
               onClick={() => {

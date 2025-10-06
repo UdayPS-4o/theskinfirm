@@ -11,7 +11,7 @@ import { PostCareBlock } from "../blocks/services/PostCare";
 import { TestimonialsBlock } from "../blocks/services/Testimonials";
 import { EligibilityBlock } from "../blocks/services/Eligibility";
 import slugify from "slugify";
-
+import { BeforeAfterBlock } from "@/blocks/services/BeforeAfter";
 
 export const Services: CollectionConfig = {
   slug: "services",
@@ -23,7 +23,12 @@ export const Services: CollectionConfig = {
   fields: [
     { name: "title", type: "text", required: true },
     { name: "slug", type: "text", required: true, unique: true },
-    { name: "category", type: "relationship", required: true, relationTo: 'service-categories' },
+    {
+      name: "category",
+      type: "relationship",
+      required: true,
+      relationTo: "service-categories",
+    },
     {
       name: "sections",
       type: "blocks",
@@ -35,6 +40,7 @@ export const Services: CollectionConfig = {
         ProcessBlock,
         TreatmentsBlock,
         BenifitsBlock,
+        BeforeAfterBlock,
         PostCareBlock,
         TestimonialsBlock,
         EligibilityBlock,
@@ -47,8 +53,8 @@ export const Services: CollectionConfig = {
       ({ data }) => {
         if (data?.title && !data?.slug) {
           data.slug = slugify(data.title, {
-            lower: true,      // sab lowercase
-            strict: true,     // special chars hata dega
+            lower: true, // sab lowercase
+            strict: true, // special chars hata dega
           });
         }
         return data;

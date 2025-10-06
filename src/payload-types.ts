@@ -434,6 +434,47 @@ export interface Service {
             blockType: 'benifits';
           }
         | {
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            subtitle: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            images?:
+              | {
+                  image: string | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'before-after';
+          }
+        | {
             downtimeTitle: {
               root: {
                 type: string;
@@ -827,6 +868,20 @@ export interface ServicesSelect<T extends boolean = true> {
                 | T
                 | {
                     content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'before-after'?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
                     id?: T;
                   };
               id?: T;

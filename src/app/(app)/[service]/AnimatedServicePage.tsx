@@ -423,6 +423,80 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 </div>
               </section>
             );
+          case "before-after":
+            return (
+              <section
+                key={section.blockType}
+                className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
+              >
+                <div className="max-w-6xl mx-auto">
+                  <div className="flex flex-col gap-12 md:gap-16">
+                    <div
+                      id="transformations-header"
+                      data-animate
+                      className={`text-center max-w-[700px] mx-auto transform transition-all duration-1000 ease-out ${
+                        isVisible("transformations-header")
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-10 opacity-0"
+                      }`}
+                    >
+                      <h4
+                        className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
+                          isVisible("transformations-header")
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-5 opacity-0"
+                        }`}
+                      >
+                        ---------- Results ----------
+                      </h4>
+                      <RichText
+                        className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4 transform transition-all duration-700 delay-300 ease-out ${
+                          isVisible("transformations-header")
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-5 opacity-0"
+                        }`}
+                        data={section.title}
+                      />
+                      <RichText
+                        className={`text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed transform transition-all duration-700 delay-400 ease-out ${
+                          isVisible("transformations-header")
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-5 opacity-0"
+                        }`}
+                        data={section.subtitle}
+                      />
+                    </div>
+                    <div
+                      id="gallery-grid"
+                      data-animate
+                      className={`flex flex-wrap gap-4 transform transition-all duration-1000 delay-500 ease-out ${
+                        isVisible("gallery-grid")
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-10 opacity-0"
+                      }`}
+                    >
+                      {section.images?.map(
+                        (image, index) =>
+                          typeof image.image !== "string" && (
+                            <div
+                              key={image.id || index}
+                              className="rounded-lg overflow-hidden shadow-lg group max-w-xs mx-auto"
+                            >
+                              <Image
+                                src={image.image?.url || "/placeholder.svg"}
+                                alt={image.image.alt}
+                                width={300}
+                                height={300}
+                                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                          )
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </section>
+            );
           case "benifits":
             return (
               <section
