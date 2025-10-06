@@ -3,6 +3,8 @@ import config from "@payload-config";
 import { Service, ServiceCategory } from "@/payload-types";
 import ServicePageClient from "./ServicePageClient";
 
+export const dynamic = "force-dynamic";
+
 export default async function ServicePage() {
   try {
     // Fetch services from PayloadCMS
