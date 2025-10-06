@@ -14,7 +14,11 @@ export interface ServiceContent {
     title: string;
     content: string;
   };
-  signsSymptoms: {
+  signsSymptoms?: {
+    title: string;
+    items: string[];
+  };
+  signsConcerns?: {
     title: string;
     items: string[];
   };

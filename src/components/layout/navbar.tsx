@@ -226,7 +226,7 @@ export const Navbar = () => {
 
   // Preload function for service pages
   const handleServiceHover = (serviceSlug: string) => {
-    router.prefetch(`/services/${serviceSlug}`);
+    router.prefetch(`/${serviceSlug}`);
   };
 
   const renderDropdownContent = (dropdownType: string) => {
@@ -268,7 +268,7 @@ export const Navbar = () => {
                 transition={{ delay: index * 0.02, duration: 0.2 }}
               >
                 <Link
-                  href={`/services/${getServiceSlug(service)}`}
+                  href={`/${getServiceSlug(service)}`}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
                   onMouseEnter={() =>
                     handleServiceHover(getServiceSlug(service))
@@ -296,7 +296,7 @@ export const Navbar = () => {
                 transition={{ delay: index * 0.02, duration: 0.2 }}
               >
                 <Link
-                  href={`/services/${getServiceSlug(service)}`}
+                  href={`/${getServiceSlug(service)}`}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
                   onMouseEnter={() =>
                     handleServiceHover(getServiceSlug(service))
@@ -516,7 +516,7 @@ export const Navbar = () => {
                                         }}
                                       >
                                         <Link
-                                          href={`/services/${getServiceSlug(
+                                          href={`/${getServiceSlug(
                                             service
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
@@ -544,7 +544,7 @@ export const Navbar = () => {
                                         }}
                                       >
                                         <Link
-                                          href={`/services/${getServiceSlug(
+                                          href={`/${getServiceSlug(
                                             service
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"

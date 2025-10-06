@@ -19,7 +19,7 @@ const servicesData = [
       "Advanced laser technology for permanent hair reduction with minimal discomfort and lasting results.",
     coverImageUrl: "/images/services/laser hair removal.png",
     iconUrl: "/images/home-service/laser.png",
-    url: "/services/laser-hair-removal",
+    url: "/laser-hair-removal",
   },
   {
     title: "Acne Treatment",
@@ -27,7 +27,7 @@ const servicesData = [
       "Comprehensive acne treatment and scar reduction therapy for clear, smooth, and healthy skin.",
     coverImageUrl: "/images/services/acne treatment.png",
     iconUrl: "/images/home-service/skin.png",
-    url: "/services/acne-treatment",
+    url: "/acne-treatment",
   },
   {
     title: "Hydrafacial Treatment",
@@ -35,7 +35,7 @@ const servicesData = [
       "Deep cleansing and hydrating facial treatment that rejuvenates and revitalizes your skin.",
     coverImageUrl: "/images/services/hydra.png",
     iconUrl: "/images/home-service/skin.png",
-    url: "/services/hydrafacial-treatment",
+    url: "/hydrafacial-treatment",
   },
   {
     title: "Pigmentation Treatment",
@@ -43,7 +43,7 @@ const servicesData = [
       "Effective pigmentation removal treatments to restore even skin tone and natural radiance.",
     coverImageUrl: "/images/services/pigmentation.png",
     iconUrl: "/images/home-service/skin.png",
-    url: "/services/pigmentation-treatment",
+    url: "/pigmentation-treatment",
   },
   {
     title: "Hair Loss Treatment",
@@ -51,7 +51,7 @@ const servicesData = [
       "Advanced hair restoration therapies to combat hair loss and promote healthy hair growth.",
     coverImageUrl: "/images/services/hair loss.png",
     iconUrl: "/images/home-service/hair.png",
-    url: "/services/hair-loss-treatment",
+    url: "/hair-loss-treatment",
   },
   {
     title: "Anti-Ageing Treatment",
@@ -59,7 +59,7 @@ const servicesData = [
       "Comprehensive anti-aging solutions to reduce wrinkles and restore youthful skin appearance.",
     coverImageUrl: "/images/services/anti aging.png",
     iconUrl: "/images/home-service/skin.png",
-    url: "/services/anti-ageing-treatment",
+    url: "/anti-ageing-treatment",
   },
   {
     title: "Chemical Peel",
@@ -67,7 +67,7 @@ const servicesData = [
       "Professional chemical peels to exfoliate and renew skin for a brighter, smoother complexion.",
     coverImageUrl: "/images/services/chemical peel.png",
     iconUrl: "/images/home-service/skin.png",
-    url: "/services/chemical-peel",
+    url: "/chemical-peel",
   },
 ];
 
@@ -192,7 +192,7 @@ export const Services = () => {
           }}
           className="flex flex-row justify-center sm:justify-end mt-12 sm:mt-16"
         >
-          <Link href="/services">
+          <Link href="/">
             <Button
               className="bg-[#D4A380] hover:bg-[#C19660] text-white transition-colors duration-200"
               size={"lg"}

@@ -7,8 +7,8 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 export async function generateStaticParams() {
-  const dataPath = path.join(process.cwd(), 'src', 'app', 'services', '[service]', 'data.json');
-  const data2Path = path.join(process.cwd(), 'src', 'app', 'services', '[service]', 'data_2.json');
+  const dataPath = path.join(process.cwd(), 'src', 'app', '[service]', 'data.json');
+  const data2Path = path.join(process.cwd(), 'src', 'app', '[service]', 'data_2.json');
 
   const dataContent = await fs.readFile(dataPath, 'utf8');
   const data2Content = await fs.readFile(data2Path, 'utf8');

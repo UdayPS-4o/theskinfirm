@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import serviceData from '@/app/services/[service]/data.json';
+import serviceData from '@/app/[service]/data.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = 'https://theskinfirm.in';

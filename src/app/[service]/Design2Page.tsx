@@ -66,6 +66,8 @@ export const AcneTreatmentClientPage: React.FC<
 
   const isVisible = (sectionId: string) => visibleSections.has(sectionId);
 
+  const signsSection = typedContentData.signsSymptoms || (typedContentData as any).signsConcerns;
+
   return (
     <>
       <div className="min-h-screen">
@@ -179,7 +181,7 @@ export const AcneTreatmentClientPage: React.FC<
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  {typedContentData.whatIsService.title}
+                  {(typedContentData.whatIsService || (typedContentData as any).whyThisService)?.title}
                 </h2>
                 <p
                   className={`text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
@@ -188,7 +190,7 @@ export const AcneTreatmentClientPage: React.FC<
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  {typedContentData.whatIsService.content}
+                  {(typedContentData.whatIsService || (typedContentData as any).whyThisService)?.content}
                 </p>
               </div>
             </div>
@@ -196,57 +198,59 @@ export const AcneTreatmentClientPage: React.FC<
         </section>
 
         {/* Signs & Symptoms of Acne Section */}
-        <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col gap-8 md:gap-12">
-              <div
-                id="symptoms-header"
-                data-animate
-                className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
-                  isVisible("symptoms-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-10 opacity-0"
-                }`}
-              >
-                <h2
-                  className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-8 transform transition-all duration-700 delay-200 ease-out ${
+        {signsSection && (
+          <section className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex flex-col gap-8 md:gap-12">
+                <div
+                  id="symptoms-header"
+                  data-animate
+                  className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
                     isVisible("symptoms-header")
                       ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
+                      : "translate-y-10 opacity-0"
                   }`}
                 >
-                  {typedContentData.signsSymptoms.title}
-                </h2>
-              </div>
-              <div
-                id="symptoms-grid"
-                data-animate
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
-              >
-                {typedContentData.signsSymptoms.items.map((symptom, index) => (
-                  <div
-                    key={index}
-                    className={`rounded-[10px] border border-[color:var(--color-light-border)] p-4 md:p-5 bg-white flex flex-row items-center gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
-                      isVisible("symptoms-grid")
+                  <h2
+                    className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-8 transform transition-all duration-700 delay-200 ease-out ${
+                      isVisible("symptoms-header")
                         ? "translate-y-0 opacity-100"
-                        : "translate-y-10 opacity-0"
+                        : "translate-y-5 opacity-0"
                     }`}
-                    style={{ transitionDelay: `${300 + index * 100}ms` }}
                   >
-                    <div className="flex-shrink-0">
-                      <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[color:var(--color-primary-brown)]/20 flex items-center justify-center">
-                        <div className="w-2 h-2 rounded-full bg-[color:var(--color-primary-brown)]"></div>
+                    {signsSection.title}
+                  </h2>
+                </div>
+                <div
+                  id="symptoms-grid"
+                  data-animate
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+                >
+                  {signsSection.items?.map((symptom: string, index: number) => (
+                    <div
+                      key={index}
+                      className={`rounded-[10px] border border-[color:var(--color-light-border)] p-4 md:p-5 bg-white flex flex-row items-center gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
+                        isVisible("symptoms-grid")
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-10 opacity-0"
+                      }`}
+                      style={{ transitionDelay: `${300 + index * 100}ms` }}
+                    >
+                      <div className="flex-shrink-0">
+                        <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[color:var(--color-primary-brown)]/20 flex items-center justify-center">
+                          <div className="w-2 h-2 rounded-full bg-[color:var(--color-primary-brown)]"></div>
+                        </div>
                       </div>
+                      <p className="text-sm md:text-base leading-[20px] md:leading-[22px] text-black flex-1 text-center">
+                        {symptom}
+                      </p>
                     </div>
-                    <p className="text-sm md:text-base leading-[20px] md:leading-[22px] text-black flex-1 text-center">
-                      {symptom}
-                    </p>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Why Choose Section */}
         <section className="py-12 md:py-[100px] px-4 md:px-8">
@@ -256,8 +260,8 @@ export const AcneTreatmentClientPage: React.FC<
                 <img
                   id="about-image"
                   data-animate
-                  src={typedContentData.whyChooseUs.image}
-                  alt={typedContentData.whyChooseUs.title}
+                  src={typedContentData.whyChooseUs?.image}
+                  alt={typedContentData.whyChooseUs?.title}
                   className={`w-full h-full object-cover transform transition-all duration-1000 ease-out hover:scale-105 ${
                     isVisible("about-image")
                       ? "translate-x-0 opacity-100"
@@ -281,13 +285,13 @@ export const AcneTreatmentClientPage: React.FC<
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  {typedContentData.whyChooseUs.title}
+                  {typedContentData.whyChooseUs?.title}
                 </h2>
                 <div
                   className="whitespace-pre-line"
                   dangerouslySetInnerHTML={{
                     __html: renderTextWithBold(
-                      typedContentData.whyChooseUs.description
+                      typedContentData.whyChooseUs?.description
                     ),
                   }}
                 />
@@ -295,7 +299,7 @@ export const AcneTreatmentClientPage: React.FC<
                   className="mt-4 text-gray-700 italic"
                   dangerouslySetInnerHTML={{
                     __html: renderTextWithBold(
-                      typedContentData.whyChooseUs.highlight ?? ""
+                      typedContentData.whyChooseUs?.highlight ?? ""
                     ),
                   }}
                 />
@@ -333,7 +337,7 @@ export const AcneTreatmentClientPage: React.FC<
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  {typedContentData.process.title}
+                  {typedContentData.process?.title}
                 </h2>
               </div>
               <div
@@ -341,7 +345,7 @@ export const AcneTreatmentClientPage: React.FC<
                 data-animate
                 className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
               >
-                {typedContentData.process.steps.map((step, index) => (
+                {typedContentData.process?.steps?.map((step, index) => (
                   <div
                     key={index}
                     className={`flex items-start gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-lg hover:bg-gray-50 rounded-lg p-4 ${
@@ -382,7 +386,7 @@ export const AcneTreatmentClientPage: React.FC<
               {typedContentData.treatmentTypes.title}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {typedContentData.treatmentTypes.treatments.map(
+                {typedContentData.treatmentTypes.treatments?.map(
                   (item, index) => (
                 <div
                   key={index}
@@ -430,7 +434,7 @@ export const AcneTreatmentClientPage: React.FC<
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  {typedContentData.benefits.title}
+                  {typedContentData.benefits?.title}
                 </h2>
               </div>
               <div
@@ -438,7 +442,7 @@ export const AcneTreatmentClientPage: React.FC<
                 data-animate
                 className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"
               >
-                {typedContentData.benefits.items.map((benefit, index) => (
+                {typedContentData.benefits?.items?.map((benefit, index) => (
                   <div
                     key={index}
                     className={`rounded-[10px] border border-[color:var(--color-light-background)] p-4 md:p-5 bg-white flex flex-row items-center gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
@@ -512,7 +516,7 @@ export const AcneTreatmentClientPage: React.FC<
                       : "translate-y-5 opacity-0"
                   }`}
                 >
-                  {typedContentData.postCare.title}
+                  {typedContentData.postCare?.title}
                 </h2>
               </div>
               <div className="max-w-4xl mx-auto">
@@ -527,7 +531,7 @@ export const AcneTreatmentClientPage: React.FC<
                   }`}
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-6">
-                    {typedContentData.postCare.description
+                    {(typedContentData.postCare?.description || '')
                       .split("\n")
                       .filter((item) => item.trim())
                       .map((item, index) => {
@@ -568,11 +572,11 @@ export const AcneTreatmentClientPage: React.FC<
                   </div>
                   <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
                     <h2 className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6">
-                      {typedContentData.postCare.tipsTitle ||
+                      {typedContentData.postCare?.tipsTitle ||
                         "Post-Care Instructions"}
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {typedContentData.postCare.tips?.map((item, index) => (
+                      {typedContentData.postCare?.tips?.map((item, index) => (
                         <div
                           key={index}
                           className={`flex items-start gap-3 transform transition-all duration-500 ease-out hover:scale-105 ${
@@ -906,7 +910,7 @@ export const AcneTreatmentClientPage: React.FC<
                 ---------- Testimonials ----------
               </h4>
               <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-center text-[color:var(--color-dark-text)] font-semibold mb-12">
-                {typedContentData.testimonials.title}
+                {typedContentData.testimonials?.title}
               </h2>
             </div>
             <div
@@ -914,7 +918,7 @@ export const AcneTreatmentClientPage: React.FC<
               data-animate
               className="grid grid-cols-1 lg:grid-cols-2 gap-8"
             >
-              {typedContentData.testimonials.reviews.map((text, index) => (
+              {typedContentData.testimonials?.reviews?.map((text, index) => (
                 <div
                   key={index}
                   className={`relative bg-white p-6 md:p-8 rounded-2xl border border-[color:var(--color-light-border)] shadow-lg overflow-hidden transform transition-all duration-700 ease-out hover:shadow-xl hover:-translate-y-2 ${
@@ -944,12 +948,12 @@ export const AcneTreatmentClientPage: React.FC<
         <section className="py-12 mt-10 md:py-20 px-4 md:px-8">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12">
-              {typedContentData.whoBenefits.title}
+              {typedContentData.whoBenefits?.title}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {(
-                typedContentData.whoBenefits.candidates ||
-                (typedContentData.whoBenefits as any).groups ||
+                typedContentData.whoBenefits?.candidates ||
+                (typedContentData.whoBenefits as any)?.groups ||
                 []
               ).map((item: string) => (
                 <div
@@ -975,10 +979,10 @@ export const AcneTreatmentClientPage: React.FC<
                 <DashedSeparator />
               </div>
               <h2 className="mt-2 text-[#333333] text-3xl lg:text-5xl font-semibold text-center">
-                {typedContentData.faqs.title}
+                {typedContentData.faqs?.title}
               </h2>
               <Accordion type="single" collapsible className="mt-10">
-                {typedContentData.faqs.questions.map((faq, index) => (
+                {typedContentData.faqs?.questions?.map((faq, index) => (
                   <AccordionItem
                     value={`${index + 1}`}
                     key={index}

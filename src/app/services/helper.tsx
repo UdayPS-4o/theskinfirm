@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import treatmentsData from '@/data/treatments.json';
-import allServices from './[service]/data_2.json';
+import allServices from '../[service]/data_2.json';
 
 type TabKey = "skin" | "hair" | "laser";
 
@@ -34,12 +34,12 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
 
   const handleCardClick = (treatment: any) => {
     const slug = treatment.slug || treatment.title.toLowerCase().replace(/\s+/g, '-');
-    router.push(`/services/${slug}`);
+    router.push(`/${slug}`);
   };
 
   const handleCardHover = (treatment: any) => {
     const slug = treatment.slug || treatment.title.toLowerCase().replace(/\s+/g, '-');
-    router.prefetch(`/services/${slug}`);
+    router.prefetch(`/${slug}`);
   };
 
   // Data processing logic...
@@ -48,27 +48,6 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
     hair: [],
     laser: [],
   };
-
-  // This part remains unchanged
-  Object.entries(allServices).forEach(([slug, serviceData]) => {
-    const title = serviceData.hero.title.split(" in Pune")[0];
-    let category: TabKey = 'skin';
-
-    if (HAIR_SERVICE_TITLES.some(hairTitle => title.includes(hairTitle))) {
-      category = 'hair';
-    } else if (LASER_SERVICE_TITLES.some(laserTitle => title.includes(laserTitle))) {
-      category = 'laser';
-    }
-
-    if (!services[category].find(s => s.title === title)) {
-      services[category].push({
-        title: title,
-        slug: slug,
-        description: serviceData.whatIsService.content.substring(0, 150) + "...",
-        imageSrc: (serviceData as any).whyChooseUs.image || "/images/services/53.png",
-      });
-    }
-  });
 
   (['hair', 'laser'] as TabKey[]).forEach(category => {
     const cat = category as keyof typeof treatmentsData;
@@ -79,6 +58,26 @@ const Helper: React.FC<HelperProps> = ({ activeTab }) => {
             services[category].push(treatment);
           }
         });
+      });
+    }
+  });
+
+  Object.entries(allServices).forEach(([slug, serviceData]) => {
+    const title = serviceData.hero.title.split(" in Pune")[0];
+    let category: TabKey = 'skin';
+
+    if (HAIR_SERVICE_TITLES.some(hairTitle => title.includes(hairTitle))) {
+      category = 'hair';
+    } else if (LASER_SERVICE_TITLES.some(laserTitle => title.includes(laserTitle))) {
+      category = 'laser';
+    }
+
+    if (!services[category].find(s => title.includes(s.title))) {
+      services[category].push({
+        title: title,
+        slug: slug,
+        description: ((serviceData as any).whatIsService?.content || (serviceData as any).whyThisService?.content || serviceData.hero.subtitle || "").substring(0, 150) + "...",
+        imageSrc: (serviceData as any).whyChooseUs.image || "/images/services/53.png",
       });
     }
   });
