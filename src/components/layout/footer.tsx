@@ -160,7 +160,7 @@ export const Footer = () => {
                 Tue - Sun
               </span>
               <span className="text-[#8A7B70] text-base/relaxed whitespace-nowrap">
-                11AM - 8PM
+                10AM - 8PM
               </span>
               <span className="text-[#A89689] text-base/relaxed whitespace-nowrap">
                 Monday

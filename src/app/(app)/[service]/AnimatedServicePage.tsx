@@ -613,14 +613,16 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       >
                         ---------- Post Care ----------
                       </h4>
-                      <RichText
-                        className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                          isVisible("postcare-header")
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-5 opacity-0"
-                        }`}
-                        data={section.downtimeTitle}
-                      />
+                      {section.downtimeTitle ? (
+                        <RichText
+                          className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+                            isVisible("postcare-header")
+                              ? "translate-y-0 opacity-100"
+                              : "translate-y-5 opacity-0"
+                          }`}
+                          data={section.downtimeTitle}
+                        />
+                      ) : null}
                     </div>
                     <div className="max-w-4xl mx-auto">
                       {/* Downtime and Post-Care Information */}
@@ -648,19 +650,21 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                                   />
                                 </div>
                                 <div className="text-base text-gray-800">
-                                  <RichText data={item.content} />
+                                  {item.content && <RichText data={item.content} />}
                                 </div>
                               </div>
                             ))}
                           </div>
                         )}
                         <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                          <RichText
-                            className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6"
-                            data={section.postCareTitle}
-                          />
+                          {section.postCareTitle ? (
+                            <RichText
+                              className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6"
+                              data={section.postCareTitle}
+                            />
+                          ) : null}
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {section.postCareItems.map((item, index) => (
+                            {section.postCareItems?.map((item, index) => (
                               <div
                                 key={index}
                                 className={`flex items-start gap-3 transform transition-all duration-500 ease-out hover:scale-105 ${
@@ -679,10 +683,12 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                                     className="w-full h-full"
                                   />
                                 </div>
-                                <RichText
-                                  className="text-base text-gray-800"
-                                  data={item.content}
-                                />
+                                {item.content && (
+                                  <RichText
+                                    className="text-base text-gray-800"
+                                    data={item.content}
+                                  />
+                                )}
                               </div>
                             ))}
                           </div>
