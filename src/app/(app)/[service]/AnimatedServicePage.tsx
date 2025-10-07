@@ -596,11 +596,13 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="postcare-header"
                       data-animate
-                      className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
-                        isVisible("postcare-header")
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-10 opacity-0"
-                      }`}
+                      className={cn(
+                        "text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out",
+                        {
+                          "mb-[-50px]":
+                            !section.downtime || section.downtime.length === 0,
+                        },
+                      )}
                     >
                       <h4
                         className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
@@ -631,22 +633,27 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             : "translate-y-10 opacity-0"
                         }`}
                       >
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-6">
-                          {section.downtime.map((item, index) => (
-                            <div key={index} className="flex items-start gap-3">
-                              <div className="w-6 h-6 flex-shrink-0 mt-0.5">
-                                <img
-                                  src="/post-care.svg"
-                                  alt="Post Care"
-                                  className="w-full h-full"
-                                />
+                        {section.downtime && section.downtime.length > 0 && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-6">
+                            {section.downtime.map((item, index) => (
+                              <div
+                                key={index}
+                                className="flex items-start gap-3"
+                              >
+                                <div className="w-6 h-6 flex-shrink-0 mt-0.5">
+                                  <img
+                                    src="/post-care.svg"
+                                    alt="Post Care"
+                                    className="w-full h-full"
+                                  />
+                                </div>
+                                <div className="text-base text-gray-800">
+                                  <RichText data={item.content} />
+                                </div>
                               </div>
-                              <div className="text-base text-gray-800">
-                                <RichText data={item.content} />
-                              </div>
-                            </div>
-                          ))}
-                        </div>
+                            ))}
+                          </div>
+                        )}
                         <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
                           <RichText
                             className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6"

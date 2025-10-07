@@ -6,18 +6,15 @@ export const PostCareBlock: Block = {
     {
       name: "downtimeTitle",
       type: "richText",
-      required: true,
     },
     {
       name: "downtime",
       type: "array",
-      fields: [{ name: "content", type: "richText", required: true }],
-      required: true,
+      fields: [{ name: "content", type: "richText" }],
     },
     {
       name: "postCareTitle",
       type: "richText",
-      required: true,
     },
     {
       name: "postCareItems",
@@ -26,10 +23,8 @@ export const PostCareBlock: Block = {
         {
           name: "content",
           type: "richText",
-          required: true
         },
       ],
-      required: true,
     },
   ],
 };

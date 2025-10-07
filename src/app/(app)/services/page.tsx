@@ -13,6 +13,7 @@ export default async function ServicePage() {
       collection: "services",
       depth: 1, // This will populate the category relationship
       limit: 1000, // Adjust as needed
+      revalidate: 0,
     });
 
     const services = result.docs as (Service & { category: ServiceCategory })[];
