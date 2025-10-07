@@ -2,6 +2,7 @@ import { Block } from "payload";
 
 export const PostCareBlock: Block = {
   slug: "post-care",
+  imageURL: "https://udayps.com/images/skinfirm/8.webp",
   fields: [
     {
       name: "downtimeTitle",
@@ -26,7 +27,7 @@ export const PostCareBlock: Block = {
         {
           name: "content",
           type: "richText",
-          required: true
+          required: true,
         },
       ],
       required: true,

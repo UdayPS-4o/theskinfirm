@@ -2,6 +2,7 @@ import { Block } from "payload";
 
 export const EligibilityBlock: Block = {
   slug: "eligibility",
+  imageURL: "https://udayps.com/images/skinfirm/11.webp",
   fields: [
     { name: "title", type: "richText", required: true },
     {
@@ -12,7 +13,7 @@ export const EligibilityBlock: Block = {
         {
           name: "content",
           type: "richText",
-          required: true
+          required: true,
         },
       ],
     },

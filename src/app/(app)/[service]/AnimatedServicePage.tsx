@@ -14,7 +14,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
 
 interface AnimatedServicePageProps {
   serviceData: Service & {
@@ -59,14 +58,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   }, []);
 
   const isVisible = (sectionId: string) => visibleSections.has(sectionId);
-  // Safe function to render text with markdown-style bold formatting
-  const renderTextWithBold = (text: string) => {
-    if (!text) return "";
-    return text
-      .replace(/^\s*>\s*/gm, "") // Remove markdown blockquote characters
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      .replace(/(\r\n|\n|\r)/gm, "<br/>"); // Preserve line breaks
-  };
+
   return (
     <div className="min-h-screen">
       {serviceData.sections?.map((section, index) => {
@@ -192,18 +184,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         }`}
                         data={section.title}
                       />
-                      <div
-                        className={`text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
+                      <RichText
+                        className={`prose mx-auto text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] transform transition-all duration-700 delay-300 ease-out ${
                           isVisible("what-is-acne-header")
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
-                      >
-                        <RichText
-                          className="prose"
-                          data={section.description}
-                        />
-                      </div>
+                        data={section.description}
+                      />
                     </div>
                   </div>
                 </div>

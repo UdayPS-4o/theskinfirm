@@ -2,6 +2,7 @@ import { Block } from "payload";
 
 export const ProcessBlock: Block = {
   slug: "process",
+  imageURL: "https://udayps.com/images/skinfirm/5.webp",
   fields: [
     { name: "title", type: "richText", required: true },
     {
@@ -12,12 +13,12 @@ export const ProcessBlock: Block = {
         {
           name: "title",
           type: "text",
-          required: true
+          required: true,
         },
         {
           name: "description",
           type: "richText",
-          required: true
+          required: true,
         },
       ],
     },
