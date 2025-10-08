@@ -126,10 +126,12 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
 
   // Create sections structure
   const sections: { [key in TabKey]: any[] } = {
-    skin: Object.keys(skinServicesByCategory).map((categoryName) => ({
-      title: categoryName,
-      treatments: skinServicesByCategory[categoryName],
-    })),
+    skin: Object.keys(skinServicesByCategory)
+      .sort()
+      .map((categoryName) => ({
+        title: categoryName,
+        treatments: skinServicesByCategory[categoryName],
+      })),
     hair:
       processedServices.hair.length > 0
         ? [{ title: "Hair Services", treatments: processedServices.hair }]

@@ -475,7 +475,7 @@ export interface Service {
             blockType: 'before-after';
           }
         | {
-            downtimeTitle: {
+            downtimeTitle?: {
               root: {
                 type: string;
                 children: {
@@ -489,26 +489,28 @@ export interface Service {
                 version: number;
               };
               [k: string]: unknown;
-            };
-            downtime: {
-              content: {
-                root: {
-                  type: string;
-                  children: {
-                    type: any;
-                    version: number;
+            } | null;
+            downtime?:
+              | {
+                  content?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
                     [k: string]: unknown;
-                  }[];
-                  direction: ('ltr' | 'rtl') | null;
-                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                  indent: number;
-                  version: number;
-                };
-                [k: string]: unknown;
-              };
-              id?: string | null;
-            }[];
-            postCareTitle: {
+                  } | null;
+                  id?: string | null;
+                }[]
+              | null;
+            postCareTitle?: {
               root: {
                 type: string;
                 children: {
@@ -522,25 +524,27 @@ export interface Service {
                 version: number;
               };
               [k: string]: unknown;
-            };
-            postCareItems: {
-              content: {
-                root: {
-                  type: string;
-                  children: {
-                    type: any;
-                    version: number;
+            } | null;
+            postCareItems?:
+              | {
+                  content?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
                     [k: string]: unknown;
-                  }[];
-                  direction: ('ltr' | 'rtl') | null;
-                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                  indent: number;
-                  version: number;
-                };
-                [k: string]: unknown;
-              };
-              id?: string | null;
-            }[];
+                  } | null;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'post-care';

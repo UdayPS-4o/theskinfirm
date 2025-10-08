@@ -67,15 +67,15 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="relative bg-[color:var(--color-light-background)]"
+                className="relative bg-[color:var(--color-light-background)] overflow-hidden"
               >
                 <div className="flex flex-col xl:flex-row min-h-[500px] xl:min-h-[600px]">
                   {/* Left Content */}
-                  <div className="flex items-center justify-center xl:w-1/2 px-4 md:px-8 lg:px-[50px] py-8 md:py-12 lg:py-20">
+                  <div className="relative z-10 flex items-center justify-center xl:w-1/2 px-4 md:px-8 lg:px-[50px] py-8 md:py-12 lg:py-20">
                     <div
                       id="hero-left"
                       data-animate
-                      className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full max-w-[650px] transform transition-all duration-1000 ease-out ${
+                      className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full transform transition-all duration-1000 ease-out ${
                         isVisible("hero-left")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
@@ -94,7 +94,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         <div className="flex flex-col rich-text">
                           <RichText
                             data={section.title}
-                            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+                            className={`lg:w-[130%] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                               isVisible("hero-left")
                                 ? "translate-y-0 opacity-100"
                                 : "translate-y-5 opacity-0"
@@ -165,33 +165,37 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8"
               >
-                <div className="max-w-6xl mx-auto">
+                <div className="w-full md:w-4/5 mx-auto">
                   <div className="flex flex-col gap-8 md:gap-12">
                     <div
-                      id="what-is-acne-header"
+                      id={`info-header-${index}`}
                       data-animate
-                      className={`max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
-                        isVisible("what-is-acne-header")
+                      className={`transform transition-all duration-1000 ease-out ${
+                        isVisible(`info-header-${index}`)
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
                       }`}
                     >
                       <RichText
-                        className={`rich-text text-[color:var(--color-dark-text)] mb-6 transform transition-all duration-700 delay-200 ease-out ${
-                          isVisible("what-is-acne-header")
+                        className={`rich-text text-center text-[color:var(--color-dark-text)] mb-6 transform transition-all duration-700 delay-200 ease-out ${
+                          isVisible(`info-header-${index}`)
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
                         data={section.title}
                       />
-                      <RichText
-                        className={`prose mx-auto text-base md:text-lg leading-relaxed text-[color:var(--color-dark-text)] transform transition-all duration-700 delay-300 ease-out ${
-                          isVisible("what-is-acne-header")
+                      <div
+                        className={`text-base md:text-lg text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
+                          isVisible(`info-header-${index}`)
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
-                        data={section.description}
-                      />
+                      >
+                        <RichText
+                          className="prose max-w-none prose-p:my-0 prose-ul:my-0 prose-li:my-0"
+                          data={section.description}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -316,20 +320,20 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 key={section.blockType + index}
                 className="py-12 md:py-20 px-4 md:px-8"
               >
-                <div className="max-w-6xl mx-auto">
+                <div className="w-full md:w-4/5 mx-auto">
                   <div className="flex flex-col gap-12 md:gap-[90px]">
                     <div
-                      id="process-header"
+                      id={`process-header-${index}`}
                       data-animate
-                      className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
-                        isVisible("process-header")
+                      className={`text-center mx-auto transform transition-all duration-1000 ease-out ${
+                        isVisible(`process-header-${index}`)
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
                       }`}
                     >
                       <h4
                         className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
-                          isVisible("process-header")
+                          isVisible(`process-header-${index}`)
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
@@ -338,7 +342,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       </h4>
                       <RichText
                         className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                          isVisible("process-header")
+                          isVisible(`process-header-${index}`)
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
                         }`}
@@ -346,23 +350,25 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       />
                     </div>
                     <div
-                      id="process-steps"
+                      id={`process-steps-${index}`}
                       data-animate
                       className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
                     >
-                      {section.items.map((step, index) => (
+                      {section.items.map((step, stepIndex) => (
                         <div
-                          key={index}
+                          key={stepIndex}
                           className={`flex items-start gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-lg hover:bg-gray-50 rounded-lg p-4 ${
-                            isVisible("process-steps")
+                            isVisible(`process-steps-${index}`)
                               ? "translate-y-0 opacity-100"
                               : "translate-y-10 opacity-0"
                           }`}
-                          style={{ transitionDelay: `${400 + index * 100}ms` }}
+                          style={{
+                            transitionDelay: `${400 + stepIndex * 100}ms`,
+                          }}
                         >
                           <div className="w-[50px] h-[50px] rounded-full bg-[color:var(--color-primary-brown)] flex items-center justify-center shadow-lg flex-shrink-0 hover:scale-110 transition-transform duration-300">
                             <span className="text-[22px] font-medium text-white">
-                              {index + 1}
+                              {stepIndex + 1}
                             </span>
                           </div>
                           <div className="flex flex-col gap-3">
@@ -582,11 +588,13 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="postcare-header"
                       data-animate
-                      className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
-                        isVisible("postcare-header")
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-10 opacity-0"
-                      }`}
+                      className={cn(
+                        "text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out",
+                        {
+                          "mb-[-50px]":
+                            !section.downtime || section.downtime.length === 0,
+                        },
+                      )}
                     >
                       <h4
                         className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
@@ -617,22 +625,27 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             : "translate-y-10 opacity-0"
                         }`}
                       >
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-6">
-                          {section.downtime.map((item, index) => (
-                            <div key={index} className="flex items-start gap-3">
-                              <div className="w-6 h-6 flex-shrink-0 mt-0.5">
-                                <img
-                                  src="/post-care.svg"
-                                  alt="Post Care"
-                                  className="w-full h-full"
-                                />
+                        {section.downtime && section.downtime.length > 0 && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-6">
+                            {section.downtime.map((item, index) => (
+                              <div
+                                key={index}
+                                className="flex items-start gap-3"
+                              >
+                                <div className="w-6 h-6 flex-shrink-0 mt-0.5">
+                                  <img
+                                    src="/post-care.svg"
+                                    alt="Post Care"
+                                    className="w-full h-full"
+                                  />
+                                </div>
+                                <div className="text-base text-gray-800">
+                                  <RichText data={item.content} />
+                                </div>
                               </div>
-                              <div className="text-base text-gray-800">
-                                <RichText data={item.content} />
-                              </div>
-                            </div>
-                          ))}
-                        </div>
+                            ))}
+                          </div>
+                        )}
                         <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
                           <RichText
                             className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6"

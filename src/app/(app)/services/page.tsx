@@ -3,6 +3,8 @@ import config from "@payload-config";
 import { Service, ServiceCategory } from "@/payload-types";
 import ServicePageClient from "./ServicePageClient";
 
+export const dynamic = "force-dynamic";
+
 export default async function ServicePage() {
   try {
     // Fetch services from PayloadCMS
@@ -11,7 +13,7 @@ export default async function ServicePage() {
       collection: "services",
       depth: 1, // This will populate the category relationship
       limit: 1000, // Adjust as needed
-      sort: "category.name",
+      revalidate: 0,
     });
 
     const services = result.docs as (Service & { category: ServiceCategory })[];
