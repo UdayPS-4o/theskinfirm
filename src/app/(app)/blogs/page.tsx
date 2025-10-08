@@ -1,7 +1,7 @@
 import { DashedSeparator } from "@/components/sections/dashed-separator";
-import { CategoriesSection } from "./CategoriesSection";
-import { HeroSection } from "./HeroSection";
-import { TrendingSection } from "./TrendingSection";
+import { CategoriesSection } from "./_sections/CategoriesSection";
+import { HeroSection } from "./_sections/HeroSection";
+import { TrendingSection } from "./_sections/TrendingSection";
 
 export default async function BlogsPage() {
   return (
