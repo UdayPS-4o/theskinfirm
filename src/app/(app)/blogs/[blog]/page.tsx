@@ -84,15 +84,15 @@ export default async function BlogArticlePage({
 
         {/* Blog Content */}
         <div className="max-w-[722px] mx-auto space-y-10">
-          <p className="text-[#333333]/80 text-base leading-relaxed tracking-wide">
+          {/* <p className="text-[#333333]/80 text-base leading-relaxed tracking-wide">
             As we step into a new era, the beauty industry continues to evolve
             with groundbreaking innovations that redefine skincare, makeup, and
             self-care practices. In this review, we'll explore the cutting-edge
             beauty products and technologies that are set to make waves in 2023,
             promising to elevate our beauty routines to new heights.
-          </p>
+          </p> */}
 
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <h3 className="text-[#333333] text-2xl font-normal tracking-tight">
               Sustainable Beauty Practices and Devices
             </h3>
@@ -169,18 +169,18 @@ export default async function BlogArticlePage({
               Immersive online experiences enhance user confidence and
               engagement.
             </p>
-          </div>
+          </div> */}
 
           {/* Image in content */}
-          <div className="relative w-full h-[480px] rounded-sm border border-[#333333]/40 overflow-hidden">
+          {/* <div className="relative w-full h-[480px] rounded-sm border border-[#333333]/40 overflow-hidden">
             <Image
               src="/test-blog-image.png"
               alt="Beauty innovations"
               fill
               className="object-cover"
             />
-          </div>
-
+          </div> */}
+          {/* 
           <div className="space-y-6">
             <h3 className="text-[#333333] text-2xl font-normal tracking-tight">
               Biometric Beauty
@@ -212,7 +212,7 @@ export default async function BlogArticlePage({
             Stay tuned as we explore and embrace the transformative power of
             these latest beauty innovations, setting new standards for a radiant
             and empowered you.
-          </p>
+          </p> */}
         </div>
       </div>
 
