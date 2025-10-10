@@ -12,6 +12,7 @@ import { TestimonialsBlock } from "../blocks/services/Testimonials";
 import { EligibilityBlock } from "../blocks/services/Eligibility";
 import slugify from "slugify";
 import { BeforeAfterBlock } from "@/blocks/services/BeforeAfter";
+import { SeoBlock } from "@/blocks/Seo";
 
 export const Services: CollectionConfig = {
   slug: "services",
@@ -46,6 +47,15 @@ export const Services: CollectionConfig = {
         EligibilityBlock,
         FaqBlock,
       ],
+    },
+    {
+      name: "seo",
+      type: "blocks",
+      maxRows: 1,
+      blocks: [SeoBlock],
+      admin: {
+        description: "Optional: Add SEO metadata for this service",
+      },
     },
   ],
   hooks: {
