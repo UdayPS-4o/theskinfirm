@@ -4,71 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Blog } from "@/payload-types";
 
-const articles = [
-  {
-    id: 1,
-    title: "Seasonal Makeup Trends: Fall Edition",
-    description:
-      "Dive into the enchanting world of fall-inspired makeup trends. From warm hues to bold lip colors, discover the latest beauty trends that will elevate your autumn beauty routine.",
-    image: "/blogs/trending/article-1.png",
-    author: "Jane Doe",
-    readTime: "5min read",
-    href: "/blogs/seasonal-makeup-trends",
-  },
-  {
-    id: 2,
-    title: "Reviewing the Latest Beauty Innovations in 2023",
-    description:
-      "Stay on the cutting edge of beauty with a comprehensive review of the latest innovations in the industry. From skincare breakthroughs to high-tech beauty gadgets, explore what's new in 2023.",
-    image: "/blogs/trending/article-2.png",
-    author: "Jane Doe",
-    readTime: "5min read",
-    href: "/blogs/beauty-innovations-2023",
-  },
-  {
-    id: 3,
-    title: "Reader Spotlight: Transformation Stories",
-    description:
-      "Witness the incredible transformations of our valued customers. Read real stories of beauty journeys, complete with before-and-after photos, and be inspired by the power of self-care.",
-    image: "/blogs/trending/article-3.png",
-    author: "Jane Doe",
-    readTime: "5min read",
-    href: "/blogs/transformation-stories",
-  },
-  {
-    id: 4,
-    title: "Inside BB: Product Development Journey",
-    description:
-      "Take an exclusive behind-the-scenes look at the creation of beauty products. Learn about commitment to quality, innovation, and the meticulous process that goes into each product.",
-    image: "/blogs/trending/article-4.png",
-    author: "Jane Doe",
-    readTime: "5min read",
-    href: "/blogs/product-development",
-  },
-  {
-    id: 5,
-    title: "Exclusive Interview with Jenna Milhouse @missyb",
-    description:
-      "Gain insights from a renowned beauty influencer or expert in an exclusive interview. Discover their favorite beauty tips, product recommendations, and the secrets behind their success in the industry.",
-    image: "/blogs/trending/article-5.png",
-    author: "Jane Doe",
-    readTime: "5min read",
-    href: "/blogs/interview-jenna-milhouse",
-  },
-  {
-    id: 6,
-    title: "Step-by-Step Guide: Achieving the Perfect Smokey Eye",
-    description:
-      "Witness the incredible transformations of our valued customers. Read real stories of beauty journeys, complete with before-and-after photos, and be inspired by the power of self-care.",
-    image: "/blogs/trending/article-6.png",
-    author: "Jane Doe",
-    readTime: "5min read",
-    href: "/blogs/smokey-eye-guide",
-  },
-];
-
-export function TrendingSection() {
+export function TrendingSection({ blogs }: { blogs: Blog[] }) {
   return (
     <section className="w-full bg-white py-20">
       <div className="max-w-[1248px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,41 +37,14 @@ export function TrendingSection() {
                 Stay Trendy with Our Latest Insights
               </h2>
             </div>
-
-            {/* See More Button */}
-            <Link href="/blogs/trending" className="inline-flex">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="border border-[rgba(51,51,51,0.4)] text-[#333333] px-6 py-2 rounded hover:bg-gray-50 transition-all duration-200"
-                style={{
-                  fontFamily: "Nunito Sans, sans-serif",
-                  fontSize: "16px",
-                  lineHeight: "1.364em",
-                }}
-              >
-                See More
-              </motion.button>
-            </Link>
           </motion.div>
 
           {/* Posts Grid */}
           <div className="flex flex-col gap-8">
             {/* First Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {articles.slice(0, 3).map((article, index) => (
+              {blogs.map((article, index) => (
                 <ArticleCard key={article.id} article={article} index={index} />
-              ))}
-            </div>
-
-            {/* Second Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {articles.slice(3, 6).map((article, index) => (
-                <ArticleCard
-                  key={article.id}
-                  article={article}
-                  index={index + 3}
-                />
               ))}
             </div>
           </div>
@@ -143,14 +54,9 @@ export function TrendingSection() {
   );
 }
 
-function ArticleCard({
-  article,
-  index,
-}: {
-  article: (typeof articles)[0];
-  index: number;
-}) {
+function ArticleCard({ article, index }: { article: Blog; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
+  const seo = article.seo?.filter((b) => b.blockType === "seo")[0];
 
   return (
     <motion.div
@@ -161,7 +67,7 @@ function ArticleCard({
       className="w-full"
     >
       <Link
-        href={article.href}
+        href={`/blogs/${article.slug}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -179,8 +85,16 @@ function ArticleCard({
               className="w-full h-full"
             >
               <Image
-                src={article.image}
-                alt={article.title}
+                src={
+                  typeof article.heroImage === "string"
+                    ? article.heroImage
+                    : article.heroImage.url || ""
+                }
+                alt={
+                  typeof article.heroImage === "string"
+                    ? "trending-blogs"
+                    : article.heroImage.alt || ""
+                }
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 405px"
@@ -195,7 +109,7 @@ function ArticleCard({
               className="text-[#333333] text-2xl font-normal leading-[1em] tracking-[-0.01em]"
               style={{ fontFamily: "Nunito Sans, sans-serif" }}
             >
-              {article.title}
+              {seo?.metaTitle}
             </h3>
 
             {/* Description */}
@@ -203,7 +117,7 @@ function ArticleCard({
               className="text-[rgba(51,51,51,0.8)] text-base font-light leading-[1.4em] tracking-[0.01em]"
               style={{ fontFamily: "Nunito Sans, sans-serif" }}
             >
-              {article.description}
+              {seo?.metaDescription}
             </p>
 
             {/* Author and Arrow */}
@@ -213,13 +127,7 @@ function ArticleCard({
                   className="text-[#333333] text-sm font-normal leading-[1em] tracking-[-0.01em]"
                   style={{ fontFamily: "Nunito Sans, sans-serif" }}
                 >
-                  {article.author}
-                </span>
-                <span
-                  className="text-[#333333] text-sm font-normal leading-[1em] tracking-[-0.01em]"
-                  style={{ fontFamily: "Nunito Sans, sans-serif" }}
-                >
-                  {article.readTime}
+                  {article.authorName}
                 </span>
               </div>
 

@@ -676,11 +676,11 @@ export interface Service {
         /**
          * Recommended: 50-60 characters
          */
-        metaTitle: string;
+        metaTitle?: string | null;
         /**
          * Recommended: 150-160 characters
          */
-        metaDescription: string;
+        metaDescription?: string | null;
         /**
          * Comma-separated keywords
          */
@@ -738,7 +738,87 @@ export interface ServiceCategory {
  */
 export interface Blog {
   id: string;
+  heroTitle: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  heroDescription: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  heroImage: string | Media;
+  slug: string;
   featured?: boolean | null;
+  seo?:
+    | {
+        /**
+         * Recommended: 50-60 characters
+         */
+        metaTitle?: string | null;
+        /**
+         * Recommended: 150-160 characters
+         */
+        metaDescription?: string | null;
+        /**
+         * Comma-separated keywords
+         */
+        metaKeywords?: string | null;
+        /**
+         * Open Graph image for social media sharing (1200x630px recommended)
+         */
+        ogImage?: (string | null) | Media;
+        /**
+         * If empty, metaTitle will be used
+         */
+        ogTitle?: string | null;
+        /**
+         * If empty, metaDescription will be used
+         */
+        ogDescription?: string | null;
+        /**
+         * Canonical URL to prevent duplicate content issues
+         */
+        canonicalUrl?: string | null;
+        /**
+         * Prevent search engines from indexing this page
+         */
+        noIndex?: boolean | null;
+        /**
+         * Prevent search engines from following links on this page
+         */
+        noFollow?: boolean | null;
+        /**
+         * Twitter card type for social sharing
+         */
+        twitterCard?: ('summary' | 'summary_large_image') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'seo';
+      }[]
+    | null;
+  authorName: string;
   article: {
     root: {
       type: string;
@@ -1071,7 +1151,32 @@ export interface ServiceCategoriesSelect<T extends boolean = true> {
  * via the `definition` "blogs_select".
  */
 export interface BlogsSelect<T extends boolean = true> {
+  heroTitle?: T;
+  heroDescription?: T;
+  heroImage?: T;
+  slug?: T;
   featured?: T;
+  seo?:
+    | T
+    | {
+        seo?:
+          | T
+          | {
+              metaTitle?: T;
+              metaDescription?: T;
+              metaKeywords?: T;
+              ogImage?: T;
+              ogTitle?: T;
+              ogDescription?: T;
+              canonicalUrl?: T;
+              noIndex?: T;
+              noFollow?: T;
+              twitterCard?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  authorName?: T;
   article?: T;
   updatedAt?: T;
   createdAt?: T;

@@ -6,8 +6,6 @@ export const SeoBlock: Block = {
     {
       name: "metaTitle",
       type: "text",
-      required: true,
-      maxLength: 60,
       admin: {
         description: "Recommended: 50-60 characters",
       },
@@ -15,8 +13,6 @@ export const SeoBlock: Block = {
     {
       name: "metaDescription",
       type: "textarea",
-      required: true,
-      maxLength: 160,
       admin: {
         description: "Recommended: 150-160 characters",
       },
