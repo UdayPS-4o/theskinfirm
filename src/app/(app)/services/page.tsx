@@ -11,9 +11,8 @@ export default async function ServicePage() {
     const payload = await getPayload({ config });
     const result = await payload.find({
       collection: "services",
-      depth: 1, // This will populate the category relationship
-      limit: 1000, // Adjust as needed
-      revalidate: 0,
+      depth: 1,
+      limit: 1000,
     });
 
     const services = result.docs as (Service & { category: ServiceCategory })[];
