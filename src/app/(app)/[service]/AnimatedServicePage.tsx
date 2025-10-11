@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 
 interface AnimatedServicePageProps {
   serviceData: Service & {
-    category: ServiceCategory; // Ensure category is populated
+    category: ServiceCategory;
   };
 }
 
@@ -59,14 +59,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   }, []);
 
   const isVisible = (sectionId: string) => visibleSections.has(sectionId);
-  // Safe function to render text with markdown-style bold formatting
-  const renderTextWithBold = (text: string) => {
-    if (!text) return "";
-    return text
-      .replace(/^\s*>\s*/gm, "") // Remove markdown blockquote characters
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      .replace(/(\r\n|\n|\r)/gm, "<br/>"); // Preserve line breaks
-  };
+
   return (
     <div className="min-h-screen">
       {serviceData.sections?.map((section, index) => {
@@ -601,7 +594,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         {
                           "mb-[-50px]":
                             !section.downtime || section.downtime.length === 0,
-                        },
+                        }
                       )}
                     >
                       <h4

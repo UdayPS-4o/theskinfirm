@@ -2,6 +2,7 @@ import { Block } from "payload";
 
 export const TreatmentsBlock: Block = {
   slug: "treatments",
+  imageURL: "https://udayps.com/images/skinfirm/6.webp",
   fields: [
     { name: "title", type: "richText", required: true },
     {

@@ -1,5 +1,5 @@
 import { CollectionConfig } from "payload";
-import { HeroBlock } from "../blocks/services/Hero";
+import { HeroBlock } from "../blocks/Hero";
 import { AboutBlock } from "../blocks/services/About";
 import { BulletPointsBlock } from "../blocks/services/BulletPoints";
 import { FaqBlock } from "../blocks/services/Faq";
@@ -10,8 +10,9 @@ import { BenifitsBlock } from "../blocks/services/Benifits";
 import { PostCareBlock } from "../blocks/services/PostCare";
 import { TestimonialsBlock } from "../blocks/services/Testimonials";
 import { EligibilityBlock } from "../blocks/services/Eligibility";
-import slugify from "slugify";
 import { BeforeAfterBlock } from "@/blocks/services/BeforeAfter";
+import { SeoBlock } from "@/blocks/Seo";
+import slugify from "slugify";
 
 export const Services: CollectionConfig = {
   slug: "services",
@@ -47,14 +48,23 @@ export const Services: CollectionConfig = {
         FaqBlock,
       ],
     },
+    {
+      name: "seo",
+      type: "blocks",
+      maxRows: 1,
+      blocks: [SeoBlock],
+      admin: {
+        description: "Optional: Add SEO metadata for this service",
+      },
+    },
   ],
   hooks: {
     beforeValidate: [
       ({ data }) => {
         if (data?.title && !data?.slug) {
           data.slug = slugify(data.title, {
-            lower: true, // sab lowercase
-            strict: true, // special chars hata dega
+            lower: true,
+            strict: true,
           });
         }
         return data;
