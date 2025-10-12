@@ -11,6 +11,7 @@ import { PostCareBlock } from "../blocks/services/PostCare";
 import { TestimonialsBlock } from "../blocks/services/Testimonials";
 import { EligibilityBlock } from "../blocks/services/Eligibility";
 import { BeforeAfterBlock } from "@/blocks/services/BeforeAfter";
+import { BookConsultationBlock } from "../blocks/services/BookConsultation";
 import { SeoBlock } from "@/blocks/Seo";
 import slugify from "slugify";
 
@@ -46,6 +47,7 @@ export const Services: CollectionConfig = {
         TestimonialsBlock,
         EligibilityBlock,
         FaqBlock,
+        BookConsultationBlock,
       ],
     },
     {

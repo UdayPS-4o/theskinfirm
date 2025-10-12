@@ -9,9 +9,17 @@ export default async function BlogsPage() {
     collection: "blogs",
     sort: "-updatedAt",
   });
+  const { docs: featuredBlogs } = await payload.find({
+    collection: "blogs",
+    where: {
+      featured: {
+        equals: true,
+      },
+    },
+  });
   return (
     <main className="w-full space-y-8">
-      <HeroSection />
+      <HeroSection featuredBlogs={featuredBlogs} />
       <div className="w-7xl mx-auto h-[1px] bg-[rgba(51,51,51,0.4)]" />
       <TrendingSection blogs={trendingPosts} />
     </main>
