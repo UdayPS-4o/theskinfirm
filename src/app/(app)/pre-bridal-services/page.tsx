@@ -32,7 +32,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const PreBridalServicesPage = () => {
+const PreWeddingServicesPage = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(
     new Set()
   );
@@ -226,6 +226,13 @@ const PreBridalServicesPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const scrollToForm = () => {
+    const formSection = document.getElementById('hero-right');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   const validate = () => {
     const newErrors: { name?: string; phone?: string } = {};
     if (name.trim().length < 3) {
@@ -254,7 +261,7 @@ const PreBridalServicesPage = () => {
       phoneNumber: phone,
       email: "",
       service: "Pre-Wedding Consultation",
-      additionalInfo: "Submitted from Pre-Bridal Services page",
+      additionalInfo: "Submitted from Pre-Wedding Services page",
     };
 
     try {
@@ -351,7 +358,7 @@ const PreBridalServicesPage = () => {
                 <div className="text-center text-white">
                   <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider">Upto</div>
                   <div className="text-2xl md:text-3xl font-black my-0.5 md:my-1">50% OFF</div>
-                  <div className="text-[10px] md:text-xs capitalize">Wedding Packages</div>
+                  <div className="text-[10px] md:text-xs capitalize">on Pre Wedding Services</div>
                 </div>
               </div>
 
@@ -458,8 +465,10 @@ const PreBridalServicesPage = () => {
               </div>
               
               <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight text-[#64442A] font-bold">
-                For the Bride & Groom Who Want to 
-                <span className="block text-[#d4a380] mt-2">Glow</span>
+                For the <span className="whitespace-nowrap">Bride & Groom</span>
+                <span className="block">
+                  Who Want to <span className="text-[#d4a380]">Glow</span>
+                </span>
               </h2>
               
               <div className="flex items-center gap-4 pt-4">
@@ -482,7 +491,7 @@ const PreBridalServicesPage = () => {
                 </p>
                 
                 {/* Feature highlights */}
-                <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-[#d4a380]/20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-6 border-t border-[#d4a380]/20">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-[#d4a380]/10 flex items-center justify-center">
                       <Users className="w-4 h-4 text-[#d4a380]" strokeWidth={2.5} />
@@ -494,6 +503,12 @@ const PreBridalServicesPage = () => {
                       <Award className="w-4 h-4 text-[#d4a380]" strokeWidth={2.5} />
                     </div>
                     <span className="text-sm font-medium text-[#64442A]">Expert-Led Care</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-[#d4a380]/10 flex items-center justify-center">
+                      <ClipboardCheck className="w-4 h-4 text-[#d4a380]" strokeWidth={2.5} />
+                    </div>
+                    <span className="text-sm font-medium text-[#64442A]">Personalized Plans</span>
                   </div>
                 </div>
               </div>
@@ -643,6 +658,7 @@ const PreBridalServicesPage = () => {
             >
               {whyChooseUs.map((item, index) => {
                 const ItemIcon = item.icon;
+                const isLastItem = index === whyChooseUs.length - 1;
                 return (
                   <div
                     key={index}
@@ -650,7 +666,7 @@ const PreBridalServicesPage = () => {
                       isVisible("why-choose-grid")
                         ? "translate-y-0 opacity-100"
                         : "translate-y-10 opacity-0"
-                    }`}
+                    } ${isLastItem ? 'md:col-span-2 md:max-w-xl md:mx-auto' : ''}`}
                     style={{ transitionDelay: `${400 + index * 100}ms` }}
                   >
                     {/* Icon Circle */}
@@ -702,18 +718,18 @@ const PreBridalServicesPage = () => {
             <div
               id="concerns-grid"
               data-animate
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5 md:gap-6"
             >
               {commonConcerns.map((concern, index) => {
                 const ConcernIcon = concern.icon;
                 return (
                   <div
                     key={index}
-                    className={`group relative rounded-xl border-2 border-[#d4a380]/30 p-5 md:p-6 bg-white flex items-center gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-[0_10px_30px_rgba(212,163,128,0.25)] hover:-translate-y-2 hover:border-[#d4a380] ${
+                    className={`group relative rounded-xl border-2 border-[#d4a380]/30 p-5 md:p-6 bg-white flex items-center gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-[0_10px_30px_rgba(212,163,128,0.25)] hover:-translate-y-2 hover:border-[#d4a380] lg:col-span-2 ${
                       isVisible("concerns-grid")
                         ? "translate-y-0 opacity-100"
                         : "translate-y-10 opacity-0"
-                    }`}
+                    } ${ index === 3 ? "lg:col-start-2" : "" }`}
                     style={{ transitionDelay: `${300 + index * 100}ms` }}
                   >
                     {/* Icon */}
@@ -960,8 +976,9 @@ const PreBridalServicesPage = () => {
             </p>
             
             {/* CTA Button */}
-            <Link href="/contact">
-              <button className="group relative inline-flex items-center gap-3 rounded-2xl px-10 py-5 bg-gradient-to-r from-[#d4a380] to-[#c19970] text-white font-bold text-lg md:text-xl hover:shadow-[0_20px_50px_rgba(212,163,128,0.5)] hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden">
+              <button 
+              onClick={scrollToForm}
+              className="group relative inline-flex items-center gap-3 rounded-2xl px-10 py-5 bg-gradient-to-r from-[#d4a380] to-[#c19970] text-white font-bold text-lg md:text-xl hover:shadow-[0_20px_50px_rgba(212,163,128,0.5)] hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden">
                 {/* Shine Effect */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
                 
@@ -970,7 +987,6 @@ const PreBridalServicesPage = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </button>
-            </Link>
             
             {/* Trust Indicators */}
             <div className="mt-10 pt-8 border-t border-[#d4a380]/20 flex flex-wrap items-center justify-center gap-8 text-[#8C6B52]">
@@ -1000,5 +1016,5 @@ const PreBridalServicesPage = () => {
   );
 };
 
-export default PreBridalServicesPage;
+export default PreWeddingServicesPage;
 
