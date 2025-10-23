@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 
 interface AnimatedServicePageProps {
   serviceData: Service & {
-    category: ServiceCategory; // Ensure category is populated
+    category: ServiceCategory;
   };
 }
 
@@ -59,14 +59,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   }, []);
 
   const isVisible = (sectionId: string) => visibleSections.has(sectionId);
-  // Safe function to render text with markdown-style bold formatting
-  const renderTextWithBold = (text: string) => {
-    if (!text) return "";
-    return text
-      .replace(/^\s*>\s*/gm, "") // Remove markdown blockquote characters
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      .replace(/(\r\n|\n|\r)/gm, "<br/>"); // Preserve line breaks
-  };
+
   return (
     <div className="min-h-screen">
       {serviceData.sections?.map((section, index) => {
@@ -601,7 +594,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         {
                           "mb-[-50px]":
                             !section.downtime || section.downtime.length === 0,
-                        },
+                        }
                       )}
                     >
                       <h4
@@ -650,7 +643,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                                   />
                                 </div>
                                 <div className="text-base text-gray-800">
-                                  {item.content && <RichText data={item.content} />}
+                                  {item.content && (
+                                    <RichText data={item.content} />
+                                  )}
                                 </div>
                               </div>
                             ))}
@@ -828,6 +823,37 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     </Accordion>
                   </div>
                 </MaxWidthWrapper>
+              </section>
+            );
+          case "book-consultation":
+            return (
+              <section
+                key={section.blockType + index}
+                className="py-12 md:py-20 px-4 md:px-8 bg-cover bg-center mb-12"
+                style={{ backgroundColor: "#F8F4EB" }}
+              >
+                <div className="max-w-4xl mx-auto text-center">
+                  <div className="mb-6">
+                    <RichText
+                      className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold text-[color:var(--color-dark-text)]"
+                      data={section.title}
+                    />
+                  </div>
+                  <div className="mb-6 text-[color:var(--color-dark-text)]">
+                    <RichText data={section.description} />
+                  </div>
+                  {section.secondaryDescription && (
+                    <div className="font-semibold mb-8 text-[color:var(--color-dark-text)]">
+                      <RichText data={section.secondaryDescription} />
+                    </div>
+                  )}
+                  <Link href={section.buttonLink || "/contact"}>
+                    <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
+                      {section.buttonText || "Book Your Treatment Appointment"}{" "}
+                      →
+                    </button>
+                  </Link>
+                </div>
               </section>
             );
         }
@@ -1087,34 +1113,6 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             and Central Pune to access advanced treatments and other dermatology
             services under the expert care of Dr. Karishma Singh.
           </p>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section
-        className="py-12 md:py-20 px-4 md:px-8 bg-cover bg-center mb-12"
-        style={{ backgroundColor: "#F8F4EB" }}
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold mb-6 text-[color:var(--color-dark-text)]">
-            Book Your Consultation at The Skin Firm, NIBM, Mohammad Wadi, Pune
-          </h2>
-          <p className="mb-6 text-[color:var(--color-dark-text)]">
-            Don&apos;t let skin concerns hold back your confidence. At The Skin
-            Firm, we understand how skin issues can affect not just your
-            appearance, but also the way you feel about yourself. With Dr.
-            Karishma Singh&apos;s expert care and customized treatments,
-            healthier skin - and renewed confidence - can truly be yours.
-          </p>
-          <p className="font-semibold mb-8 text-[color:var(--color-dark-text)]">
-            Appointments fill quickly. Start your journey to healthier,
-            confident skin today.
-          </p>
-          <Link href="/contact">
-            <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
-              Book Your Treatment Appointment →
-            </button>
-          </Link>
         </div>
       </section>
     </div>
