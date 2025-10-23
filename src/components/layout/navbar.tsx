@@ -31,7 +31,7 @@ const NAV_ITEMS = [
     hasDropdown: true,
     dropdownType: "laser",
   },
-  { label: "Pre-Bridal Services", href: "/pre-bridal-services" },
+  { label: "Pre-Wedding Services", href: "/pre-wedding-services" },
   { label: "Gallery", href: "/gallery" },
   { label: "Videos", href: "/videos" },
   { label: "Contact", href: "/contact" },
