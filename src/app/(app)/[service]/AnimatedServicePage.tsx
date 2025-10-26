@@ -62,9 +62,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   const isVisible = (sectionId: string) => visibleSections.has(sectionId);
 
   const whyChooseUsSection = (
-    <section className="py-12 md:py-20 px-4 md:px-8">
+    <section className="py-6 md:py-8 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col gap-12 md:gap-16">
+        <div className="flex flex-col gap-6">
           <div
             id="clinic-header"
             data-animate
@@ -282,11 +282,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
               >
                 <div className="flex flex-col xl:flex-row min-h-[500px] xl:min-h-[600px]">
                   {/* Left Content */}
-                  <div className="relative z-10 flex items-center justify-center xl:w-1/2 px-4 md:px-8 lg:px-[50px] py-8 md:py-12 lg:py-20">
+                  <div className="relative z-10 flex items-center justify-center xl:w-1/2 px-4 md:px-8 lg:px-[50px] py-8 md:py-10">
                     <div
                       id="hero-left"
                       data-animate
-                      className={`flex flex-col gap-6 md:gap-8 xl:gap-[50px] w-full transform transition-all duration-1000 ease-out ${
+                      className={`flex flex-col gap-4 md:gap-6 w-full transform transition-all duration-1000 ease-out ${
                         isVisible("hero-left")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
@@ -374,10 +374,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-20 px-4 md:px-8"
+                className="py-6 md:py-8 px-4 md:px-8"
               >
                 <div className="w-full md:w-4/5 mx-auto">
-                  <div className="flex flex-col gap-8 md:gap-12">
+                  <div className="flex flex-col gap-6">
                     <div
                       id={`info-header-${index}`}
                       data-animate
@@ -388,7 +388,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       }`}
                     >
                       <RichText
-                        className={`rich-text text-center text-[color:var(--color-dark-text)] mb-6 transform transition-all duration-700 delay-200 ease-out ${
+                        className={`rich-text text-center text-[color:var(--color-dark-text)] mb-4 transform transition-all duration-700 delay-200 ease-out ${
                           isVisible(`info-header-${index}`)
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
@@ -416,10 +416,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
+                className="py-6 md:py-8 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <div className="max-w-6xl mx-auto">
-                  <div className="flex flex-col gap-8 md:gap-12">
+                  <div className="flex flex-col gap-6">
                     <div
                       id="symptoms-header"
                       data-animate
@@ -441,7 +441,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="symptoms-grid"
                       data-animate
-                      className="flex flex-wrap justify-center gap-4 md:gap-6"
+                      className="flex flex-wrap justify-center gap-4"
                     >
                       {section.items.map(
                         (symptom, index) =>
@@ -479,10 +479,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-[100px] px-4 md:px-8"
+                className="py-6 md:py-8 px-4 md:px-8"
               >
                 <MaxWidthWrapper>
-                  <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
+                  <div className="flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-8">
                     <div className="rounded-xl w-full lg:w-[470px] h-[280px] lg:h-[360px] overflow-hidden hover:shadow-xl transition-all duration-1000 ease-out">
                       {typeof section.image !== "number" && (
                         <img
@@ -529,10 +529,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-20 px-4 md:px-8"
+                className="py-6 md:py-8 px-4 md:px-8"
               >
                 <div className="w-full md:w-4/5 mx-auto">
-                  <div className="flex flex-col gap-12 md:gap-[90px]">
+                  <div className="flex flex-col gap-6">
                     <div
                       id={`process-header-${index}`}
                       data-animate
@@ -563,7 +563,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id={`process-steps-${index}`}
                       data-animate
-                      className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
+                      className="grid grid-cols-1 md:grid-cols-2 gap-4"
                     >
                       {section.items.map((step, stepIndex) => (
                         <div
@@ -602,14 +602,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
+                className="py-6 md:py-8 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <div className="max-w-6xl mx-auto text-center">
                   <RichText
-                    className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12"
+                    className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6"
                     data={section.title}
                   />
-                  <div className="flex flex-wrap justify-center gap-6">
+                  <div className="flex flex-wrap justify-center gap-4">
                     {section.items.map((item, index) => (
                       <div
                         key={index}
@@ -632,10 +632,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
+                className="py-6 md:py-8 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <div className="max-w-6xl mx-auto">
-                  <div className="flex flex-col gap-12 md:gap-16">
+                  <div className="flex flex-col gap-6">
                     <div
                       id="transformations-header"
                       data-animate
@@ -706,10 +706,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
+                className="py-6 md:py-8 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <MaxWidthWrapper>
-                  <div className="flex flex-col gap-12 md:gap-20">
+                  <div className="flex flex-col gap-6">
                     <div
                       id="benefits-header"
                       data-animate
@@ -740,7 +740,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="benefits-grid"
                       data-animate
-                      className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"
+                      className="grid grid-cols-1 md:grid-cols-2 gap-4"
                     >
                       {section.items.map((benefit, index) => (
                         <div
@@ -792,20 +792,18 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-20 px-4 md:px-8"
+                className="py-6 md:py-8 px-4 md:px-8"
               >
                 <div className="max-w-6xl mx-auto">
-                  <div className="flex flex-col gap-12 md:gap-20">
+                  <div className="flex flex-col gap-6">
                     <div
                       id="postcare-header"
                       data-animate
-                      className={cn(
-                        "text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out",
-                        {
-                          "mb-[-50px]":
-                            !section.downtime || section.downtime.length === 0,
-                        }
-                      )}
+                      className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
+                        isVisible("postcare-header")
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-10 opacity-0"
+                      }`}
                     >
                       {/* <h4
                         className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
@@ -839,7 +837,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         }`}
                       >
                         {section.downtime && section.downtime.length > 0 && (
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-4">
                             {section.downtime.map((item, index) => (
                               <div
                                 key={index}
@@ -864,11 +862,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
                           {section.postCareTitle ? (
                             <RichText
-                              className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-6"
+                              className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-4"
                               data={section.postCareTitle}
                             />
                           ) : null}
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {section.postCareItems?.map((item, index) => (
                               <div
                                 key={index}
@@ -910,9 +908,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 {whyChooseUsSection}
                 <section
                   key={section.blockType + index}
-                  className="py-12 md:py-20 px-4 md:px-8"
+                  className="py-6 md:py-8 px-4 md:px-8"
                 >
-                  <div className="max-w-6xl mx-auto mb-16">
+                  <div className="max-w-6xl mx-auto">
                     <div
                       id="testimonials-header"
                       data-animate
@@ -923,7 +921,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       }`}
                     >
                       <RichText
-                        className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-center text-[color:var(--color-dark-text)] font-semibold mb-12"
+                        className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-center text-[color:var(--color-dark-text)] font-semibold mb-6"
                         data={section.title}
                       />
                     </div>
@@ -941,14 +939,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 mt-10 md:py-20 px-4 md:px-8"
+                className="py-6 md:py-8 px-4 md:px-8"
               >
                 <div className="max-w-6xl mx-auto text-center">
                   <RichText
-                    className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-12"
+                    className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6"
                     data={section.title}
                   />
-                  <div className="flex flex-wrap justify-center gap-6">
+                  <div className="flex flex-wrap justify-center gap-4">
                     {section.items.map((item) => (
                       <div
                         key={item.id}
@@ -968,7 +966,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-20 px-4 md:px-8"
+                className="py-6 md:py-8 px-4 md:px-8"
               >
                 <MaxWidthWrapper>
                   <div className="mx-6 lg:mx-24">
@@ -983,12 +981,12 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       className="mt-2 text-[#333333] text-3xl lg:text-5xl font-semibold text-center"
                       data={section.title}
                     />
-                    <Accordion type="single" collapsible className="mt-10">
+                    <Accordion type="single" collapsible className="mt-4">
                       {section.items.map((faq, index) => (
                         <AccordionItem
                           value={`${index + 1}`}
                           key={index}
-                          className="py-6 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+                          className="py-4 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
                         >
                           <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
                             {faq.question}
@@ -1010,21 +1008,21 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="py-12 md:py-20 px-4 md:px-8 bg-cover bg-center mb-12"
+                className="py-6 md:py-8 px-4 md:px-8 bg-cover bg-center"
                 style={{ backgroundColor: "#F8F4EB" }}
               >
                 <div className="max-w-4xl mx-auto text-center">
-                  <div className="mb-6">
+                  <div className="mb-4">
                     <RichText
                       className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold text-[color:var(--color-dark-text)]"
                       data={section.title}
                     />
                   </div>
-                  <div className="mb-6 text-[color:var(--color-dark-text)]">
+                  <div className="mb-4 text-[color:var(--color-dark-text)]">
                     <RichText data={section.description} />
                   </div>
                   {section.secondaryDescription && (
-                    <div className="font-semibold mb-8 text-[color:var(--color-dark-text)]">
+                    <div className="font-semibold mb-6 text-[color:var(--color-dark-text)]">
                       <RichText data={section.secondaryDescription} />
                     </div>
                   )}
@@ -1043,9 +1041,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
       {!hasTestimonials && whyChooseUsSection}
 
       {/* Patients Visit Us From Section */}
-      <section className="py-12 md:py-20 px-4 md:px-8">
+      <section className="py-6 md:py-8 px-4 md:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6">
+          <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4">
             Patients Visit Us From Across Pune
           </h2>
           <p className="mb-4">
@@ -1053,10 +1051,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             Wadi and NIBM Road, but also from several nearby areas in Pune who
             visit us for trusted treatments, skin care, and hair solutions.
           </p>
-          <p className="mb-6 font-medium">
+          <p className="mb-4 font-medium">
             Many of our patients travel to our clinic from:
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
             {[
               "Camp",
               "Undri",

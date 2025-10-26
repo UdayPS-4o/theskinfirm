@@ -110,7 +110,7 @@ export const Hero = () => {
                   className='w-full max-w-[300px] max-h-[500px] lg:max-w-none lg:w-full h-full object-cover rounded-2xl' 
                   autoPlay 
                   loop 
-                  muted 
+                  muted={false}
                   playsInline
                   src={'/theskinfirm.mp4'} 
                 />
