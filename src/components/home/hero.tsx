@@ -1,14 +1,51 @@
 'use client';
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { Button } from '../ui/button'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Volume2, VolumeX } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link';
 import { MaxWidthWrapper } from '../layout/max-width';
 
 export const Hero = () => {
+  const [isMuted, setIsMuted] = useState(true); // Video starts muted
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(e => console.error("Video autoplay failed", e));
+    }
+
+    const unmuteOnInteraction = () => {
+      const userPreference = localStorage.getItem('videoMuted');
+      // Unmute if the user hasn't explicitly muted in the past.
+      if (userPreference !== 'true' && videoRef.current) {
+        videoRef.current.muted = false;
+        setIsMuted(false);
+      }
+    };
+
+    // Listen for the first interaction, then stop listening.
+    window.addEventListener('scroll', unmuteOnInteraction, { once: true });
+    window.addEventListener('click', unmuteOnInteraction, { once: true });
+    window.addEventListener('keydown', unmuteOnInteraction, { once: true });
+
+    return () => {
+      window.removeEventListener('scroll', unmuteOnInteraction);
+      window.removeEventListener('click', unmuteOnInteraction);
+      window.removeEventListener('keydown', unmuteOnInteraction);
+    };
+  }, []);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      const newMutedState = !videoRef.current.muted;
+      videoRef.current.muted = newMutedState;
+      setIsMuted(newMutedState);
+      localStorage.setItem('videoMuted', JSON.stringify(newMutedState));
+    }
+  };
   return (
     <div className='w-full bg-[#FBEDE4] pb-8 lg:pb-14 pt-8 lg:pt-8'>
       <MaxWidthWrapper>
@@ -104,16 +141,24 @@ export const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className='flex justify-center lg:justify-start h-full'
+                className='flex justify-center lg:justify-start h-full relative'
               >
-                <video 
-                  className='w-full max-w-[300px] max-h-[500px] lg:max-w-none lg:w-full h-full object-cover rounded-2xl' 
-                  autoPlay 
-                  loop 
-                  muted={false}
+                <video
+                  ref={videoRef}
+                  className='w-full max-w-[300px] max-h-[500px] lg:max-w-none lg:w-full h-full object-cover rounded-2xl'
+                  autoPlay
+                  loop
+                  muted // The video element is always muted initially, state controls UI and interaction unmutes it
                   playsInline
-                  src={'/theskinfirm.mp4'} 
+                  src={'/theskinfirm.mp4'}
                 />
+                 <Button
+                  onClick={toggleMute}
+                  className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 h-auto"
+                  aria-label={isMuted ? "Unmute video" : "Mute video"}
+                >
+                  {isMuted ? <VolumeX className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
+                </Button>
               </motion.div>
             </div>
           </div>
