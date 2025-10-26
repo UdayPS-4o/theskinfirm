@@ -503,7 +503,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="benefits-header"
                       data-animate
-                      className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
+                      className={`text-center mx-auto transform transition-all duration-1000 ease-out ${
                         isVisible("benefits-header")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
