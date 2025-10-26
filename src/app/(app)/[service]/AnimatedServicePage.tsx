@@ -120,15 +120,15 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       >
                         <Link href="/contact">
                           <button className="w-full sm:w-auto rounded-lg px-4 md:px-[22px] py-3 md:py-[15px] bg-[#d4a380] text-white font-medium text-base md:text-lg flex items-center justify-center gap-2 hover:bg-[#c19970] hover:scale-105 transition-all duration-300 hover:shadow-lg">
-                            Book Consultation
+                            Book Your {serviceData.title} Today
                             <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
                           </button>
                         </Link>
-                        <Link href="/services">
+                        {/* <Link href="/services">
                           <button className="w-full sm:w-auto rounded-lg border border-[color:var(--color-primary-brown)] px-4 md:px-[22px] py-3 md:py-[15px] bg-white text-[color:var(--color-dark-text)] font-medium text-base md:text-lg hover:bg-gray-50 hover:scale-105 transition-all duration-300 hover:shadow-lg">
                             Explore Services
                           </button>
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                   </div>
@@ -213,14 +213,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="symptoms-header"
                       data-animate
-                      className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
+                      className={`text-center mx-auto transform transition-all duration-1000 ease-out ${
                         isVisible("symptoms-header")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
                       }`}
                     >
                       <RichText
-                        className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-8 transform transition-all duration-700 delay-200 ease-out ${
+                        className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out  ${
                           isVisible("symptoms-header")
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
@@ -254,7 +254,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                               </div>
 
                               <RichText
-                                className="text-sm md:text-base leading-[20px] md:leading-[22px] text-black flex-1 text-center"
+                                className="text-sm md:text-base leading-[20px] md:leading-[22px] text-black flex-1"
                                 data={symptom.content}
                               />
                             </div>
@@ -332,7 +332,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           : "translate-y-10 opacity-0"
                       }`}
                     >
-                      <h4
+                      {/* <h4
                         className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
                           isVisible(`process-header-${index}`)
                             ? "translate-y-0 opacity-100"
@@ -340,7 +340,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         }`}
                       >
                         ---------- Process ----------
-                      </h4>
+                      </h4> */}
                       <RichText
                         className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                           isVisible(`process-header-${index}`)
@@ -435,7 +435,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           : "translate-y-10 opacity-0"
                       }`}
                     >
-                      <h4
+                      {/* <h4
                         className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
                           isVisible("transformations-header")
                             ? "translate-y-0 opacity-100"
@@ -443,7 +443,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         }`}
                       >
                         ---------- Results ----------
-                      </h4>
+                      </h4> */}
                       <RichText
                         className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4 transform transition-all duration-700 delay-300 ease-out ${
                           isVisible("transformations-header")
@@ -509,7 +509,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           : "translate-y-10 opacity-0"
                       }`}
                     >
-                      <h4
+                      {/* <h4
                         className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
                           isVisible("benefits-header")
                             ? "translate-y-0 opacity-100"
@@ -517,7 +517,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         }`}
                       >
                         ---------- Benefits ----------
-                      </h4>
+                      </h4> */}
                       <RichText
                         className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                           isVisible("benefits-header")
@@ -597,7 +597,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         }
                       )}
                     >
-                      <h4
+                      {/* <h4
                         className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
                           isVisible("postcare-header")
                             ? "translate-y-0 opacity-100"
@@ -605,7 +605,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         }`}
                       >
                         ---------- Post Care ----------
-                      </h4>
+                      </h4> */}
                       {section.downtimeTitle ? (
                         <RichText
                           className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
@@ -710,7 +710,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         : "translate-y-10 opacity-0"
                     }`}
                   >
-                    <h4
+                    {/* <h4
                       className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
                         isVisible("testimonials-header")
                           ? "translate-y-0 opacity-100"
@@ -718,7 +718,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       }`}
                     >
                       ---------- Testimonials ----------
-                    </h4>
+                    </h4> */}
                     <RichText
                       className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-center text-[color:var(--color-dark-text)] font-semibold mb-12"
                       data={section.title}
@@ -872,7 +872,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              <h4
+              {/* <h4
                 className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
                   isVisible("clinic-header")
                     ? "translate-y-0 opacity-100"
@@ -880,7 +880,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 }`}
               >
                 ---------- Why Choose Us ----------
-              </h4>
+              </h4> */}
               <h2
                 className={`text-3xl md:text-[35px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                   isVisible("clinic-header")
