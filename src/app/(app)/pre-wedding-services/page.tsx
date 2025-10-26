@@ -331,7 +331,7 @@ const PreWeddingServicesPage = () => {
                   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
                     Your Wedding Glow,
                     <span className="block text-[#d4a380] mt-2">
-                      Perfected at The Skin Firm
+                      Perfected at <span className="whitespace-nowrap">The Skin Firm</span>
                     </span>
                   </h1>
 
@@ -353,18 +353,18 @@ const PreWeddingServicesPage = () => {
                   : "translate-x-10 opacity-0"
               }`}
             >
-              {/* Floating Offer Badge */}
-              <div className="absolute -top-6 left-[-0.5rem] md:-top-8 md:-left-6 bg-gradient-to-br from-[#d4a380] to-[#c19970] rounded-2xl p-4 md:p-6 shadow-2xl transform -rotate-6 hover:-rotate-3 transition-all hover:scale-110 z-30">
-                <div className="text-center text-white">
-                  <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider">Upto</div>
-                  <div className="text-2xl md:text-3xl font-black my-0.5 md:my-1">50% OFF</div>
-                  <div className="text-[10px] md:text-xs capitalize">on Pre Wedding Services</div>
-                </div>
-              </div>
-
               {/* Premium Card */}
               <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl px-8 pb-8 pt-16 md:px-10 md:pb-10 md:pt-12 shadow-2xl border-2 border-[#d4a380]/20 max-w-lg lg:max-w-xl w-full">
-                <div className="text-center mb-8">
+                {/* Floating Offer Badge */}
+                <div className="absolute -top-6 -left-4 md:-top-8 md:-left-8 bg-gradient-to-br from-[#d4a380] to-[#c19970] rounded-2xl p-4 md:p-6 shadow-2xl transform -rotate-12 hover:-rotate-6 transition-all hover:scale-110 z-20">
+                  <div className="text-center text-white">
+                    <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider">Upto</div>
+                    <div className="text-2xl md:text-3xl font-black my-0.5 md:my-1">50% OFF</div>
+                    <div className="text-[10px] md:text-xs capitalize">on Pre Wedding Services</div>
+                  </div>
+                </div>
+
+                <div className="text-center mb-8 pt-8">
                   <h3 className="text-2xl md:text-3xl font-bold text-[#64442A] mb-3">
                     Begin Your Wedding Glow
                   </h3>
@@ -404,7 +404,7 @@ const PreWeddingServicesPage = () => {
                   
                   {isSubmitted && (
                     <p className="text-green-600 text-sm font-medium text-center">
-                      Thank you! We&apos;ll be in touch shortly.
+                      Thank you! We'll be in touch shortly.
                     </p>
                   )}
                   {errors.form && <p className="text-red-500 text-xs mt-1 text-center">{errors.form}</p>}
