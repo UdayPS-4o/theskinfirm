@@ -605,6 +605,30 @@ export interface Service {
               };
               [k: string]: unknown;
             };
+            videos: {
+              url: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'video-testimonials';
+          }
+        | {
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             items: {
               content: {
                 root: {
@@ -1132,6 +1156,19 @@ export interface ServicesSelect<T extends boolean = true> {
                 | T
                 | {
                     content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'video-testimonials'?:
+          | T
+          | {
+              title?: T;
+              videos?:
+                | T
+                | {
+                    url?: T;
                     id?: T;
                   };
               id?: T;
