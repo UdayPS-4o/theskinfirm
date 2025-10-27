@@ -1035,6 +1035,62 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 </div>
               </section>
             );
+          case "video-testimonials":
+            return (
+              <section
+                key={section.blockType + index}
+                className="w-full py-12 md:py-20"
+              >
+                <MaxWidthWrapper>
+                  {/* <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2">
+                    <DashedSeparator />
+                    <h3 className="text-[#EC7754] text-3xl font-medium whitespace-nowrap">
+                      Knowledge Hub
+                    </h3>
+                    <DashedSeparator />
+                  </div> */}
+                  <RichText
+                    className="mt-5 text-center font-semibold text-5xl text-[#333333]"
+                    data={section.title}
+                  />
+                  <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {section.videos?.map((video, videoIndex) => {
+                      const getYouTubeEmbedUrl = (url: string) => {
+                        let videoId = "";
+                        try {
+                          const urlObj = new URL(url);
+                          if (urlObj.hostname === "youtu.be") {
+                            videoId = urlObj.pathname.slice(1);
+                          } else {
+                            videoId = urlObj.searchParams.get("v") || "";
+                          }
+                        } catch (error) {
+                          console.error("Invalid URL:", url, error);
+                          return "";
+                        }
+                        return `https://www.youtube.com/embed/${videoId}`;
+                      };
+
+                      return (
+                        <div key={videoIndex} className="w-full">
+                          <div className="aspect-video">
+                            <iframe
+                              src={getYouTubeEmbedUrl(video.url)}
+                              title={`Video Testimonial ${videoIndex + 1}`}
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen
+                              className="h-full w-full rounded-lg shadow-lg"
+                              loading="lazy"
+                            ></iframe>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </MaxWidthWrapper>
+              </section>
+            );
         }
       })}
 

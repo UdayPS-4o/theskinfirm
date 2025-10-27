@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { 
-  ChevronRight, 
-  Sparkles, 
-  Clock, 
+import {
+  ChevronRight,
+  Sparkles,
+  Clock,
   Zap,
   Heart,
   Award,
@@ -19,12 +19,10 @@ import {
   User,
   Calendar,
   ClipboardCheck,
-  Gift
+  Gift,
 } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 import { MaxWidthWrapper } from "@/components/layout/max-width";
-import { DashedSeparator } from "@/components/sections/dashed-separator";
 import {
   Accordion,
   AccordionContent,
@@ -73,13 +71,17 @@ const PreWeddingServicesPage = () => {
   const packages = [
     {
       title: "6-Month Wedding Glow Plan",
-      subtitle: "Ideal for those starting early, this comprehensive program targets long-term skin health.",
+      subtitle:
+        "Ideal for those starting early, this comprehensive program targets long-term skin health.",
       icon: Calendar,
       features: [
         { text: "Advanced acne & pigmentation management", icon: Shield },
         { text: "Anti-tan and brightening therapies", icon: Sun },
         { text: "Hydration & rejuvenation facials", icon: Droplets },
-        { text: "Laser-based hair removal and skin tightening sessions", icon: Zap },
+        {
+          text: "Laser-based hair removal and skin tightening sessions",
+          icon: Zap,
+        },
         { text: "Hair & body polishing options", icon: Sparkles },
         { text: "Skin boosters", icon: TrendingUp },
       ],
@@ -89,10 +91,16 @@ const PreWeddingServicesPage = () => {
       subtitle: "Perfect for brides & grooms balancing busy schedules.",
       icon: Clock,
       features: [
-        { text: "Corrective treatments for pigmentation, acne, or dullness", icon: Star },
+        {
+          text: "Corrective treatments for pigmentation, acne, or dullness",
+          icon: Star,
+        },
         { text: "Intensive hydration facials & peels", icon: Droplets },
         { text: "Skin brightening and polishing", icon: Sparkles },
-        { text: "Grooming add-ons: beard contour laser, scalp health", icon: Users },
+        {
+          text: "Grooming add-ons: beard contour laser, scalp health",
+          icon: Users,
+        },
       ],
     },
     {
@@ -146,18 +154,23 @@ const PreWeddingServicesPage = () => {
     { text: "Acne, breakouts, and scars", icon: AlertCircle },
     { text: "Pigmentation and tanning", icon: Droplets },
     { text: "Fine lines and loss of radiance", icon: Sparkles },
-    { text: "Groom-specific issues: rough texture, razor bumps, uneven beard area, oily skin", icon: Users },
+    {
+      text: "Groom-specific issues: rough texture, razor bumps, uneven beard area, oily skin",
+      icon: Users,
+    },
   ];
 
   const processSteps = [
     {
       title: "Personalised Consultation",
-      description: "Comprehensive skin analysis and understanding of your wedding timeline.",
+      description:
+        "Comprehensive skin analysis and understanding of your wedding timeline.",
       icon: User,
     },
     {
       title: "Custom Treatment Plan",
-      description: "Treatment plan aligned with your wedding timeline and skin goals.",
+      description:
+        "Treatment plan aligned with your wedding timeline and skin goals.",
       icon: ClipboardCheck,
     },
     {
@@ -167,7 +180,8 @@ const PreWeddingServicesPage = () => {
     },
     {
       title: "Pre-Event Glow Therapy",
-      description: "Final touch-up treatments for the perfect wedding day glow.",
+      description:
+        "Final touch-up treatments for the perfect wedding day glow.",
       icon: Sparkles,
     },
   ];
@@ -176,7 +190,10 @@ const PreWeddingServicesPage = () => {
     { text: "Use prescribed skincare consistently", icon: CheckCircle2 },
     { text: "Stay hydrated, sleep well, and eat a balanced diet", icon: Heart },
     { text: "Protect skin daily with sunscreen", icon: Shield },
-    { text: "Avoid unplanned treatments close to your wedding", icon: AlertCircle },
+    {
+      text: "Avoid unplanned treatments close to your wedding",
+      icon: AlertCircle,
+    },
   ];
 
   const faqs = [
@@ -222,14 +239,18 @@ const PreWeddingServicesPage = () => {
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [errors, setErrors] = useState<{ name?: string; phone?: string; form?: string }>({});
+  const [errors, setErrors] = useState<{
+    name?: string;
+    phone?: string;
+    form?: string;
+  }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const scrollToForm = () => {
-    const formSection = document.getElementById('hero-right');
+    const formSection = document.getElementById("hero-right");
     if (formSection) {
-      formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      formSection.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
@@ -254,7 +275,8 @@ const PreWeddingServicesPage = () => {
     setIsSubmitted(false);
     setErrors({});
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz79l0pdVYczNBtdBfL1knPANrGviRwXC_erZEWP1--xEoJ469pxQQbA5DEPyxa-j98qg/exec";
+    const SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbz79l0pdVYczNBtdBfL1knPANrGviRwXC_erZEWP1--xEoJ469pxQQbA5DEPyxa-j98qg/exec";
 
     const formData = {
       fullName: name,
@@ -281,10 +303,10 @@ const PreWeddingServicesPage = () => {
         setIsSubmitting(false);
         setName("");
         setPhone("");
-      }, 1000); 
+      }, 1000);
     } catch (error) {
       console.error("Error submitting form:", error);
-      setErrors({ form: 'Failed to submit. Please try again later.' });
+      setErrors({ form: "Failed to submit. Please try again later." });
       setIsSubmitting(false);
     }
   };
@@ -308,7 +330,6 @@ const PreWeddingServicesPage = () => {
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen py-20 md:py-28 text-center lg:text-left">
-            
             {/* Left Content */}
             <div
               id="hero-left"
@@ -331,15 +352,16 @@ const PreWeddingServicesPage = () => {
                   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
                     Your Wedding Glow,
                     <span className="block text-[#d4a380] mt-2">
-                      Perfected at <span className="whitespace-nowrap">The Skin Firm</span>
+                      Perfected at{" "}
+                      <span className="whitespace-nowrap">The Skin Firm</span>
                     </span>
                   </h1>
 
                   <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-                    Personalised pre-wedding couple treatments to restore, rejuvenate & glow.
+                    Personalised pre-wedding couple treatments to restore,
+                    rejuvenate & glow.
                   </p>
                 </div>
-
               </div>
             </div>
 
@@ -358,9 +380,15 @@ const PreWeddingServicesPage = () => {
                 {/* Floating Offer Badge */}
                 <div className="absolute -top-6 -left-4 md:-top-8 md:-left-8 bg-gradient-to-br from-[#d4a380] to-[#c19970] rounded-2xl p-4 md:p-6 shadow-2xl transform -rotate-12 hover:-rotate-6 transition-all hover:scale-110 z-20">
                   <div className="text-center text-white">
-                    <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider">Upto</div>
-                    <div className="text-2xl md:text-3xl font-black my-0.5 md:my-1">50% OFF</div>
-                    <div className="text-[10px] md:text-xs capitalize">on Pre Wedding Services</div>
+                    <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider">
+                      Upto
+                    </div>
+                    <div className="text-2xl md:text-3xl font-black my-0.5 md:my-1">
+                      50% OFF
+                    </div>
+                    <div className="text-[10px] md:text-xs capitalize">
+                      on Pre Wedding Services
+                    </div>
                   </div>
                 </div>
 
@@ -368,7 +396,9 @@ const PreWeddingServicesPage = () => {
                   <h3 className="text-2xl md:text-3xl font-bold text-[#64442A] mb-3">
                     Begin Your Wedding Glow
                   </h3>
-                  <p className="text-base text-[#8C6B52]">Personalized couple treatment plans</p>
+                  <p className="text-base text-[#8C6B52]">
+                    Personalized couple treatment plans
+                  </p>
                 </div>
 
                 <form className="space-y-5" onSubmit={handleSubmit}>
@@ -381,12 +411,26 @@ const PreWeddingServicesPage = () => {
                       onChange={(e) => setName(e.target.value)}
                       required
                     />
-                    <svg className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    <svg
+                      className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
                     </svg>
                   </div>
-                  {errors.name && <p className="text-red-500 text-xs mt-1 pl-1">{errors.name}</p>}
-                  
+                  {errors.name && (
+                    <p className="text-red-500 text-xs mt-1 pl-1">
+                      {errors.name}
+                    </p>
+                  )}
+
                   <div className="relative">
                     <input
                       type="tel"
@@ -396,25 +440,45 @@ const PreWeddingServicesPage = () => {
                       onChange={(e) => setPhone(e.target.value)}
                       required
                     />
-                    <svg className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <svg
+                      className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
                     </svg>
                   </div>
-                  {errors.phone && <p className="text-red-500 text-xs mt-1 pl-1">{errors.phone}</p>}
-                  
-                  {isSubmitted && (
-                    <p className="text-green-600 text-sm font-medium text-center">
-                      Thank you! We&apos;ll be in touch shortly.
+                  {errors.phone && (
+                    <p className="text-red-500 text-xs mt-1 pl-1">
+                      {errors.phone}
                     </p>
                   )}
-                  {errors.form && <p className="text-red-500 text-xs mt-1 text-center">{errors.form}</p>}
+
+                  {isSubmitted && (
+                    <p className="text-green-600 text-sm font-medium text-center">
+                      {"Thank you! We'll be in touch shortly."}
+                    </p>
+                  )}
+                  {errors.form && (
+                    <p className="text-red-500 text-xs mt-1 text-center">
+                      {errors.form}
+                    </p>
+                  )}
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full bg-gradient-to-r from-[#d4a380] to-[#c19970] text-white px-8 py-4 rounded-xl font-bold text-base hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? 'Submitting...' : 'Start Your Wedding Journey'}
+                    {isSubmitting
+                      ? "Submitting..."
+                      : "Start Your Wedding Journey"}
                     <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </form>
@@ -422,13 +486,19 @@ const PreWeddingServicesPage = () => {
                 <div className="mt-8 pt-6 border-t border-gray-200 flex items-center justify-center gap-6 flex-wrap text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-[#d4a380]/10 flex items-center justify-center">
-                      <Gift className="w-4 h-4 text-[#d4a380]" strokeWidth={2.5} />
+                      <Gift
+                        className="w-4 h-4 text-[#d4a380]"
+                        strokeWidth={2.5}
+                      />
                     </div>
                     <span>Free Consultation</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-[#d4a380]/10 flex items-center justify-center">
-                      <Award className="w-4 h-4 text-[#d4a380]" strokeWidth={2.5} />
+                      <Award
+                        className="w-4 h-4 text-[#d4a380]"
+                        strokeWidth={2.5}
+                      />
                     </div>
                     <span>Expert Skin Specialists</span>
                   </div>
@@ -444,7 +514,7 @@ const PreWeddingServicesPage = () => {
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-[#d4a380]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#c19970]/10 rounded-full blur-3xl"></div>
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div
             id="info-header"
@@ -461,54 +531,79 @@ const PreWeddingServicesPage = () => {
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#d4a380] to-[#c19970] flex items-center justify-center shadow-lg">
                   <Sparkles className="w-6 h-6 text-white" strokeWidth={2} />
                 </div>
-                <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">Wedding Glow</span>
+                <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">
+                  Wedding Glow
+                </span>
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight text-[#64442A] font-bold">
                 For the <span className="whitespace-nowrap">Bride & Groom</span>
                 <span className="block">
                   Who Want to <span className="text-[#d4a380]">Glow</span>
                 </span>
               </h2>
-              
+
               <div className="flex items-center gap-4 pt-4">
                 <div className="h-1 w-20 bg-gradient-to-r from-[#d4a380] to-transparent"></div>
-                <svg className="w-6 h-6 text-[#d4a380]" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                <svg
+                  className="w-6 h-6 text-[#d4a380]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
                 </svg>
               </div>
             </div>
-            
+
             {/* Right: Description with subtle card */}
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-full h-full border-2 border-[#d4a380]/20 rounded-2xl"></div>
               <div className="relative bg-white/80 backdrop-blur-sm border-2 border-[#d4a380]/30 rounded-2xl p-8 md:p-10 shadow-xl">
                 <p className="text-lg md:text-xl text-[#64442A] leading-relaxed mb-6">
-                  Your wedding day is one of life&apos;s most photographed moments, so your skin should look as radiant as your love story.
+                  Your wedding day is one of life&apos;s most photographed
+                  moments, so your skin should look as radiant as your love
+                  story.
                 </p>
                 <p className="text-base md:text-lg text-[#8C6B52] leading-relaxed">
-                  At The Skin Firm, we design dermatologist-led pre-wedding treatments for both brides and grooms, ensuring you look your most confident and refreshed on your big day.
+                  At The Skin Firm, we design dermatologist-led pre-wedding
+                  treatments for both brides and grooms, ensuring you look your
+                  most confident and refreshed on your big day.
                 </p>
-                
+
                 {/* Feature highlights */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-6 border-t border-[#d4a380]/20">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-[#d4a380]/10 flex items-center justify-center">
-                      <Users className="w-4 h-4 text-[#d4a380]" strokeWidth={2.5} />
+                      <Users
+                        className="w-4 h-4 text-[#d4a380]"
+                        strokeWidth={2.5}
+                      />
                     </div>
-                    <span className="text-sm font-medium text-[#64442A]">For Both Partners</span>
+                    <span className="text-sm font-medium text-[#64442A]">
+                      For Both Partners
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-[#d4a380]/10 flex items-center justify-center">
-                      <Award className="w-4 h-4 text-[#d4a380]" strokeWidth={2.5} />
+                      <Award
+                        className="w-4 h-4 text-[#d4a380]"
+                        strokeWidth={2.5}
+                      />
                     </div>
-                    <span className="text-sm font-medium text-[#64442A]">Expert-Led Care</span>
+                    <span className="text-sm font-medium text-[#64442A]">
+                      Expert-Led Care
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-[#d4a380]/10 flex items-center justify-center">
-                      <ClipboardCheck className="w-4 h-4 text-[#d4a380]" strokeWidth={2.5} />
+                      <ClipboardCheck
+                        className="w-4 h-4 text-[#d4a380]"
+                        strokeWidth={2.5}
+                      />
                     </div>
-                    <span className="text-sm font-medium text-[#64442A]">Personalized Plans</span>
+                    <span className="text-sm font-medium text-[#64442A]">
+                      Personalized Plans
+                    </span>
                   </div>
                 </div>
               </div>
@@ -518,12 +613,18 @@ const PreWeddingServicesPage = () => {
       </section>
 
       {/* Tailored Wedding Packages */}
-      <section id="packages" className="relative py-16 md:py-24 px-4 md:px-8 bg-[#f5f0eb] overflow-hidden">
+      <section
+        id="packages"
+        className="relative py-16 md:py-24 px-4 md:px-8 bg-[#f5f0eb] overflow-hidden"
+      >
         {/* Decorative Pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2364442A' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-        
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2364442A' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div
             id="packages-header"
@@ -536,13 +637,17 @@ const PreWeddingServicesPage = () => {
           >
             <div className="inline-flex items-center gap-3 mb-6">
               <div className="h-px w-16 bg-[#d4a380]"></div>
-              <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">Choose Your Journey</span>
+              <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">
+                Choose Your Journey
+              </span>
               <div className="h-px w-16 bg-[#d4a380]"></div>
             </div>
             <h2 className="text-4xl md:text-5xl leading-tight text-[#64442A] font-bold mb-4">
               Tailored Wedding Packages
             </h2>
-            <p className="text-lg text-[#8C6B52]">Curated plans designed for every timeline</p>
+            <p className="text-lg text-[#8C6B52]">
+              Curated plans designed for every timeline
+            </p>
           </div>
 
           <div
@@ -559,7 +664,7 @@ const PreWeddingServicesPage = () => {
                     isVisible("packages-grid")
                       ? "translate-y-0 opacity-100"
                       : "translate-y-10 opacity-0"
-                  } ${index === 1 ? 'lg:scale-105 border-[#d4a380]' : ''}`}
+                  } ${index === 1 ? "lg:scale-105 border-[#d4a380]" : ""}`}
                   style={{ transitionDelay: `${300 + index * 150}ms` }}
                 >
                   {/* Premium Badge for middle package */}
@@ -570,16 +675,16 @@ const PreWeddingServicesPage = () => {
                       </span>
                     </div>
                   )}
-                  
+
                   {/* Decorative Corner */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#d4a380]/10 to-transparent rounded-bl-full"></div>
-                  
+
                   <div className="relative">
                     {/* Package Icon */}
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#d4a380] to-[#c19970] flex items-center justify-center shadow-lg mb-6">
                       <PackageIcon className="w-8 h-8 text-white" />
                     </div>
-                    
+
                     <h3 className="text-2xl md:text-3xl font-bold text-[#64442A] mb-4 group-hover:text-[#d4a380] transition-colors">
                       {pkg.title}
                     </h3>
@@ -615,7 +720,7 @@ const PreWeddingServicesPage = () => {
         {/* Decorative Blobs */}
         <div className="absolute -top-20 -left-20 w-72 h-72 bg-[#d4a380]/20 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#c19970]/15 rounded-full blur-3xl"></div>
-        
+
         <MaxWidthWrapper>
           <div className="flex flex-col gap-12 md:gap-16 relative z-10">
             <div
@@ -629,7 +734,9 @@ const PreWeddingServicesPage = () => {
             >
               <div className="inline-flex items-center gap-3 mb-6">
                 <div className="h-px w-12 bg-[#d4a380]"></div>
-                <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">Why Choose Us</span>
+                <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">
+                  Why Choose Us
+                </span>
                 <div className="h-px w-12 bg-[#d4a380]"></div>
               </div>
               <h2
@@ -666,14 +773,17 @@ const PreWeddingServicesPage = () => {
                       isVisible("why-choose-grid")
                         ? "translate-y-0 opacity-100"
                         : "translate-y-10 opacity-0"
-                    } ${isLastItem ? 'md:col-span-2 md:max-w-xl md:mx-auto' : ''}`}
+                    } ${isLastItem ? "md:col-span-2 md:max-w-xl md:mx-auto" : ""}`}
                     style={{ transitionDelay: `${400 + index * 100}ms` }}
                   >
                     {/* Icon Circle */}
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#d4a380] to-[#c19970] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
-                      <ItemIcon className="w-7 h-7 text-white" strokeWidth={2} />
+                      <ItemIcon
+                        className="w-7 h-7 text-white"
+                        strokeWidth={2}
+                      />
                     </div>
-                    
+
                     {/* Content */}
                     <div className="flex-1">
                       <h3 className="text-xl md:text-2xl font-bold text-[#64442A] mb-3 group-hover:text-[#d4a380] transition-colors">
@@ -683,7 +793,7 @@ const PreWeddingServicesPage = () => {
                         {item.description}
                       </p>
                     </div>
-                    
+
                     {/* Decorative corner accent */}
                     <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-[#d4a380]/10 to-transparent rounded-tl-full"></div>
                   </div>
@@ -713,7 +823,9 @@ const PreWeddingServicesPage = () => {
               <h2 className="text-4xl md:text-5xl leading-tight text-[#64442A] font-bold mb-4">
                 Common Concerns We Address
               </h2>
-              <p className="text-lg text-[#8C6B52]">Expert solutions for every skin challenge</p>
+              <p className="text-lg text-[#8C6B52]">
+                Expert solutions for every skin challenge
+              </p>
             </div>
             <div
               id="concerns-grid"
@@ -729,19 +841,22 @@ const PreWeddingServicesPage = () => {
                       isVisible("concerns-grid")
                         ? "translate-y-0 opacity-100"
                         : "translate-y-10 opacity-0"
-                    } ${ index === 3 ? "lg:col-start-2" : "" }`}
+                    } ${index === 3 ? "lg:col-start-2" : ""}`}
                     style={{ transitionDelay: `${300 + index * 100}ms` }}
                   >
                     {/* Icon */}
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#d4a380] to-[#c19970] flex items-center justify-center shadow-md group-hover:scale-110 transition-transform flex-shrink-0">
-                      <ConcernIcon className="w-6 h-6 text-white" strokeWidth={2.5} />
+                      <ConcernIcon
+                        className="w-6 h-6 text-white"
+                        strokeWidth={2.5}
+                      />
                     </div>
-                    
+
                     {/* Text */}
                     <span className="text-base md:text-lg font-semibold text-[#64442A] leading-snug group-hover:text-[#d4a380] transition-colors flex-1">
                       {concern.text}
                     </span>
-                    
+
                     {/* Decorative bottom accent */}
                     <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4a380] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
@@ -756,11 +871,14 @@ const PreWeddingServicesPage = () => {
       <section className="relative py-16 md:py-24 px-4 md:px-8 bg-[#f5f0eb] overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2364442A' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2364442A' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          ></div>
         </div>
-        
+
         <div className="w-full max-w-6xl mx-auto relative z-10">
           <div className="flex flex-col gap-16 md:gap-20">
             <div
@@ -774,7 +892,9 @@ const PreWeddingServicesPage = () => {
             >
               <div className="inline-flex items-center gap-3 mb-6">
                 <div className="h-px w-16 bg-[#d4a380]"></div>
-                <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">Our Process</span>
+                <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">
+                  Our Process
+                </span>
                 <div className="h-px w-16 bg-[#d4a380]"></div>
               </div>
               <h2
@@ -786,7 +906,9 @@ const PreWeddingServicesPage = () => {
               >
                 What to Expect
               </h2>
-              <p className="text-lg text-[#8C6B52]">Your journey to radiant skin, step by step</p>
+              <p className="text-lg text-[#8C6B52]">
+                Your journey to radiant skin, step by step
+              </p>
             </div>
             <div
               id="process-steps"
@@ -808,13 +930,16 @@ const PreWeddingServicesPage = () => {
                     {/* Icon Badge with Number */}
                     <div className="flex-shrink-0">
                       <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#d4a380] to-[#c19970] flex flex-col items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-                        <StepIcon className="w-8 h-8 md:w-9 md:h-9 text-white mb-1" strokeWidth={2} />
+                        <StepIcon
+                          className="w-8 h-8 md:w-9 md:h-9 text-white mb-1"
+                          strokeWidth={2}
+                        />
                         <span className="text-xs font-bold text-white/80">
                           Step {stepIndex + 1}
                         </span>
                       </div>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="flex flex-col gap-3 flex-1 pt-2">
                       <h3 className="text-xl md:text-2xl font-bold text-[#64442A] group-hover:text-[#d4a380] transition-colors">
@@ -824,7 +949,7 @@ const PreWeddingServicesPage = () => {
                         {step.description}
                       </p>
                     </div>
-                    
+
                     {/* Decorative corner */}
                     <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#d4a380]/10 to-transparent rounded-br-2xl"></div>
                   </div>
@@ -840,7 +965,7 @@ const PreWeddingServicesPage = () => {
         {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-[#d4a380]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#c19970]/10 rounded-full blur-3xl"></div>
-        
+
         <div className="max-w-5xl mx-auto relative z-10">
           <div
             id="aftercare-header"
@@ -853,7 +978,9 @@ const PreWeddingServicesPage = () => {
           >
             <div className="inline-flex items-center gap-3 mb-6">
               <div className="h-px w-12 bg-[#d4a380]"></div>
-              <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">Post Care</span>
+              <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">
+                Post Care
+              </span>
               <div className="h-px w-12 bg-[#d4a380]"></div>
             </div>
             <h2
@@ -865,7 +992,9 @@ const PreWeddingServicesPage = () => {
             >
               Aftercare Guidelines
             </h2>
-            <p className="text-lg text-[#8C6B52]">Maintain your glow with these essential tips</p>
+            <p className="text-lg text-[#8C6B52]">
+              Maintain your glow with these essential tips
+            </p>
           </div>
           <div
             id="aftercare-content"
@@ -890,9 +1019,14 @@ const PreWeddingServicesPage = () => {
                     style={{ transitionDelay: `${600 + index * 100}ms` }}
                   >
                     <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-gradient-to-br from-[#d4a380] to-[#c19970] flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                      <GuidelineIcon className="w-6 h-6 text-white" strokeWidth={2.5} />
+                      <GuidelineIcon
+                        className="w-6 h-6 text-white"
+                        strokeWidth={2.5}
+                      />
                     </div>
-                    <span className="text-base md:text-lg text-[#64442A] font-medium leading-relaxed flex-1">{guideline.text}</span>
+                    <span className="text-base md:text-lg text-[#64442A] font-medium leading-relaxed flex-1">
+                      {guideline.text}
+                    </span>
                   </div>
                 );
               })}
@@ -906,22 +1040,26 @@ const PreWeddingServicesPage = () => {
         {/* Decorative Elements */}
         <div className="absolute top-20 right-0 w-80 h-80 bg-[#d4a380]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-0 w-80 h-80 bg-[#c19970]/10 rounded-full blur-3xl"></div>
-        
+
         <MaxWidthWrapper>
           <div className="max-w-4xl mx-auto relative z-10 pb-8">
             {/* Header */}
             <div className="text-center mb-12 md:mb-16">
               <div className="inline-flex items-center gap-3 mb-6">
                 <div className="h-px w-16 bg-[#d4a380]"></div>
-                <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">FAQ</span>
+                <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">
+                  FAQ
+                </span>
                 <div className="h-px w-16 bg-[#d4a380]"></div>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#64442A] mb-4">
                 Frequently Asked Questions
               </h2>
-              <p className="text-lg text-[#8C6B52]">Everything you need to know about your wedding glow journey</p>
+              <p className="text-lg text-[#8C6B52]">
+                Everything you need to know about your wedding glow journey
+              </p>
             </div>
-            
+
             {/* Accordion */}
             <Accordion type="single" collapsible className="space-y-4 w-full">
               {faqs.map((faq, index) => (
@@ -947,47 +1085,66 @@ const PreWeddingServicesPage = () => {
       {/* Final CTA */}
       <section className="relative py-20 md:py-32 px-4 md:px-8 bg-[#f5f0eb] overflow-hidden">
         {/* Decorative Pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2364442A' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-        
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2364442A' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
+
         {/* Floating Elements */}
         <div className="absolute top-10 left-10 w-32 h-32 bg-[#d4a380]/20 rounded-full blur-2xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#c19970]/20 rounded-full blur-2xl animate-pulse delay-700"></div>
-        
+
         <div className="max-w-5xl mx-auto text-center relative z-10">
           {/* Main Content */}
           <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-10 md:p-16 shadow-2xl border-2 border-[#d4a380]/30">
             {/* Badge */}
             <div className="inline-flex items-center gap-3 mb-8">
               <div className="h-px w-16 bg-[#d4a380]"></div>
-              <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">Ready to Glow?</span>
+              <span className="text-[#d4a380] text-sm font-semibold uppercase tracking-widest">
+                Ready to Glow?
+              </span>
               <div className="h-px w-16 bg-[#d4a380]"></div>
             </div>
-            
+
             {/* Heading */}
             <h2 className="text-4xl md:text-6xl leading-tight font-bold mb-6 text-[#64442A]">
               Begin Your Wedding Glow Journey
             </h2>
-            
+
             {/* Description */}
             <p className="mb-10 text-[#8C6B52] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-              Whether you&apos;re the bride or the groom, your skin deserves the very best care before your big day. Book your consultation with The Skin Firm today and let us design a personalised glow plan just for you.
+              Whether you&apos;re the bride or the groom, your skin deserves the
+              very best care before your big day. Book your consultation with
+              The Skin Firm today and let us design a personalised glow plan
+              just for you.
             </p>
-            
+
             {/* CTA Button */}
-              <button 
+            <button
               onClick={scrollToForm}
-              className="group relative inline-flex items-center gap-3 rounded-2xl px-10 py-5 bg-gradient-to-r from-[#d4a380] to-[#c19970] text-white font-bold text-lg md:text-xl hover:shadow-[0_20px_50px_rgba(212,163,128,0.5)] hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden">
-                {/* Shine Effect */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-                
-                <span className="relative z-10">Book Your Consultation</span>
-                <svg className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </button>
-            
+              className="group relative inline-flex items-center gap-3 rounded-2xl px-10 py-5 bg-gradient-to-r from-[#d4a380] to-[#c19970] text-white font-bold text-lg md:text-xl hover:shadow-[0_20px_50px_rgba(212,163,128,0.5)] hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden"
+            >
+              {/* Shine Effect */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+              <span className="relative z-10">Book Your Consultation</span>
+              <svg
+                className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </button>
+
             {/* Trust Indicators */}
             <div className="mt-10 pt-8 border-t border-[#d4a380]/20 flex flex-wrap items-center justify-center gap-8 text-[#8C6B52]">
               <div className="flex items-center gap-3">
@@ -1017,4 +1174,3 @@ const PreWeddingServicesPage = () => {
 };
 
 export default PreWeddingServicesPage;
-
