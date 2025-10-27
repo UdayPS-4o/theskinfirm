@@ -404,7 +404,7 @@ const PreWeddingServicesPage = () => {
                   
                   {isSubmitted && (
                     <p className="text-green-600 text-sm font-medium text-center">
-                      Thank you! We'll be in touch shortly.
+                      Thank you! We&apos;ll be in touch shortly.
                     </p>
                   )}
                   {errors.form && <p className="text-red-500 text-xs mt-1 text-center">{errors.form}</p>}
