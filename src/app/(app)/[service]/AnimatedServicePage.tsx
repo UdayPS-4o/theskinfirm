@@ -7,14 +7,12 @@ import Image from "next/image";
 import { Service, ServiceCategory } from "@/payload-types";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { MaxWidthWrapper } from "@/components/layout/max-width";
-import { DashedSeparator } from "@/components/sections/dashed-separator";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
 import { TestimonialCarousel } from "@/components/ui/TestimonialCarousel";
 
 interface AnimatedServicePageProps {
@@ -268,6 +266,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
 
   const hasTestimonials = serviceData.sections?.some(
     (section) => section.blockType === "testimonials"
+  );
+  const bookConsultation = serviceData.sections?.find(
+    (service) => service.blockType === "book-consultation"
   );
 
   return (
@@ -1004,37 +1005,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 </MaxWidthWrapper>
               </section>
             );
-          case "book-consultation":
-            return (
-              <section
-                key={section.blockType + index}
-                className="py-6 md:py-8 px-4 md:px-8 bg-cover bg-center"
-                style={{ backgroundColor: "#F8F4EB" }}
-              >
-                <div className="max-w-4xl mx-auto text-center">
-                  <div className="mb-4">
-                    <RichText
-                      className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold text-[color:var(--color-dark-text)]"
-                      data={section.title}
-                    />
-                  </div>
-                  <div className="mb-4 text-[color:var(--color-dark-text)]">
-                    <RichText data={section.description} />
-                  </div>
-                  {section.secondaryDescription && (
-                    <div className="font-semibold mb-6 text-[color:var(--color-dark-text)]">
-                      <RichText data={section.secondaryDescription} />
-                    </div>
-                  )}
-                  <Link href={section.buttonLink || "/contact"}>
-                    <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
-                      {section.buttonText || "Book Your Treatment Appointment"}{" "}
-                      →
-                    </button>
-                  </Link>
-                </div>
-              </section>
-            );
+          // case "book-consultation":
+          //   return (
+
+          //   );
           case "video-testimonials":
             return (
               <section
@@ -1139,6 +1113,39 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           </p>
         </div>
       </section>
+
+      {/* Book consultation */}
+      {bookConsultation && (
+        <section
+          key={bookConsultation.blockType}
+          className="py-6 md:py-8 px-4 md:px-8 bg-cover bg-center"
+          style={{ backgroundColor: "#F8F4EB" }}
+        >
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-4">
+              <RichText
+                className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold text-[color:var(--color-dark-text)]"
+                data={bookConsultation.title}
+              />
+            </div>
+            <div className="mb-4 text-[color:var(--color-dark-text)]">
+              <RichText data={bookConsultation.description} />
+            </div>
+            {bookConsultation.secondaryDescription && (
+              <div className="font-semibold mb-6 text-[color:var(--color-dark-text)]">
+                <RichText data={bookConsultation.secondaryDescription} />
+              </div>
+            )}
+            <Link href={bookConsultation.buttonLink || "/contact"}>
+              <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
+                {bookConsultation.buttonText ||
+                  "Book Your Treatment Appointment"}{" "}
+                →
+              </button>
+            </Link>
+          </div>
+        </section>
+      )}
     </div>
   );
 };

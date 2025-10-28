@@ -72,6 +72,7 @@ export interface Config {
     services: Service;
     'service-categories': ServiceCategory;
     blogs: Blog;
+    'hero-offer': HeroOffer;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -83,6 +84,7 @@ export interface Config {
     services: ServicesSelect<false> | ServicesSelect<true>;
     'service-categories': ServiceCategoriesSelect<false> | ServiceCategoriesSelect<true>;
     blogs: BlogsSelect<false> | BlogsSelect<true>;
+    'hero-offer': HeroOfferSelect<false> | HeroOfferSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -914,6 +916,41 @@ export interface Blog {
   createdAt: string;
 }
 /**
+ * Manage the hero section offer displayed on the homepage
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hero-offer".
+ */
+export interface HeroOffer {
+  id: string;
+  /**
+   * Main offer title (e.g., 'Upto 20% OFF')
+   */
+  title: string;
+  /**
+   * Offer description text
+   */
+  description: string;
+  /**
+   * Text for the offer button
+   */
+  buttonText: string;
+  /**
+   * Link for the offer button (e.g., /contact)
+   */
+  buttonLink: string;
+  /**
+   * Background image for the offer section
+   */
+  backgroundImage: string | Media;
+  /**
+   * Toggle to show/hide this offer on the homepage
+   */
+  isActive?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
@@ -939,6 +976,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blogs';
         value: string | Blog;
+      } | null)
+    | ({
+        relationTo: 'hero-offer';
+        value: string | HeroOffer;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1278,6 +1319,20 @@ export interface BlogsSelect<T extends boolean = true> {
       };
   authorName?: T;
   article?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hero-offer_select".
+ */
+export interface HeroOfferSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  buttonText?: T;
+  buttonLink?: T;
+  backgroundImage?: T;
+  isActive?: T;
   updatedAt?: T;
   createdAt?: T;
 }

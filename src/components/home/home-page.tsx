@@ -2,7 +2,6 @@
 
 import { About } from "@/components/sections/about";
 import { AnimatedComponent } from "@/components/shared/animated-component";
-import { BookYourConsultation } from "@/components/shared/book-your-consultation";
 import { Cta } from "@/components/shared/cta";
 import { Cta2 } from "@/components/shared/cta2";
 import { Faq } from "@/components/sections/faq";
@@ -15,13 +14,18 @@ import { Stats } from "@/components/sections/stats";
 import { SuccessStories } from "@/components/sections/success-stories";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { VideoTestimonials } from "@/components/sections/video-yt";
+import type { HeroOffer } from "@/payload-types";
 
-export default function HomePage() {
+interface HomePageProps {
+  heroOffer?: HeroOffer | null;
+}
+
+export default function HomePage({ heroOffer }: HomePageProps) {
   return (
     <div className="w-full">
       <main role="main">
         <section id="home" aria-labelledby="hero-heading">
-          <Hero />
+          <Hero heroOffer={heroOffer} />
         </section>
         <AnimatedComponent>
           <Cta />
