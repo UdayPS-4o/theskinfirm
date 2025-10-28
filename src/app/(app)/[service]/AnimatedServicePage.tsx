@@ -66,7 +66,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
           <div
             id="clinic-header"
             data-animate
-            className={`text-center max-w-[700px] mx-auto transform transition-all duration-1000 ease-out ${
+            className={`text-center mx-auto transform transition-all duration-1000 ease-out ${
               isVisible("clinic-header")
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
@@ -800,7 +800,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="postcare-header"
                       data-animate
-                      className={`text-center max-w-[602px] mx-auto transform transition-all duration-1000 ease-out ${
+                      className={`text-center mx-auto transform transition-all duration-1000 ease-out ${
                         isVisible("postcare-header")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
@@ -909,13 +909,13 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 {whyChooseUsSection}
                 <section
                   key={section.blockType + index}
-                  className="py-6 md:py-8 px-4 md:px-8"
+                  className="py-6 md:py-8 px-4 md:px-8 pb-16 md:pb-20"
                 >
                   <div className="max-w-6xl mx-auto">
                     <div
                       id="testimonials-header"
                       data-animate
-                      className={`text-center max-w-[800px] mx-auto transform transition-all duration-1000 ease-out ${
+                      className={`text-center mx-auto transform transition-all duration-1000 ease-out ${
                         isVisible("testimonials-header")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
