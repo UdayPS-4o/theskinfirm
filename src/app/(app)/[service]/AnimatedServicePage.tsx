@@ -27,6 +27,28 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   );
   const observerRef = useRef<IntersectionObserver | null>(null);
 
+  // Standardized section title component
+  const SectionTitle = ({
+    data,
+    className = "",
+    isVisible = true,
+    delay = "300",
+  }: {
+    data: any;
+    className?: string;
+    isVisible?: boolean;
+    delay?: string;
+  }) => (
+    <div
+      className={`text-3xl sm:text-4xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 ease-out ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+      } ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <RichText data={data} />
+    </div>
+  );
+
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -73,7 +95,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             }`}
           >
             <h2
-              className={`text-3xl md:text-[35px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+              className={`text-3xl sm:text-4xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                 isVisible("clinic-header")
                   ? "translate-y-0 opacity-100"
                   : "translate-y-5 opacity-0"
@@ -248,10 +270,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     {item.icon}
                   </div>
                   <div className="flex flex-col gap-2">
-                    <h6 className="text-lg md:text-xl font-semibold text-[color:var(--color-dark-text)] leading-tight">
+                    <h6 className="text-xl md:text-2xl font-semibold text-[color:var(--color-dark-text)] leading-tight">
                       {item.title}
                     </h6>
-                    <p className="text-sm md:text-base text-[color:var(--color-light-text)] leading-relaxed">
+                    <p className="text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed">
                       {item.text}
                     </p>
                   </div>
@@ -295,7 +317,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     >
                       <div className="flex flex-col gap-2.5">
                         <small
-                          className={`text-sm leading-[17px] uppercase text-[#b76e79] font-semibold transform transition-all duration-700 delay-200 ease-out ${
+                          className={`text-base sm:text-lg leading-[17px] uppercase text-[#b76e79] font-semibold transform transition-all duration-700 delay-200 ease-out ${
                             isVisible("hero-left")
                               ? "translate-y-0 opacity-100"
                               : "translate-y-5 opacity-0"
@@ -306,7 +328,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         <div className="flex flex-col rich-text">
                           <RichText
                             data={section.title}
-                            className={`lg:w-[130%] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
+                            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[50px] leading-tight xl:leading-[50px] tracking-[-0.01em] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                               isVisible("hero-left")
                                 ? "translate-y-0 opacity-100"
                                 : "translate-y-5 opacity-0"
@@ -314,7 +336,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           />
                         </div>
                         <RichText
-                          className={`text-base sm:text-lg md:text-xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${
+                          className={`text-lg sm:text-xl md:text-2xl xl:text-[21px] leading-relaxed xl:leading-[25px] text-[color:var(--color-dark-text)]/80 transform transition-all duration-700 delay-400 ease-out ${
                             isVisible("hero-left")
                               ? "translate-y-0 opacity-100"
                               : "translate-y-5 opacity-0"
@@ -330,7 +352,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         }`}
                       >
                         <Link href="/contact">
-                          <button className="w-full sm:w-auto rounded-lg px-4 md:px-[22px] py-3 md:py-[15px] bg-[#d4a380] text-white font-medium text-base md:text-lg flex items-center justify-center gap-2 hover:bg-[#c19970] hover:scale-105 transition-all duration-300 hover:shadow-lg">
+                          <button className="w-full sm:w-auto rounded-lg px-4 md:px-[22px] py-3 md:py-[15px] bg-[#d4a380] text-white font-medium text-lg md:text-xl flex items-center justify-center gap-2 hover:bg-[#c19970] hover:scale-105 transition-all duration-300 hover:shadow-lg">
                             Book Your {serviceData.title} Today
                             <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
                           </button>
@@ -388,16 +410,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           : "translate-y-10 opacity-0"
                       }`}
                     >
-                      <RichText
-                        className={`rich-text text-center text-[color:var(--color-dark-text)] mb-4 transform transition-all duration-700 delay-200 ease-out ${
-                          isVisible(`info-header-${index}`)
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-5 opacity-0"
-                        }`}
+                      <SectionTitle
                         data={section.title}
+                        className="text-center mb-4"
+                        isVisible={isVisible(`info-header-${index}`)}
+                        delay="200"
                       />
                       <div
-                        className={`text-base md:text-lg text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
+                        className={`text-lg md:text-xl text-[color:var(--color-dark-text)] whitespace-pre-line transform transition-all duration-700 delay-300 ease-out ${
                           isVisible(`info-header-${index}`)
                             ? "translate-y-0 opacity-100"
                             : "translate-y-5 opacity-0"
@@ -430,13 +450,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           : "translate-y-10 opacity-0"
                       }`}
                     >
-                      <RichText
-                        className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out  ${
-                          isVisible("symptoms-header")
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-5 opacity-0"
-                        }`}
+                      <SectionTitle
                         data={section.title}
+                        isVisible={isVisible("symptoms-header")}
                       />
                     </div>
                     <div
@@ -465,7 +481,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                               </div>
 
                               <RichText
-                                className="text-sm md:text-base leading-[20px] md:leading-[22px] text-black flex-1"
+                                className="text-base md:text-lg leading-[22px] md:leading-[24px] text-black flex-1"
                                 data={symptom.content}
                               />
                             </div>
@@ -552,13 +568,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       >
                         ---------- Process ----------
                       </h4> */}
-                      <RichText
-                        className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                          isVisible(`process-header-${index}`)
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-5 opacity-0"
-                        }`}
+                      <SectionTitle
                         data={section.title}
+                        isVisible={isVisible(`process-header-${index}`)}
                       />
                     </div>
                     <div
@@ -569,7 +581,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       {section.items.map((step, stepIndex) => (
                         <div
                           key={stepIndex}
-                          className={`flex items-start gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-lg hover:bg-gray-50 rounded-lg p-4 ${
+                          className={`flex items-start gap-3 sm:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-lg hover:bg-gray-50 rounded-lg p-3 sm:p-4 ${
                             isVisible(`process-steps-${index}`)
                               ? "translate-y-0 opacity-100"
                               : "translate-y-10 opacity-0"
@@ -578,17 +590,17 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             transitionDelay: `${400 + stepIndex * 100}ms`,
                           }}
                         >
-                          <div className="w-[50px] h-[50px] rounded-full bg-[color:var(--color-primary-brown)] flex items-center justify-center shadow-lg flex-shrink-0 hover:scale-110 transition-transform duration-300">
-                            <span className="text-[22px] font-medium text-white">
+                          <div className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] rounded-full bg-[color:var(--color-primary-brown)] flex items-center justify-center shadow-lg flex-shrink-0 hover:scale-110 transition-transform duration-300">
+                            <span className="text-xl sm:text-[24px] font-medium text-white">
                               {stepIndex + 1}
                             </span>
                           </div>
-                          <div className="flex flex-col gap-3">
-                            <p className="text-lg font-medium text-black">
+                          <div className="flex flex-col gap-2 sm:gap-3">
+                            <p className="text-lg sm:text-xl font-medium text-black">
                               {step.title}
                             </p>
                             <RichText
-                              className="text-sm leading-5 text-[color:var(--color-dark-text)]"
+                              className="text-base leading-6 text-[color:var(--color-dark-text)]"
                               data={step.description}
                             />
                           </div>
@@ -606,21 +618,18 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 className="py-6 md:py-8 px-4 md:px-8 bg-[color:var(--color-light-background)]"
               >
                 <div className="max-w-6xl mx-auto text-center">
-                  <RichText
-                    className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6"
-                    data={section.title}
-                  />
+                  <SectionTitle data={section.title} className="mb-6" />
                   <div className="flex flex-wrap justify-center gap-4">
                     {section.items.map((item, index) => (
                       <div
                         key={index}
                         className="group p-6 md:p-7 rounded-xl border border-[color:var(--color-light-border)] bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
                       >
-                        <p className="text-base md:text-lg font-semibold text-black">
+                        <p className="text-lg md:text-xl font-semibold text-black">
                           {item.title}
                         </p>
                         <RichText
-                          className="text-xs md:text-sm text-[color:var(--color-light-text)] mt-1"
+                          className="text-sm md:text-base text-[color:var(--color-light-text)] mt-1"
                           data={item.description}
                         />
                       </div>
@@ -655,13 +664,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       >
                         ---------- Results ----------
                       </h4> */}
-                      <RichText
-                        className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4 transform transition-all duration-700 delay-300 ease-out ${
-                          isVisible("transformations-header")
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-5 opacity-0"
-                        }`}
+                      <SectionTitle
                         data={section.title}
+                        className="mb-4"
+                        isVisible={isVisible("transformations-header")}
                       />
                       <RichText
                         className={`text-base md:text-lg text-[color:var(--color-light-text)] leading-relaxed transform transition-all duration-700 delay-400 ease-out ${
@@ -675,7 +681,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="gallery-grid"
                       data-animate
-                      className={`flex flex-wrap gap-4 transform transition-all duration-1000 delay-500 ease-out ${
+                      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 transform transition-all duration-1000 delay-500 ease-out ${
                         isVisible("gallery-grid")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
@@ -686,7 +692,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           typeof image.image !== "string" && (
                             <div
                               key={image.id || index}
-                              className="rounded-lg overflow-hidden shadow-lg group max-w-xs mx-auto"
+                              className="rounded-lg overflow-hidden shadow-lg group w-full"
                             >
                               <Image
                                 src={image.image?.url || "/placeholder.svg"}
@@ -729,13 +735,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       >
                         ---------- Benefits ----------
                       </h4> */}
-                      <RichText
-                        className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                          isVisible("benefits-header")
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-5 opacity-0"
-                        }`}
+                      <SectionTitle
                         data={section.title}
+                        isVisible={isVisible("benefits-header")}
                       />
                     </div>
                     <div
@@ -779,7 +781,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             </svg>
                           </div>
                           <RichText
-                            className="text-sm md:text-base leading-[20px] md:leading-[22px] text-black flex-1"
+                            className="text-base md:text-lg leading-[22px] md:leading-[24px] text-black flex-1"
                             data={benefit.content}
                           />
                         </div>
@@ -816,13 +818,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         ---------- Post Care ----------
                       </h4> */}
                       {section.downtimeTitle ? (
-                        <RichText
-                          className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
-                            isVisible("postcare-header")
-                              ? "translate-y-0 opacity-100"
-                              : "translate-y-5 opacity-0"
-                          }`}
+                        <SectionTitle
                           data={section.downtimeTitle}
+                          isVisible={isVisible("postcare-header")}
                         />
                       ) : null}
                     </div>
@@ -851,7 +849,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                                     className="w-full h-full"
                                   />
                                 </div>
-                                <div className="text-base text-gray-800">
+                                <div className="text-lg text-gray-800">
                                   {item.content && (
                                     <RichText data={item.content} />
                                   )}
@@ -863,7 +861,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         <div className="bg-[color:var(--color-light-background)] border border-[color:var(--color-light-border)] rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
                           {section.postCareTitle ? (
                             <RichText
-                              className="text-lg font-semibold text-[color:var(--color-dark-text)] mb-4"
+                              className="text-xl font-semibold text-[color:var(--color-dark-text)] mb-4"
                               data={section.postCareTitle}
                             />
                           ) : null}
@@ -889,7 +887,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                                 </div>
                                 {item.content && (
                                   <RichText
-                                    className="text-base text-gray-800"
+                                    className="text-lg text-gray-800"
                                     data={item.content}
                                   />
                                 )}
@@ -921,9 +919,9 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           : "translate-y-10 opacity-0"
                       }`}
                     >
-                      <RichText
-                        className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-center text-[color:var(--color-dark-text)] font-semibold mb-6"
+                      <SectionTitle
                         data={section.title}
+                        className="text-center mb-6"
                       />
                     </div>
                     <div id="testimonials-grid" data-animate>
@@ -943,10 +941,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 className="py-6 md:py-8 px-4 md:px-8"
               >
                 <div className="max-w-6xl mx-auto text-center">
-                  <RichText
-                    className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-6"
-                    data={section.title}
-                  />
+                  <SectionTitle data={section.title} className="mb-6" />
                   <div className="flex flex-wrap justify-center gap-4">
                     {section.items.map((item) => (
                       <div
@@ -954,7 +949,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                         className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] p-6 rounded-lg bg-white shadow-md border border-[color:var(--color-light-border)] hover:border-[color:var(--color-primary-brown)]/50 hover:bg-[color:var(--color-light-background)] hover:shadow-xl transition-all duration-300 flex items-center justify-center"
                       >
                         <RichText
-                          className="text-base font-semibold text-black text-center"
+                          className="text-lg font-semibold text-black text-center"
                           data={item.content}
                         />
                       </div>
@@ -970,31 +965,25 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 className="py-6 md:py-8 px-4 md:px-8"
               >
                 <MaxWidthWrapper>
-                  <div className="mx-6 lg:mx-24">
-                    <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2">
-                      {/* <DashedSeparator />
-                      <h3 className="text-[#EC7754] text-3xl font-medium">
-                        FAQ
-                      </h3>
-                      <DashedSeparator /> */}
-                    </div>
-                    <RichText
-                      className="mt-2 text-[#333333] text-3xl lg:text-5xl font-semibold text-center"
+                  <div className="mx-2 sm:mx-6 lg:mx-24">
+                    <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2"></div>
+                    <SectionTitle
                       data={section.title}
+                      className="mt-2 text-center"
                     />
                     <Accordion type="single" collapsible className="mt-4">
                       {section.items.map((faq, index) => (
                         <AccordionItem
                           value={`${index + 1}`}
                           key={index}
-                          className="py-4 px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
+                          className="py-4 px-4 sm:px-6 lg:px-24 data-[state=open]:shadow-2xl rounded-lg"
                         >
-                          <AccordionTrigger className="text-[#1F2937] text-2xl font-medium">
+                          <AccordionTrigger className="text-[#1F2937] text-xl sm:text-2xl md:text-3xl font-medium text-left">
                             {faq.question}
                           </AccordionTrigger>
                           <AccordionContent
                             asChild
-                            className="text-[#4B5563] text-2xl"
+                            className="text-[#4B5563] text-lg sm:text-xl md:text-2xl"
                           >
                             <RichText data={faq.answer} />
                           </AccordionContent>
@@ -1005,29 +994,18 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 </MaxWidthWrapper>
               </section>
             );
-          // case "book-consultation":
-          //   return (
-
-          //   );
           case "video-testimonials":
             return (
               <section
                 key={section.blockType + index}
-                className="w-full py-12 md:py-20"
+                className="w-full py-8 sm:py-12 md:py-20"
               >
                 <MaxWidthWrapper>
-                  {/* <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2">
-                    <DashedSeparator />
-                    <h3 className="text-[#EC7754] text-3xl font-medium whitespace-nowrap">
-                      Knowledge Hub
-                    </h3>
-                    <DashedSeparator />
-                  </div> */}
-                  <RichText
-                    className="mt-5 text-center font-semibold text-5xl text-[#333333]"
+                  <SectionTitle
                     data={section.title}
+                    className="mt-2 text-center"
                   />
-                  <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="mt-8 sm:mt-12 md:mt-16 flex flex-wrap justify-center gap-6 sm:gap-8">
                     {section.videos?.map((video, videoIndex) => {
                       const getYouTubeEmbedUrl = (url: string) => {
                         let videoId = "";
@@ -1046,7 +1024,10 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       };
 
                       return (
-                        <div key={videoIndex} className="w-full">
+                        <div
+                          key={videoIndex}
+                          className="w-full max-w-sm md:max-w-md lg:max-w-lg"
+                        >
                           <div className="aspect-video">
                             <iframe
                               src={getYouTubeEmbedUrl(video.url)}
@@ -1073,18 +1054,18 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
       {/* Patients Visit Us From Section */}
       <section className="py-6 md:py-8 px-4 md:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold mb-4">
             Patients Visit Us From Across Pune
           </h2>
-          <p className="mb-4">
+          <p className="mb-4 text-base sm:text-lg">
             At The Skin Firm, we proudly serve patients not only from Mohammad
             Wadi and NIBM Road, but also from several nearby areas in Pune who
             visit us for trusted treatments, skin care, and hair solutions.
           </p>
-          <p className="mb-4 font-medium">
+          <p className="mb-4 font-medium text-base sm:text-lg">
             Many of our patients travel to our clinic from:
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
             {[
               "Camp",
               "Undri",
@@ -1097,16 +1078,16 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             ].map((loc) => (
               <span
                 key={loc}
-                className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full"
+                className="bg-gray-100 text-gray-800 text-sm sm:text-base font-medium px-3 sm:px-4 py-1 rounded-full"
               >
                 {loc}
               </span>
             ))}
-            <span className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full">
+            <span className="bg-gray-100 text-gray-800 text-sm sm:text-base font-medium px-3 sm:px-4 py-1 rounded-full">
               & many other far locations in Pune as well.
             </span>
           </div>
-          <p>
+          <p className="text-base sm:text-lg">
             Our convenient location makes it easy for people across South Pune
             and Central Pune to access advanced treatments and other dermatology
             services under the expert care of Dr. Karishma Singh.
@@ -1123,21 +1104,18 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
         >
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-4">
-              <RichText
-                className="text-3xl md:text-[40px] leading-tight md:leading-[48px] font-semibold text-[color:var(--color-dark-text)]"
-                data={bookConsultation.title}
-              />
+              <SectionTitle data={bookConsultation.title} />
             </div>
-            <div className="mb-4 text-[color:var(--color-dark-text)]">
+            <div className="mb-4 text-[color:var(--color-dark-text)] text-base sm:text-lg">
               <RichText data={bookConsultation.description} />
             </div>
             {bookConsultation.secondaryDescription && (
-              <div className="font-semibold mb-6 text-[color:var(--color-dark-text)]">
+              <div className="font-semibold mb-6 text-[color:var(--color-dark-text)] text-base sm:text-lg">
                 <RichText data={bookConsultation.secondaryDescription} />
               </div>
             )}
             <Link href={bookConsultation.buttonLink || "/contact"}>
-              <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
+              <button className="rounded-lg px-6 sm:px-8 py-4 sm:py-5 bg-[#d4a380] text-white font-bold text-lg sm:text-xl hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
                 {bookConsultation.buttonText ||
                   "Book Your Treatment Appointment"}{" "}
                 →

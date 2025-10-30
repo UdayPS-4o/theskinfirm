@@ -62,5 +62,6 @@
   "trustedDependencies": [
     "@tailwindcss/oxide",
     "unrs-resolver"
-  ]
+  ],
+  "packageManager": "npm@11.6.1"
 }
