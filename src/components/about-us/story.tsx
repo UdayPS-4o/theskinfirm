@@ -49,7 +49,7 @@ export default function DrKarishmaSection() {
               },
             }}
           >
-            <div className="relative max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] w-full aspect-[3/4]">
+            <div className="relative max-w-[375px] sm:max-w-[437px] md:max-w-[500px] lg:max-w-[562px] w-full aspect-[3/4]">
               <Image
                 src="/Dr-Karishma-Singh-The-Skin-Firm-Pune3.png"
                 alt="Dr. Karishma Singh"
@@ -163,7 +163,7 @@ export default function DrKarishmaSection() {
                   <span className="text-[color:var(--color-light-text)] font-medium">
                     Co-Founder & Owner, &nbsp;
                   </span>
-                  <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold">
+                  <span className="text-black">
                     The Skin Firm
                   </span>
                 </motion.p>
@@ -200,7 +200,7 @@ export default function DrKarishmaSection() {
                     }}
                   >
                     Dr. Karishma Singh, owner and co-founder of{" "}
-                    <span className="text-[color:var(--color-primary-orange)]">
+                    <span className="text-black">
                       The Skin Firm
                     </span>
                     , NIBM Pune, is a highly regarded skin specialist celebrated
@@ -225,21 +225,21 @@ export default function DrKarishmaSection() {
                     }}
                   >
                     Renowned for her{" "}
-                    <span className="text-[color:var(--color-primary-orange)]">
+                    <span className="text-black">
                       gentle precision
                     </span>{" "}
                     and patient-centric philosophy, Dr. Karishma combines
                     medical excellence with an artistic eye, offering luxury
                     skin treatments,{" "}
-                    <span className="text-[color:var(--color-primary-orange)]">
+                    <span className="text-black">
                       advanced laser procedures
                     </span>
                     ,{" "}
-                    <span className="text-[color:var(--color-primary-orange)]">
+                    <span className="text-black">
                       anti-ageing solutions
                     </span>
                     , and{" "}
-                    <span className="text-[color:var(--color-primary-orange)]">
+                    <span className="text-black">
                       hair restoration therapies
                     </span>
                     . Her calm demeanour and ethical approach have established
@@ -261,21 +261,21 @@ export default function DrKarishmaSection() {
                     }}
                   >
                     At{" "}
-                    <span className="text-[color:var(--color-primary-orange)]">
+                    <span className="text-black">
                       The Skin Firm
                     </span>
                     , Dr. Karishma leads a team committed to delivering premium,
                     personalised care in an elegant, welcoming environment.
                     Every treatment reflects her vision merging cutting-edge{" "}
-                    <span className="text-[color:var(--color-primary-orange)]">
+                    <span className="text-black">
                       science
                     </span>{" "}
                     with{" "}
-                    <span className="text-[color:var(--color-primary-orange)]">
+                    <span className="text-black">
                       empathy
                     </span>{" "}
                     to enhance natural beauty while restoring{" "}
-                    <span className="text-[color:var(--color-primary-orange)]">
+                    <span className="text-black">
                       long-term&nbsp;skin&nbsp;health.
                     </span>
                   </motion.p>
@@ -304,7 +304,7 @@ export default function DrKarishmaSection() {
                 }}
               >
                 <motion.p
-                  className="text-xs sm:text-xs md:text-xs lg:text-[12px] leading-relaxed md:leading-5 text-black italic"
+                  className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed md:leading-5 text-black"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {

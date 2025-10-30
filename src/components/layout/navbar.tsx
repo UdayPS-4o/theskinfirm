@@ -312,16 +312,28 @@ export const Navbar = ({
           variants={logoVariants}
           className="flex-shrink-0"
         >
-          <Link href="/" className="flex items-center">
+          <Link
+            href="/"
+            className="flex items-center text-[#734817] hover:text-[#734817]/80 transition-colors"
+          >
             <Image
               src="/tsf-logo.svg"
-              alt="The Skin Firm Logo"
+              alt="The Skin Firm Icon"
               width={40}
               height={40}
+              className="text-[#734817]"
             />
-            <span className="ml-3 text-2xl font-times-condensed font-medium tracking-wider text-[#374151]">
-              THE SKIN FIRM
-            </span>
+            <img
+              src="/logo.png"
+              alt="The Skin FirmLogo"
+              width={220}
+              height={60}
+              className="py-3 ml-3"
+              style={{
+                filter:
+                  "brightness(0) saturate(100%) invert(25%) sepia(25%) saturate(250%) hue-rotate(350deg) brightness(1.2)",
+              }}
+            />
           </Link>
         </motion.div>
 
@@ -330,7 +342,7 @@ export const Navbar = ({
           initial="hidden"
           animate="visible"
           variants={navContainerVariants}
-          className="hidden md:flex md:justify-center gap-x-7 *:text-[#374151] *:hover:text-[#374151]/80 *:transition-colors"
+          className="hidden md:flex md:justify-center gap-x-7 *:text-[#734817] *:hover:text-[#734817]/80 *:transition-colors"
         >
           {NAV_ITEMS.map((item) => (
             <motion.div

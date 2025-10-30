@@ -18,7 +18,7 @@ export default function ReviewSection({
   testimonials: Testimonial[];
 }) {
   return (
-    <section className="bg-[color:var(--color-light-background-alt)] px-4 sm:px-6 lg:px-20 pb-20 my-10">
+    <section className="bg-[color:var(--color-light-background-alt)] px-4 sm:px-6 lg:px-20 pb-5 my-10">
       <motion.div
         className="max-w-7xl mx-auto"
         variants={{

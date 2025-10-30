@@ -5,7 +5,7 @@ import { MaxWidthWrapper } from "../layout/max-width";
 
 export default function CompanyAboutSection() {
   return (
-    <section className="relative bg-gradient-to-br from-[color:var(--color-light-background-alt)] via-white to-[color:var(--color-light-background)] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[color:var(--color-light-background-alt)] via-white to-[color:var(--color-light-background)] py-4 sm:py-20 md:py-4 lg:py-8 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-[color:var(--color-primary-orange)]/20 to-[color:var(--color-primary-brown)]/20 rounded-full blur-3xl"></div>
@@ -144,7 +144,7 @@ export default function CompanyAboutSection() {
                 }}
               >
                 At
-                <span className="text-[color:var(--color-primary-orange)]">
+                <span className="text-black">
                   {" "}
                   The Skin Firm,
                 </span>
@@ -167,7 +167,7 @@ export default function CompanyAboutSection() {
                 }}
               >
                 Founded in Pune by{" "}
-                <span className="text-[color:var(--color-primary-orange)]">
+                <span className="text-black">
                   Dr. Karishma Singh
                 </span>
                 , The Skin Firm is a modern dermatology and aesthetic clinic
@@ -192,14 +192,14 @@ export default function CompanyAboutSection() {
                 }}
               >
                 We combine{" "}
-                <span className="text-[color:var(--color-primary-orange)]">
+                <span className="text-black">
                   cutting-edge technology
                 </span>{" "}
                 with a warm, welcoming environment where every client feels
                 heard, valued, and cared for. From advanced laser treatments to
                 gentle skincare solutions, we&apos;re here to help you achieve
                 the{" "}
-                <span className="text-[color:var(--color-primary-orange)]">
+                <span className="text-black">
                   healthy, radiant skin
                 </span>{" "}
                 you deserve.
