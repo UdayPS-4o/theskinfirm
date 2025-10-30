@@ -312,15 +312,16 @@ export const Navbar = ({
           variants={logoVariants}
           className="flex-shrink-0"
         >
-          <Link href="/">
-            <img
-              src="/logo.png"
-              alt="The Skin FirmLogo"
-              width={220}
-              height={60}
-              className="py-3"
-              // className="h-10 lg:h-20"
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/tsf-logo.svg"
+              alt="The Skin Firm Logo"
+              width={40}
+              height={40}
             />
+            <span className="ml-3 text-2xl font-times-condensed font-medium tracking-wider text-[#374151]">
+              THE SKIN FIRM
+            </span>
           </Link>
         </motion.div>
 

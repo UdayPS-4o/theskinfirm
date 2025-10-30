@@ -4,20 +4,22 @@ import Image from "next/image";
 
 export const About = () => {
   return (
-    <div className="w-full bg-[#F8F4EB]">
+    <div className="w-full bg-[#F8F4EB] py-16 pt-0">
       <div className="max-w-7xl mx-auto px-6 lg:px-20">
-        <h2 className="mt-5 text-center font-semibold text-4xl text-[#333333]">
+        <h2 className="text-center font-semibold text-4xl text-[#333333]">
           About The Skin Firm
         </h2>
-        <div className="mt-28 flex flex-col lg:flex-row items-center justify-center gap-4">
-          <div className="flex flex-row items-center lg:items-start justify-center gap-x-6 max-w-sm">
-            <Image
-              src={"/rocket.svg"}
-              width={52}
-              height={52}
-              alt="Rooted in Vision"
-              loading="lazy"
-            />
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 place-items-center">
+          <div className="flex flex-row items-start justify-center gap-x-6 max-w-sm">
+            <div className="w-16 flex-shrink-0">
+              <Image
+                src={"/rocket.svg"}
+                width={52}
+                height={52}
+                alt="Rooted in Vision"
+                loading="lazy"
+              />
+            </div>
             <div>
               <h3 className="font-semibold text-xl text-[#333333] mb-2">
                 Rooted in Vision
@@ -31,14 +33,16 @@ export const About = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-row items-center lg:items-start justify-center gap-x-6 max-w-sm">
-            <Image
-              src={"/bulb.svg"}
-              width={42}
-              height={52}
-              alt="Driven by Innovation"
-              loading="lazy"
-            />
+          <div className="flex flex-row items-start justify-center gap-x-6 max-w-sm">
+            <div className="w-16 flex-shrink-0">
+              <Image
+                src={"/bulb.svg"}
+                width={42}
+                height={52}
+                alt="Driven by Innovation"
+                loading="lazy"
+              />
+            </div>
             <div>
               <h3 className="font-semibold text-xl text-[#333333] mb-2">
                 Driven by Innovation
@@ -52,14 +56,16 @@ export const About = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-row items-center lg:items-start justify-center gap-x-6 max-w-sm">
-            <Image
-              src={"/360.svg"}
-              width={52}
-              height={26}
-              alt="Care from Every Angle"
-              loading="lazy"
-            />
+          <div className="flex flex-row items-start justify-center gap-x-6 max-w-sm md:col-span-2 lg:col-span-1">
+            <div className="w-16 flex-shrink-0 relative">
+              <Image
+                src={"/360.svg"}
+                width={52}
+                height={26}
+                alt="Care from Every Angle"
+                loading="lazy"
+              />
+            </div>
             <div>
               <h3 className="font-semibold text-xl text-[#333333] mb-2">
                 Care, from Every Angle

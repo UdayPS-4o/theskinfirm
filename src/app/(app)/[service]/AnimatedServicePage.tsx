@@ -998,7 +998,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
             return (
               <section
                 key={section.blockType + index}
-                className="w-full py-8 sm:py-12 md:py-20"
+                className="w-full py-4 sm:py-4 md:py-4"
               >
                 <MaxWidthWrapper>
                   <SectionTitle

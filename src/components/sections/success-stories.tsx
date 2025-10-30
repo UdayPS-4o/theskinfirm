@@ -46,7 +46,7 @@ export const SuccessStories = () => {
 
   return (
     <MaxWidthWrapper>
-      <div className="mx-4 lg:mx-24 mt-24">
+      <div className="mx-4 lg:mx-24 mt-8">
         <h2 className="mt-5 text-center font-semibold text-5xl text-[#333333]">
           Success Stories
         </h2>

@@ -4,7 +4,7 @@ import { Zap, Heart } from "lucide-react";
 
 export const WhyChooseUs = () => {
   return (
-    <div className="mt-24 px-5 lg:px-[70px] py-[122px] bg-[#F8F4EB]">
+    <div className="mt-4 px-5 lg:px-[70px] py-4 bg-[#F8F4EB]">
       <div className="flex flex-col lg:flex-row items-center justify-center mb-5 ">
         <Image
           alt=""

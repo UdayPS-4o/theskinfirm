@@ -11,6 +11,9 @@ const config: Config = {
       screens: {
         'xs': '475px',
       },
+      fontFamily: {
+        'times-condensed': ['"Times New Roman Condensed"', 'Times New Roman', 'serif'],
+      },
     },
   },
   plugins: [],

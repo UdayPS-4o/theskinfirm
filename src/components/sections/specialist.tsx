@@ -10,7 +10,7 @@ import Link from "next/link";
 export const Specialist = () => {
   const router = useRouter();
   return (
-    <div className="pt-12 md:pt-24">
+    <div className="pt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="mt-5 text-center font-semibold text-4xl md:text-5xl text-[#333333]">
           Specialist in Pune

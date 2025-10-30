@@ -90,7 +90,7 @@ const CategoriesSection = () => {
   };
 
   return (
-    <div className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div className="py-5 sm:py-5 lg:py-5 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       <div className="flex flex-col lg:flex-row lg:items-end lg:gap-12 mt-10">
         {/* Mobile header section - only visible on mobile */}
         <div className="lg:hidden w-full mb-8">
