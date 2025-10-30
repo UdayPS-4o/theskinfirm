@@ -566,7 +566,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             : "translate-y-5 opacity-0"
                         }`}
                       >
-                        ---------- Process ----------
+                        Process
                       </h4> */}
                       <SectionTitle
                         data={section.title}
@@ -662,7 +662,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             : "translate-y-5 opacity-0"
                         }`}
                       >
-                        ---------- Results ----------
+                        Results
                       </h4> */}
                       <SectionTitle
                         data={section.title}
@@ -733,7 +733,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             : "translate-y-5 opacity-0"
                         }`}
                       >
-                        ---------- Benefits ----------
+                        Benefits
                       </h4> */}
                       <SectionTitle
                         data={section.title}
@@ -815,7 +815,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             : "translate-y-5 opacity-0"
                         }`}
                       >
-                        ---------- Post Care ----------
+                        Post Care
                       </h4> */}
                       {section.downtimeTitle ? (
                         <SectionTitle

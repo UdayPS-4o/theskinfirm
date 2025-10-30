@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { MaxWidthWrapper } from "@/components/layout/max-width";
-import { DashedSeparator } from "@/components/sections/dashed-separator";
 
 const videos = [
   {
@@ -75,13 +74,6 @@ export default function VideosPage() {
       <section className="bg-gradient-to-b from-[#FBEDE4] to-[#F8F4EB] py-16">
         <MaxWidthWrapper>
           <div className="text-center">
-            <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2 mb-6">
-              <DashedSeparator />
-              <h3 className="text-[#EC7754] text-2xl font-medium whitespace-nowrap">
-                Knowledge Hub
-              </h3>
-              <DashedSeparator />
-            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#333] mb-6">
               Expert Skincare Advice
             </h1>

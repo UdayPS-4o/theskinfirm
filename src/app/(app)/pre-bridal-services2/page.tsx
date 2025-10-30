@@ -5,7 +5,6 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { MaxWidthWrapper } from "@/components/layout/max-width";
-import { DashedSeparator } from "@/components/sections/dashed-separator";
 import {
   Accordion,
   AccordionContent,
@@ -54,7 +53,8 @@ const PreBridalServicesPage = () => {
   const packages = [
     {
       title: "6-Month Wedding Glow Plan",
-      subtitle: "Ideal for those starting early, this comprehensive program targets long-term skin health.",
+      subtitle:
+        "Ideal for those starting early, this comprehensive program targets long-term skin health.",
       features: [
         "Advanced acne & pigmentation management",
         "Anti-tan and brightening therapies",
@@ -125,11 +125,13 @@ const PreBridalServicesPage = () => {
   const processSteps = [
     {
       title: "Personalised Consultation",
-      description: "Comprehensive skin analysis and understanding of your wedding timeline.",
+      description:
+        "Comprehensive skin analysis and understanding of your wedding timeline.",
     },
     {
       title: "Custom Treatment Plan",
-      description: "Treatment plan aligned with your wedding timeline and skin goals.",
+      description:
+        "Treatment plan aligned with your wedding timeline and skin goals.",
     },
     {
       title: "Scheduled Sessions",
@@ -137,7 +139,8 @@ const PreBridalServicesPage = () => {
     },
     {
       title: "Pre-Event Glow Therapy",
-      description: "Final touch-up treatments for the perfect wedding day glow.",
+      description:
+        "Final touch-up treatments for the perfect wedding day glow.",
     },
   ];
 
@@ -208,7 +211,6 @@ const PreBridalServicesPage = () => {
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen py-20">
-            
             {/* Left Content */}
             <div
               id="hero-left"
@@ -236,7 +238,8 @@ const PreBridalServicesPage = () => {
                   </h1>
 
                   <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-                    Personalised pre-wedding couple treatments to restore, rejuvenate & glow.
+                    Personalised pre-wedding couple treatments to restore,
+                    rejuvenate & glow.
                   </p>
                 </div>
 
@@ -271,55 +274,113 @@ const PreBridalServicesPage = () => {
                   <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-2">
                     Why Choose Us?
                   </h3>
-                  <p className="text-gray-600">Your trusted partner for the perfect wedding glow</p>
+                  <p className="text-gray-600">
+                    Your trusted partner for the perfect wedding glow
+                  </p>
                 </div>
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 group hover:bg-[#d4a380]/5 p-4 rounded-xl transition-all">
                     <div className="w-14 h-14 bg-[#d4a380]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#d4a380] transition-all">
-                      <svg className="w-7 h-7 text-[#d4a380] group-hover:text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <svg
+                        className="w-7 h-7 text-[#d4a380] group-hover:text-white transition-all"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg text-[#1a1a1a] mb-1">Expert Dermatologists</h4>
-                      <p className="text-gray-600 text-sm">Treatments by certified specialists</p>
+                      <h4 className="font-bold text-lg text-[#1a1a1a] mb-1">
+                        Expert Dermatologists
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        Treatments by certified specialists
+                      </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4 group hover:bg-[#d4a380]/5 p-4 rounded-xl transition-all">
                     <div className="w-14 h-14 bg-[#d4a380]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#d4a380] transition-all">
-                      <svg className="w-7 h-7 text-[#d4a380] group-hover:text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                      <svg
+                        className="w-7 h-7 text-[#d4a380] group-hover:text-white transition-all"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg text-[#1a1a1a] mb-1">Couple Packages</h4>
-                      <p className="text-gray-600 text-sm">Special plans for bride & groom</p>
+                      <h4 className="font-bold text-lg text-[#1a1a1a] mb-1">
+                        Couple Packages
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        Special plans for bride & groom
+                      </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4 group hover:bg-[#d4a380]/5 p-4 rounded-xl transition-all">
                     <div className="w-14 h-14 bg-[#d4a380]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#d4a380] transition-all">
-                      <svg className="w-7 h-7 text-[#d4a380] group-hover:text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      <svg
+                        className="w-7 h-7 text-[#d4a380] group-hover:text-white transition-all"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg text-[#1a1a1a] mb-1">Customized Timeline</h4>
-                      <p className="text-gray-600 text-sm">1, 3, or 6-month packages available</p>
+                      <h4 className="font-bold text-lg text-[#1a1a1a] mb-1">
+                        Customized Timeline
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        1, 3, or 6-month packages available
+                      </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4 group hover:bg-[#d4a380]/5 p-4 rounded-xl transition-all">
                     <div className="w-14 h-14 bg-[#d4a380]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#d4a380] transition-all">
-                      <svg className="w-7 h-7 text-[#d4a380] group-hover:text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                      <svg
+                        className="w-7 h-7 text-[#d4a380] group-hover:text-white transition-all"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg text-[#1a1a1a] mb-1">Advanced Technology</h4>
-                      <p className="text-gray-600 text-sm">State-of-the-art treatments & lasers</p>
+                      <h4 className="font-bold text-lg text-[#1a1a1a] mb-1">
+                        Advanced Technology
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        State-of-the-art treatments & lasers
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -327,15 +388,21 @@ const PreBridalServicesPage = () => {
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <div className="grid grid-cols-3 gap-4 text-center">
                     <div>
-                      <div className="text-2xl font-bold text-[#d4a380]">500+</div>
+                      <div className="text-2xl font-bold text-[#d4a380]">
+                        500+
+                      </div>
                       <div className="text-xs text-gray-600">Happy Couples</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-[#d4a380]">15+</div>
+                      <div className="text-2xl font-bold text-[#d4a380]">
+                        15+
+                      </div>
                       <div className="text-xs text-gray-600">Years Exp.</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-[#d4a380]">100%</div>
+                      <div className="text-2xl font-bold text-[#d4a380]">
+                        100%
+                      </div>
                       <div className="text-xs text-gray-600">Satisfaction</div>
                     </div>
                   </div>
@@ -375,7 +442,11 @@ const PreBridalServicesPage = () => {
                     : "translate-y-5 opacity-0"
                 }`}
               >
-                Your wedding day is one of life&apos;s most photographed moments, so your skin should look as radiant as your love story. At The Skin Firm, we design dermatologist-led pre-wedding treatments for both brides and grooms, ensuring you look your most confident and refreshed on your big day.
+                Your wedding day is one of life&apos;s most photographed
+                moments, so your skin should look as radiant as your love story.
+                At The Skin Firm, we design dermatologist-led pre-wedding
+                treatments for both brides and grooms, ensuring you look your
+                most confident and refreshed on your big day.
               </p>
             </div>
           </div>
@@ -383,7 +454,10 @@ const PreBridalServicesPage = () => {
       </section>
 
       {/* Tailored Wedding Packages */}
-      <section id="packages" className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]">
+      <section
+        id="packages"
+        className="py-12 md:py-20 px-4 md:px-8 bg-[color:var(--color-light-background)]"
+      >
         <div className="max-w-6xl mx-auto">
           <div
             id="packages-header"
@@ -451,15 +525,6 @@ const PreBridalServicesPage = () => {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              <h4
-                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("why-choose-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-              >
-                ---------- Why Choose Us ----------
-              </h4>
               <h2
                 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                   isVisible("why-choose-header")
@@ -567,15 +632,6 @@ const PreBridalServicesPage = () => {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              <h4
-                className={`text-xl md:text-2xl text-[color:var(--color-primary-orange)] font-medium mb-3 transform transition-all duration-700 delay-200 ease-out ${
-                  isVisible("process-header")
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-              >
-                ---------- Process ----------
-              </h4>
               <h2
                 className={`text-3xl md:text-[40px] leading-tight md:leading-[48px] text-[color:var(--color-dark-text)] font-semibold transform transition-all duration-700 delay-300 ease-out ${
                   isVisible("process-header")
@@ -691,11 +747,6 @@ const PreBridalServicesPage = () => {
       <section className="py-12 md:py-20 px-4 md:px-8">
         <MaxWidthWrapper>
           <div className="mx-6 lg:mx-24">
-            <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2">
-              <DashedSeparator />
-              <h3 className="text-[#EC7754] text-3xl font-medium">FAQ</h3>
-              <DashedSeparator />
-            </div>
             <h2 className="mt-2 text-[#333333] text-3xl lg:text-5xl font-semibold text-center">
               Frequently Asked Questions
             </h2>
@@ -729,7 +780,10 @@ const PreBridalServicesPage = () => {
             Begin Your Wedding Glow Journey
           </h2>
           <p className="mb-8 text-[color:var(--color-dark-text)] text-lg">
-            Whether you&apos;re the bride or the groom, your skin deserves the very best care before your big day. Book your consultation with The Skin Firm today and let us design a personalised glow plan just for you.
+            Whether you&apos;re the bride or the groom, your skin deserves the
+            very best care before your big day. Book your consultation with The
+            Skin Firm today and let us design a personalised glow plan just for
+            you.
           </p>
           <Link href="/contact">
             <button className="rounded-lg px-8 py-4 bg-[#d4a380] text-white font-bold text-lg hover:bg-[#c19970] hover:scale-105 transition-all duration-300 shadow-lg">
@@ -743,4 +797,3 @@ const PreBridalServicesPage = () => {
 };
 
 export default PreBridalServicesPage;
-

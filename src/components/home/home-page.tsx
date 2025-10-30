@@ -60,9 +60,6 @@ export default function HomePage({ heroOffer }: HomePageProps) {
         <AnimatedComponent>
           <WhyChooseUs />
         </AnimatedComponent>
-        {/* <section id="news"><AnimatedComponent><News /></AnimatedComponent></section> */}
-        {/* <section id="gallery"><AnimatedComponent><Gallery /></AnimatedComponent></section>
-        <AnimatedComponent><Stories /></AnimatedComponent> */}
         <AnimatedComponent>
           <Cta2 />
         </AnimatedComponent>

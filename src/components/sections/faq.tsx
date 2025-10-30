@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { DashedSeparator } from "./dashed-separator";
 import { Accordion, AccordionContent, AccordionTrigger } from "../ui/accordion";
 import { AccordionItem } from "@radix-ui/react-accordion";
 import { motion, useInView } from "framer-motion";
@@ -14,18 +13,7 @@ export const Faq = () => {
 
   return (
     <MaxWidthWrapper>
-      <div className="mt-24 mx-6 lg:mx-24 mb-22">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto flex items-center justify-center max-w-xs gap-x-2"
-        >
-          <DashedSeparator />
-          <h3 className="text-[#EC7754] text-3xl font-medium">FAQ</h3>
-          <DashedSeparator />
-        </motion.div>
+      <div ref={ref} className="mt-24 mx-6 lg:mx-24 mb-22">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -104,10 +92,11 @@ export const Faq = () => {
                 Will I need multiple sessions?
               </AccordionTrigger>
               <AccordionContent className="text-[#4B5563] text-2xl">
-                That depends on your concern and the treatment chosen. While some
-                procedures offer visible results in a single session, others
-                (like laser or hair restoration) require a series of sessions
-                for long-term results. We&apos;ll guide you every step of the way.
+                That depends on your concern and the treatment chosen. While
+                some procedures offer visible results in a single session,
+                others (like laser or hair restoration) require a series of
+                sessions for long-term results. We&apos;ll guide you every step
+                of the way.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -131,9 +120,9 @@ export const Faq = () => {
                 Where is The Skin Firm located?
               </AccordionTrigger>
               <AccordionContent className="text-[#4B5563] text-2xl">
-                We&apos;re located in NIBM, Pune, easily accessible from all parts
-                of the city. You can find our address and contact details on
-                the Contact Us page or simply reach out to book your visit.
+                We&apos;re located in NIBM, Pune, easily accessible from all
+                parts of the city. You can find our address and contact details
+                on the Contact Us page or simply reach out to book your visit.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -145,8 +134,8 @@ export const Faq = () => {
               </AccordionTrigger>
               <AccordionContent className="text-[#4B5563] text-2xl">
                 You can call or WhatsApp us directly, or fill out the booking
-                form on our website. Our team will get in touch to schedule
-                your consultation at a time convenient for you.
+                form on our website. Our team will get in touch to schedule your
+                consultation at a time convenient for you.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

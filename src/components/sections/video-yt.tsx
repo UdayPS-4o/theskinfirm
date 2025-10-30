@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { MaxWidthWrapper } from "@/components/layout/max-width";
-import { DashedSeparator } from "./dashed-separator";
 
 const videoUrls = [
   "https://www.youtube.com/watch?v=i9p0tZaVdS4",
@@ -28,15 +27,8 @@ function getYouTubeEmbedUrl(url: string) {
 
 export function VideoTestimonials() {
   return (
-    <section className="w-full py-12 md:py-20">
+    <section className="w-full py-12">
       <MaxWidthWrapper>
-        <div className="mx-auto flex items-center justify-center max-w-xs gap-x-2">
-          <DashedSeparator />
-          <h3 className="text-[#EC7754] text-3xl font-medium whitespace-nowrap">
-            Knowledge Hub
-          </h3>
-          <DashedSeparator />
-        </div>
         <h2 className="mt-5 text-center font-semibold text-5xl text-[#333333]">
           Expert Skincare Advice
         </h2>
@@ -60,4 +52,4 @@ export function VideoTestimonials() {
       </MaxWidthWrapper>
     </section>
   );
-} 
+}

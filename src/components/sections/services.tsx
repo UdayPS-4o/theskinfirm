@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { DashedSeparator } from "./dashed-separator";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -108,7 +108,7 @@ export const Services = () => {
           },
         },
       }}
-      className="my-20 py-20 px-4 sm:px-6 lg:px-32 bg-[#F8F4EB]"
+      className="py-20 px-4 sm:px-6 lg:px-32 bg-[#F8F4EB]"
     >
       <MaxWidthWrapper>
         <motion.div
@@ -123,24 +123,18 @@ export const Services = () => {
           className="grid grid-cols-1 lg:grid-cols-2 items-end gap-6 lg:gap-8"
         >
           <div className="w-full">
-            <div className="mx-auto flex items-center justify-center max-w-md w-full gap-x-0.5">
-              <DashedSeparator />
-              <h3 className="text-[#EC7754] text-base sm:text-lg font-medium w-full text-center">
-                Our services
-              </h3>
-              <DashedSeparator />
-            </div>
             <h2 className="mt-2 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#333333] font-semibold leading-tight">
               What services we Offer
             </h2>
           </div>
           <div>
-            <p className="text-sm sm:text-base leading-relaxed text-[#EC7754] text-center lg:text-start">
+            <p className="text-sm sm:text-base leading-relaxed text-[#6C6C6C] text-center lg:text-start">
               Beauty begins the moment you decide to take care of yourself.
               <br />
               With 59+ services to choose from, it can be hard to know where to
               start. Explore our most sought-after treatments, crafted to
-              enhance your natural beauty with precision, care, and expertise.{" "}
+              enhance your natural beauty with precision,
+              care, and expertise.{" "}
             </p>
           </div>
         </motion.div>
@@ -164,7 +158,7 @@ export const Services = () => {
             }}
           >
             <CarouselContent className="flex -ml-2 sm:-ml-4">
-{randomizedServices.map((service) => (
+              {randomizedServices.map((service) => (
                 <CarouselItem
                   key={service.url}
                   className="pl-2 sm:pl-4 basis-4/5 sm:basis-3/4 md:basis-1/2 lg:basis-1/2 xl:basis-1/3"

@@ -6,16 +6,24 @@ export const WhyChooseUs = () => {
   return (
     <div className="mt-24 px-5 lg:px-[70px] py-[122px] bg-[#F8F4EB]">
       <div className="flex flex-col lg:flex-row items-center justify-center mb-5 ">
-        <Image alt="" src={"/Dr-Karishma-Singh-The-Skin-Firm-Pune1.png"} height={300} width={603} loading='lazy' className="pr-[100px] lg:pb-[30px]" />
+        <Image
+          alt=""
+          src={"/Dr-Karishma-Singh-The-Skin-Firm-Pune1.png"}
+          height={300}
+          width={603}
+          loading="lazy"
+          className="pr-[100px] lg:pb-[30px]"
+        />
         <div className="flex flex-col items-start justify-center space-y-12">
           <h2 className="font-semibold text-[64px]/tight text-center lg:text-start text-[#344054]">
-            Why <span className="text-[#FD853A]">Choose Us</span>?
+            Why Choose Us?
           </h2>
           <p className="text-center lg:text-start max-w-md text-xl text-[#98A2B3]">
             Because your skin deserves more than just treatment, it deserves
-            intention, expertise, and care that feels personal. At{' '}
-            <span className="font-semibold text-[#344054]">The Skin Firm</span>, we don&apos;t offer quick fixes; we offer thoughtful
-            transformations built on trust, innovation, and clinical precision.
+            intention, expertise, and care that feels personal. At{" "}
+            <span className="font-semibold text-[#344054]">The Skin Firm</span>,
+            we don&apos;t offer quick fixes; we offer thoughtful transformations
+            built on trust, innovation, and clinical precision.
           </p>
           <div className="grid grid-cols-2 w-full">
             <div className="text-center lg:text-start">
@@ -42,7 +50,14 @@ export const WhyChooseUs = () => {
         />
         <Benefit
           description="Our relationship doesn’t end when your session does. With honest advice, progress tracking, and ongoing care plans, we’re here for your skin’s journey every step, every concern, every celebration."
-          icon={<Image src="/post-care.svg" alt="Post Care" width={24} height={24} />}
+          icon={
+            <Image
+              src="/post-care.svg"
+              alt="Post Care"
+              width={24}
+              height={24}
+            />
+          }
           title="Continuous Support"
         />
       </div>

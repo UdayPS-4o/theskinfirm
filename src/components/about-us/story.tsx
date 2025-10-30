@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 import { MaxWidthWrapper } from "../layout/max-width";
 
 export default function DrKarishmaSection() {
-
   return (
-    <section id="dr_karishma" className="relative bg-[color:var(--color-light-background-alt)] mb-14 px-4 sm:px-6 md:px-8 lg:px-16 pt-12 sm:pt-16 md:pt-18 lg:pt-20 overflow-hidden rounded-bl-[75px]">
+    <section
+      id="dr_karishma"
+      className="relative bg-[color:var(--color-light-background-alt)] mb-14 px-4 sm:px-6 md:px-8 lg:px-16 pt-12 sm:pt-16 md:pt-18 lg:pt-20 overflow-hidden rounded-bl-[75px]"
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-[color:var(--color-primary-orange)]/30 to-[color:var(--color-primary-brown)]/30 rounded-full blur-3xl"></div>
@@ -15,7 +17,7 @@ export default function DrKarishmaSection() {
         <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-gradient-to-br from-[color:var(--color-primary-orange)]/15 to-[color:var(--color-primary-brown)]/15 rounded-full blur-2xl"></div>
       </div>
       <MaxWidthWrapper>
-        <motion.div 
+        <motion.div
           className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-8 xl:gap-12"
           variants={{
             hidden: { opacity: 0 },
@@ -23,16 +25,16 @@ export default function DrKarishmaSection() {
               opacity: 1,
               transition: {
                 staggerChildren: 0.2,
-                delayChildren: 0.1
-              }
-            }
+                delayChildren: 0.1,
+              },
+            },
           }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Image */}
-          <motion.div 
+          <motion.div
             className="w-full lg:w-[42%] flex justify-center mb-6 md:mb-8 lg:mb-0"
             variants={{
               hidden: { opacity: 0, scale: 0.8, x: -50 },
@@ -42,9 +44,9 @@ export default function DrKarishmaSection() {
                 x: 0,
                 transition: {
                   duration: 1,
-                  ease: "easeOut"
-                }
-              }
+                  ease: "easeOut",
+                },
+              },
             }}
           >
             <div className="relative max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] w-full aspect-[3/4]">
@@ -60,7 +62,7 @@ export default function DrKarishmaSection() {
           </motion.div>
 
           {/* Dr. Karishma Singh Content */}
-          <motion.div 
+          <motion.div
             className="w-full lg:w-[58%] lg:pl-4 xl:pl-6"
             variants={{
               hidden: { opacity: 0, y: 30 },
@@ -69,14 +71,14 @@ export default function DrKarishmaSection() {
                 y: 0,
                 transition: {
                   duration: 0.8,
-                  ease: [0.25, 0.1, 0.25, 1]
-                }
-              }
+                  ease: [0.25, 0.1, 0.25, 1],
+                },
+              },
             }}
           >
             <div className="flex flex-col gap-5 sm:gap-6 md:gap-7 lg:gap-5 xl:gap-6 items-center lg:items-start text-center lg:text-left relative w-full">
               {/* Header Section */}
-              <motion.div 
+              <motion.div
                 className="flex flex-col gap-2 sm:gap-3 md:gap-4 items-center lg:items-start relative"
                 variants={{
                   hidden: { opacity: 0, y: 30 },
@@ -85,29 +87,12 @@ export default function DrKarishmaSection() {
                     y: 0,
                     transition: {
                       duration: 0.8,
-                      ease: [0.25, 0.1, 0.25, 1]
-                    }
-                  }
+                      ease: [0.25, 0.1, 0.25, 1],
+                    },
+                  },
                 }}
               >
-                <motion.h3 
-                  className="text-sm sm:text-base md:text-lg lg:text-[22px] leading-tight lg:leading-[28px] text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-semibold tracking-wider"
-                  variants={{
-                    hidden: { opacity: 0, x: -30 },
-                    visible: {
-                      opacity: 1,
-                      x: 0,
-                      transition: {
-                        duration: 0.8,
-                        ease: "easeOut"
-                      }
-                    }
-                  }}
-                >
-                  ---------- About ----------
-                </motion.h3>
-                
-                <motion.h1 
+                <motion.h1
                   className="text-lg sm:text-xl md:text-2xl lg:text-[42px] leading-tight lg:leading-[50px] text-[color:var(--color-dark-text)] font-bold"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
@@ -116,22 +101,22 @@ export default function DrKarishmaSection() {
                       y: 0,
                       transition: {
                         duration: 0.8,
-                        ease: [0.25, 0.1, 0.25, 1]
-                      }
-                    }
+                        ease: [0.25, 0.1, 0.25, 1],
+                      },
+                    },
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     color: "var(--color-primary-orange)",
-                    transition: { duration: 0.3 }
+                    transition: { duration: 0.3 },
                   }}
                 >
                   Dr. Karishma Singh
                 </motion.h1>
               </motion.div>
-              
+
               {/* Credentials Section */}
-              <motion.div 
+              <motion.div
                 className="flex flex-col gap-2 sm:gap-3 items-center lg:items-start w-full"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
@@ -140,12 +125,12 @@ export default function DrKarishmaSection() {
                     y: 0,
                     transition: {
                       duration: 0.6,
-                      ease: [0.25, 0.1, 0.25, 1]
-                    }
-                  }
+                      ease: [0.25, 0.1, 0.25, 1],
+                    },
+                  },
                 }}
               >
-                <motion.h5 
+                <motion.h5
                   className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-black"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
@@ -154,14 +139,14 @@ export default function DrKarishmaSection() {
                       y: 0,
                       transition: {
                         duration: 0.8,
-                        ease: [0.25, 0.1, 0.25, 1]
-                      }
-                    }
+                        ease: [0.25, 0.1, 0.25, 1],
+                      },
+                    },
                   }}
                 >
                   Skin Specialist
                 </motion.h5>
-                <motion.p 
+                <motion.p
                   className="text-sm sm:text-base md:text-lg leading-relaxed text-black"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
@@ -170,22 +155,22 @@ export default function DrKarishmaSection() {
                       y: 0,
                       transition: {
                         duration: 0.8,
-                        ease: [0.25, 0.1, 0.25, 1]
-                      }
-                    }
+                        ease: [0.25, 0.1, 0.25, 1],
+                      },
+                    },
                   }}
                 >
                   <span className="text-[color:var(--color-light-text)] font-medium">
-                    Co-Founder & Owner, &nbsp;  
+                    Co-Founder & Owner, &nbsp;
                   </span>
                   <span className="text-transparent bg-gradient-to-r from-[color:var(--color-primary-orange)] to-[color:var(--color-primary-brown)] bg-clip-text font-bold">
                     The Skin Firm
                   </span>
                 </motion.p>
               </motion.div>
-              
+
               {/* Main Description */}
-              <motion.div 
+              <motion.div
                 className="flex flex-col gap-3 sm:gap-4 md:gap-5 items-center lg:items-start w-full"
                 variants={{
                   hidden: { opacity: 0, y: 30 },
@@ -194,13 +179,13 @@ export default function DrKarishmaSection() {
                     y: 0,
                     transition: {
                       duration: 0.8,
-                      ease: [0.25, 0.1, 0.25, 1]
-                    }
-                  }
+                      ease: [0.25, 0.1, 0.25, 1],
+                    },
+                  },
                 }}
               >
                 <div className="space-y-3 sm:space-y-4 md:space-y-4">
-                  <motion.p 
+                  <motion.p
                     className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
@@ -214,10 +199,18 @@ export default function DrKarishmaSection() {
                       },
                     }}
                   >
-                    Dr. Karishma Singh, owner and co-founder of <span className="text-[color:var(--color-primary-orange)]">The Skin Firm</span>, NIBM Pune, is a highly regarded skin specialist celebrated for her refined approach to skin and hair care. With over five years of specialised expertise, she has helped hundreds achieve radiant, youthful skin and healthy hair through treatments that deliver visible, lasting results.
+                    Dr. Karishma Singh, owner and co-founder of{" "}
+                    <span className="text-[color:var(--color-primary-orange)]">
+                      The Skin Firm
+                    </span>
+                    , NIBM Pune, is a highly regarded skin specialist celebrated
+                    for her refined approach to skin and hair care. With over
+                    five years of specialised expertise, she has helped hundreds
+                    achieve radiant, youthful skin and healthy hair through
+                    treatments that deliver visible, lasting results.
                   </motion.p>
 
-                  <motion.p 
+                  <motion.p
                     className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
@@ -231,10 +224,29 @@ export default function DrKarishmaSection() {
                       },
                     }}
                   >
-                    Renowned for her <span className="text-[color:var(--color-primary-orange)]">gentle precision</span> and patient-centric philosophy, Dr. Karishma combines medical excellence with an artistic eye, offering luxury skin treatments, <span className="text-[color:var(--color-primary-orange)]">advanced laser procedures</span>, <span className="text-[color:var(--color-primary-orange)]">anti-ageing solutions</span>, and <span className="text-[color:var(--color-primary-orange)]">hair restoration therapies</span>. Her calm demeanour and ethical approach have established her as one of the most trusted dermatologists in Pune.
+                    Renowned for her{" "}
+                    <span className="text-[color:var(--color-primary-orange)]">
+                      gentle precision
+                    </span>{" "}
+                    and patient-centric philosophy, Dr. Karishma combines
+                    medical excellence with an artistic eye, offering luxury
+                    skin treatments,{" "}
+                    <span className="text-[color:var(--color-primary-orange)]">
+                      advanced laser procedures
+                    </span>
+                    ,{" "}
+                    <span className="text-[color:var(--color-primary-orange)]">
+                      anti-ageing solutions
+                    </span>
+                    , and{" "}
+                    <span className="text-[color:var(--color-primary-orange)]">
+                      hair restoration therapies
+                    </span>
+                    . Her calm demeanour and ethical approach have established
+                    her as one of the most trusted dermatologists in Pune.
                   </motion.p>
 
-                  <motion.p 
+                  <motion.p
                     className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-black"
                     variants={{
                       hidden: { opacity: 0, y: 30 },
@@ -248,13 +260,30 @@ export default function DrKarishmaSection() {
                       },
                     }}
                   >
-                    At <span className="text-[color:var(--color-primary-orange)]">The Skin Firm</span>, Dr. Karishma leads a team committed to delivering premium, personalised care in an elegant, welcoming environment. Every treatment reflects her vision merging cutting-edge <span className="text-[color:var(--color-primary-orange)]">science</span> with <span className="text-[color:var(--color-primary-orange)]">empathy</span> to enhance natural beauty while restoring <span className="text-[color:var(--color-primary-orange)]">long-term&nbsp;skin&nbsp;health.</span>
+                    At{" "}
+                    <span className="text-[color:var(--color-primary-orange)]">
+                      The Skin Firm
+                    </span>
+                    , Dr. Karishma leads a team committed to delivering premium,
+                    personalised care in an elegant, welcoming environment.
+                    Every treatment reflects her vision merging cutting-edge{" "}
+                    <span className="text-[color:var(--color-primary-orange)]">
+                      science
+                    </span>{" "}
+                    with{" "}
+                    <span className="text-[color:var(--color-primary-orange)]">
+                      empathy
+                    </span>{" "}
+                    to enhance natural beauty while restoring{" "}
+                    <span className="text-[color:var(--color-primary-orange)]">
+                      long-term&nbsp;skin&nbsp;health.
+                    </span>
                   </motion.p>
                 </div>
               </motion.div>
-              
+
               {/* Quote Section */}
-              <motion.div 
+              <motion.div
                 className="rounded-[10px] border border-[#f9efe7] px-3 sm:px-4 md:px-5 py-3 sm:py-4 md:py-5 flex flex-col items-center lg:items-start w-full bg-gradient-to-r from-[#fdf9f5] to-[#f9efe7]"
                 variants={{
                   hidden: { opacity: 0, scale: 0.9, y: 20 },
@@ -264,17 +293,17 @@ export default function DrKarishmaSection() {
                     y: 0,
                     transition: {
                       duration: 0.6,
-                      ease: [0.25, 0.1, 0.25, 1]
-                    }
-                  }
+                      ease: [0.25, 0.1, 0.25, 1],
+                    },
+                  },
                 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   boxShadow: "0 8px 20px rgba(236, 119, 84, 0.1)",
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
               >
-                <motion.p 
+                <motion.p
                   className="text-xs sm:text-xs md:text-xs lg:text-[12px] leading-relaxed md:leading-5 text-black italic"
                   variants={{
                     hidden: { opacity: 0, y: 30 },
@@ -283,15 +312,18 @@ export default function DrKarishmaSection() {
                       y: 0,
                       transition: {
                         duration: 0.8,
-                        ease: [0.25, 0.1, 0.25, 1]
-                      }
-                    }
+                        ease: [0.25, 0.1, 0.25, 1],
+                      },
+                    },
                   }}
                 >
-                  Whether you&apos;re beginning your skincare journey or seeking expert solutions for advanced concerns, Dr. Karishma&apos;s expertise and holistic approach make her the partner your skin has been waiting for.
+                  Whether you&apos;re beginning your skincare journey or seeking
+                  expert solutions for advanced concerns, Dr. Karishma&apos;s
+                  expertise and holistic approach make her the partner your skin
+                  has been waiting for.
                 </motion.p>
               </motion.div>
-              
+
               {/* CTA Button */}
               {/* <button className="rounded-[5px] px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-3 flex gap-[8px] justify-center items-center bg-[#d4a380] hover:bg-[#c88d5c] transition-colors duration-200 w-full sm:w-auto mx-auto lg:mx-0">
                 <span className="text-xs sm:text-sm md:text-base lg:text-lg leading-[24px] text-white font-semibold">
