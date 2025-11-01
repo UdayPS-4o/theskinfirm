@@ -21,11 +21,276 @@ interface AnimatedServicePageProps {
   };
 }
 
+const IndianNames = [
+  "Aanya",
+  "Rahul",
+  "Sneha",
+  "Aarav",
+  "Priya",
+  "Aditya",
+  "Meera",
+  "Neha",
+  "Arjun",
+  "Divya",
+  "Simran",
+  "Rohit",
+  "Ananya",
+  "Kunal",
+  "Isha",
+  "Deepika",
+  "Manish",
+  "Riya",
+  "Pooja",
+  "Tanya",
+  "Varun",
+  "Aditi",
+  "Suhani",
+  "Shreya",
+  "Amit",
+  "Kavya",
+  "Raj",
+  "Nisha",
+  "Shruti",
+  "Gaurav",
+  "Sonali",
+  "Lavanya",
+  "Sanjana",
+  "Rakesh",
+  "Shivangi",
+  "Harsh",
+  "Nikita",
+  "Reyansh",
+  "Komal",
+  "Anjali",
+  "Kartik",
+  "Shikha",
+  "Ramesh",
+  "Muskan",
+  "Vandana",
+  "Aman",
+  "Bhavika",
+  "Dhruv",
+  "Rashi",
+  "Bharat",
+  "Jhanvi",
+  "Nupur",
+  "Swati",
+  "Sarthak",
+  "Pallavi",
+  "Rajesh",
+  "Ritika",
+  "Keshav",
+  "Trisha",
+  "Shraddha",
+  "Tara",
+  "Ravi",
+  "Manpreet",
+  "Rajeshwari",
+  "Tanisha",
+  "Anika",
+  "Akash",
+  "Snehal",
+  "Yashika",
+  "Mohit",
+  "Parth",
+  "Shilpa",
+  "Navya",
+  "Aryan",
+  "Reema",
+  "Ankita",
+  "Lokesh",
+  "Mitali",
+  "Dev",
+  "Sarika",
+  "Jaya",
+  "Sumit",
+  "Payal",
+  "Om",
+  "Keerthi",
+  "Kamal",
+  "Lata",
+  "Tanishq",
+  "Shubham",
+  "Charvi",
+  "Bhavna",
+  "Tanvi",
+  "Abhishek",
+  "Smriti",
+  "Naman",
+  "Rupal",
+  "Roshni",
+  "Vidya",
+  "Yuvraj",
+  "Urvashi",
+  "Anand",
+  "Gauri",
+  "Kritika",
+  "Leena",
+  "Prerna",
+  "Radhika",
+  "Ekta",
+  "Deeksha",
+  "Aparna",
+  "Krishna",
+  "Khushi",
+  "Himanshu",
+  "Vaidehi",
+  "Chhavi",
+  "Rhea",
+  "Kalpana",
+  "Harini",
+  "Ishaan",
+  "Amrita",
+  "Rajesh",
+  "Rachita",
+  "Sangeeta",
+  "Sanjay",
+  "Soumya",
+  "Vandana",
+  "Shalini",
+  "Sakshi",
+  "Satish",
+  "Garima",
+  "Vidhi",
+  "Manisha",
+  "Naveen",
+  "Sagar",
+  "Tanvi",
+  "Usha",
+  "Kajal",
+  "Prem",
+  "Richa",
+  "Heena",
+  "Prachi",
+  "Tanya",
+  "Devanshi",
+  "Ashish",
+  "Keshav",
+  "Kamya",
+  "Seema",
+  "Jatin",
+  "Esha",
+  "Shreya",
+  "Aarohi",
+  "Shubham",
+  "Deepak",
+  "Kirti",
+  "Ragini",
+  "Mohit",
+  "Sneha",
+  "Lavanya",
+  "Reema",
+  "Anika",
+  "Kunal",
+  "Payal",
+  "Yamini",
+  "Suhani",
+  "Nupur",
+  "Shraddha",
+  "Kavya",
+  "Amit",
+  "Rohit",
+  "Riya",
+  "Simran",
+  "Meera",
+  "Ajay",
+  "Pooja",
+  "Shikha",
+  "Aditya",
+  "Aanya",
+  "Anjali",
+  "Priya",
+  "Ruchi",
+  "Manish",
+  "Ramesh",
+  "Gaurav",
+  "Nikhil",
+  "Sanjana",
+  "Rahul",
+  "Tara",
+  "Ananya",
+  "Varsha",
+  "Aditi",
+  "Radhika",
+];
+
+const IndianSurnames = [
+  "Sharma",
+  "Verma",
+  "Gupta",
+  "Singh",
+  "Patel",
+  "Shah",
+  "Kaur",
+  "Rao",
+  "Reddy",
+  "Nair",
+  "Joshi",
+  "Mishra",
+  "Pandey",
+  "Agarwal",
+  "Jain",
+  "Mehta",
+  "Bose",
+  "Dutta",
+  "Malhotra",
+  "Khanna",
+  "Kapoor",
+  "Bhat",
+  "Kulkarni",
+  "Deshpande",
+  "Sawant",
+  "Chauhan",
+  "Rathore",
+  "Yadav",
+  "Tiwari",
+  "Dubey",
+  "Krishnan",
+  "Murthy",
+  "Pillai",
+  "Naidu",
+  "Saxena",
+  "Srivastava",
+  "Chopra",
+  "Mehra",
+];
+
+const hashCode = (str: string) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash |= 0;
+  }
+  return Math.abs(hash);
+};
+
 const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(
     new Set()
   );
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [testimonialNames, setTestimonialNames] = useState<string[]>([]);
+
+  useEffect(() => {
+    const testimonialSection = serviceData.sections?.find(
+      (section) => section.blockType === "testimonials"
+    );
+    if (
+      testimonialSection &&
+      "items" in testimonialSection &&
+      Array.isArray(testimonialSection.items)
+    ) {
+      const newNames = testimonialSection.items.map((item) => {
+        const contentString = JSON.stringify(item.content);
+        const hash = hashCode(contentString);
+        const randomFirstName = IndianNames[hash % IndianNames.length];
+        const randomLastName = IndianSurnames[hash % IndianSurnames.length];
+        return `${randomFirstName} ${randomLastName}`;
+      });
+      setTestimonialNames(newNames);
+    }
+  }, [serviceData.sections]);
 
   // Standardized section title component
   const SectionTitle = ({
@@ -681,7 +946,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     <div
                       id="gallery-grid"
                       data-animate
-                      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 transform transition-all duration-1000 delay-500 ease-out ${
+                      className={`flex flex-wrap justify-center gap-4 md:gap-6 transform transition-all duration-1000 delay-500 ease-out ${
                         isVisible("gallery-grid")
                           ? "translate-y-0 opacity-100"
                           : "translate-y-10 opacity-0"
@@ -692,7 +957,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                           typeof image.image !== "string" && (
                             <div
                               key={image.id || index}
-                              className="rounded-lg overflow-hidden shadow-lg group w-full"
+                              className="rounded-lg overflow-hidden shadow-lg group w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
                             >
                               <Image
                                 src={image.image?.url || "/placeholder.svg"}
@@ -926,7 +1191,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     </div>
                     <div id="testimonials-grid" data-animate>
                       <TestimonialCarousel
-                        items={section.items}
+                        items={
+                          "items" in section && Array.isArray(section.items)
+                            ? section.items.map((item, index) => ({
+                                ...item,
+                                name: testimonialNames[index] || "Anonymous",
+                              }))
+                            : []
+                        }
                         isVisible={isVisible("testimonials-grid")}
                       />
                     </div>
@@ -1005,6 +1277,11 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     data={section.title}
                     className="mt-2 text-center"
                   />
+                  {section.description ? (
+                    <div className="prose prose-lg mt-4 text-center text-[color:var(--color-light-text)] max-w-4xl mx-auto prose-headings:text-[color:var(--color-dark-text)]">
+                      <RichText data={section.description} />
+                    </div>
+                  ) : null}
                   <div className="mt-8 sm:mt-12 md:mt-16 flex flex-wrap justify-center gap-6 sm:gap-8">
                     {section.videos?.map((video, videoIndex) => {
                       const getYouTubeEmbedUrl = (url: string) => {

@@ -10,6 +10,10 @@ export const VideoTestimonialsBlock: Block = {
       required: true,
     },
     {
+      name: "description",
+      type: "richText",
+    },
+    {
       name: "videos",
       type: "array",
       required: true,

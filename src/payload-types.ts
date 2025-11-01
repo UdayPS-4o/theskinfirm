@@ -607,6 +607,21 @@ export interface Service {
               };
               [k: string]: unknown;
             };
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
             videos: {
               url: string;
               id?: string | null;
@@ -1206,6 +1221,7 @@ export interface ServicesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
+              description?: T;
               videos?:
                 | T
                 | {

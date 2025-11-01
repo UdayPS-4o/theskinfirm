@@ -6,45 +6,6 @@ import Autoplay from "embla-carousel-autoplay";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { cn } from "@/lib/utils";
 
-const indianNames = [
-  "Aarav",
-  "Vivaan",
-  "Aditya",
-  "Vihaan",
-  "Arjun",
-  "Reyansh",
-  "Ayaan",
-  "Krishna",
-  "Ishaan",
-  "Shaurya",
-  "Priya",
-  "Ananya",
-  "Diya",
-  "Riya",
-  "Saanvi",
-  "Aadhya",
-  "Myra",
-  "Kiara",
-  "Anika",
-];
-
-const hashCode = (str: string) => {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash |= 0;
-  }
-  return hash;
-};
-
-const getNameForContent = (content: any) => {
-  const jsonString = JSON.stringify(content);
-  const hash = hashCode(jsonString);
-  const index = Math.abs(hash) % indianNames.length;
-  return indianNames[index];
-};
-
 export const TestimonialCarousel = ({ items, isVisible }: any) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" }, [
     Autoplay(),
@@ -94,12 +55,10 @@ export const TestimonialCarousel = ({ items, isVisible }: any) => {
                 />
                 <div className="mt-6 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[color:var(--color-primary-brown)]/20 flex items-center justify-center text-lg font-semibold text-[color:var(--color-primary-brown)]">
-                    {getNameForContent(text.content)
-                      .charAt(0)
-                      .toUpperCase()}
+                    {text.name.charAt(0).toUpperCase()}
                   </div>
                   <p className="font-semibold text-[color:var(--color-dark-text)]">
-                    {getNameForContent(text.content)}
+                    {text.name}
                   </p>
                 </div>
               </div>
