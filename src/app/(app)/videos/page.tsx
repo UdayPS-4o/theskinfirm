@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Video Library - Expert Skincare Advise for Skin, Hair & Laser Treatments",
+  description:
+    "Watch our expert videos on skin care, hair restoration and laser treatments at The Skin Firm in Pune. Real stories & guides from our dermatology clinic.",
+};
+
 "use client";
 
 import * as React from "react";

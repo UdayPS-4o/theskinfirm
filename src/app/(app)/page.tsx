@@ -5,9 +5,9 @@ import config from "@/payload.config";
 import type { HeroOffer } from "@/payload-types";
 
 export const metadata: Metadata = {
-  title: "Best Skincare Clinic in Pune | Advanced Skin & Hair Treatments",
+  title: "Best Skin, Hair & Laser Treatment in Pune| The Skin Firm Clinic",
   description:
-    "Transform your skin at The Skin Firm Pune. Expert treatments for acne, pigmentation, anti-aging, laser hair removal & more. Book your free consultation today! ✨",
+    "Personalized skin, hair & laser treatments in Pune by Dr. Karishma Singh, certified skin specialist. Get personalized care for acne, anti-ageing, skin pigmentation, hydrafacials & bridal skincare.",
   keywords: [
     "best skincare clinic Pune",
     "skin treatment Pune",

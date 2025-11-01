@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Before & After Gallery - Skin, Hair & Laser Treatment Results in Pune",
+  description:
+    "Explore our transformations: real before-and-after photos of skin, hair and laser treatments at The Skin Firm in Pune. See what’s possible.",
+};
+
 "use client";
 
 import React, { useState, useMemo } from "react";

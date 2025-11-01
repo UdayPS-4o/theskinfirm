@@ -8,9 +8,9 @@ import { testimonials } from "@/data/about-us";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "About The Skin Firm | Expert Dermatology Clinic in Pune",
+  title: "The Skin Firm - Pune’s Trusted Hair & Laser Clinic | About Us",
   description:
-    "Discover The Skin Firm's story - Pune's premier skincare clinic. Meet our expert dermatologists, learn about our mission to transform skin health with advanced treatments.",
+    "Founded by Dr. Karishma Singh, The Skin Firm in Pune blends medical-grade dermatology with aesthetic care. Personalized treatments for skin, hair & laser in a welcoming environment.",
   keywords: [
     "about The Skin Firm",
     "dermatology clinic Pune",

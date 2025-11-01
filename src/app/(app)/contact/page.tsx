@@ -4,9 +4,9 @@ import { BookYourConsultation } from "@/components/shared/book-your-consultation
 import Map from "@/components/sections/map";
 
 export const metadata: Metadata = {
-  title: "Contact The Skin Firm | Book Consultation",
+  title: "Contact The Skin Firm for the Best Dermatology & Aesthetic Clinic in Pune",
   description:
-    "Get in touch with The Skin Firm Pune. Book your consultation for expert skin and hair treatments.",
+    "Get in touch with The Skin Firm, Pune’s trusted dermatology & aesthetic clinic. Call, visit, or book your consultation with Dr. Karishma Singh today.",
   alternates: { canonical: "https://theskinfirm.in/contact" },
 };
 
