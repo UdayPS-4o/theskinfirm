@@ -3,6 +3,7 @@
 import { MaxWidthWrapper } from "../layout/max-width";
 import Image from "next/image";
 import Link from "next/link";
+import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 
 type ValueItem = {
   title: string;
@@ -42,7 +43,7 @@ export default function MissionSection({ values }: MissionSectionProps) {
                 <p className="text-[color:var(--color-text-dark-blue)] text-sm mb-4">
                   {item.description}
                 </p>
-                <Link
+                <InstantSkeletonLink
                   href="/services"
                   className="text-sm font-semibold text-black flex items-center gap-2"
                 >
@@ -50,7 +51,7 @@ export default function MissionSection({ values }: MissionSectionProps) {
                   <span className="text-[color:var(--color-text-dark-blue)]">
                     ↗
                   </span>
-                </Link>
+                </InstantSkeletonLink>
               </div>
             </div>
           ))}

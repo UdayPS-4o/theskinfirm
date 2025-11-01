@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 
 interface ServiceCardModernProps {
   image: string;
@@ -51,12 +52,12 @@ export function ServiceCardModern({ image, title, services, link = "#" }: Servic
         </ul>
 
         {/* Learn More */}
-        <Link href={link} className="mt-6 flex items-center gap-2 text-[14px] font-semibold text-[color:var(--color-dark-text)] cursor-pointer hover:underline w-fit">
+        <InstantSkeletonLink href={link} className="mt-6 flex items-center gap-2 text-[14px] font-semibold text-[color:var(--color-dark-text)] cursor-pointer hover:underline w-fit">
           Learn More
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2.33333 1H9V7.66667M9 1L1 9L9 1Z" stroke="var(--color-primary-brown)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </Link>
+        </InstantSkeletonLink>
       </div>
     </div>
   );

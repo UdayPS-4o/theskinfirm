@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { MaxWidthWrapper } from "../layout/max-width";
 import type { HeroOffer, Media } from "@/payload-types";
+import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 
 interface HeroProps {
   heroOffer?: HeroOffer | null;
@@ -98,27 +99,26 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                     <ArrowRight className="size-6" aria-hidden="true" />
                   </Button>
                 </Link>
-                <Link
+                <InstantSkeletonLink
                   href="/services"
                   className="w-full sm:w-auto"
-                  aria-label="Explore our skincare services and treatments"
                 >
                   <Button
                     size={"lg"}
                     className="w-full sm:w-auto lg:w-fit flex flex-row items-center justify-center gap-x-3.5 bg-transparent text-[#4A4A4A] hover:bg-gray-100 border-[#606060] border rounded-full !px-[30px] !py-[14px] h-[54px] min-h-[54px] text-center"
+                    aria-label="Explore Services"
                     style={{
                       paddingLeft: 30,
                       paddingRight: 30,
                       height: 54,
                       minHeight: 54,
                     }}
-                    aria-label="Explore Services"
                   >
                     <span className="text-base leading-7 text-center">
                       Explore Services
                     </span>
                   </Button>
-                </Link>
+                </InstantSkeletonLink>
               </motion.div>
             </div>
             <motion.div

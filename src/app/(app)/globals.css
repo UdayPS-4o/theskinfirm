@@ -153,6 +153,28 @@
   }
 }
 
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #F8F4EB 0%,
+    #e8dcd0 20%,
+    #d4a380 50%,
+    #e8dcd0 80%,
+    #F8F4EB 100%
+  );
+  background-size: 1000px 100%;
+  animation: skeleton-shimmer 2s infinite linear;
+}
+
 .animate-fadeIn {
   animation: fadeIn 1s ease-out;
 }

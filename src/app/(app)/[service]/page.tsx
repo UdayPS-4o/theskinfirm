@@ -3,20 +3,14 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { Metadata } from "next";
+import { getServiceBySlug, getAllServices } from "@/lib/api";
+import { Service, ServiceCategory } from "@/payload-types";
 
 export const revalidate = 3600; // Revalidate every hour
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config });
-  const services = await payload.find({
-    collection: "services",
-    limit: 1000,
-    select: {
-      slug: true,
-    },
-  });
-
-  return services.docs.map(({ slug }) => ({
+  const services = await getAllServices();
+  return services.map(({ slug }) => ({
     service: slug,
   }));
 }
@@ -27,17 +21,8 @@ export async function generateMetadata({
   params: Promise<{ service: string }>;
 }): Promise<Metadata> {
   const { service: slug } = await params;
-  const payload = await getPayload({ config: config });
-  const result = await payload.find({
-    collection: "services",
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-    depth: 1,
-  });
-  const service = result.docs.length ? result.docs[0] : null;
+  const service: (Service & { category: ServiceCategory }) | null =
+    await getServiceBySlug(slug);
   const seoRows = service?.seo?.filter((b) => b.blockType === "seo");
   if (seoRows?.length) {
     const seo = seoRows[0];
@@ -80,20 +65,10 @@ export async function generateMetadata({
 
 const Page = async ({ params }: { params: Promise<{ service: string }> }) => {
   const { service: slug } = await params;
-  const payload = await getPayload({ config: config });
-  const result = await payload.find({
-    collection: "services",
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-    depth: 1, // This will populate the category relationship
-  });
+  const serviceData: (Service & { category: ServiceCategory }) | null =
+    await getServiceBySlug(slug);
 
-  if (result && result.docs.length > 0) {
-    const serviceData = result.docs[0];
-
+  if (serviceData) {
     // Ensure category is populated (not just an ID)
     if (
       typeof serviceData.category === "object" &&

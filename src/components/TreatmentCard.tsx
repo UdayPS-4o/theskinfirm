@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 
 interface TreatmentCardProps {
   imageSrc: string;
@@ -32,7 +33,7 @@ const TreatmentCard: React.FC<TreatmentCardProps> = ({
           <p className="text-[color:var(--color-dark-text)] text-[13px] font-normal leading-[18px] tracking-[-0.05px] m-0 mb-[12px] line-clamp-4 overflow-hidden">
             {description}
           </p>
-          <Link href="/services" className="flex items-center gap-[6px] cursor-pointer group">
+          <InstantSkeletonLink href="/services" className="flex items-center gap-[6px] cursor-pointer group">
             <span className="text-[#000000] text-[12px] font-medium leading-[16px] group-hover:text-[color:var(--color-dark-text)] transition-colors duration-300">
               Learn More
             </span>
@@ -52,7 +53,7 @@ const TreatmentCard: React.FC<TreatmentCardProps> = ({
                 strokeLinejoin="round"
               />
             </svg>
-          </Link>
+          </InstantSkeletonLink>
         </div>
       </div>
     </div>

@@ -6,77 +6,14 @@ import { Navbar } from "@/components/layout/navbar";
 import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
-import config from "@payload-config";
-import { getPayload } from "payload";
-import type { Service, ServiceCategory } from "@/payload-types";
-
-const getPayloadClient = cache(() => {
-  return getPayload({ config });
-});
-
-const getCategories = cache(async (): Promise<ServiceCategory[]> => {
-  const payload = await getPayloadClient();
-  const { docs } = await payload.find({
-    collection: "service-categories",
-    limit: 100,
-    sort: "name",
-  });
-  return docs;
-});
-
-const getHairServices = cache(async (): Promise<Pick<Service, "slug" | "title">[]> => {
-  const payload = await getPayloadClient();
-  const categories = await getCategories();
-  if (!categories || categories.length === 0) return [];
-
-  const hairCategoryIds = categories
-    .filter((c) => c.type === "hair")
-    .map((c) => c.id);
-
-  if (hairCategoryIds.length === 0) return [];
-
-  const { docs } = await payload.find({
-    collection: "services",
-    where: {
-      category: {
-        in: hairCategoryIds,
-      },
-    },
-    select: {
-      title: true,
-      slug: true,
-    },
-  });
-  return docs;
-});
-
-const getLaserServices = cache(
-  async (): Promise<Pick<Service, "slug" | "title">[]> => {
-    const payload = await getPayloadClient();
-    const categories = await getCategories();
-    if (!categories || categories.length === 0) return [];
-
-    const laserCategoryIds = categories
-      .filter((c) => c.type === "laser")
-      .map((c) => c.id);
-
-    if (laserCategoryIds.length === 0) return [];
-
-    const { docs } = await payload.find({
-      collection: "services",
-      where: {
-        category: {
-          in: laserCategoryIds,
-        },
-      },
-      select: {
-        title: true,
-        slug: true,
-      },
-    });
-    return docs;
-  },
-);
+import {
+  getCategories,
+  getHairServices,
+  getLaserServices,
+} from "@/lib/api";
+import { Service, ServiceCategory } from "@/payload-types";
+import { SkeletonOverlayProvider } from "@/contexts/SkeletonOverlayContext";
+import { SkeletonOverlay } from "@/components/layout/SkeletonOverlay";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -268,9 +205,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const categories = await getCategories();
-  const hairServices = await getHairServices();
-  const laserServices = await getLaserServices();
+  const categories: ServiceCategory[] = await getCategories();
+  const hairServices: Pick<Service, "slug" | "title">[] =
+    await getHairServices();
+  const laserServices: Pick<Service, "slug" | "title">[] =
+    await getLaserServices();
 
   return (
     <html lang="en">
@@ -295,14 +234,17 @@ export default async function RootLayout({
 `}
         </Script>
         <Script src="https://www.google.com/recaptcha/api.js" async defer />
-        <Navbar
-          serviceCategories={categories}
-          hairServices={hairServices}
-          laserServices={laserServices}
-        />
-        {children}
-        <Footer />
-        <WhatsAppFAB />
+        <SkeletonOverlayProvider>
+          <SkeletonOverlay />
+          <Navbar
+            serviceCategories={categories}
+            hairServices={hairServices}
+            laserServices={laserServices}
+          />
+          {children}
+          <Footer />
+          <WhatsAppFAB />
+        </SkeletonOverlayProvider>
       </body>
     </html>
   );

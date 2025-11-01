@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, useInView } from "framer-motion";
+import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 import { useRef, useEffect, useState } from "react";
 import { MaxWidthWrapper } from "../layout/max-width";
 
@@ -186,7 +187,7 @@ export const Services = () => {
           }}
           className="flex flex-row justify-center sm:justify-end mt-12 sm:mt-16"
         >
-          <Link href="/services">
+          <InstantSkeletonLink href="/services">
             <Button
               className="bg-[#D4A380] hover:bg-[#C19660] text-white transition-colors duration-200"
               size={"lg"}
@@ -194,7 +195,7 @@ export const Services = () => {
               <p>Explore All Services</p>
               <ArrowRight className="ml-2" />
             </Button>
-          </Link>
+          </InstantSkeletonLink>
         </motion.div>
       </MaxWidthWrapper>
     </motion.div>

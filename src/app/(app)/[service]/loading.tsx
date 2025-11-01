@@ -1,5 +1,5 @@
-import ServicePageDetailSkeleton from "./ServicePageDetailSkeleton";
+import AnimatedServicePageSkeleton from "./AnimatedServicePageSkeleton";
 
 export default function Loading() {
-  return <ServicePageDetailSkeleton />;
+  return <AnimatedServicePageSkeleton />;
 }

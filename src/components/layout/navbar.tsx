@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { MaxWidthWrapper } from "./max-width";
+import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 import { useRouter } from "next/navigation";
 import type { Service, ServiceCategory } from "@/payload-types";
 import { SERVICE_TYPE } from "@/collections/ServiceCategory";
@@ -253,7 +254,7 @@ export const Navbar = ({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.02, duration: 0.2 }}
               >
-                <Link
+                <InstantSkeletonLink
                   href={`/services#_${getSectionSlug(group.name)}`}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
                   onClick={() => {
@@ -262,7 +263,7 @@ export const Navbar = ({
                   }}
                 >
                   {group.name}
-                </Link>
+                </InstantSkeletonLink>
               </motion.div>
             ))}
         </div>
@@ -279,7 +280,7 @@ export const Navbar = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.02, duration: 0.2 }}
           >
-            <Link
+            <InstantSkeletonLink
               href={`/${service.slug}`}
               className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
               onClick={() => {
@@ -288,7 +289,7 @@ export const Navbar = ({
               }}
             >
               {service.title}
-            </Link>
+            </InstantSkeletonLink>
           </motion.div>
         ))}
       </div>

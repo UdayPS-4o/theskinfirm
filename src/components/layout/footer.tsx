@@ -8,6 +8,7 @@ import {
   Phone,
   Youtube,
 } from "lucide-react";
+import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 import Link from "next/link";
 import React from "react";
 import { motion, useInView } from "framer-motion";
@@ -90,8 +91,8 @@ export const Footer = () => {
             <div className="flex flex-col items-start justify-start gap-y-4 *:text-[#A89689] *:text-base/relaxed *:hover:opacity-80">
               <Link href={"/"}>Home</Link>
               <Link href={"/about-us"}>About us</Link>
-              <Link href={"/services"}>Services</Link>
-              <Link href={"/services"}>Treatments</Link>
+              <InstantSkeletonLink href={"/services"}>Services</InstantSkeletonLink>
+              <InstantSkeletonLink href={"/services"}>Treatments</InstantSkeletonLink>
               <Link href="/contact">Contact</Link>
             </div>
           </motion.div>

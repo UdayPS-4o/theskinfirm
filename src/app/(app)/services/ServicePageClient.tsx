@@ -184,7 +184,6 @@ function ServicePageContent({ services }: ServicePageContentProps) {
   );
 }
 
-// Fallback component for loading state
 function ServicePageFallback() {
   return <ServicePageSkeleton />;
 }

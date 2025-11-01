@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { MaxWidthWrapper } from "../layout/max-width";
+import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 
 export default function HeroSection() {
   return (
@@ -81,7 +82,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 1.0 }}
               className="mt-12"
             >
-              <Link href="/services">
+              <InstantSkeletonLink href="/services">
                 <motion.button 
                   className="relative px-12 py-5 bg-gradient-to-r from-[#D4A380] to-[#cb997e] text-white text-lg font-semibold rounded-full shadow-xl overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:scale-105"
                   whileHover={{ 
@@ -108,7 +109,7 @@ export default function HeroSection() {
                     transition={{ duration: 0.3 }}
                   />
                 </motion.button>
-              </Link>
+              </InstantSkeletonLink>
             </motion.div>
             
             <motion.div
