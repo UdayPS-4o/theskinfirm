@@ -3,7 +3,7 @@ import config from "@payload-config";
 import { Service, ServiceCategory } from "@/payload-types";
 import ServicePageClient from "./ServicePageClient";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // Revalidate every hour
 
 export default async function ServicePage() {
   try {

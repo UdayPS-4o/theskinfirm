@@ -329,11 +329,15 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
       }
     );
 
-    // Observe all animated sections
+    // Eagerly observe sections on initial load
     const sections = document.querySelectorAll("[data-animate]");
     sections.forEach((section) => {
       if (observerRef.current) {
         observerRef.current.observe(section);
+        // Trigger animation immediately for sections already in view
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+          setVisibleSections((prev) => new Set(prev).add(section.id));
+        }
       }
     });
 

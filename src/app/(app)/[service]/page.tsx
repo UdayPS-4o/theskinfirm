@@ -4,11 +4,29 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { Metadata } from "next";
 
-export async function generateMetadata(props: {
+export const revalidate = 3600; // Revalidate every hour
+
+export async function generateStaticParams() {
+  const payload = await getPayload({ config });
+  const services = await payload.find({
+    collection: "services",
+    limit: 1000,
+    select: {
+      slug: true,
+    },
+  });
+
+  return services.docs.map(({ slug }) => ({
+    service: slug,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
   params: Promise<{ service: string }>;
 }): Promise<Metadata> {
-  const params = await props.params;
-  const slug = params.service;
+  const { service: slug } = await params;
   const payload = await getPayload({ config: config });
   const result = await payload.find({
     collection: "services",
@@ -60,9 +78,8 @@ export async function generateMetadata(props: {
   return {};
 }
 
-const Page = async (props: { params: Promise<{ service: string }> }) => {
-  const params = await props.params;
-  const slug = params.service;
+const Page = async ({ params }: { params: Promise<{ service: string }> }) => {
+  const { service: slug } = await params;
   const payload = await getPayload({ config: config });
   const result = await payload.find({
     collection: "services",

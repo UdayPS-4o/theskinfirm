@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { Service, ServiceCategory } from "@/payload-types";
 
 type TabKey = "skin" | "hair" | "laser";
@@ -14,6 +15,22 @@ interface HelperProps {
 }
 
 const MotionImage = motion(Image);
+
+const CardSkeleton: React.FC = () => (
+  <div className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full">
+    <div className="flex gap-[16px] items-start">
+      <div className="w-[140px] h-[140px] flex-shrink-0 rounded-[8px] overflow-hidden relative bg-gray-200 animate-pulse"></div>
+      <div className="flex-1 flex flex-col justify-start">
+        <div className="h-[20px] bg-gray-200 rounded w-3/4 mb-[8px] animate-pulse"></div>
+        <div className="h-[18px] bg-gray-200 rounded w-full mb-[4px] animate-pulse"></div>
+        <div className="h-[18px] bg-gray-200 rounded w-5/6 mb-[12px] animate-pulse"></div>
+        <div className="flex items-center gap-[6px]">
+          <div className="h-[16px] bg-gray-200 rounded w-1/4 animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
   const router = useRouter();
@@ -29,6 +46,9 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
   const handleCardHover = (treatment: any) => {
     const slug = treatment.slug;
     router.prefetch(`/services/${slug}`);
+    if (treatment.imageSrc) {
+      router.prefetch(treatment.imageSrc);
+    }
   };
 
   // Process services by category
@@ -149,63 +169,65 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
     ];
   }
 
-  const renderService = (treatment: any, treatmentIndex: number) => (
-    <motion.div
-      key={`treatment-${treatmentIndex}`}
-      className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full hover:shadow-[0px_0px_15px_0px_rgba(0,0,0,0.1)] transition-shadow duration-300 relative cursor-pointer"
-      onClick={() => handleCardClick(treatment)}
-      onMouseEnter={() => handleCardHover(treatment)}
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{
-        duration: 0.5,
-        ease: "easeOut",
-        delay: treatmentIndex * 0.1,
-      }}
-    >
-      <div className="flex gap-[16px] items-start">
-        <div className="w-[140px] h-[140px] flex-shrink-0 rounded-[8px] overflow-hidden relative">
-          <MotionImage
-            src={treatment.imageSrc}
-            alt={treatment}
-            fill
-            sizes="140px"
-            className="object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div className="flex-1 flex flex-col justify-start">
-          <h3 className="text-[color:var(--color-primary-brown)] text-[16px] font-semibold leading-[20px] tracking-[-0.1px] m-0 mb-[8px]">
-            {treatment?.title || "Treatment Title"}
-          </h3>
-          <p className="text-[color:var(--color-dark-text)] text-[13px] font-normal leading-[18px] tracking-[-0.05px] m-0 mb-[12px] line-clamp-4 overflow-hidden">
-            {treatment?.description || "Treatment description"}
-          </p>
-          <div className="flex items-center gap-[6px] cursor-pointer group">
-            <span className="text-[#000000] text-[12px] font-medium leading-[16px] group-hover:text-[color:var(--color-dark-text)] transition-colors duration-300">
-              Learn More
-            </span>
-            <svg
-              width="10"
-              height="10"
-              viewBox="0 0 10 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="group-hover:translate-x-[2px] transition-transform duration-300"
-            >
-              <path
-                d="M2.33333 1H9V7.66667M9 1L1 9L9 1Z"
-                stroke="var(--color-primary-brown)"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+  const renderService = (treatment: any, treatmentIndex: number) => {
+    return (
+      <motion.div
+        key={`treatment-${treatmentIndex}`}
+        className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full hover:shadow-[0px_0px_15px_0px_rgba(0,0,0,0.1)] transition-shadow duration-300 relative cursor-pointer"
+        onClick={() => handleCardClick(treatment)}
+        onMouseEnter={() => handleCardHover(treatment)}
+        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+          delay: treatmentIndex * 0.1,
+        }}
+      >
+        <div className="flex gap-[16px] items-start">
+          <div className="w-[140px] h-[140px] flex-shrink-0 rounded-[8px] overflow-hidden relative">
+            <MotionImage
+              src={treatment.imageSrc}
+              alt={treatment}
+              fill
+              sizes="140px"
+              className="object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="flex-1 flex flex-col justify-start">
+            <h3 className="text-[color:var(--color-primary-brown)] text-[16px] font-semibold leading-[20px] tracking-[-0.1px] m-0 mb-[8px]">
+              {treatment?.title || "Treatment Title"}
+            </h3>
+            <p className="text-[color:var(--color-dark-text)] text-[13px] font-normal leading-[18px] tracking-[-0.05px] m-0 mb-[12px] line-clamp-4 overflow-hidden">
+              {treatment?.description || "Treatment description"}
+            </p>
+            <div className="flex items-center gap-[6px] cursor-pointer group">
+              <span className="text-[#000000] text-[12px] font-medium leading-[16px] group-hover:text-[color:var(--color-dark-text)] transition-colors duration-300">
+                Learn More
+              </span>
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="group-hover:translate-x-[2px] transition-transform duration-300"
+              >
+                <path
+                  d="M2.33333 1H9V7.66667M9 1L1 9L9 1Z"
+                  stroke="var(--color-primary-brown)"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-    </motion.div>
-  );
+      </motion.div>
+    );
+  };
 
   const renderSection = (section: any) => {
     const isExpanded = expandedSections[section.title] ?? true;

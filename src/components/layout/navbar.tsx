@@ -7,8 +7,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { MaxWidthWrapper } from "./max-width";
 import { useRouter } from "next/navigation";
-import { getPayload } from "payload";
-import { Service, ServiceCategory } from "@/payload-types";
+import type { Service, ServiceCategory } from "@/payload-types";
 import { SERVICE_TYPE } from "@/collections/ServiceCategory";
 
 const NAV_ITEMS = [
@@ -257,7 +256,6 @@ export const Navbar = ({
                 <Link
                   href={`/services#_${getSectionSlug(group.name)}`}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-                  onMouseEnter={() => handleLinkHover("/services")}
                   onClick={() => {
                     closeDesktopDropdown();
                     closeMobileMenu();
@@ -284,7 +282,6 @@ export const Navbar = ({
             <Link
               href={`/${service.slug}`}
               className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
-              onMouseEnter={() => handleServiceHover(service.slug)}
               onClick={() => {
                 closeDesktopDropdown();
                 closeMobileMenu();
@@ -363,7 +360,6 @@ export const Navbar = ({
                   <Link
                     href={item.href}
                     className="transition-colors flex items-center gap-1 py-1"
-                    onMouseEnter={() => handleLinkHover(item.href)}
                     onClick={closeDesktopDropdown}
                   >
                     {item.label}
@@ -398,7 +394,6 @@ export const Navbar = ({
                 <Link
                   href={item.href}
                   className="transition-colors flex items-center py-1"
-                  onMouseEnter={() => handleLinkHover(item.href)}
                   onClick={closeDesktopDropdown}
                 >
                   {item.label}
@@ -489,9 +484,6 @@ export const Navbar = ({
                                             group
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
-                                          onMouseEnter={() =>
-                                            handleLinkHover("/services")
-                                          }
                                           onClick={closeMobileMenu}
                                         >
                                           {group}
@@ -515,11 +507,6 @@ export const Navbar = ({
                                             service
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
-                                          onMouseEnter={() =>
-                                            handleServiceHover(
-                                              getServiceSlug(service)
-                                            )
-                                          }
                                           onClick={closeMobileMenu}
                                         >
                                           {service}
@@ -543,11 +530,6 @@ export const Navbar = ({
                                             service
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
-                                          onMouseEnter={() =>
-                                            handleServiceHover(
-                                              getServiceSlug(service)
-                                            )
-                                          }
                                           onClick={closeMobileMenu}
                                         >
                                           {service}
@@ -567,7 +549,6 @@ export const Navbar = ({
                               ? ""
                               : "border-b border-[#D4A380]/10"
                           }`}
-                          onMouseEnter={() => handleLinkHover(item.href)}
                           onClick={closeMobileMenu}
                         >
                           {item.label}

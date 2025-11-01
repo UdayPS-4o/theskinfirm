@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Helper from "./helper";
 import { Service, ServiceCategory } from "@/payload-types";
+import ServicePageSkeleton from "./ServicePageSkeleton";
 
 type TabKey = "skin" | "hair" | "laser";
 
@@ -184,68 +185,13 @@ function ServicePageContent({ services }: ServicePageContentProps) {
 }
 
 // Fallback component for loading state
-function ServicePageFallback({ services }: ServicePageContentProps) {
-  return (
-    <div className="w-full min-h-screen flex flex-col bg-[color:var(--color-light-background)] overflow-x-hidden">
-      <main className="flex-1 w-full">
-        <section className="bg-white w-full">
-          <div className="sticky top-0 z-10 bg-white py-8 sm:py-12 md:py-16 !pb-0 mt-[-20px]">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-              <div className="wrapper">
-                {/* Section Title */}
-                <div className="flex flex-col gap-2 sm:gap-3 items-center w-full max-w-2xl mx-auto mb-8 sm:mb-10">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px] leading-tight text-[#333333] text-center">
-                    <span className="text-[#333333] font-semibold">
-                      What Services We Offer
-                    </span>
-                  </h2>
-                </div>
-
-                {/* Tabs Navigation */}
-                <div className="flex w-full mx-auto mb-6 sm:mb-8 md:mb-10 relative">
-                  <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-[color:var(--color-light-border-alt)]"></div>
-
-                  <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 items-center flex-1 relative w-full cursor-pointer min-w-0 transition-all duration-300 pb-3 sm:pb-4">
-                    <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-center px-2">
-                      <span className="whitespace-nowrap font-semibold text-[#d4a380]">
-                        Skin Services
-                      </span>
-                    </h4>
-                    <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#d4a380]"></div>
-                  </div>
-
-                  <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 items-center flex-1 relative w-full cursor-pointer min-w-0 transition-all duration-300 pb-3 sm:pb-4">
-                    <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-center px-2">
-                      <span className="whitespace-nowrap font-normal text-[#8a7b70]">
-                        Hair Services
-                      </span>
-                    </h4>
-                  </div>
-
-                  <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 items-center flex-1 relative w-full cursor-pointer min-w-0 transition-all duration-300 pb-3 sm:pb-4">
-                    <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-center px-2">
-                      <span className="whitespace-nowrap font-normal text-[#8a7b70]">
-                        Laser Services
-                      </span>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8">
-            <Helper activeTab="skin" services={services} />
-          </div>
-        </section>
-      </main>
-    </div>
-  );
+function ServicePageFallback() {
+  return <ServicePageSkeleton />;
 }
 
 export default function ServicePageClient({ services }: ServicePageProps) {
   return (
-    <Suspense fallback={<ServicePageFallback services={services} />}>
+    <Suspense fallback={<ServicePageFallback />}>
       <ServicePageContent services={services} />
     </Suspense>
   );

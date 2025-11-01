@@ -1,5 +1,6 @@
+import { cache } from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import Script from "next/script";
@@ -7,6 +8,76 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
 import config from "@payload-config";
 import { getPayload } from "payload";
+import type { Service, ServiceCategory } from "@/payload-types";
+
+const getPayloadClient = cache(() => {
+  return getPayload({ config });
+});
+
+const getCategories = cache(async (): Promise<ServiceCategory[]> => {
+  const payload = await getPayloadClient();
+  const { docs } = await payload.find({
+    collection: "service-categories",
+    limit: 100,
+    sort: "name",
+  });
+  return docs;
+});
+
+const getHairServices = cache(async (): Promise<Pick<Service, "slug" | "title">[]> => {
+  const payload = await getPayloadClient();
+  const categories = await getCategories();
+  if (!categories || categories.length === 0) return [];
+
+  const hairCategoryIds = categories
+    .filter((c) => c.type === "hair")
+    .map((c) => c.id);
+
+  if (hairCategoryIds.length === 0) return [];
+
+  const { docs } = await payload.find({
+    collection: "services",
+    where: {
+      category: {
+        in: hairCategoryIds,
+      },
+    },
+    select: {
+      title: true,
+      slug: true,
+    },
+  });
+  return docs;
+});
+
+const getLaserServices = cache(
+  async (): Promise<Pick<Service, "slug" | "title">[]> => {
+    const payload = await getPayloadClient();
+    const categories = await getCategories();
+    if (!categories || categories.length === 0) return [];
+
+    const laserCategoryIds = categories
+      .filter((c) => c.type === "laser")
+      .map((c) => c.id);
+
+    if (laserCategoryIds.length === 0) return [];
+
+    const { docs } = await payload.find({
+      collection: "services",
+      where: {
+        category: {
+          in: laserCategoryIds,
+        },
+      },
+      select: {
+        title: true,
+        slug: true,
+      },
+    });
+    return docs;
+  },
+);
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@id": "https://theskinfirm.in/",
@@ -110,13 +181,8 @@ const jsonLd = {
   url: "https://theskinfirm.in/",
 };
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -202,44 +268,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const payload = await getPayload({
-    config,
-  });
-  const { docs: categories } = await payload.find({
-    collection: "service-categories",
-    limit: 100,
-    sort: 'name'
-  });
+  const categories = await getCategories();
+  const hairServices = await getHairServices();
+  const laserServices = await getLaserServices();
 
-
-  const { docs: hairServices } = categories.length > 0 ? await payload.find({
-    collection: "services",
-    where: {
-      category: {
-        in: categories.filter((category) => category.type === "hair").map(category => category.id),
-      },
-    },
-    select: {
-      title: true,
-      slug: true,
-    },
-  }) : {docs: []}
-  const { docs: laserServices } = categories.length > 0 ? await payload.find({
-    collection: "services",
-    where: {
-      category: {
-        in: categories.filter((category) => category.type === "laser").map(category => category.id),
-      },
-    },
-    select: {
-      title: true,
-      slug: true,
-    },
-  }) : {docs: []}
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} antialiased`}
       >
         <script
           type="application/ld+json"
