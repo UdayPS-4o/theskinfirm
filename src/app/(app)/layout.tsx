@@ -5,11 +5,12 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
-import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
+import { CTAFabs } from "@/components/shared/cta-fabs";
 import {
   getCategories,
   getHairServices,
   getLaserServices,
+  getAllLocations,
 } from "@/lib/api";
 import { Service, ServiceCategory } from "@/payload-types";
 import { SkeletonOverlayProvider } from "@/contexts/SkeletonOverlayContext";
@@ -125,10 +126,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://theskinfirm.in"),
-  title: {
-    default: "The Skin Firm - Premium Skincare & Advanced Treatments in Pune",
-    template: `%s | The Skin Firm`,
-  },
+  title: "The Skin Firm - Premium Skincare & Advanced Treatments in Pune",
   description:
     "The Skin Firm offers exceptional skincare services and advanced treatments including acne treatment, laser hair removal, anti-aging, and pigmentation solutions in Pune. Book your consultation today!",
   keywords: [
@@ -210,6 +208,7 @@ export default async function RootLayout({
     await getHairServices();
   const laserServices: Pick<Service, "slug" | "title">[] =
     await getLaserServices();
+  const locations = await getAllLocations();
 
   return (
     <html lang="en">
@@ -240,10 +239,11 @@ export default async function RootLayout({
             serviceCategories={categories}
             hairServices={hairServices}
             laserServices={laserServices}
+            locations={locations}
           />
           {children}
           <Footer />
-          <WhatsAppFAB />
+          <CTAFabs />
         </SkeletonOverlayProvider>
       </body>
     </html>

@@ -16,9 +16,10 @@ import {
 import { TestimonialCarousel } from "@/components/ui/TestimonialCarousel";
 
 interface AnimatedServicePageProps {
-  serviceData: Service & {
+  serviceData: (Service & {
     category: ServiceCategory;
-  };
+  }) | any;
+  isLocation?: boolean;
 }
 
 const IndianNames = [
@@ -265,7 +266,7 @@ const hashCode = (str: string) => {
   return Math.abs(hash);
 };
 
-const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
+const AnimatedServicePage = ({ serviceData, isLocation = false }: AnimatedServicePageProps) => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(
     new Set()
   );
@@ -274,14 +275,14 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
 
   useEffect(() => {
     const testimonialSection = serviceData.sections?.find(
-      (section) => section.blockType === "testimonials"
+      (section: any) => section.blockType === "testimonials"
     );
     if (
       testimonialSection &&
       "items" in testimonialSection &&
       Array.isArray(testimonialSection.items)
     ) {
-      const newNames = testimonialSection.items.map((item) => {
+      const newNames = testimonialSection.items.map((item: any) => {
         const contentString = JSON.stringify(item.content);
         const hash = hashCode(contentString);
         const randomFirstName = IndianNames[hash % IndianNames.length];
@@ -556,15 +557,15 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
   );
 
   const hasTestimonials = serviceData.sections?.some(
-    (section) => section.blockType === "testimonials"
+    (section: any) => section.blockType === "testimonials"
   );
   const bookConsultation = serviceData.sections?.find(
-    (service) => service.blockType === "book-consultation"
+    (service: any) => service.blockType === "book-consultation"
   );
 
   return (
     <div className="min-h-screen">
-      {serviceData.sections?.map((section, index) => {
+      {serviceData.sections?.map((section: any, index: number) => {
         switch (section.blockType) {
           case "hero":
             return (
@@ -585,15 +586,17 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       }`}
                     >
                       <div className="flex flex-col gap-2.5">
-                        <small
-                          className={`text-base sm:text-lg leading-[17px] uppercase text-[#b76e79] font-semibold transform transition-all duration-700 delay-200 ease-out ${
-                            isVisible("hero-left")
-                              ? "translate-y-0 opacity-100"
-                              : "translate-y-5 opacity-0"
-                          }`}
-                        >
-                          {serviceData.category.name}
-                        </small>
+                        {!isLocation && (
+                          <small
+                            className={`text-base sm:text-lg leading-[17px] uppercase text-[#b76e79] font-semibold transform transition-all duration-700 delay-200 ease-out ${
+                              isVisible("hero-left")
+                                ? "translate-y-0 opacity-100"
+                                : "translate-y-5 opacity-0"
+                            }`}
+                          >
+                            {serviceData.category?.name}
+                          </small>
+                        )}
                         <div className="flex flex-col rich-text">
                           <RichText
                             data={section.title}
@@ -730,7 +733,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       className="flex flex-wrap justify-center gap-4"
                     >
                       {section.items.map(
-                        (symptom, index) =>
+                        (symptom: any, index: number) =>
                           symptom.content && (
                             <div
                               key={index}
@@ -847,7 +850,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       data-animate
                       className="grid grid-cols-1 md:grid-cols-2 gap-4"
                     >
-                      {section.items.map((step, stepIndex) => (
+                      {section.items.map((step: any, stepIndex: number) => (
                         <div
                           key={stepIndex}
                           className={`flex items-start gap-3 sm:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-lg hover:bg-gray-50 rounded-lg p-3 sm:p-4 ${
@@ -889,7 +892,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 <div className="max-w-6xl mx-auto text-center">
                   <SectionTitle data={section.title} className="mb-6" />
                   <div className="flex flex-wrap justify-center gap-4">
-                    {section.items.map((item, index) => (
+                    {section.items.map((item: any, index: number) => (
                       <div
                         key={index}
                         className="group p-6 md:p-7 rounded-xl border border-[color:var(--color-light-border)] bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center text-center w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
@@ -957,7 +960,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       }`}
                     >
                       {section.images?.map(
-                        (image, index) =>
+                        (image: any, index: number) =>
                           typeof image.image !== "string" && (
                             <div
                               key={image.id || index}
@@ -1014,7 +1017,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       data-animate
                       className="grid grid-cols-1 md:grid-cols-2 gap-4"
                     >
-                      {section.items.map((benefit, index) => (
+                      {section.items.map((benefit: any, index: number) => (
                         <div
                           key={index}
                           className={`rounded-[10px] border border-[color:var(--color-light-background)] p-4 md:p-5 bg-white flex flex-row items-center gap-3 md:gap-4 transform transition-all duration-700 ease-out hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${
@@ -1106,7 +1109,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       >
                         {section.downtime && section.downtime.length > 0 && (
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-4">
-                            {section.downtime.map((item, index) => (
+                            {section.downtime.map((item: any, index: number) => (
                               <div
                                 key={index}
                                 className="flex items-start gap-3"
@@ -1135,7 +1138,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                             />
                           ) : null}
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {section.postCareItems?.map((item, index) => (
+                            {section.postCareItems?.map((item: any, index: number) => (
                               <div
                                 key={index}
                                 className={`flex items-start gap-3 transform transition-all duration-500 ease-out hover:scale-105 ${
@@ -1197,7 +1200,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       <TestimonialCarousel
                         items={
                           "items" in section && Array.isArray(section.items)
-                            ? section.items.map((item, index) => ({
+                            ? section.items.map((item: any, index: number) => ({
                                 ...item,
                                 name: testimonialNames[index] || "Anonymous",
                               }))
@@ -1219,7 +1222,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                 <div className="max-w-6xl mx-auto text-center">
                   <SectionTitle data={section.title} className="mb-6" />
                   <div className="flex flex-wrap justify-center gap-4">
-                    {section.items.map((item) => (
+                    {section.items.map((item: any) => (
                       <div
                         key={item.id}
                         className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] p-6 rounded-lg bg-white shadow-md border border-[color:var(--color-light-border)] hover:border-[color:var(--color-primary-brown)]/50 hover:bg-[color:var(--color-light-background)] hover:shadow-xl transition-all duration-300 flex items-center justify-center"
@@ -1248,7 +1251,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                       className="mt-2 text-center"
                     />
                     <Accordion type="single" collapsible className="mt-4">
-                      {section.items.map((faq, index) => (
+                      {section.items.map((faq: any, index: number) => (
                         <AccordionItem
                           value={`${index + 1}`}
                           key={index}
@@ -1287,7 +1290,7 @@ const AnimatedServicePage = ({ serviceData }: AnimatedServicePageProps) => {
                     </div>
                   ) : null}
                   <div className="mt-8 sm:mt-12 md:mt-16 flex flex-wrap justify-center gap-6 sm:gap-8">
-                    {section.videos?.map((video, videoIndex) => {
+                    {section.videos?.map((video: any, videoIndex: number) => {
                       const getYouTubeEmbedUrl = (url: string) => {
                         let videoId = "";
                         try {

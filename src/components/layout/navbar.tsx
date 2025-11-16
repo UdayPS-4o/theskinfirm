@@ -11,31 +11,47 @@ import { useRouter } from "next/navigation";
 import type { Service, ServiceCategory } from "@/payload-types";
 import { SERVICE_TYPE } from "@/collections/ServiceCategory";
 
-const NAV_ITEMS = [
-  { label: "About Us", href: "/about-us" },
-  {
-    label: "Skin",
-    href: "/services?tab=skin",
-    hasDropdown: true,
-    dropdownType: "skin",
-  },
-  {
-    label: "Hair",
-    href: "/services?tab=hair",
-    hasDropdown: true,
-    dropdownType: "hair",
-  },
-  {
-    label: "Laser",
-    href: "/services?tab=laser",
-    hasDropdown: true,
-    dropdownType: "laser",
-  },
-  { label: "Pre-Wedding Services", href: "/pre-wedding-services" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Videos", href: "/videos" },
-  { label: "Contact", href: "/contact" },
-];
+const getNavItems = (hasLocations: boolean) => {
+  const baseItems = [
+    { label: "About Us", href: "/about-us" },
+    {
+      label: "Skin",
+      href: "/services?tab=skin",
+      hasDropdown: true,
+      dropdownType: "skin",
+    },
+    {
+      label: "Hair",
+      href: "/services?tab=hair",
+      hasDropdown: true,
+      dropdownType: "hair",
+    },
+    {
+      label: "Laser",
+      href: "/services?tab=laser",
+      hasDropdown: true,
+      dropdownType: "laser",
+    },
+    { label: "Pre-Wedding Services", href: "/pre-wedding-services" },
+    {
+      label: "Explore",
+      href: "/gallery",
+      hasDropdown: true,
+      dropdownType: "explore",
+    },
+  ];
+
+  if (hasLocations) {
+    baseItems.push({
+      label: "Locations We Serve",
+      href: "#",
+      hasDropdown: true,
+      dropdownType: "locations",
+    });
+  }
+
+  return baseItems;
+};
 
 // Skin service groups/categories that redirect to services page
 const SKIN_SERVICE_GROUPS = [
@@ -171,10 +187,12 @@ export const Navbar = ({
   serviceCategories,
   hairServices,
   laserServices,
+  locations,
 }: {
   serviceCategories: ServiceCategory[];
   hairServices: Pick<Service, "title" | "slug">[];
   laserServices: Pick<Service, "title" | "slug">[];
+  locations: Array<{ title: string; slug: string }>;
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -186,6 +204,8 @@ export const Navbar = ({
   >(null);
   const router = useRouter();
   const closeDesktopDropdown = () => setActiveDesktopDropdown(null);
+  
+  const NAV_ITEMS = getNavItems(locations.length > 0);
 
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
@@ -241,7 +261,7 @@ export const Navbar = ({
     router.prefetch(`/${serviceSlug}`);
   };
 
-  const renderDropdownContent = (dropdownType: ServiceCategory["type"]) => {
+  const renderDropdownContent = (dropdownType: ServiceCategory["type"] | "explore" | "locations") => {
     if (dropdownType === "skin") {
       return (
         <div className="space-y-1">
@@ -266,6 +286,61 @@ export const Navbar = ({
                 </InstantSkeletonLink>
               </motion.div>
             ))}
+        </div>
+      );
+    }
+    if (dropdownType === "explore") {
+      const exploreItems = [
+        { label: "Gallery", href: "/gallery" },
+        { label: "Videos", href: "/videos" },
+        { label: "Blogs", href: "/blogs" },
+      ];
+      return (
+        <div className="space-y-1">
+          {exploreItems.map((item, index) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.02, duration: 0.2 }}
+            >
+              <InstantSkeletonLink
+                href={item.href}
+                className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
+                onClick={() => {
+                  closeDesktopDropdown();
+                  closeMobileMenu();
+                }}
+              >
+                {item.label}
+              </InstantSkeletonLink>
+            </motion.div>
+          ))}
+        </div>
+      );
+    }
+    if (dropdownType === "locations") {
+      return (
+        <div className="space-y-1">
+          {locations.map((location, index) => (
+            <motion.div
+              key={location.slug}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.02, duration: 0.2 }}
+            >
+              <InstantSkeletonLink
+                href={`/${location.slug}`}
+                className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
+                onClick={() => {
+                  closeDesktopDropdown();
+                  closeMobileMenu();
+                }}
+              >
+                {location.title}
+              </InstantSkeletonLink>
+            </motion.div>
+          ))}
         </div>
       );
     }
@@ -348,9 +423,7 @@ export const Navbar = ({
               variants={navItemVariants}
               className="relative"
             >
-              {(item.hasDropdown && item.dropdownType === "skin") ||
-              item.dropdownType === "hair" ||
-              item.dropdownType === "laser" ? (
+              {item.hasDropdown ? (
                 <div
                   className="relative group"
                   onMouseEnter={() =>
@@ -384,8 +457,8 @@ export const Navbar = ({
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50"
                       >
-                        <div className="bg-gradient-to-br from-[#FBEDE4] to-[#F5E6D3] backdrop-blur-xl rounded-2xl shadow-2xl border border-[#D4A380]/20 p-6 w-80">
-                          {renderDropdownContent(item.dropdownType)}
+                        <div className={`bg-gradient-to-br from-[#FBEDE4] to-[#F5E6D3] backdrop-blur-xl rounded-2xl shadow-2xl border border-[#D4A380]/20 p-6 ${item.dropdownType === 'explore' ? 'w-48' : 'w-80'}`}>
+                          {renderDropdownContent(item.dropdownType as any)}
                         </div>
                       </motion.div>
                     )}
@@ -534,6 +607,52 @@ export const Navbar = ({
                                           onClick={closeMobileMenu}
                                         >
                                           {service}
+                                        </Link>
+                                      </motion.div>
+                                    ))}
+
+                                  {item.dropdownType === "explore" &&
+                                    [
+                                      { label: "Gallery", href: "/gallery" },
+                                      { label: "Videos", href: "/videos" },
+                                      { label: "Blogs", href: "/blogs" },
+                                    ].map((exploreItem, index) => (
+                                      <motion.div
+                                        key={exploreItem.label}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                          delay: index * 0.03,
+                                          duration: 0.2,
+                                        }}
+                                      >
+                                        <Link
+                                          href={exploreItem.href}
+                                          className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
+                                          onClick={closeMobileMenu}
+                                        >
+                                          {exploreItem.label}
+                                        </Link>
+                                      </motion.div>
+                                    ))}
+
+                                  {item.dropdownType === "locations" &&
+                                    locations.map((location, index) => (
+                                      <motion.div
+                                        key={location.slug}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                          delay: index * 0.03,
+                                          duration: 0.2,
+                                        }}
+                                      >
+                                        <Link
+                                          href={`/${location.slug}`}
+                                          className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"
+                                          onClick={closeMobileMenu}
+                                        >
+                                          {location.title}
                                         </Link>
                                       </motion.div>
                                     ))}

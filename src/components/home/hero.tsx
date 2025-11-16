@@ -16,20 +16,32 @@ interface HeroProps {
 
 export const Hero = ({ heroOffer }: HeroProps) => {
   const [isMuted, setIsMuted] = useState(true); // Video starts muted
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRefDesktop = useRef<HTMLVideoElement>(null);
+  const videoRefMobile = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current
+    // Play both videos
+    if (videoRefDesktop.current) {
+      videoRefDesktop.current
         .play()
-        .catch((e) => console.error("Video autoplay failed", e));
+        .catch((e) => console.error("Desktop video autoplay failed", e));
+    }
+    if (videoRefMobile.current) {
+      videoRefMobile.current
+        .play()
+        .catch((e) => console.error("Mobile video autoplay failed", e));
     }
 
     const unmuteOnInteraction = () => {
       const userPreference = localStorage.getItem("videoMuted");
       // Unmute if the user hasn't explicitly muted in the past.
-      if (userPreference !== "true" && videoRef.current) {
-        videoRef.current.muted = false;
+      if (userPreference !== "true") {
+        if (videoRefDesktop.current) {
+          videoRefDesktop.current.muted = false;
+        }
+        if (videoRefMobile.current) {
+          videoRefMobile.current.muted = false;
+        }
         setIsMuted(false);
       }
     };
@@ -47,12 +59,17 @@ export const Hero = ({ heroOffer }: HeroProps) => {
   }, []);
 
   const toggleMute = () => {
-    if (videoRef.current) {
-      const newMutedState = !videoRef.current.muted;
-      videoRef.current.muted = newMutedState;
-      setIsMuted(newMutedState);
-      localStorage.setItem("videoMuted", JSON.stringify(newMutedState));
+    const newMutedState = !isMuted;
+    
+    if (videoRefDesktop.current) {
+      videoRefDesktop.current.muted = newMutedState;
     }
+    if (videoRefMobile.current) {
+      videoRefMobile.current.muted = newMutedState;
+    }
+    
+    setIsMuted(newMutedState);
+    localStorage.setItem("videoMuted", JSON.stringify(newMutedState));
   };
   return (
     <div className="w-full bg-[#FBEDE4] pb-8 lg:pb-14 pt-8 lg:pt-8">
@@ -121,14 +138,16 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                 </InstantSkeletonLink>
               </motion.div>
             </div>
+            {/* Special Offer and Video/Image Grid - Responsive */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8 lg:mt-8 grid grid-cols-1 sm:grid-cols-5 gap-4 items-end"
+              className="mt-8 lg:mt-8 grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5 gap-4 md:gap-4 items-stretch"
             >
+              {/* Special Offer Card */}
               {heroOffer && (
-                <div className="relative col-span-1 sm:col-span-3 rounded-2xl min-h-[280px] lg:min-h-[355px] w-full max-w-[400px] mx-auto lg:max-w-none lg:mx-0 bg-cover bg-center p-4 lg:p-6 flex flex-col justify-between overflow-hidden">
+                <div className="relative md:col-span-3 lg:col-span-3 rounded-2xl min-h-[280px] md:min-h-[355px] lg:min-h-[355px] w-full bg-cover bg-center p-4 md:p-5 lg:p-6 flex flex-col justify-between overflow-hidden">
                   <Image
                     src={
                       typeof heroOffer.backgroundImage === "string"
@@ -173,7 +192,7 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                   </div>
                   <div className="w-full flex flex-col items-start justify-end gap-y-1.5 relative z-10">
                     <h2
-                      className="text-2xl lg:text-[40px] leading-tight lg:leading-normal text-[#151515] font-semibold"
+                      className="text-2xl md:text-3xl lg:text-[40px] leading-tight lg:leading-normal text-[#151515] font-semibold"
                       dangerouslySetInnerHTML={{
                         __html: heroOffer.title.replace(/\n/g, "<br />"),
                       }}
@@ -184,18 +203,79 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                   </div>
                 </div>
               )}
-              <div className="col-span-1 sm:col-span-2 flex justify-center">
+              
+              {/* Video - Shows on Tablet only, Hidden on Mobile & Desktop */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="hidden md:block lg:hidden md:col-span-2 relative w-full h-full min-h-[355px]"
+              >
+                <video
+                  ref={videoRefMobile}
+                  className="w-full h-full object-cover rounded-2xl"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  src={"/theskinfirm.mp4"}
+                />
+                <Button
+                  onClick={toggleMute}
+                  className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 h-auto"
+                  aria-label={isMuted ? "Unmute video" : "Mute video"}
+                >
+                  {isMuted ? (
+                    <VolumeX className="h-6 w-6" />
+                  ) : (
+                    <Volume2 className="h-6 w-6" />
+                  )}
+                </Button>
+              </motion.div>
+
+              {/* Reception Image - Shows on Desktop only */}
+              <div className="hidden lg:flex lg:col-span-2 justify-center items-end">
                 <Image
                   src={"/clinic/reception-theskinfirm.jpg"}
                   width={334}
                   height={430}
                   alt="Professional skincare treatment being performed by certified specialist"
-                  className="w-full max-w-[380px] h-auto object-contain rounded-2xl ml-3"
+                  className="w-full max-w-[380px] h-auto object-contain rounded-2xl"
                   loading="lazy"
                 />
               </div>
             </motion.div>
+
+            {/* Video - Shows on Mobile only */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="md:hidden mt-4 relative w-full min-h-[280px]"
+            >
+              <video
+                ref={videoRefMobile}
+                className="w-full h-full object-cover rounded-2xl"
+                autoPlay
+                loop
+                muted
+                playsInline
+                src={"/theskinfirm.mp4"}
+              />
+              <Button
+                onClick={toggleMute}
+                className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 h-auto"
+                aria-label={isMuted ? "Unmute video" : "Mute video"}
+              >
+                {isMuted ? (
+                  <VolumeX className="h-5 w-5" />
+                ) : (
+                  <Volume2 className="h-5 w-5" />
+                )}
+              </Button>
+            </motion.div>
           </div>
+          {/* Desktop only - Video in right column */}
           <div className="hidden lg:flex lg:flex-col col-span-1 order-1 lg:order-2">
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -213,11 +293,11 @@ export const Hero = ({ heroOffer }: HeroProps) => {
               className="flex justify-center lg:justify-start h-full relative"
             >
               <video
-                ref={videoRef}
+                ref={videoRefDesktop}
                 className="w-full max-w-[300px] max-h-[500px] lg:max-w-none lg:w-full h-full object-cover rounded-2xl"
                 autoPlay
                 loop
-                muted // The video element is always muted initially, state controls UI and interaction unmutes it
+                muted
                 playsInline
                 src={"/theskinfirm.mp4"}
               />

@@ -3,16 +3,18 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { Metadata } from "next";
-import { getServiceBySlug, getAllServices } from "@/lib/api";
-import { Service, ServiceCategory } from "@/payload-types";
+import { getServiceBySlug, getAllServices, getAllLocations, getLocationBySlug } from "@/lib/api";
+import { Service, ServiceCategory, Location } from "@/payload-types";
 
 export const revalidate = 3600; // Revalidate every hour
 
 export async function generateStaticParams() {
   const services = await getAllServices();
-  return services.map(({ slug }) => ({
-    service: slug,
-  }));
+  const locations = await getAllLocations();
+  return [
+    ...services.map(({ slug }) => ({ service: slug })),
+    ...locations.map(({ slug }) => ({ service: slug })),
+  ];
 }
 
 export async function generateMetadata({
@@ -21,9 +23,17 @@ export async function generateMetadata({
   params: Promise<{ service: string }>;
 }): Promise<Metadata> {
   const { service: slug } = await params;
+  
+  // Try service first
   const service: (Service & { category: ServiceCategory }) | null =
     await getServiceBySlug(slug);
-  const seoRows = service?.seo?.filter((b) => b.blockType === "seo");
+  
+  // Try location if service not found
+  const location: Location | null = !service ? await getLocationBySlug(slug) : null;
+  
+  const data = service || location;
+  const seoRows = data?.seo?.filter((b: any) => b.blockType === "seo");
+  
   if (seoRows?.length) {
     const seo = seoRows[0];
     if (seo) {
@@ -65,6 +75,8 @@ export async function generateMetadata({
 
 const Page = async ({ params }: { params: Promise<{ service: string }> }) => {
   const { service: slug } = await params;
+  
+  // Try to fetch as service first
   const serviceData: (Service & { category: ServiceCategory }) | null =
     await getServiceBySlug(slug);
 
@@ -84,6 +96,18 @@ const Page = async ({ params }: { params: Promise<{ service: string }> }) => {
         />
       );
     }
+  }
+
+  // Try to fetch as location
+  const locationData: Location | null = await getLocationBySlug(slug);
+  
+  if (locationData) {
+    return (
+      <AnimatedServicePage
+        serviceData={locationData as any}
+        isLocation={true}
+      />
+    );
   }
 
   notFound();

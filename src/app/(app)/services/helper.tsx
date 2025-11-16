@@ -234,9 +234,12 @@ const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
     return (
       <div
         key={section.title}
-        id={`_${section.title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and")}`}
         className="mb-[20px] last:mb-0"
-      >
+        >
+        <div 
+        className="relative -y-[20px]"
+        id={`_${section.title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and")}`}
+        ></div>
         <div className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[26px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full">
           <div
             className="flex items-center justify-between cursor-pointer"

@@ -42,9 +42,14 @@ function ServicePageContent({ services }: ServicePageContentProps) {
         setTimeout(() => {
           const element = document.getElementById(hash.substring(1));
           if (element) {
-            element.scrollIntoView({
+            const navbarHeight = 80; // Approximate navbar height
+            const additionalOffset = 100; // Additional space to show the heading clearly
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - navbarHeight - additionalOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
               behavior: "smooth",
-              block: "start",
             });
           }
         }, 100);

@@ -17,22 +17,19 @@ import { ComprehensiveTreatmentsBlock } from "../blocks/services/ComprehensiveTr
 import { SeoBlock } from "@/blocks/Seo";
 import slugify from "slugify";
 
-export const Services: CollectionConfig = {
-  slug: "services",
+export const Locations: CollectionConfig = {
+  slug: "locations",
   auth: false,
   labels: {
-    singular: "Service",
-    plural: "Services",
+    singular: "Location",
+    plural: "Locations",
+  },
+  admin: {
+    useAsTitle: "title",
   },
   fields: [
     { name: "title", type: "text", required: true },
     { name: "slug", type: "text", required: true, unique: true },
-    {
-      name: "category",
-      type: "relationship",
-      required: true,
-      relationTo: "service-categories",
-    },
     {
       name: "sections",
       type: "blocks",
@@ -60,7 +57,7 @@ export const Services: CollectionConfig = {
       maxRows: 1,
       blocks: [SeoBlock],
       admin: {
-        description: "Optional: Add SEO metadata for this service",
+        description: "Optional: Add SEO metadata for this location",
       },
     },
   ],

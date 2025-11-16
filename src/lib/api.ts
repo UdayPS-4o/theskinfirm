@@ -1,7 +1,7 @@
 import { cache } from "react";
 import { getPayload } from "payload";
 import config from "@payload-config";
-import { Service, ServiceCategory } from "@/payload-types";
+import { Service, ServiceCategory, Location } from "@/payload-types";
 
 const getPayloadClient = cache(() => getPayload({ config }));
 
@@ -102,5 +102,33 @@ export const getLaserServices = cache(
       },
     });
     return docs;
+  },
+);
+
+export const getAllLocations = cache(
+  async (): Promise<Location[]> => {
+    const payload = await getPayloadClient();
+    const result = await payload.find({
+      collection: "locations",
+      depth: 1,
+      limit: 1000,
+    });
+    return result.docs as Location[];
+  },
+);
+
+export const getLocationBySlug = cache(
+  async (slug: string): Promise<Location | null> => {
+    const payload = await getPayloadClient();
+    const result = await payload.find({
+      collection: "locations",
+      where: {
+        slug: {
+          equals: slug,
+        },
+      },
+      depth: 1,
+    });
+    return (result.docs.length ? result.docs[0] : null) as Location | null;
   },
 );
