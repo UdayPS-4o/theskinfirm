@@ -46,8 +46,9 @@ function ServicePageContent({ services }: ServicePageContentProps) {
 
     const sectionParam = searchParams.get("section");
     
-    if (sectionParam && !scrollAttemptedRef.current) {
-      scrollAttemptedRef.current = true;
+    if (sectionParam) {
+      // Reset the flag when section changes
+      scrollAttemptedRef.current = false;
       
       // Wait for skeleton to disappear and content to render
       const scrollToSection = () => {
@@ -63,7 +64,8 @@ function ServicePageContent({ services }: ServicePageContentProps) {
             top: offsetPosition,
             behavior: "smooth",
           });
-        } else {
+          scrollAttemptedRef.current = true;
+        } else if (!scrollAttemptedRef.current) {
           // Retry if element not found yet
           setTimeout(scrollToSection, 100);
         }
@@ -72,12 +74,7 @@ function ServicePageContent({ services }: ServicePageContentProps) {
       // Delay to ensure content is fully rendered
       setTimeout(scrollToSection, 300);
     }
-  }, [searchParams, isContentLoaded]);
-
-  // Reset scroll attempted flag when section param changes
-  useEffect(() => {
-    scrollAttemptedRef.current = false;
-  }, [searchParams]);
+  }, [searchParams, isContentLoaded, activeTab]);
 
   const handleTabChange = (tab: TabKey) => {
     setActiveTab(tab);
