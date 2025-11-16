@@ -18,19 +18,22 @@ export const Hero = ({ heroOffer }: HeroProps) => {
   const [isMuted, setIsMuted] = useState(true); // Video starts muted
   const videoRefDesktop = useRef<HTMLVideoElement>(null);
   const videoRefMobile = useRef<HTMLVideoElement>(null);
+  const videoRefTablet = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Play both videos
-    if (videoRefDesktop.current) {
-      videoRefDesktop.current
-        .play()
-        .catch((e) => console.error("Desktop video autoplay failed", e));
-    }
-    if (videoRefMobile.current) {
-      videoRefMobile.current
-        .play()
-        .catch((e) => console.error("Mobile video autoplay failed", e));
-    }
+    // Play all videos with proper error handling
+    const playVideo = (videoRef: React.RefObject<HTMLVideoElement | null>, label: string) => {
+      if (videoRef.current) {
+        videoRef.current.muted = true; // Ensure muted for autoplay
+        videoRef.current
+          .play()
+          .catch((e) => console.error(`${label} video autoplay failed`, e));
+      }
+    };
+
+    playVideo(videoRefDesktop, "Desktop");
+    playVideo(videoRefMobile, "Mobile");
+    playVideo(videoRefTablet, "Tablet");
 
     const unmuteOnInteraction = () => {
       const userPreference = localStorage.getItem("videoMuted");
@@ -41,6 +44,9 @@ export const Hero = ({ heroOffer }: HeroProps) => {
         }
         if (videoRefMobile.current) {
           videoRefMobile.current.muted = false;
+        }
+        if (videoRefTablet.current) {
+          videoRefTablet.current.muted = false;
         }
         setIsMuted(false);
       }
@@ -66,6 +72,9 @@ export const Hero = ({ heroOffer }: HeroProps) => {
     }
     if (videoRefMobile.current) {
       videoRefMobile.current.muted = newMutedState;
+    }
+    if (videoRefTablet.current) {
+      videoRefTablet.current.muted = newMutedState;
     }
     
     setIsMuted(newMutedState);
@@ -212,12 +221,15 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                 className="hidden md:block lg:hidden md:col-span-2 relative w-full h-full min-h-[355px]"
               >
                 <video
-                  ref={videoRefMobile}
+                  ref={videoRefTablet}
                   className="w-full h-full object-cover rounded-2xl"
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="auto"
+                  webkit-playsinline="true"
+                  x5-playsinline="true"
                   src={"/theskinfirm.mp4"}
                 />
                 <Button
@@ -260,6 +272,9 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                 loop
                 muted
                 playsInline
+                preload="auto"
+                webkit-playsinline="true"
+                x5-playsinline="true"
                 src={"/theskinfirm.mp4"}
               />
               <Button
@@ -299,6 +314,7 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                 loop
                 muted
                 playsInline
+                preload="auto"
                 src={"/theskinfirm.mp4"}
               />
               <Button
