@@ -35,32 +35,54 @@ export const Hero = ({ heroOffer }: HeroProps) => {
     playVideo(videoRefMobile, "Mobile");
     playVideo(videoRefTablet, "Tablet");
 
+    // Prevent videos from pausing - keep them playing
+    const handlePause = (videoRef: React.RefObject<HTMLVideoElement | null>) => {
+      return () => {
+        if (videoRef.current && videoRef.current.paused) {
+          videoRef.current.play().catch((e) => console.error("Failed to resume video", e));
+        }
+      };
+    };
+
+    const desktopPauseHandler = handlePause(videoRefDesktop);
+    const mobilePauseHandler = handlePause(videoRefMobile);
+    const tabletPauseHandler = handlePause(videoRefTablet);
+
+    // Add pause event listeners to auto-resume
+    videoRefDesktop.current?.addEventListener("pause", desktopPauseHandler);
+    videoRefMobile.current?.addEventListener("pause", mobilePauseHandler);
+    videoRefTablet.current?.addEventListener("pause", tabletPauseHandler);
+
     const unmuteOnInteraction = () => {
       const userPreference = localStorage.getItem("videoMuted");
       // Unmute if the user hasn't explicitly muted in the past.
       if (userPreference !== "true") {
         if (videoRefDesktop.current) {
           videoRefDesktop.current.muted = false;
+          videoRefDesktop.current.play().catch((e) => console.error("Failed to play desktop video", e));
         }
         if (videoRefMobile.current) {
           videoRefMobile.current.muted = false;
+          videoRefMobile.current.play().catch((e) => console.error("Failed to play mobile video", e));
         }
         if (videoRefTablet.current) {
           videoRefTablet.current.muted = false;
+          videoRefTablet.current.play().catch((e) => console.error("Failed to play tablet video", e));
         }
         setIsMuted(false);
       }
     };
 
     // Listen for the first interaction, then stop listening.
-    window.addEventListener("scroll", unmuteOnInteraction, { once: true });
     window.addEventListener("click", unmuteOnInteraction, { once: true });
-    window.addEventListener("keydown", unmuteOnInteraction, { once: true });
+    window.addEventListener("touchstart", unmuteOnInteraction, { once: true });
 
     return () => {
-      window.removeEventListener("scroll", unmuteOnInteraction);
       window.removeEventListener("click", unmuteOnInteraction);
-      window.removeEventListener("keydown", unmuteOnInteraction);
+      window.removeEventListener("touchstart", unmuteOnInteraction);
+      videoRefDesktop.current?.removeEventListener("pause", desktopPauseHandler);
+      videoRefMobile.current?.removeEventListener("pause", mobilePauseHandler);
+      videoRefTablet.current?.removeEventListener("pause", tabletPauseHandler);
     };
   }, []);
 

@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { Service, ServiceCategory } from "@/payload-types";
 
 type TabKey = "skin" | "hair" | "laser";
@@ -15,22 +14,6 @@ interface HelperProps {
 }
 
 const MotionImage = motion(Image);
-
-const CardSkeleton: React.FC = () => (
-  <div className="bg-white border border-[color:var(--color-border-light)] rounded-[10px] p-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.05)] w-full">
-    <div className="flex gap-[16px] items-start">
-      <div className="w-[140px] h-[140px] flex-shrink-0 rounded-[8px] overflow-hidden relative bg-gray-200 animate-pulse"></div>
-      <div className="flex-1 flex flex-col justify-start">
-        <div className="h-[20px] bg-gray-200 rounded w-3/4 mb-[8px] animate-pulse"></div>
-        <div className="h-[18px] bg-gray-200 rounded w-full mb-[4px] animate-pulse"></div>
-        <div className="h-[18px] bg-gray-200 rounded w-5/6 mb-[12px] animate-pulse"></div>
-        <div className="flex items-center gap-[6px]">
-          <div className="h-[16px] bg-gray-200 rounded w-1/4 animate-pulse"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 const Helper: React.FC<HelperProps> = ({ activeTab, services }) => {
   const router = useRouter();

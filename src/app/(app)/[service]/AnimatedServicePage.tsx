@@ -1330,6 +1330,71 @@ const AnimatedServicePage = ({ serviceData, isLocation = false }: AnimatedServic
                 </MaxWidthWrapper>
               </section>
             );
+          case "comprehensive-treatments":
+            return (
+              <section
+                key={section.blockType + index}
+                className="py-8 md:py-12 px-4 md:px-8 bg-gradient-to-b from-white to-[color:var(--color-light-background)]"
+              >
+                <div className="max-w-6xl mx-auto">
+                  <div className="text-center mb-8 md:mb-10">
+                    <SectionTitle
+                      data={section.title}
+                      className="mb-4"
+                      isVisible={true}
+                    />
+                    {section.description && (
+                      <div className="text-base md:text-lg text-[color:var(--color-light-text)] max-w-4xl mx-auto leading-relaxed">
+                        <RichText data={section.description} />
+                      </div>
+                    )}
+                  </div>
+                  {section.categories && section.categories.length > 0 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                      {section.categories.map((category: any, catIndex: number) => (
+                        <div
+                          key={catIndex}
+                          className="group relative rounded-2xl bg-white p-6 md:p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[color:var(--color-light-border)] hover:border-[color:var(--color-primary-brown)]/30 hover:-translate-y-1"
+                        >
+                          <div className="flex items-center gap-3 mb-5 pb-4 border-b border-[color:var(--color-light-border)]">
+                            <div className="w-10 h-10 rounded-xl bg-[color:var(--color-primary-brown)]/10 flex items-center justify-center group-hover:bg-[color:var(--color-primary-brown)]/20 transition-colors duration-300">
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[color:var(--color-primary-brown)]">
+                                <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="currentColor"/>
+                              </svg>
+                            </div>
+                            <h3 className="text-xl md:text-2xl font-bold text-[color:var(--color-dark-text)]">
+                              {category.categoryTitle}
+                            </h3>
+                          </div>
+                          <ul className="space-y-3">
+                            {category.treatments?.map((treatment: any, treatIndex: number) => {
+                              // Handle different link formats: slug, relative URL, or full URL
+                              const href = treatment.link.startsWith('http') || treatment.link.startsWith('/') 
+                                ? treatment.link 
+                                : `/${treatment.link}`;
+                              
+                              return (
+                                <li key={treatIndex}>
+                                  <Link 
+                                    href={href}
+                                    className="group/item flex items-center gap-3 text-sm md:text-base text-[color:var(--color-light-text)] hover:text-[color:var(--color-primary-brown)] transition-all duration-200 py-1.5 px-2 rounded-lg hover:bg-[color:var(--color-primary-brown)]/5"
+                                  >
+                                    <svg className="w-4 h-4 flex-shrink-0 text-[color:var(--color-primary-brown)] opacity-60 group-hover/item:opacity-100 group-hover/item:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                    <span className="group-hover/item:translate-x-0.5 transition-transform duration-200">{treatment.title}</span>
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </section>
+            );
         }
       })}
 

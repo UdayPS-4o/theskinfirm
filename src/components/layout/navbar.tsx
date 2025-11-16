@@ -275,7 +275,7 @@ export const Navbar = ({
                 transition={{ delay: index * 0.02, duration: 0.2 }}
               >
                 <InstantSkeletonLink
-                  href={`/services#_${getSectionSlug(group.name)}`}
+                  href={`/services?tab=skin&section=${getSectionSlug(group.name)}`}
                   className="text-sm text-[#374151] hover:text-[#D4A380] hover:bg-white/40 transition-all duration-200 block py-2 px-3 rounded-lg hover:translate-x-1 font-medium border border-transparent hover:border-[#D4A380]/20 hover:shadow-sm"
                   onClick={() => {
                     closeDesktopDropdown();
@@ -554,7 +554,7 @@ export const Navbar = ({
                                         }}
                                       >
                                         <Link
-                                          href={`/services#_${getSectionSlug(
+                                          href={`/services?tab=skin&section=${getSectionSlug(
                                             group
                                           )}`}
                                           className="block text-[#374151] hover:text-[#D4A380] py-3 px-3 rounded-lg hover:bg-white/40 transition-all duration-200 text-base font-medium"

@@ -20,7 +20,9 @@ interface ServicePageContentProps {
 function ServicePageContent({ services }: ServicePageContentProps) {
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabKey>("skin");
+  const [isContentLoaded, setIsContentLoaded] = useState(false);
   const servicesRef = useRef<HTMLElement>(null);
+  const scrollAttemptedRef = useRef(false);
 
   // Handle URL search params for tab selection
   useEffect(() => {
@@ -30,42 +32,52 @@ function ServicePageContent({ services }: ServicePageContentProps) {
     }
   }, [searchParams]);
 
-  // Handle hash scrolling for skin services
+  // Mark content as loaded after initial render
   useEffect(() => {
-    const handleHashScroll = () => {
-      const hash = window.location.hash;
-      if (hash) {
-        // Set active tab to skin for hash navigation
-        setActiveTab("skin");
+    const timer = setTimeout(() => {
+      setIsContentLoaded(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [activeTab]);
 
-        // Wait for the component to render with skin tab active
-        setTimeout(() => {
-          const element = document.getElementById(hash.substring(1));
-          if (element) {
-            const navbarHeight = 80; // Approximate navbar height
-            const additionalOffset = 100; // Additional space to show the heading clearly
-            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - navbarHeight - additionalOffset;
+  // Handle section scrolling with query parameters
+  useEffect(() => {
+    if (!isContentLoaded) return;
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth",
-            });
-          }
-        }, 100);
-      }
-    };
+    const sectionParam = searchParams.get("section");
+    
+    if (sectionParam && !scrollAttemptedRef.current) {
+      scrollAttemptedRef.current = true;
+      
+      // Wait for skeleton to disappear and content to render
+      const scrollToSection = () => {
+        const element = document.getElementById(`_${sectionParam}`);
+        
+        if (element) {
+          const navbarHeight = 80;
+          const additionalOffset = 100;
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - navbarHeight - additionalOffset;
 
-    // Handle initial load
-    handleHashScroll();
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        } else {
+          // Retry if element not found yet
+          setTimeout(scrollToSection, 100);
+        }
+      };
 
-    // Handle hash changes
-    window.addEventListener("hashchange", handleHashScroll);
+      // Delay to ensure content is fully rendered
+      setTimeout(scrollToSection, 300);
+    }
+  }, [searchParams, isContentLoaded]);
 
-    return () => {
-      window.removeEventListener("hashchange", handleHashScroll);
-    };
-  }, []);
+  // Reset scroll attempted flag when section param changes
+  useEffect(() => {
+    scrollAttemptedRef.current = false;
+  }, [searchParams]);
 
   const handleTabChange = (tab: TabKey) => {
     setActiveTab(tab);
