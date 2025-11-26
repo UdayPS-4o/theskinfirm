@@ -6,6 +6,10 @@ import { Section4Variations } from "@/components/sections/section4-variations";
 import { Section5Variations } from "@/components/sections/section5-variations";
 import { Section6Variations } from "@/components/sections/section6-variations";
 import { Section7Variations } from "@/components/sections/section7-variations";
+import { Section9Variations } from "@/components/sections/section9-variations";
+import { Section10Variations } from "@/components/sections/section10-variations";
+import { Section11Variations } from "@/components/sections/section11-variations";
+import { Section12Variations } from "@/components/sections/section12-variations";
 
 export default function TestSectionPage() {
     const params = useParams();
@@ -23,6 +27,14 @@ export default function TestSectionPage() {
                 return <Section6Variations />;
             case "section7":
                 return <Section7Variations />;
+            case "section9":
+                return <Section9Variations />;
+            case "section10":
+                return <Section10Variations />;
+            case "section11":
+                return <Section11Variations />;
+            case "section12":
+                return <Section12Variations />;
             default:
                 return <div>Section not found: {section}</div>;
         }

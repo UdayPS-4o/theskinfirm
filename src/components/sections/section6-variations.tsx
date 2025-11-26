@@ -10,7 +10,7 @@ const content = {
         "10+ Years of Experience",
         "Thousands of Successful Treatments",
     ],
-    cta: "Know More About Dr. Karishma Singh →",
+    cta: "Know More About Dr. Karishma Singh",
 };
 
 const DoctorImage = ({ className = "", style = {} }: { className?: string; style?: React.CSSProperties }) => (
@@ -232,7 +232,7 @@ export const Design5 = () => {
 // --- Design 6: Overlapping Circle ---
 export const Design6 = () => {
     return (
-        <section className="w-full bg-[#F8F4EB]/30 py-20 lg:py-32 overflow-hidden">
+        <section className="w-full bg-[#F8F4EB]/30 py-20 lg:py-28 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     {/* Left Image */}
@@ -245,7 +245,7 @@ export const Design6 = () => {
 
                     {/* Right Content */}
                     <div className="space-y-8 text-center lg:text-left">
-                        <h2 className="text-4xl sm:text-5xl font-bold text-[#333333] leading-tight">
+                        <h2 className="text-4xl lg:text-5xl font-semibold text-[#333333] leading-tight">
                             {content.headline}
                         </h2>
 

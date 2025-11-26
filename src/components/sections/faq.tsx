@@ -13,7 +13,7 @@ export const Faq = () => {
 
   return (
     <MaxWidthWrapper>
-      <div ref={ref} className="mt-4 mx-6 lg:mx-24 mb-22">
+      <div ref={ref} className="py-20 lg:py-28 mx-6 lg:mx-24">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

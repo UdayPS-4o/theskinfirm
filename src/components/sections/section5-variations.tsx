@@ -1,523 +1,558 @@
 "use client";
-
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MoveHorizontal, Check, Sparkles, Plus, Minus } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, ArrowUpRight, Plus, Minus, ChevronRight } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { Button } from "../ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import { MaxWidthWrapper } from "../layout/max-width";
 import { cn } from "@/lib/utils";
+import Autoplay from "embla-carousel-autoplay";
 
-// Content Data
-const content = {
-    overline: "Our Main Services",
-    title: "Our Signature Treatments",
-    items: [
-        {
-            title: "Acne & Acne Scar Treatment",
-            description: "Clear your skin and restore confidence with our advanced acne solutions.",
-            imageBefore: "/images/services/acne-before.png",
-            imageAfter: "/images/services/acne-after.png",
-            link: "/services/acne"
-        },
-        {
-            title: "Skin Brightening & Glow Therapies",
-            description: "Reveal your inner radiance with our specialized brightening treatments.",
-            imageBefore: "/images/services/glow-before.png",
-            imageAfter: "/images/services/glow-after.png",
-            link: "/services/brightening"
-        },
-        {
-            title: "Anti-Ageing & Botox",
-            description: "Turn back time and smooth fine lines for a youthful appearance.",
-            imageBefore: "/images/services/anti-ageing-before.png",
-            imageAfter: "/images/services/anti-ageing-after.png",
-            link: "/services/anti-ageing"
-        },
-        {
-            title: "Pigmentation Correction",
-            description: "Even out your skin tone and reduce dark spots effectively.",
-            imageBefore: "/images/services/pigmentation-before.png",
-            imageAfter: "/images/services/pigmentation-after.png",
-            link: "/services/pigmentation"
-        },
-        {
-            title: "Hair Fall & PRP Therapy",
-            description: "Stimulate hair growth and strengthen your scalp health.",
-            imageBefore: "/images/services/hair-before.png",
-            imageAfter: "/images/services/hair-after.png",
-            link: "/services/hair-fall"
-        }
-    ]
-};
+// --- Data ---
+const servicesData = [
+    {
+        title: "Laser Hair Removal",
+        description: "Advanced laser technology for permanent hair reduction with minimal discomfort.",
+        coverImageUrl: "/images/services/laser hair removal.png",
+        iconUrl: "/images/home-service/laser.png",
+        url: "/laser-hair-removal-in-pune",
+    },
+    {
+        title: "Acne Treatment",
+        description: "Comprehensive acne treatment and scar reduction therapy for clear skin.",
+        coverImageUrl: "/images/services/acne treatment.png",
+        iconUrl: "/images/home-service/skin.png",
+        url: "/acne-treatment-in-pune",
+    },
+    {
+        title: "Hydrafacial Treatment",
+        description: "Deep cleansing and hydrating facial treatment that rejuvenates your skin.",
+        coverImageUrl: "/images/services/hydra.png",
+        iconUrl: "/images/home-service/skin.png",
+        url: "/hydrafacial-in-pune",
+    },
+    {
+        title: "Pigmentation Treatment",
+        description: "Effective pigmentation removal treatments to restore even skin tone.",
+        coverImageUrl: "/images/services/pigmentation.png",
+        iconUrl: "/images/home-service/skin.png",
+        url: "/skin-pigmentation-melasma-treatment-in-pune",
+    },
+    {
+        title: "Hair Loss Treatment",
+        description: "Advanced hair restoration therapies to combat hair loss and promote growth.",
+        coverImageUrl: "/images/services/hair loss.png",
+        iconUrl: "/images/home-service/hair.png",
+        url: "/hair-loss-treatment-in-pune",
+    },
+    {
+        title: "Anti-Ageing Treatment",
+        description: "Comprehensive anti-aging solutions to reduce wrinkles and restore youth.",
+        coverImageUrl: "/images/services/anti aging.png",
+        iconUrl: "/images/home-service/skin.png",
+        url: "/anti-ageing-treatment-in-pune",
+    },
+    {
+        title: "Chemical Peel",
+        description: "Professional chemical peels to exfoliate and renew skin for a brighter complexion.",
+        coverImageUrl: "/images/services/chemical peel.png",
+        iconUrl: "/images/home-service/skin.png",
+        url: "/chemical-peel-in-pune",
+    },
+];
 
-// Helper for Before/After Placeholder
-const BeforeAfterPlaceholder = ({ className = "", label = "Image", color = "#D4A380" }: { className?: string, label?: string, color?: string }) => (
-    <div className={`bg-[#e8dcd0] relative overflow-hidden flex items-center justify-center ${className}`}>
-        <span className="font-medium tracking-widest uppercase text-xs z-10 px-2 py-1 bg-white/80 rounded-sm" style={{ color: color }}>{label}</span>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `radial-gradient(${color} 1px, transparent 1px)`, backgroundSize: "10px 10px" }} />
+// --- Shared Components ---
+const SectionHeader = ({ title = "Our Signature Treatments", subtitle = "Our Main Services" }) => (
+    <div className="mb-12 text-center">
+        <span className="text-[#D4A380] font-medium tracking-wider uppercase text-sm">{subtitle}</span>
+        <h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl text-[#333333] font-serif font-semibold">{title}</h2>
     </div>
 );
 
-// ---------------------------------------------------
-// Design 1: Classic Split Cards (Slider Simulation)
-// ---------------------------------------------------
-const Design1 = () => (
-    <section className="w-full bg-[#F8F4EB] py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-                <span className="text-[#EC7754] font-semibold uppercase text-sm tracking-wider">{content.overline}</span>
-                <h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-semibold text-[#333333]">{content.title}</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {content.items.map((item, idx) => (
-                    <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
-                        <div className="relative h-64 w-full">
-                            <div className="absolute inset-0 flex">
-                                <BeforeAfterPlaceholder className="w-1/2 h-full border-r border-white" label="Before" />
-                                <BeforeAfterPlaceholder className="w-1/2 h-full bg-[#D4A380]" label="After" color="#333" />
-                            </div>
-                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div className="bg-white/80 backdrop-blur-sm p-1.5 rounded-full shadow-lg">
-                                    <MoveHorizontal size={16} className="text-[#333333]" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="p-6 text-center">
-                            <h3 className="text-xl font-semibold text-[#333333] mb-2">{item.title}</h3>
-                            <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                            <Button variant="ghost" className="text-[#EC7754] hover:text-[#D4A380] hover:bg-transparent p-0 h-auto font-medium">
-                                View Result <ArrowRight size={16} className="ml-2" />
-                            </Button>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
+const ViewAllButton = () => (
+    <div className="flex justify-center mt-10">
+        <Link href="/services">
+            <Button className="bg-[#D4A380] hover:bg-[#C19660] text-white rounded-full px-8 py-6 text-lg">
+                View All Services <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+        </Link>
+    </div>
 );
 
-// ---------------------------------------------------
-// Design 2: Hover Reveal Carousel
-// ---------------------------------------------------
-const Design2 = () => (
-    <section className="w-full bg-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div>
-                    <span className="text-[#EC7754] font-semibold uppercase text-sm tracking-wider">{content.overline}</span>
-                    <h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-semibold text-[#333333]">{content.title}</h2>
-                </div>
-                <Button variant="outline" className="hidden md:flex border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-white mt-4 md:mt-0">
-                    View All Services
-                </Button>
-            </div>
-
-            <Carousel className="w-full" opts={{ align: "start", loop: true }}>
-                <CarouselContent className="-ml-4">
-                    {content.items.map((item, idx) => (
-                        <CarouselItem key={idx} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                            <div className="group relative h-[450px] rounded-2xl overflow-hidden cursor-pointer">
-                                <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0 z-10">
-                                    <BeforeAfterPlaceholder className="w-full h-full" label="Before" />
+// --- Variation 1: Minimal Grid ---
+export const Section5Var1 = () => {
+    return (
+        <section className="py-20 bg-[#F9F9F9]">
+            <MaxWidthWrapper>
+                <SectionHeader />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {servicesData.map((service, idx) => (
+                        <Link key={idx} href={service.url} className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                            <div className="relative h-64 overflow-hidden">
+                                <Image src={service.coverImageUrl} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <div className="p-6">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="p-2 bg-[#F8F4EB] rounded-full">
+                                        <Image src={service.iconUrl} alt="" width={24} height={24} className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
                                 </div>
-                                <div className="absolute inset-0 z-0">
-                                    <BeforeAfterPlaceholder className="w-full h-full bg-[#D4A380]" label="After" color="#333" />
-                                </div>
-
-                                <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-20">
-                                    <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
-                                    <p className="text-white/80 text-sm line-clamp-2">{item.description}</p>
+                                <p className="text-gray-600 text-sm leading-relaxed mb-4">{service.description}</p>
+                                <div className="flex items-center text-[#D4A380] font-medium text-sm group-hover:translate-x-1 transition-transform">
+                                    Learn More <ArrowRight className="ml-1 w-4 h-4" />
                                 </div>
                             </div>
-                        </CarouselItem>
+                        </Link>
                     ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden md:flex -left-12" />
-                <CarouselNext className="hidden md:flex -right-12" />
-            </Carousel>
-        </div>
-    </section>
-);
+                </div>
+                <ViewAllButton />
+            </MaxWidthWrapper>
+        </section>
+    );
+};
 
-// ---------------------------------------------------
-// Design 3: Elegant List with Preview
-// ---------------------------------------------------
-const Design3 = () => {
+// --- Variation 2: Elegant Carousel ---
+export const Section5Var2 = () => {
+    return (
+        <section className="py-20 bg-white">
+            <MaxWidthWrapper>
+                <SectionHeader />
+                <Carousel
+                    opts={{ align: "start", loop: true }}
+                    plugins={[Autoplay({ delay: 4000 })]}
+                    className="w-full"
+                >
+                    <CarouselContent className="-ml-4">
+                        {servicesData.map((service, idx) => (
+                            <CarouselItem key={idx} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                                <Link href={service.url} className="group relative block h-[500px] rounded-3xl overflow-hidden">
+                                    <Image src={service.coverImageUrl} alt={service.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
+                                    <div className="absolute bottom-0 left-0 p-8 w-full">
+                                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                            <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
+                                            <p className="text-white/80 text-sm mb-4 line-clamp-2">{service.description}</p>
+                                            <span className="inline-flex items-center text-white font-medium">
+                                                Explore <ArrowRight className="ml-2 w-4 h-4" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <div className="flex justify-end gap-2 mt-6 pr-4">
+                        <CarouselPrevious className="static translate-y-0" />
+                        <CarouselNext className="static translate-y-0" />
+                    </div>
+                </Carousel>
+                <ViewAllButton />
+            </MaxWidthWrapper>
+        </section>
+    );
+};
+
+// --- Variation 3: List with Hover Preview ---
+export const Section5Var3 = () => {
     const [activeIdx, setActiveIdx] = useState(0);
 
     return (
-        <section className="w-full bg-[#F8F4EB] py-16 lg:py-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div className="lg:col-span-5 space-y-8">
-                        <div>
-                            <span className="text-[#EC7754] font-semibold uppercase text-sm tracking-wider">{content.overline}</span>
-                            <h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-semibold text-[#333333]">{content.title}</h2>
-                        </div>
-                        <div className="space-y-2">
-                            {content.items.map((item, idx) => (
-                                <div
-                                    key={idx}
-                                    onMouseEnter={() => setActiveIdx(idx)}
-                                    className={`p-4 rounded-xl cursor-pointer transition-all duration-300 border-l-4 ${activeIdx === idx ? 'bg-white border-[#EC7754] shadow-sm' : 'border-transparent hover:bg-white/50'}`}
-                                >
-                                    <h3 className={`text-lg font-semibold ${activeIdx === idx ? 'text-[#333333]' : 'text-gray-500'}`}>{item.title}</h3>
-                                    {activeIdx === idx && (
-                                        <p className="text-gray-600 text-sm mt-2 animate-fadeIn">{item.description}</p>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="lg:col-span-7 relative h-[600px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-                        {content.items.map((item, idx) => (
+        <section className="py-20 bg-[#F5F5F0]">
+            <MaxWidthWrapper>
+                <SectionHeader />
+                <div className="flex flex-col lg:flex-row gap-12 items-center">
+                    <div className="w-full lg:w-1/2 space-y-2">
+                        {servicesData.map((service, idx) => (
                             <div
                                 key={idx}
-                                className={`absolute inset-0 transition-opacity duration-700 flex ${activeIdx === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                                onMouseEnter={() => setActiveIdx(idx)}
+                                className={cn(
+                                    "p-6 rounded-xl cursor-pointer transition-all duration-300 border-l-4",
+                                    activeIdx === idx ? "bg-white border-[#D4A380] shadow-md" : "border-transparent hover:bg-white/50"
+                                )}
                             >
-                                <BeforeAfterPlaceholder className="w-1/2 h-full border-r border-white/20" label="Before" />
-                                <BeforeAfterPlaceholder className="w-1/2 h-full bg-[#D4A380]" label="After" color="#333" />
-                                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur px-6 py-2 rounded-full shadow-lg text-sm font-semibold text-[#333333]">
-                                    Real Patient Results
+                                <div className="flex justify-between items-center">
+                                    <h3 className={cn("text-xl font-semibold", activeIdx === idx ? "text-[#D4A380]" : "text-gray-800")}>
+                                        {service.title}
+                                    </h3>
+                                    {activeIdx === idx && <ArrowRight className="text-[#D4A380]" />}
                                 </div>
+                                <AnimatePresence>
+                                    {activeIdx === idx && (
+                                        <motion.p
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            className="text-gray-600 mt-2 text-sm overflow-hidden"
+                                        >
+                                            {service.description}
+                                        </motion.p>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         ))}
                     </div>
+                    <div className="w-full lg:w-1/2 h-[600px] relative rounded-3xl overflow-hidden shadow-2xl">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeIdx}
+                                initial={{ opacity: 0, scale: 1.1 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.5 }}
+                                className="absolute inset-0"
+                            >
+                                <Image src={servicesData[activeIdx].coverImageUrl} alt="" fill className="object-cover" />
+                                <div className="absolute inset-0 bg-black/20" />
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
                 </div>
+                <ViewAllButton />
+            </MaxWidthWrapper>
+        </section>
+    );
+};
+
+// --- Variation 4: Bento Grid ---
+export const Section5Var4 = () => {
+    return (
+        <section className="py-20 bg-white">
+            <MaxWidthWrapper>
+                <SectionHeader />
+                <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-3 gap-4 h-[1000px] md:h-[800px]">
+                    {servicesData.slice(0, 5).map((service, idx) => (
+                        <Link
+                            key={idx}
+                            href={service.url}
+                            className={cn(
+                                "relative group overflow-hidden rounded-2xl",
+                                idx === 0 ? "md:col-span-2 md:row-span-2" : "md:col-span-1 md:row-span-1"
+                            )}
+                        >
+                            <Image src={service.coverImageUrl} alt={service.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
+                            <div className="absolute bottom-0 left-0 p-6">
+                                <h3 className={cn("font-bold text-white mb-2", idx === 0 ? "text-3xl" : "text-xl")}>{service.title}</h3>
+                                <p className="text-white/80 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                    {service.description}
+                                </p>
+                            </div>
+                            <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                <ArrowUpRight className="text-white w-5 h-5" />
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+                <ViewAllButton />
+            </MaxWidthWrapper>
+        </section>
+    );
+};
+
+// --- Variation 5: Horizontal Snap Scroll ---
+export const Section5Var5 = () => {
+    return (
+        <section className="py-20 bg-[#1A1A1A] text-white">
+            <div className="container mx-auto px-4">
+                <SectionHeader title="Our Signature Treatments" subtitle="Premium Services" />
+                <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide">
+                    {servicesData.map((service, idx) => (
+                        <Link
+                            key={idx}
+                            href={service.url}
+                            className="snap-center shrink-0 w-[300px] md:w-[400px] relative group"
+                        >
+                            <div className="aspect-[3/4] relative overflow-hidden rounded-xl bg-gray-800">
+                                <Image src={service.coverImageUrl} alt={service.title} fill className="object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                                <div className="absolute bottom-0 p-6">
+                                    <div className="text-[#D4A380] text-sm font-bold mb-2 uppercase tracking-widest">0{idx + 1}</div>
+                                    <h3 className="text-2xl font-serif mb-2">{service.title}</h3>
+                                    <p className="text-gray-300 text-sm">{service.description}</p>
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+                <ViewAllButton />
             </div>
         </section>
     );
 };
 
-// ---------------------------------------------------
-// Design 4: Flip Cards (New)
-// ---------------------------------------------------
-const Design4 = () => (
-    <section className="w-full bg-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-                <span className="text-[#EC7754] font-semibold uppercase text-sm tracking-wider">{content.overline}</span>
-                <h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-semibold text-[#333333]">{content.title}</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {content.items.map((item, idx) => (
-                    <div key={idx} className="group h-[400px] perspective-1000">
-                        <div className="relative w-full h-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180">
-                            {/* Front */}
-                            <div className="absolute inset-0 backface-hidden bg-[#F8F4EB] rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-                                <div className="h-2/3 relative">
-                                    <BeforeAfterPlaceholder className="w-full h-full" label="Before" />
-                                </div>
-                                <div className="h-1/3 p-6 flex flex-col justify-center items-center text-center">
-                                    <h3 className="text-xl font-bold text-[#333333] mb-2">{item.title}</h3>
-                                    <p className="text-xs text-[#EC7754] font-bold uppercase tracking-wider">Hover to see result</p>
-                                </div>
-                            </div>
-
-                            {/* Back */}
-                            <div className="absolute inset-0 backface-hidden rotate-y-180 bg-[#333333] rounded-2xl overflow-hidden shadow-xl text-white">
-                                <div className="h-2/3 relative">
-                                    <BeforeAfterPlaceholder className="w-full h-full bg-[#D4A380]" label="After" color="#333" />
-                                </div>
-                                <div className="h-1/3 p-6 flex flex-col justify-center items-center text-center bg-[#333333]">
-                                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                                    <p className="text-sm text-gray-300 line-clamp-2">{item.description}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-);
-
-// ---------------------------------------------------
-// Design 5: Side-by-Side Comparison Grid
-// ---------------------------------------------------
-const Design5 = () => (
-    <section className="w-full bg-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-end mb-12 border-b border-gray-100 pb-8">
-                <div>
-                    <span className="text-[#EC7754] font-semibold uppercase text-sm tracking-wider">{content.overline}</span>
-                    <h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-semibold text-[#333333]">{content.title}</h2>
-                </div>
-            </div>
-
-            <div className="space-y-12">
-                {content.items.map((item, idx) => (
-                    <div key={idx} className="flex flex-col lg:flex-row gap-8 items-center group">
-                        <div className="w-full lg:w-1/3">
-                            <h3 className="text-2xl font-bold text-[#333333] mb-3 group-hover:text-[#EC7754] transition-colors">{item.title}</h3>
-                            <p className="text-gray-600 mb-6 leading-relaxed">{item.description}</p>
-                            <ul className="space-y-2 mb-6">
-                                <li className="flex items-center text-sm text-gray-500"><Check size={14} className="text-[#EC7754] mr-2" /> FDA Approved</li>
-                                <li className="flex items-center text-sm text-gray-500"><Check size={14} className="text-[#EC7754] mr-2" /> Minimal Downtime</li>
-                            </ul>
-                            <Button className="bg-[#F8F4EB] text-[#333333] hover:bg-[#EC7754] hover:text-white border-none shadow-none">
-                                Learn More
-                            </Button>
-                        </div>
-                        <div className="w-full lg:w-2/3 grid grid-cols-2 gap-4">
-                            <div className="relative h-64 rounded-2xl overflow-hidden">
-                                <BeforeAfterPlaceholder className="w-full h-full" label="Before" />
-                            </div>
-                            <div className="relative h-64 rounded-2xl overflow-hidden">
-                                <BeforeAfterPlaceholder className="w-full h-full bg-[#D4A380]" label="After" color="#333" />
-                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-[#EC7754] shadow-sm">
-                                    Result
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-);
-
-// ---------------------------------------------------
-// Design 6: Overlapping Elegance (New)
-// ---------------------------------------------------
-const Design6 = () => (
-    <section className="w-full bg-[#F8F4EB] py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#333333]">{content.title}</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-24">
-                {content.items.map((item, idx) => (
-                    <div key={idx} className="relative group">
-                        {/* Image Card */}
-                        <div className="w-full h-[350px] rounded-2xl overflow-hidden shadow-md relative z-0">
-                            <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
-                                <BeforeAfterPlaceholder className="w-full h-full" label="Before" />
-                            </div>
-                            <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                <BeforeAfterPlaceholder className="w-full h-full bg-[#D4A380]" label="After" color="#333" />
-                            </div>
-                        </div>
-
-                        {/* Floating Text Card */}
-                        <div className="absolute -bottom-12 left-8 right-8 bg-white p-6 rounded-xl shadow-xl z-10 border border-gray-100 group-hover:-translate-y-2 transition-transform duration-300">
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <h3 className="text-lg font-bold text-[#333333] mb-2">{item.title}</h3>
-                                    <p className="text-xs text-gray-500 line-clamp-2">{item.description}</p>
-                                </div>
-                                <div className="bg-[#F8F4EB] p-2 rounded-full text-[#EC7754]">
-                                    <Sparkles size={16} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-);
-
-// ---------------------------------------------------
-// Design 7: Vertical Accordion (New)
-// ---------------------------------------------------
-const Design7 = () => {
-    const [activeIdx, setActiveIdx] = useState(0);
+// --- Variation 6: Accordion Cards ---
+export const Section5Var6 = () => {
+    const [expanded, setExpanded] = useState<number | null>(0);
 
     return (
-        <section className="w-full bg-white py-16 lg:py-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#333333] mb-12 text-center">{content.title}</h2>
-
-                <div className="flex flex-col md:flex-row gap-2 h-[600px] w-full">
-                    {content.items.map((item, idx) => (
-                        <div
+        <section className="py-20 bg-[#FDFBF7]">
+            <MaxWidthWrapper>
+                <SectionHeader />
+                <div className="flex flex-col md:flex-row gap-4 h-[600px]">
+                    {servicesData.slice(0, 5).map((service, idx) => (
+                        <motion.div
                             key={idx}
-                            onClick={() => setActiveIdx(idx)}
-                            className={`relative overflow-hidden rounded-2xl cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${activeIdx === idx ? 'flex-[4]' : 'flex-[1]'}`}
+                            className="relative overflow-hidden rounded-2xl cursor-pointer"
+                            animate={{ flex: expanded === idx ? 3 : 1 }}
+                            onClick={() => setExpanded(idx)}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
                         >
-                            <div className="absolute inset-0">
-                                <BeforeAfterPlaceholder className={`w-full h-full ${activeIdx === idx ? 'bg-[#D4A380]' : 'bg-[#e8dcd0]'}`} label={activeIdx === idx ? "After" : "Before"} color={activeIdx === idx ? "#333" : "#D4A380"} />
-                            </div>
+                            <Image src={service.coverImageUrl} alt={service.title} fill className="object-cover" />
+                            <div className={cn("absolute inset-0 bg-black/30 transition-colors", expanded === idx ? "bg-black/20" : "bg-black/60")} />
 
-                            <div className="absolute inset-0 bg-black/30 hover:bg-black/10 transition-colors" />
-
-                            <div className={`absolute bottom-0 left-0 w-full p-6 text-white transition-all duration-500 ${activeIdx === idx ? 'opacity-100' : 'opacity-80'}`}>
-                                <h3 className={`font-bold whitespace-nowrap ${activeIdx === idx ? 'text-2xl mb-2' : 'text-lg -rotate-90 origin-bottom-left translate-x-8 mb-8'}`}>
-                                    {item.title}
-                                </h3>
-                                {activeIdx === idx && (
-                                    <p className="text-sm text-white/90 max-w-md animate-fadeIn delay-100">{item.description}</p>
+                            <div className="absolute bottom-0 left-0 w-full p-6">
+                                {expanded !== idx ? (
+                                    <h3 className="text-white font-bold text-lg md:-rotate-90 md:origin-bottom-left md:absolute md:bottom-8 md:left-8 whitespace-nowrap">
+                                        {service.title}
+                                    </h3>
+                                ) : (
+                                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+                                        <h3 className="text-white font-bold text-2xl mb-2">{service.title}</h3>
+                                        <p className="text-white/90 mb-4">{service.description}</p>
+                                        <Link href={service.url}>
+                                            <Button size="sm" className="bg-white text-black hover:bg-gray-200">View Details</Button>
+                                        </Link>
+                                    </motion.div>
                                 )}
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-            </div>
+                <ViewAllButton />
+            </MaxWidthWrapper>
         </section>
     );
 };
 
-// ---------------------------------------------------
-// Design 8: Circle Reveal (New)
-// ---------------------------------------------------
-const Design8 = () => (
-    <section className="w-full bg-[#F8F4EB] py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-                <span className="text-[#EC7754] font-semibold uppercase text-sm tracking-wider">{content.overline}</span>
-                <h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-semibold text-[#333333]">{content.title}</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                {content.items.slice(0, 3).map((item, idx) => (
-                    <div key={idx} className="flex flex-col items-center text-center group">
-                        <div className="relative w-64 h-64 mb-8">
-                            <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white shadow-lg z-10 transition-transform duration-500 group-hover:scale-95 group-hover:opacity-0">
-                                <BeforeAfterPlaceholder className="w-full h-full" label="Before" />
-                            </div>
-                            <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-[#EC7754] shadow-lg z-0 scale-95 opacity-0 transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
-                                <BeforeAfterPlaceholder className="w-full h-full bg-[#D4A380]" label="After" color="#333" />
-                            </div>
-                        </div>
-                        <h3 className="text-xl font-bold text-[#333333] mb-3">{item.title}</h3>
-                        <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                        <Button variant="link" className="text-[#EC7754] p-0">View Details</Button>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-);
-
-// ---------------------------------------------------
-// Design 9: Tabbed Transformation (New)
-// ---------------------------------------------------
-const Design9 = () => {
-    const [activeTab, setActiveTab] = useState(0);
-
+// --- Variation 7: Circular/Icon Focus ---
+export const Section5Var7 = () => {
     return (
-        <section className="w-full bg-white py-16 lg:py-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    {/* Tabs List */}
-                    <div className="lg:col-span-4 flex flex-col justify-center space-y-2">
-                        <h2 className="text-3xl md:text-4xl font-semibold text-[#333333] mb-8">{content.title}</h2>
-                        {content.items.map((item, idx) => (
-                            <div
-                                key={idx}
-                                onClick={() => setActiveTab(idx)}
-                                className={`p-4 rounded-lg cursor-pointer transition-all duration-300 flex items-center justify-between ${activeTab === idx ? 'bg-[#333333] text-white shadow-lg' : 'hover:bg-gray-50 text-gray-600'}`}
-                            >
-                                <span className="font-medium">{item.title}</span>
-                                {activeTab === idx && <ArrowRight size={16} />}
+        <section className="py-20 bg-white">
+            <MaxWidthWrapper>
+                <SectionHeader />
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    {servicesData.map((service, idx) => (
+                        <Link key={idx} href={service.url} className="group flex flex-col items-center text-center p-6 rounded-2xl hover:bg-[#F8F4EB] transition-colors">
+                            <div className="relative w-32 h-32 mb-6 rounded-full overflow-hidden border-4 border-[#F8F4EB] group-hover:border-[#D4A380] transition-colors">
+                                <Image src={service.coverImageUrl} alt={service.title} fill className="object-cover" />
                             </div>
-                        ))}
-                        <div className="pt-8">
-                            <Button className="w-full bg-[#EC7754] hover:bg-[#D4A380] text-white">View All Services</Button>
-                        </div>
-                    </div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+                            <p className="text-sm text-gray-500 line-clamp-2 mb-4">{service.description}</p>
+                            <span className="text-[#D4A380] text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                                Discover More
+                            </span>
+                        </Link>
+                    ))}
+                </div>
+                <ViewAllButton />
+            </MaxWidthWrapper>
+        </section>
+    );
+};
 
-                    {/* Display Area */}
-                    <div className="lg:col-span-8 relative h-[500px] rounded-3xl overflow-hidden bg-[#F8F4EB]">
-                        {content.items.map((item, idx) => (
-                            <div
+// --- Variation 8: Parallax Cards ---
+export const Section5Var8 = () => {
+    return (
+        <section className="py-20 bg-[#F0F0F0] overflow-hidden">
+            <MaxWidthWrapper>
+                <SectionHeader />
+                <div className="relative">
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {servicesData.map((service, idx) => (
+                            <Link
                                 key={idx}
-                                className={`absolute inset-0 transition-all duration-500 flex flex-col md:flex-row ${activeTab === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                                href={service.url}
+                                className={cn(
+                                    "w-full md:w-[45%] lg:w-[30%] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500",
+                                    idx % 2 === 0 ? "md:translate-y-0" : "md:translate-y-12"
+                                )}
                             >
-                                <div className="w-full md:w-1/2 h-1/2 md:h-full relative border-r border-white/20">
-                                    <BeforeAfterPlaceholder className="w-full h-full" label="Before Treatment" />
+                                <div className="h-64 relative">
+                                    <Image src={service.coverImageUrl} alt={service.title} fill className="object-cover" />
                                 </div>
-                                <div className="w-full md:w-1/2 h-1/2 md:h-full relative">
-                                    <BeforeAfterPlaceholder className="w-full h-full bg-[#D4A380]" label="After Treatment" color="#333" />
-                                    <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg">
-                                        <p className="text-sm text-[#333333] font-medium">{item.description}</p>
+                                <div className="p-8">
+                                    <div className="w-12 h-1 bg-[#D4A380] mb-4" />
+                                    <h3 className="text-2xl font-serif text-gray-900 mb-3">{service.title}</h3>
+                                    <p className="text-gray-600 mb-6">{service.description}</p>
+                                    <div className="flex justify-between items-center border-t pt-4">
+                                        <span className="text-sm text-gray-400">0{idx + 1}</span>
+                                        <ArrowRight className="text-gray-900 w-5 h-5" />
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
-            </div>
+                <div className="mt-20">
+                    <ViewAllButton />
+                </div>
+            </MaxWidthWrapper>
         </section>
     );
 };
 
-// ---------------------------------------------------
-// Main Component to Render All Variations
-// ---------------------------------------------------
+// --- Variation 9: Dark Mode Elegant ---
+export const Section5Var9 = () => {
+    return (
+        <section className="py-24 bg-[#0F172A] text-white">
+            <MaxWidthWrapper>
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+                    <div>
+                        <span className="text-[#38BDF8] font-bold tracking-widest uppercase text-xs">Our Services</span>
+                        <h2 className="mt-2 text-4xl md:text-5xl font-bold">Signature Treatments</h2>
+                    </div>
+                    <Link href="/services" className="hidden md:block">
+                        <Button variant="outline" className="border-white/20 text-white hover:bg-white hover:text-black rounded-full">
+                            View All Services
+                        </Button>
+                    </Link>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {servicesData.slice(0, 6).map((service, idx) => (
+                        <Link key={idx} href={service.url} className="group relative bg-[#1E293B] rounded-2xl p-1 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#38BDF8]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="relative bg-[#0F172A] rounded-xl p-6 h-full flex flex-col">
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className="p-3 bg-[#1E293B] rounded-lg">
+                                        <Image src={service.iconUrl} alt="" width={30} height={30} className="invert opacity-80" />
+                                    </div>
+                                    <ArrowUpRight className="text-gray-500 group-hover:text-[#38BDF8] transition-colors" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-2 group-hover:text-[#38BDF8] transition-colors">{service.title}</h3>
+                                <p className="text-gray-400 text-sm mb-6 flex-grow">{service.description}</p>
+                                <div className="h-48 relative rounded-lg overflow-hidden">
+                                    <Image src={service.coverImageUrl} alt={service.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+                <div className="mt-8 md:hidden flex justify-center">
+                    <Button variant="outline" className="border-white/20 text-white">View All</Button>
+                </div>
+            </MaxWidthWrapper>
+        </section>
+    );
+};
+
+// --- Variation 10: Glassmorphism Overlay ---
+export const Section5Var10 = () => {
+    return (
+        <section className="py-20 relative">
+            <div className="absolute inset-0 z-0">
+                <Image src="/images/services/hydra.png" alt="Background" fill className="object-cover opacity-20 blur-sm" />
+                <div className="absolute inset-0 bg-white/80" />
+            </div>
+
+            <MaxWidthWrapper className="relative z-10">
+                <SectionHeader />
+                <Carousel className="w-full" opts={{ align: "center", loop: true }}>
+                    <CarouselContent>
+                        {servicesData.map((service, idx) => (
+                            <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3 p-4">
+                                <Link href={service.url}>
+                                    <div className="bg-white/40 backdrop-blur-md border border-white/50 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                                        <div className="relative h-64 rounded-2xl overflow-hidden mb-6 shadow-inner">
+                                            <Image src={service.coverImageUrl} alt={service.title} fill className="object-cover" />
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-gray-800 mb-2 text-center">{service.title}</h3>
+                                        <p className="text-gray-600 text-center text-sm mb-6">{service.description}</p>
+                                        <div className="flex justify-center">
+                                            <span className="px-6 py-2 bg-white/60 rounded-full text-sm font-semibold text-gray-700 group-hover:bg-[#D4A380] group-hover:text-white transition-colors">
+                                                View Details
+                                            </span>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </Carousel>
+                <ViewAllButton />
+            </MaxWidthWrapper>
+        </section>
+    );
+};
+
+// --- Main Export for Test Page ---
 export const Section5Variations = () => {
     return (
-        <div className="flex flex-col gap-20 pb-20 bg-gray-50">
-            <div className="text-center py-12 bg-white border-b sticky top-0 z-50 shadow-sm">
-                <h1 className="text-3xl font-bold mb-2 text-[#333333]">Section 5 – Variations</h1>
-                <p className="text-gray-500">Our Signature Treatments (Spotlight)</p>
+        <div className="space-y-24 pb-20">
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 1: Minimal Grid
+                </div>
+                <Section5Var1 />
             </div>
 
-            <div className="relative">
-                <div className="absolute top-0 left-4 bg-[#333333] text-white px-4 py-2 text-sm font-bold rounded-b-lg z-40 shadow-md">
-                    Option 1: Classic Split Cards
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 2: Elegant Carousel
                 </div>
-                <Design1 />
+                <Section5Var2 />
             </div>
 
-            <div className="relative">
-                <div className="absolute top-0 left-4 bg-[#333333] text-white px-4 py-2 text-sm font-bold rounded-b-lg z-40 shadow-md">
-                    Option 2: Hover Reveal Carousel
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 3: List with Hover Preview
                 </div>
-                <Design2 />
+                <Section5Var3 />
             </div>
 
-            <div className="relative">
-                <div className="absolute top-0 left-4 bg-[#333333] text-white px-4 py-2 text-sm font-bold rounded-b-lg z-40 shadow-md">
-                    Option 3: Elegant List with Preview
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 4: Bento Grid
                 </div>
-                <Design3 />
+                <Section5Var4 />
             </div>
 
-            <div className="relative">
-                <div className="absolute top-0 left-4 bg-[#333333] text-white px-4 py-2 text-sm font-bold rounded-b-lg z-40 shadow-md">
-                    Option 4: Flip Cards
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 5: Horizontal Snap Scroll (Dark)
                 </div>
-                <Design4 />
+                <Section5Var5 />
             </div>
 
-            <div className="relative">
-                <div className="absolute top-0 left-4 bg-[#333333] text-white px-4 py-2 text-sm font-bold rounded-b-lg z-40 shadow-md">
-                    Option 5: Side-by-Side Comparison
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 6: Accordion Cards
                 </div>
-                <Design5 />
+                <Section5Var6 />
             </div>
 
-            <div className="relative">
-                <div className="absolute top-0 left-4 bg-[#333333] text-white px-4 py-2 text-sm font-bold rounded-b-lg z-40 shadow-md">
-                    Option 6: Overlapping Elegance
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 7: Circular/Icon Focus
                 </div>
-                <Design6 />
+                <Section5Var7 />
             </div>
 
-            <div className="relative">
-                <div className="absolute top-0 left-4 bg-[#333333] text-white px-4 py-2 text-sm font-bold rounded-b-lg z-40 shadow-md">
-                    Option 7: Vertical Accordion
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 8: Parallax Cards
                 </div>
-                <Design7 />
+                <Section5Var8 />
             </div>
 
-            <div className="relative">
-                <div className="absolute top-0 left-4 bg-[#333333] text-white px-4 py-2 text-sm font-bold rounded-b-lg z-40 shadow-md">
-                    Option 8: Circle Reveal
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 9: Dark Mode Elegant
                 </div>
-                <Design8 />
+                <Section5Var9 />
             </div>
 
-            <div className="relative">
-                <div className="absolute top-0 left-4 bg-[#333333] text-white px-4 py-2 text-sm font-bold rounded-b-lg z-40 shadow-md">
-                    Option 9: Tabbed Transformation
+            <div className="border-b border-gray-200 pb-10">
+                <div className="bg-gray-100 py-4 px-8 mb-4 border-b font-mono text-sm text-gray-500 sticky top-0 z-50 opacity-90">
+                    Variation 10: Glassmorphism Overlay
                 </div>
-                <Design9 />
+                <Section5Var10 />
             </div>
         </div>
     );

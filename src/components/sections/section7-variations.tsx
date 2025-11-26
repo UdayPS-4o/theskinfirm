@@ -90,10 +90,10 @@ export const Design2 = () => {
 // --- Design 3: Masonry Grid with Central Focus ---
 export const Design3 = () => {
     return (
-        <section className="w-full bg-white py-16 lg:py-24">
+        <section className="w-full bg-white py-20 lg:py-28">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl sm:text-5xl font-bold text-[#333333] mb-6">{content.title}</h2>
+                    <h2 className="text-4xl lg:text-5xl font-semibold text-[#333333] mb-6">{content.title}</h2>
                     <p className="text-[#6C6C6C] max-w-3xl mx-auto text-lg">{content.paragraphs[0]}</p>
                 </div>
 
