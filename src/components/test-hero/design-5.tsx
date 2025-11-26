@@ -13,7 +13,7 @@ export const Design5 = () => {
                     <div className="lg:col-span-7 flex flex-col gap-8 pr-0 lg:pr-12">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8A7B70]/30 text-[#8A7B70] text-xs font-medium w-fit uppercase tracking-wider">
                             <span className="w-2 h-2 rounded-full bg-[#D4A380]" />
-                            Pune's Premier Skin Clinic
+                            Pune&apos;s Premier Skin Clinic
                         </div>
 
                         <h1 className="text-[#4A4036] text-5xl lg:text-[5rem] leading-[1.1] font-medium tracking-tight">
@@ -71,7 +71,7 @@ export const Design5 = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
                             <div className="absolute bottom-6 left-6 right-6 text-white">
-                                <p className="font-serif italic text-lg opacity-90">"Reveal your most radiant self"</p>
+                                <p className="font-serif italic text-lg opacity-90">&ldquo;Reveal your most radiant self&rdquo;</p>
                             </div>
                         </div>
 
