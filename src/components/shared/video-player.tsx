@@ -1,61 +1,71 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
 interface VideoPlayerProps {
     src: string;
     className?: string;
-    style?: React.CSSProperties;
     objectPosition?: string;
 }
 
 export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     src,
     className = "",
-    style = {},
-    objectPosition = "center 40%",
+    objectPosition = "center",
 }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [isMuted, setIsMuted] = useState(true);
+    const [isMuted, setIsMuted] = useState(true); // Start muted for autoplay compatibility
     const [isVisible, setIsVisible] = useState(false);
 
-    // Load mute preference from localStorage on mount
+    // Autoplay video on mount (must be muted for autoplay to work)
     useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        // Try to load saved preference, default to muted
         const savedMutePreference = localStorage.getItem("videoMuted");
-        if (savedMutePreference !== null) {
-            const mutedValue = savedMutePreference === "true";
-            setIsMuted(mutedValue);
-            if (videoRef.current) {
-                videoRef.current.muted = mutedValue;
-            }
-        }
+        const shouldBeMuted = savedMutePreference !== "false"; // Default to muted
+
+        setIsMuted(shouldBeMuted);
+        video.muted = shouldBeMuted;
+
+        // Autoplay (muted to ensure it works)
+        video.play().catch((e) => console.error("Autoplay failed:", e));
     }, []);
 
     // Intersection Observer to pause/play video when out of/in view
     useEffect(() => {
-        const videoElement = videoRef.current;
-        if (!videoElement) return;
+        const video = videoRef.current;
+        if (!video) return;
+
+        let hasPlayedOnce = false;
 
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     setIsVisible(entry.isIntersecting);
+
+                    // On initial load, the video should be playing already from the first useEffect
+                    // Only control play/pause when scrolling after initial load
+                    if (!hasPlayedOnce) {
+                        hasPlayedOnce = true;
+                        return;
+                    }
+
                     if (entry.isIntersecting) {
-                        videoElement.play().catch((err) => {
-                            console.log("Video play error:", err);
+                        video.play().catch(() => {
+                            // Play failed, might need user interaction
                         });
                     } else {
-                        videoElement.pause();
+                        video.pause();
                     }
                 });
             },
-            {
-                threshold: 0.5, // Video is considered visible when 50% is in view
-            }
+            { threshold: 0.1 } // Lower threshold so it starts playing sooner
         );
 
-        observer.observe(videoElement);
+        observer.observe(video);
 
         return () => {
             observer.disconnect();
@@ -78,7 +88,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
             <video
                 ref={videoRef}
                 className={className}
-                style={{ objectPosition, ...style }}
+                style={{ objectPosition }}
                 loop
                 playsInline
                 src={src}
@@ -88,14 +98,10 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
             {isVisible && (
                 <button
                     onClick={toggleMute}
-                    className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300 flex items-center justify-center shadow-lg hover:scale-110 z-10"
+                    className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 z-10"
                     aria-label={isMuted ? "Unmute video" : "Mute video"}
                 >
-                    {isMuted ? (
-                        <VolumeX className="w-5 h-5 text-[#4A4036]" />
-                    ) : (
-                        <Volume2 className="w-5 h-5 text-[#4A4036]" />
-                    )}
+                    {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                 </button>
             )}
         </div>
