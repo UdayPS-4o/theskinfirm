@@ -4,16 +4,21 @@ import { withPayload } from "@payloadcms/next/withPayload";
 const nextConfig = {
   // output: 'export',
   /* config options here */
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      }
-    ]
-  },
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'placehold.co',
+      port: '',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'utfs.io',
+      port: '',
+      pathname: '/**',
+    }
+  ],
+  minimumCacheTTL: 60,
   // SEO optimizations
   compress: true,
   poweredByHeader: false,
@@ -55,7 +60,7 @@ const nextConfig = {
       { source: '/laser-tattoo-removal', destination: '/services/tattoo-removal', permanent: true },
       { source: '/carbon-laser-toning', destination: '/services/carbon-laser-facial', permanent: true },
       { source: '/laser-strech-mark-removal', destination: '/services/stretch-marks-removal', permanent: true },
-      
+
       // Category redirects to the main services page with a query param
       { source: '/skin-services', destination: '/services?tab=skin', permanent: true },
       { source: '/hair-services', destination: '/services?tab=hair', permanent: true },

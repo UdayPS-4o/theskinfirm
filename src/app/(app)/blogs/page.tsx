@@ -3,6 +3,8 @@ import { HeroSection } from "./_sections/HeroSection";
 import { TrendingSection } from "./_sections/TrendingSection";
 import config from "@payload-config";
 
+export const revalidate = 60;
+
 export default async function BlogsPage() {
   const payload = await getPayload({ config });
   const { docs: trendingPosts } = await payload.find({
