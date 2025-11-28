@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, Check, Star, Award, ShieldCheck, Sparkles, UserCheck } from "lucide-react";
+import { ArrowRight, Check, Star, Award, ShieldCheck, Sparkles, UserCheck, BadgeCheck, Clock, Users } from "lucide-react";
 
 const content = {
     headline: "Meet Dr. Karishma Singh - Pune’s Trusted Skin Specialist",
@@ -250,14 +250,18 @@ export const Design6 = () => {
                         </h2>
 
                         <div className="flex flex-col gap-4 max-w-lg mx-auto lg:mx-0">
-                            {content.highlights.map((item, idx) => (
-                                <div key={idx} className="flex items-center gap-4 bg-white p-4 rounded-full shadow-sm hover:shadow-md transition-shadow">
-                                    <div className="w-8 h-8 rounded-full bg-[#F8F4EB] flex items-center justify-center text-[#D4A380]">
-                                        <Sparkles size={16} />
+                            {content.highlights.map((item, idx) => {
+                                const icons = [BadgeCheck, Award, Clock, Users];
+                                const Icon = icons[idx];
+                                return (
+                                    <div key={idx} className="flex items-center gap-4 bg-white p-4 rounded-full shadow-sm hover:shadow-md transition-shadow">
+                                        <div className="w-8 h-8 rounded-full bg-[#F8F4EB] flex items-center justify-center text-[#D4A380]">
+                                            <Icon size={16} />
+                                        </div>
+                                        <span className="text-[#333333] font-medium">{item}</span>
                                     </div>
-                                    <span className="text-[#333333] font-medium">{item}</span>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
 
                         <div className="pt-4">

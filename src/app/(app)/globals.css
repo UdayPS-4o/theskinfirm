@@ -2,8 +2,6 @@
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -98,45 +96,13 @@
   --color-white-60: rgba(255, 255, 255, 0.6);
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
 
 /* Animation Classes */
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -147,6 +113,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -157,20 +124,19 @@
   0% {
     background-position: -1000px 0;
   }
+
   100% {
     background-position: 1000px 0;
   }
 }
 
 .skeleton-shimmer {
-  background: linear-gradient(
-    90deg,
-    #F8F4EB 0%,
-    #e8dcd0 20%,
-    #d4a380 50%,
-    #e8dcd0 80%,
-    #F8F4EB 100%
-  );
+  background: linear-gradient(90deg,
+      #F8F4EB 0%,
+      #e8dcd0 20%,
+      #d4a380 50%,
+      #e8dcd0 80%,
+      #F8F4EB 100%);
   background-size: 1000px 100%;
   animation: skeleton-shimmer 2s infinite linear;
 }
@@ -209,12 +175,13 @@
   html {
     scroll-behavior: smooth;
   }
+
   .animate-fadeInUp {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
-  
+
   .animate-fadeInUp.in-view {
     opacity: 1;
     transform: translateY(0);
@@ -229,9 +196,11 @@ html {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     font-size: 16px;
   }
@@ -239,6 +208,17 @@ html {
   @media (max-width: 768px) {
     html {
       font-size: 14px;
+    }
+
+    /* Reduce motion on mobile for better performance */
+    * {
+      animation-duration: 0.2s !important;
+      transition-duration: 0.2s !important;
+    }
+
+    /* Optimize transforms for mobile */
+    * {
+      will-change: auto !important;
     }
   }
 
@@ -248,10 +228,33 @@ html {
     }
   }
 }
+
+/* Mobile-specific performance optimizations */
+@media (max-width: 768px) {
+
+  /* Disable expensive effects on mobile */
+  .blur,
+  [class*="blur"] {
+    filter: none !important;
+  }
+
+  /* Reduce shadow complexity on mobile */
+  [class*="shadow"] {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Optimize backdrop effects */
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+  }
+}
+
 /* styles/globals.css or app/globals.css */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -286,11 +289,13 @@ html {
     filter: blur(8px);
     transform: translateY(20px) scale(0.95);
   }
+
   50% {
     opacity: 0.5;
     filter: blur(4px);
     transform: translateY(10px) scale(0.98);
   }
+
   100% {
     opacity: 1;
     filter: blur(0px);
@@ -304,11 +309,13 @@ html {
     filter: blur(0px);
     transform: translateY(0) scale(1);
   }
+
   50% {
     opacity: 0.5;
     filter: blur(4px);
     transform: translateY(-10px) scale(0.98);
   }
+
   100% {
     opacity: 0;
     filter: blur(8px);
@@ -356,9 +363,11 @@ html {
 .rich-text h1 {
   @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px]
 }
+
 .rich-text h2 {
   @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
 }
+
 .rich-text h3 {
   @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl
 }

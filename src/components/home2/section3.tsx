@@ -16,7 +16,14 @@ export const Section3Home2 = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div className="lg:col-span-7 relative">
                             <div className="relative h-[400px] lg:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl">
-                                <Image src={imagePath} alt="Bridal Prep" fill className="object-cover" />
+                                <Image
+                                    src={imagePath}
+                                    alt="Bridal Prep"
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
+                                />
                             </div>
                         </div>
                         <div className="lg:col-span-5 lg:-ml-12 z-10">

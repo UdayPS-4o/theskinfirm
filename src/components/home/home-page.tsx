@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Design6 as Hero } from "@/components/test-hero/design-6";
+import { HeroSection } from "@/components/home/hero-section";
 import { Section3Home2 } from "@/components/home2/section3";
 import { Section4Home2 } from "@/components/home2/section4";
 import { Section5Home2 } from "@/components/home2/section5";
@@ -27,7 +27,7 @@ export default function HomePage({ heroOffer }: HomePageProps) {
       <div className="w-full">
         <main role="main">
           <section id="hero">
-            <Hero />
+            <HeroSection />
           </section>
 
           {/* Section backgrounds should NOT animate, only content within */}

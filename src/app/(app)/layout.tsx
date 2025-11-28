@@ -122,6 +122,8 @@ const jsonLd = {
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap", // Ensures text remains visible during font load
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -212,6 +214,20 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.google.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* DNS prefetch for all external domains */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.gstatic.com" />
+        <link rel="dns-prefetch" href="https://utfs.io" />
+      </head>
       <body
         className={`${inter.variable} antialiased`}
       >
@@ -220,10 +236,10 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Script
-          async
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-2D5D0GH7J3"
-        ></Script>
-        <Script id="google-analytics-script">
+        />
+        <Script id="google-analytics-script" strategy="afterInteractive">
           {`
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -232,7 +248,7 @@ export default async function RootLayout({
   gtag('config', 'G-2D5D0GH7J3');
 `}
         </Script>
-        <Script src="https://www.google.com/recaptcha/api.js" async defer />
+        <Script src="https://www.google.com/recaptcha/api.js" strategy="lazyOnload" />
         <SkeletonOverlayProvider>
           <SkeletonOverlay />
           <Navbar

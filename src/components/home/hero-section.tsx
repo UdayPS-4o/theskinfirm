@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { VideoPlayer } from "@/components/shared/video-player";
 
-export const Design6 = () => {
+export const HeroSection = () => {
     return (
         <div className="w-full bg-[#FBEDE4] min-h-screen lg:h-[90vh] flex flex-col lg:flex-row overflow-hidden">
             {/* Left Side - Text Content (60%) */}
@@ -22,19 +22,19 @@ export const Design6 = () => {
                     </h1>
 
                     <p className="text-[#606060] text-lg lg:text-xl leading-relaxed max-w-xl border-l-4 border-[#D4A380] pl-6">
-                        Experience advanced dermatology and aesthetic treatments at The Skin Firm, led by renowned skin specialist <span className="text-[#4A4036] font-semibold">Dr. Karishma Singh</span>.
+                        Experience advanced dermatology and aesthetic treatments at The Skin Firm, led by renowned skin specialist <span className="text-[#4A4036] font-semibold whitespace-nowrap">Dr. Karishma Singh</span>.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-5 mt-4">
+                    <div className="flex flex-row gap-2 sm:gap-5 mt-4">
                         <Link href="/contact">
-                            <Button className="rounded-2xl bg-[#4A4036] hover:bg-[#5C5148] text-white px-8 py-7 text-lg h-auto shadow-xl shadow-[#4A4036]/10">
+                            <Button className="rounded-2xl bg-[#4A4036] hover:bg-[#5C5148] text-white px-5 py-4 text-sm sm:px-8 sm:py-7 sm:text-lg h-auto shadow-xl shadow-[#4A4036]/10 whitespace-nowrap">
                                 Book a Consultation
                             </Button>
                         </Link>
                         <Link href="/services">
-                            <Button variant="ghost" className="rounded-2xl text-[#4A4036] hover:bg-[#D4A380]/10 px-8 py-7 text-lg h-auto flex items-center gap-3">
+                            <Button variant="ghost" className="rounded-2xl text-[#4A4036] hover:bg-[#D4A380]/10 px-4 py-4 text-sm sm:px-8 sm:py-7 sm:text-lg h-auto flex items-center gap-2 sm:gap-3 whitespace-nowrap">
                                 Explore Services
-                                <ArrowRight className="w-5 h-5" />
+                                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                             </Button>
                         </Link>
                     </div>
@@ -44,7 +44,7 @@ export const Design6 = () => {
             </div>
 
             {/* Right Side - Video (40%) */}
-            <div className="w-full lg:w-[40%] h-[50vh] lg:h-full relative order-1 lg:order-2 overflow-hidden">
+            <div className="w-full lg:w-[40%] h-[45vh] lg:h-full relative order-1 lg:order-2 overflow-hidden">
                 <VideoPlayer
                     src="/theskinfirm.mp4"
                     className="w-full h-full object-cover object-center"

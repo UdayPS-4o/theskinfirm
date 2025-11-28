@@ -91,6 +91,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
                 style={{ objectPosition }}
                 loop
                 playsInline
+                preload="metadata"
                 src={src}
             />
 

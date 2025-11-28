@@ -19,7 +19,7 @@ export default function SampleBlogPage() {
                     </h1>
 
                     <p className="text-lg md:text-xl text-[#666666] leading-relaxed max-w-2xl mx-auto">
-                        Pigmentation may be stubborn, but it isn't permanent. Discover the causes, types, and the most effective dermatologist-approved treatments for radiant, even-toned skin.
+                        Pigmentation may be stubborn, but it isn&apos;t permanent. Discover the causes, types, and the most effective dermatologist-approved treatments for radiant, even-toned skin.
                     </p>
 
                     <div className="flex items-center justify-center gap-4 pt-4">
@@ -61,11 +61,11 @@ export default function SampleBlogPage() {
                     </p>
 
                     <p>
-                        But the good news for you today is : pigmentation is treatable. You no longer have to settle for filters or for full-coverage concealers for your life. At The Skin Firm, we believe in restoring not just your skin tone, but your confidence also with real solutions that begin with understanding your skin's language first.
+                        But the good news for you today is : pigmentation is treatable. You no longer have to settle for filters or for full-coverage concealers for your life. At The Skin Firm, we believe in restoring not just your skin tone, but your confidence also with real solutions that begin with understanding your skin&apos;s language first.
                     </p>
 
                     <p>
-                        Let's start by exploring how our skilled dermatologists approach facial pigmentation.
+                        Let&apos;s start by exploring how our skilled dermatologists approach facial pigmentation.
                     </p>
 
                     <h3>Understanding Pigmentation: What Leads To It?</h3>
@@ -102,7 +102,7 @@ export default function SampleBlogPage() {
 
                     <h4>2. Chemical Peels</h4>
                     <p>
-                        Peels like salicylic, mandelic, glycolic, or yellow peel are used to exfoliate the outermost layers of the skin which aid by accelerating cell turnover and gently fading pigmentation over time. At The Skin Firm, we customize each and every peel on the basis of your skin sensitivity, concerns and lifestyle. We don't believe in "peeling-for-the-sake-of-it."
+                        Peels like salicylic, mandelic, glycolic, or yellow peel are used to exfoliate the outermost layers of the skin which aid by accelerating cell turnover and gently fading pigmentation over time. At The Skin Firm, we customize each and every peel on the basis of your skin sensitivity, concerns and lifestyle. We don&apos;t believe in &quot;peeling-for-the-sake-of-it.&quot;
                     </p>
 
                     <h4>3. Laser Treatments</h4>
@@ -128,23 +128,23 @@ export default function SampleBlogPage() {
 
                     <h3>The Golden Rule: Sunscreen is A Non-Negotiable</h3>
                     <p>
-                        Sun protection is the first and foremost step in every procedure. Even the most sophisticated treatments will not be effective without daily, religious broad-spectrum SPF application. It's your skin's best defense against recurrence.
+                        Sun protection is the first and foremost step in every procedure. Even the most sophisticated treatments will not be effective without daily, religious broad-spectrum SPF application. It&apos;s your skin&apos;s best defense against recurrence.
                     </p>
 
                     <h3>Escalating Pigmentation: Signs You Need Professional Help</h3>
                     <ul className="space-y-2 marker:text-[#D4A380]">
                         <li>If it appears suddenly or has unexpectedly worsened over time</li>
-                        <li>If over-the-counter products aren't making it better</li>
+                        <li>If over-the-counter products aren&apos;t making it better</li>
                         <li>If you have noticed acne, sensitivity, or inflammation</li>
                         <li>If it has started to impact your confidence and everyday life</li>
                     </ul>
                     <p>
-                        …it's time to seek professional advice.
+                        …it&apos;s time to seek professional advice.
                     </p>
 
                     <div className="my-12 p-8 bg-white border-l-4 border-[#D4A380] rounded-r-lg shadow-sm">
                         <p className="text-lg italic text-[#555] m-0">
-                            At The Skin Firm, our dermatologists offer comprehensive skin analysis and modified protocols because treating pigmentation isn't about just lightening the skin; it's about healing it safely and supporting it fully.
+                            At The Skin Firm, our dermatologists offer comprehensive skin analysis and modified protocols because treating pigmentation isn&apos;t about just lightening the skin; it&apos;s about healing it safely and supporting it fully.
                         </p>
                     </div>
 

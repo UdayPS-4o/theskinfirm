@@ -157,7 +157,7 @@ export const Section5Home2 = () => {
                 >
                     {/* Mobile Grid Layout (2x2) */}
                     <div className="grid grid-cols-2 gap-3 sm:hidden mb-8">
-                        {mobileServices.map((service) => (
+                        {mobileServices.map((service, idx) => (
                             <Service
                                 key={service.url}
                                 title={service.title}
@@ -165,6 +165,7 @@ export const Section5Home2 = () => {
                                 iconUrl={service.iconUrl}
                                 url={service.url}
                                 variant="mobile"
+                                priority={idx < 2}
                             />
                         ))}
                     </div>
@@ -180,7 +181,7 @@ export const Section5Home2 = () => {
                             }}
                         >
                             <CarouselContent className="flex -ml-2 sm:-ml-4">
-                                {randomizedServices.map((service) => (
+                                {randomizedServices.map((service, idx) => (
                                     <CarouselItem
                                         key={service.url}
                                         className="pl-2 sm:pl-4 basis-4/5 sm:basis-3/4 md:basis-1/2 lg:basis-1/2 xl:basis-1/3"
@@ -191,6 +192,7 @@ export const Section5Home2 = () => {
                                             iconUrl={service.iconUrl}
                                             url={service.url}
                                             variant="default"
+                                            priority={idx < 3}
                                         />
                                     </CarouselItem>
                                 ))}
@@ -231,12 +233,14 @@ function Service({
     iconUrl,
     url,
     variant = "default",
+    priority = false,
 }: {
     coverImageUrl: string;
     title: string;
     iconUrl: string;
     url: string;
     variant?: "default" | "mobile";
+    priority?: boolean;
 }) {
     const isMobile = variant === "mobile";
 
@@ -254,7 +258,8 @@ function Service({
                             ? "aspect-[4/5] h-auto"
                             : "max-w-[300px] sm:max-w-[350px] lg:max-w-[384px] h-[400px] sm:h-[450px] lg:h-[420px] group-hover:scale-105"
                     )}
-                    loading="lazy"
+                    loading={priority ? "eager" : "lazy"}
+                    sizes={isMobile ? "(max-width: 640px) 50vw, 384px" : "(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 384px"}
                 />
                 <div className={cn(
                     "w-full px-2",
