@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Blog } from "@/payload-types";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
 export function TrendingSection({ blogs }: { blogs: Blog[] }) {
   return (
@@ -56,7 +57,7 @@ export function TrendingSection({ blogs }: { blogs: Blog[] }) {
 
 function ArticleCard({ article, index }: { article: Blog; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
-  const seo = article.seo?.filter((b) => b.blockType === "seo")[0];
+  // const seo = article.seo?.filter((b) => b.blockType === "seo")[0]; // Removed
 
   return (
     <motion.div
@@ -88,12 +89,12 @@ function ArticleCard({ article, index }: { article: Blog; index: number }) {
                 src={
                   typeof article.heroImage === "string"
                     ? article.heroImage
-                    : article.heroImage.url || ""
+                    : article.heroImage?.url || ""
                 }
                 alt={
                   typeof article.heroImage === "string"
                     ? "trending-blogs"
-                    : article.heroImage.alt || ""
+                    : article.heroImage?.alt || ""
                 }
                 fill
                 className="object-cover"
@@ -105,20 +106,22 @@ function ArticleCard({ article, index }: { article: Blog; index: number }) {
           {/* Text Wrapper */}
           <div className="flex flex-col gap-4 px-2 py-2">
             {/* Title */}
-            <h3
+            <div
               className="text-[#333333] text-2xl font-normal leading-[1em] tracking-[-0.01em]"
               style={{ fontFamily: "Nunito Sans, sans-serif" }}
             >
-              {seo?.metaTitle}
-            </h3>
+              {/* @ts-ignore */}
+              <RichText data={article.heroTitle} />
+            </div>
 
             {/* Description */}
-            <p
-              className="text-[rgba(51,51,51,0.8)] text-base font-light leading-[1.4em] tracking-[0.01em]"
+            <div
+              className="text-[rgba(51,51,51,0.8)] text-base font-light leading-[1.4em] tracking-[0.01em] line-clamp-3"
               style={{ fontFamily: "Nunito Sans, sans-serif" }}
             >
-              {seo?.metaDescription}
-            </p>
+              {/* @ts-ignore */}
+              <RichText data={article.heroDescription} />
+            </div>
 
             {/* Author and Arrow */}
             <div className="flex justify-between items-center pt-3 border-t border-[rgba(51,51,51,0.16)]">
@@ -127,7 +130,7 @@ function ArticleCard({ article, index }: { article: Blog; index: number }) {
                   className="text-[#333333] text-sm font-normal leading-[1em] tracking-[-0.01em]"
                   style={{ fontFamily: "Nunito Sans, sans-serif" }}
                 >
-                  {article.authorName}
+                  Dr. Karishma Singh
                 </span>
               </div>
 

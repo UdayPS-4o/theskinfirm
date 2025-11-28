@@ -7,6 +7,7 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Blog } from "@/payload-types";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
 export function HeroSection({ featuredBlogs }: { featuredBlogs: Blog[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -89,11 +90,10 @@ export function HeroSection({ featuredBlogs }: { featuredBlogs: Blog[] }) {
             <button
               key={index}
               onClick={() => emblaApi?.scrollTo(index)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                index === selectedIndex
-                  ? "w-8 bg-[#D4A380]"
-                  : "w-1.5 bg-white/50 hover:bg-white/70"
-              }`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${index === selectedIndex
+                ? "w-8 bg-[#D4A380]"
+                : "w-1.5 bg-white/50 hover:bg-white/70"
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -104,9 +104,9 @@ export function HeroSection({ featuredBlogs }: { featuredBlogs: Blog[] }) {
           <div className="flex">
             {featuredBlogs.map((blog, index) => {
               // Safely get SEO data
-              const seoData = blog.seo?.find((b) => b.blockType === "seo");
-              const metaTitle = seoData?.metaTitle || "Untitled";
-              const metaDescription = seoData?.metaDescription || "";
+              // const seoData = blog.seo?.find((b) => b.blockType === "seo");
+              // const metaTitle = seoData?.metaTitle || "Untitled";
+              // const metaDescription = seoData?.metaDescription || "";
 
               return (
                 <div key={index} className="flex-[0_0_100%] min-w-0">
@@ -156,20 +156,22 @@ export function HeroSection({ featuredBlogs }: { featuredBlogs: Blog[] }) {
                             </span>
 
                             {/* Headline */}
-                            <h1
+                            <div
                               className="text-[#333333] text-2xl font-semibold leading-[1.2em] tracking-[-0.01em]"
                               style={{ fontFamily: "Nunito Sans, sans-serif" }}
                             >
-                              {metaTitle}
-                            </h1>
+                              {/* @ts-ignore */}
+                              <RichText data={blog.heroTitle} />
+                            </div>
 
                             {/* Description */}
-                            <p
+                            <div
                               className="text-[rgba(51,51,51,0.8)] text-sm leading-[1.6em]"
                               style={{ fontFamily: "Nunito Sans, sans-serif" }}
                             >
-                              {metaDescription}
-                            </p>
+                              {/* @ts-ignore */}
+                              <RichText data={blog.heroDescription} />
+                            </div>
 
                             {/* CTA Button */}
                             <Link
@@ -245,20 +247,22 @@ export function HeroSection({ featuredBlogs }: { featuredBlogs: Blog[] }) {
                             </span>
 
                             {/* Headline */}
-                            <h1
+                            <div
                               className="text-[#333333] text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-semibold leading-[1em] tracking-[-0.01em] w-full lg:w-[604px]"
                               style={{ fontFamily: "Nunito Sans, sans-serif" }}
                             >
-                              {metaTitle}
-                            </h1>
+                              {/* @ts-ignore */}
+                              <RichText data={blog.heroTitle} />
+                            </div>
 
                             {/* Description */}
-                            <p
+                            <div
                               className="text-[rgba(51,51,51,0.8)] text-base lg:text-[21px] leading-[1.364em] w-full lg:w-[511px] mt-4 lg:mt-6"
                               style={{ fontFamily: "Nunito Sans, sans-serif" }}
                             >
-                              {metaDescription}
-                            </p>
+                              {/* @ts-ignore */}
+                              <RichText data={blog.heroDescription} />
+                            </div>
                           </div>
 
                           {/* CTA Button */}

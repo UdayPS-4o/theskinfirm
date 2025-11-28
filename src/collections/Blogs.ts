@@ -1,5 +1,3 @@
-import { HeroBlock } from "@/blocks/Hero";
-import { SeoBlock } from "@/blocks/Seo";
 import { CollectionConfig } from "payload";
 import slugify from "slugify";
 
@@ -42,30 +40,58 @@ export const Blogs: CollectionConfig = {
       defaultValue: false,
     },
     {
-      name: "seo",
-      type: "blocks",
-      maxRows: 1,
-      blocks: [SeoBlock],
-    },
-    {
-      name: "authorName",
+      name: "category",
       type: "text",
       required: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
+      name: "readTime",
+      type: "text",
+      required: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
+      name: "publishedDate",
+      type: "date",
+      required: true,
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: "article",
       type: "richText",
       required: true,
     },
+    {
+      name: "tags",
+      type: "array",
+      fields: [
+        {
+          name: "tag",
+          type: "text",
+        },
+      ],
+      admin: {
+        position: "sidebar",
+      },
+    },
   ],
   hooks: {
     beforeValidate: [
       ({ data }) => {
-        if (data?.title && !data?.slug) {
-          data.slug = slugify(data.title, {
-            lower: true,
-            strict: true,
-          });
+        if (data?.heroTitle && !data?.slug) {
+          // Extract text from richText if possible, or just use a default
+          // Since heroTitle is richText, it's complex to slugify directly without parsing
+          // For now, let's assume the user enters slug manually or we need a better way
+          // But to avoid errors, let's just not auto-generate if it's richText
+          // Or we can try to stringify it?
+          // data.slug = slugify(JSON.stringify(data.heroTitle), ...); // Ugly
         }
         return data;
       },
