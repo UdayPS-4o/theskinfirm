@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import Link from "next/link";
 import { VideoPlayer } from "@/components/shared/video-player";
 
 export const Design6 = () => {
@@ -25,13 +26,17 @@ export const Design6 = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-5 mt-4">
-                        <Button className="rounded-2xl bg-[#4A4036] hover:bg-[#5C5148] text-white px-8 py-7 text-lg h-auto shadow-xl shadow-[#4A4036]/10">
-                            Book a Consultation
-                        </Button>
-                        <Button variant="ghost" className="rounded-2xl text-[#4A4036] hover:bg-[#D4A380]/10 px-8 py-7 text-lg h-auto flex items-center gap-3">
-                            Explore Services
-                            <ArrowRight className="w-5 h-5" />
-                        </Button>
+                        <Link href="/contact">
+                            <Button className="rounded-2xl bg-[#4A4036] hover:bg-[#5C5148] text-white px-8 py-7 text-lg h-auto shadow-xl shadow-[#4A4036]/10">
+                                Book a Consultation
+                            </Button>
+                        </Link>
+                        <Link href="/services">
+                            <Button variant="ghost" className="rounded-2xl text-[#4A4036] hover:bg-[#D4A380]/10 px-8 py-7 text-lg h-auto flex items-center gap-3">
+                                Explore Services
+                                <ArrowRight className="w-5 h-5" />
+                            </Button>
+                        </Link>
                     </div>
 
 
@@ -39,7 +44,7 @@ export const Design6 = () => {
             </div>
 
             {/* Right Side - Video (40%) */}
-            <div className="w-full lg:w-[40%] h-[60vh] lg:h-full relative order-1 lg:order-2 overflow-hidden">
+            <div className="w-full lg:w-[40%] h-[50vh] lg:h-full relative order-1 lg:order-2 overflow-hidden">
                 <VideoPlayer
                     src="/theskinfirm.mp4"
                     className="w-full h-full object-cover object-center"

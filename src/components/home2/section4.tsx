@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatedContent, StaggeredChildren, StaggerItem } from "@/components/shared/animated-content";
 
 // Content Data
@@ -12,31 +13,31 @@ const content = {
             title: "Aesthetic Procedures",
             image: "/home/aesthetic-procedure.jpg",
             description: "Enhance your natural beauty with expert care.",
-            link: "/services/aesthetic"
+            link: "/services?tab=skin&section=trending-services"
         },
         {
             title: "Skin Treatments",
             image: "/home/skin.png",
             description: "Advanced solutions for radiant, healthy skin.",
-            link: "/services/skin"
+            link: "/services?tab=skin&section=acne-and-acne-scars"
         },
         {
             title: "Laser Solutions",
             image: "/home/laser.jpg",
             description: "Precision laser treatments for various concerns.",
-            link: "/services/laser"
+            link: "/services?tab=skin&section=advanced-skin-treatment"
         },
         {
             title: "Hair & Scalp Treatments",
             image: "/home/hair.jpg",
             description: "Restore vitality and health to your hair.",
-            link: "/services/hair"
+            link: "/hair-loss-treatment-in-pune"
         },
         {
             title: "Anti-Ageing Treatments",
             image: "/home/anti-ageing.jpg",
             description: "Turn back time with our specialized treatments.",
-            link: "/services/anti-ageing"
+            link: "/anti-ageing-treatment-in-pune"
         }
     ]
 };
@@ -59,26 +60,29 @@ export const Section4Home2 = () => (
                 {content.categories.map((cat, idx) => (
                     <StaggerItem
                         key={idx}
-                        className={`group relative rounded-2xl overflow-hidden cursor-pointer ${idx === 1 ? 'md:col-span-2 lg:col-span-1 lg:row-span-2 h-[500px]' : 'h-[240px] lg:h-[240px]'}`}
+                        className={`group relative rounded-2xl overflow-hidden ${idx === 1 ? 'md:col-span-2 lg:col-span-1 lg:row-span-2 h-[500px]' : 'h-[240px] lg:h-[240px]'}`}
                     >
-                        <Image
-                            src={cat.image}
-                            alt={cat.title}
-                            fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                        <div className="absolute bottom-0 left-0 p-6 w-full">
-                            <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{cat.title}</h3>
-                            <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-300">
-                                <p className="text-white/90 text-sm mb-2">{cat.description}</p>
-                                <span className="text-white text-sm font-medium border-b border-white/50 pb-0.5">Learn More</span>
+                        <Link href={cat.link} className="block w-full h-full cursor-pointer">
+                            <Image
+                                src={cat.image}
+                                alt={cat.title}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                            <div className="absolute bottom-0 left-0 p-6 w-full">
+                                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{cat.title}</h3>
+                                <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-300">
+                                    <p className="text-white/90 text-sm mb-2">{cat.description}</p>
+                                    <span className="text-white text-sm font-medium border-b border-white/50 pb-0.5">Learn More</span>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </StaggerItem>
                 ))}
             </StaggeredChildren>
         </div>
     </section>
 );
+
 

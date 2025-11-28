@@ -34,7 +34,7 @@ export function VideoTestimonials() {
         </h2>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {videoUrls.map((url, index) => (
-            <div key={index} className="w-full">
+            <div key={index} className="w-full max-w-[90%] mx-auto md:max-w-none">
               <div className="aspect-video">
                 <iframe
                   src={getYouTubeEmbedUrl(url)}

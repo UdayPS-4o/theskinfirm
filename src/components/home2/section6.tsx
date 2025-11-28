@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Sparkles } from "lucide-react";
 import { AnimatedContent, StaggeredChildren, StaggerItem } from "@/components/shared/animated-content";
 
@@ -61,10 +62,10 @@ export const Section6Home2 = () => {
                         </StaggeredChildren>
 
                         <AnimatedContent delay={0.6}>
-                            <div className="pt-4">
-                                <button className="text-[#D4A380] font-bold text-lg hover:text-[#333333] transition-colors flex items-center justify-center lg:justify-start gap-2">
+                            <div className="pt-4 flex justify-center lg:justify-start">
+                                <Link href="/about-us" className="text-[#D4A380] font-bold text-lg hover:text-[#333333] transition-colors flex items-center gap-2">
                                     {content.cta}
-                                </button>
+                                </Link>
                             </div>
                         </AnimatedContent>
                     </div>

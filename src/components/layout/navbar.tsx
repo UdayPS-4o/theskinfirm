@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { MaxWidthWrapper } from "./max-width";
+
 import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 import { useRouter } from "next/navigation";
 import type { Service, ServiceCategory } from "@/payload-types";
@@ -204,7 +204,7 @@ export const Navbar = ({
   >(null);
   const router = useRouter();
   const closeDesktopDropdown = () => setActiveDesktopDropdown(null);
-  
+
   const NAV_ITEMS = getNavItems(locations.length > 0);
 
   const closeMobileMenu = () => {
@@ -373,11 +373,10 @@ export const Navbar = ({
 
   return (
     <nav
-      className={`py-4 lg:py-4 w-full bg-[#e3caab] sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "shadow-lg backdrop-blur-sm bg-[#FBEDE4]/95" : ""
-      }`}
+      className={`py-4 lg:py-4 w-full bg-[#e3caab] sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "shadow-lg backdrop-blur-sm bg-[#FBEDE4]/95" : ""
+        }`}
     >
-      <MaxWidthWrapper className="flex items-center justify-between">
+      <div className="mx-auto w-full max-w-[1350px] px-4 lg:px-10 flex items-center justify-between">
         {/* Logo */}
         <motion.div
           initial="hidden"
@@ -415,7 +414,7 @@ export const Navbar = ({
           initial="hidden"
           animate="visible"
           variants={navContainerVariants}
-          className="hidden md:flex md:justify-center gap-x-7 *:text-[#734817] *:hover:text-[#734817]/80 *:transition-colors"
+          className="hidden lg:flex lg:justify-center gap-x-7 *:text-[#734817] *:hover:text-[#734817]/80 *:transition-colors"
         >
           {NAV_ITEMS.map((item) => (
             <motion.div
@@ -439,11 +438,10 @@ export const Navbar = ({
                     {item.label}
                     <ChevronDown
                       size={16}
-                      className={`transition-transform duration-200 ${
-                        activeDesktopDropdown === item.dropdownType
-                          ? "rotate-180"
-                          : ""
-                      }`}
+                      className={`transition-transform duration-200 ${activeDesktopDropdown === item.dropdownType
+                        ? "rotate-180"
+                        : ""
+                        }`}
                     />
                   </Link>
 
@@ -480,12 +478,12 @@ export const Navbar = ({
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
-          className="md:hidden p-2 rounded-md text-[#374151] hover:text-[#374151]/80 focus:outline-none focus:ring-2 focus:ring-[#D4A380]"
+          className="lg:hidden p-2 rounded-md text-[#374151] hover:text-[#374151]/80 focus:outline-none focus:ring-2 focus:ring-[#D4A380]"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </MaxWidthWrapper>
+      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -495,11 +493,11 @@ export const Navbar = ({
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="mt-[-5px] md:hidden fixed inset-x-0 top-[72px] bg-[#FBEDE4] border-t border-[#D4A380]/20 shadow-lg z-40 overflow-y-auto"
+            className="mt-[-5px] lg:hidden fixed inset-x-0 top-[72px] bg-[#FBEDE4] border-t border-[#D4A380]/20 shadow-lg z-40 overflow-y-auto"
             style={{ maxHeight: "calc(100vh - 72px)" }}
           >
             <div className="max-w-7xl mx-auto px-6 pb-0">
-              <div className="md:hidden py-4 pb-4">
+              <div className="lg:hidden py-4 pb-4">
                 <motion.div
                   initial="hidden"
                   animate="visible"
@@ -520,11 +518,10 @@ export const Navbar = ({
                             <span>{item.label}</span>
                             <ChevronDown
                               size={20}
-                              className={`transition-transform duration-300 ${
-                                activeMobileDropdown === item.dropdownType
-                                  ? "rotate-180"
-                                  : ""
-                              }`}
+                              className={`transition-transform duration-300 ${activeMobileDropdown === item.dropdownType
+                                ? "rotate-180"
+                                : ""
+                                }`}
                             />
                           </button>
 
@@ -664,11 +661,10 @@ export const Navbar = ({
                       ) : (
                         <Link
                           href={item.href}
-                          className={`text-[#374151] hover:text-[#D4A380] transition-colors py-4 block font-medium text-lg ${
-                            item.label === "Contact"
-                              ? ""
-                              : "border-b border-[#D4A380]/10"
-                          }`}
+                          className={`text-[#374151] hover:text-[#D4A380] transition-colors py-4 block font-medium text-lg ${item.label === "Contact"
+                            ? ""
+                            : "border-b border-[#D4A380]/10"
+                            }`}
                           onClick={closeMobileMenu}
                         >
                           {item.label}

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Users, ShieldCheck, UserCheck, CheckCircle2, Star, Sparkles, Heart } from "lucide-react";
 import { AnimatedContent, StaggeredChildren, StaggerItem } from "@/components/shared/animated-content";
 
@@ -60,9 +61,11 @@ export const Section7Home2 = () => {
                                 ))}
                             </div>
                         </div>
-                        <button className="mt-8 w-full bg-white text-[#333333] py-3 rounded-xl font-bold hover:bg-[#D4A380] hover:text-white transition-colors">
-                            Book Now
-                        </button>
+                        <Link href="/contact" className="mt-8 w-full">
+                            <button className="w-full bg-white text-[#333333] py-3 rounded-xl font-bold hover:bg-[#D4A380] hover:text-white transition-colors">
+                                Book Now
+                            </button>
+                        </Link>
                     </StaggerItem>
 
                     {/* Right Column */}

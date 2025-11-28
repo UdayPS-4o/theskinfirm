@@ -80,15 +80,18 @@ export const Hero = ({ heroOffer }: HeroProps) => {
     return () => {
       window.removeEventListener("click", unmuteOnInteraction);
       window.removeEventListener("touchstart", unmuteOnInteraction);
-      videoRefDesktop.current?.removeEventListener("pause", desktopPauseHandler);
-      videoRefMobile.current?.removeEventListener("pause", mobilePauseHandler);
-      videoRefTablet.current?.removeEventListener("pause", tabletPauseHandler);
+      const desktopVideo = videoRefDesktop.current;
+      const mobileVideo = videoRefMobile.current;
+      const tabletVideo = videoRefTablet.current;
+      desktopVideo?.removeEventListener("pause", desktopPauseHandler);
+      mobileVideo?.removeEventListener("pause", mobilePauseHandler);
+      tabletVideo?.removeEventListener("pause", tabletPauseHandler);
     };
   }, []);
 
   const toggleMute = () => {
     const newMutedState = !isMuted;
-    
+
     if (videoRefDesktop.current) {
       videoRefDesktop.current.muted = newMutedState;
     }
@@ -98,7 +101,7 @@ export const Hero = ({ heroOffer }: HeroProps) => {
     if (videoRefTablet.current) {
       videoRefTablet.current.muted = newMutedState;
     }
-    
+
     setIsMuted(newMutedState);
     localStorage.setItem("videoMuted", JSON.stringify(newMutedState));
   };
@@ -184,12 +187,12 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                       typeof heroOffer.backgroundImage === "string"
                         ? heroOffer.backgroundImage
                         : (heroOffer.backgroundImage as Media)?.url ||
-                          "/hero-offer-bg.png"
+                        "/hero-offer-bg.png"
                     }
                     alt={
                       typeof heroOffer.backgroundImage === "object"
                         ? (heroOffer.backgroundImage as Media)?.alt ||
-                          "Special offer background"
+                        "Special offer background"
                         : "Special offer background with skincare treatment imagery"
                     }
                     fill
@@ -234,7 +237,7 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                   </div>
                 </div>
               )}
-              
+
               {/* Video - Shows on Tablet only, Hidden on Mobile & Desktop */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}

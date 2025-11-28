@@ -183,7 +183,7 @@ export const Variation8_Var3 = () => {
                             Your Journey Begins
                         </h2>
                         <p className="text-[#606060] mb-8 italic">
-                            "Beauty is not just about how you look, but how you feel on your big day."
+                            &ldquo;Beauty is not just about how you look, but how you feel on your big day.&rdquo;
                         </p>
                         <Button variant="link" className="text-[#4A4036] text-lg underline decoration-[#D4A380] decoration-2 underline-offset-4 hover:text-[#D4A380]">
                             View Packages
@@ -280,7 +280,7 @@ export const Variation9_Var3 = () => {
                         </div>
                         <h3 className="text-4xl font-serif text-[#4A4036] mb-6">Radiance Rituals</h3>
                         <p className="text-[#606060] mb-8 leading-relaxed">
-                            "I've never felt more beautiful than I did on my wedding day, thanks to The Skin Firm."
+                            &ldquo;I&apos;ve never felt more beautiful than I did on my wedding day, thanks to The Skin Firm.&rdquo;
                         </p>
                         <div className="flex items-center gap-4 mb-10">
                             <div className="w-12 h-12 bg-[#D4A380] rounded-full flex items-center justify-center text-white font-bold">

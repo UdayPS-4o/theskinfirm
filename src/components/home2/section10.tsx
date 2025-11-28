@@ -44,7 +44,7 @@ export const Section10Home2 = () => {
                 >
                     <CarouselContent className="-ml-4">
                         {galleryImages.map((imagePath, idx) => (
-                            <CarouselItem key={idx} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                            <CarouselItem key={idx} className="pl-4 basis-[85%] md:basis-1/2 lg:basis-1/3">
                                 <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                                     <Image
                                         src={imagePath}

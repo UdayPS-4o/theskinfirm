@@ -26,7 +26,7 @@ export const Design1 = () => {
 
                 <div className="bg-white p-10 rounded-3xl shadow-2xl border border-[#F0E6DE]">
                     <p className="text-[#64442A] text-lg leading-relaxed mb-6">
-                        Your wedding day is one of life's most photographed moments, so your skin should look as radiant as your love story.
+                        Your wedding day is one of life&apos;s most photographed moments, so your skin should look as radiant as your love story.
                     </p>
                     <p className="text-[#8A7B70] text-base leading-relaxed mb-8">
                         At The Skin Firm, we design dermatologist-led pre-wedding treatments for both brides and grooms, ensuring you look your most confident and refreshed on your big day.
@@ -244,7 +244,7 @@ export const Design6 = () => {
                         Wedding Ritual
                     </h2>
                     <p className="text-[#8A7B70] text-lg mb-8">
-                        Indulge in premium skin therapies designed for life's most precious milestone.
+                        Indulge in premium skin therapies designed for life&apos;s most precious milestone.
                     </p>
                 </div>
 
@@ -282,8 +282,8 @@ export const Design7 = () => {
                                 <Crown className="w-8 h-8 text-white" />
                             </div>
                             <h2 className="text-[#64442A] text-4xl lg:text-5xl font-serif mb-6">
-                                "True beauty is timeless, <br />
-                                <span className="text-[#D4A380] italic">and your wedding deserves nothing less."</span>
+                                &ldquo;True beauty is timeless, <br />
+                                <span className="text-[#D4A380] italic">and your wedding deserves nothing less.&rdquo;</span>
                             </h2>
                             <p className="text-[#8A7B70] text-lg">
                                 — Dr. Karishma Singh, Founder
