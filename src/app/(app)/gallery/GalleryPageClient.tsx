@@ -47,9 +47,9 @@ const GalleryPageClient = () => {
       { id: 12, src: "/gallery/12.png", category: "facial" },
       { id: 13, src: "/gallery/13.png", category: "facial" },
       { id: 14, src: "/gallery/14.png", category: "facial" },
-      { id: 15, src: "/gallery/15.png", category: "facial" },
+      { id: 15, src: "/gallery/15.png", category: "pigmentation" },
       { id: 16, src: "/gallery/16.png", category: "facial" },
-      { id: 17, src: "/gallery/17.png", category: "facial" },
+      { id: 17, src: "/gallery/17.png", category: "pigmentation" },
       { id: 18, src: "/gallery/18.png", category: "hair" },
       { id: 19, src: "/gallery/19.png", category: "hair" },
       { id: 20, src: "/gallery/20.png", category: "hair" },
@@ -267,8 +267,8 @@ const GalleryPageClient = () => {
                   key={category.key}
                   onClick={() => handleFilterChange(category.key)}
                   className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border-2 ${activeFilter === category.key
-                      ? "bg-gradient-to-r from-[var(--color-primary-orange)] to-[var(--color-primary-brown)] text-white border-[var(--color-primary-orange)] shadow-lg shadow-[var(--color-primary-orange)]/25"
-                      : "bg-white/80 text-[color:var(--color-light-text)] border-[var(--color-border-light)] hover:border-[var(--color-primary-orange)] hover:text-[color:var(--color-primary-orange)] hover:shadow-md"
+                    ? "bg-gradient-to-r from-[var(--color-primary-orange)] to-[var(--color-primary-brown)] text-white border-[var(--color-primary-orange)] shadow-lg shadow-[var(--color-primary-orange)]/25"
+                    : "bg-white/80 text-[color:var(--color-light-text)] border-[var(--color-border-light)] hover:border-[var(--color-primary-orange)] hover:text-[color:var(--color-primary-orange)] hover:shadow-md"
                     }`}
                   initial={{ opacity: 0, y: 20, scale: 0.8 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -373,8 +373,8 @@ const GalleryPageClient = () => {
             <motion.div
               key={activeFilter}
               className={`${viewMode === "grid"
-                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-                  : "columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6"
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                : "columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6"
                 }`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -385,14 +385,14 @@ const GalleryPageClient = () => {
                 <motion.div
                   key={image.id}
                   className={`relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group bg-white ${viewMode === "masonry"
-                      ? "break-inside-avoid mb-6"
-                      : "aspect-square"
+                    ? "break-inside-avoid mb-6"
+                    : "aspect-square"
                     }`}
                   initial={{ opacity: 0, y: 50, scale: 0.8, rotateY: 15 }}
                   animate={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
                   transition={{
-                    duration: 0.8,
-                    delay: 3.0 + index * 0.15,
+                    duration: 0.5,
+                    delay: 0.1 + index * 0.05,
                     type: "spring",
                     stiffness: 120,
                     damping: 15,
@@ -577,8 +577,8 @@ const GalleryPageClient = () => {
                             setSelectedImage(filteredImages[index]);
                           }}
                           className={`w-2 h-2 rounded-full transition-all duration-200 ${index === currentImageIndex
-                              ? "bg-white"
-                              : "bg-white/40 hover:bg-white/60"
+                            ? "bg-white"
+                            : "bg-white/40 hover:bg-white/60"
                             }`}
                         />
                       ))}

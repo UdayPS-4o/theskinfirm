@@ -15,6 +15,7 @@ import {
 import { Service, ServiceCategory } from "@/payload-types";
 import { SkeletonOverlayProvider } from "@/contexts/SkeletonOverlayContext";
 import { SkeletonOverlay } from "@/components/layout/SkeletonOverlay";
+import { LenisScrollProvider } from "@/components/shared/lenis-scroll-provider";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -253,16 +254,18 @@ export default async function RootLayout({
         </Script>
         <Script src="https://www.google.com/recaptcha/api.js" strategy="lazyOnload" />
         <SkeletonOverlayProvider>
-          <SkeletonOverlay />
-          <Navbar
-            serviceCategories={categories}
-            hairServices={hairServices}
-            laserServices={laserServices}
-            locations={locations}
-          />
-          {children}
-          <Footer />
-          <CTAFabs />
+          <LenisScrollProvider>
+            <SkeletonOverlay />
+            <Navbar
+              serviceCategories={categories}
+              hairServices={hairServices}
+              laserServices={laserServices}
+              locations={locations}
+            />
+            {children}
+            <Footer />
+            <CTAFabs />
+          </LenisScrollProvider>
         </SkeletonOverlayProvider>
       </body>
     </html>

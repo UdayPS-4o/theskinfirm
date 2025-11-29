@@ -3,7 +3,6 @@
 import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/home/hero-section";
-import { LenisScrollProvider } from "@/components/shared/lenis-scroll-provider";
 import type { HeroOffer } from "@/payload-types";
 
 // Lazy load all below-the-fold sections for better FCP/LCP
@@ -86,105 +85,103 @@ interface HomePageProps {
 
 export default function HomePage({ heroOffer }: HomePageProps) {
   return (
-    <LenisScrollProvider>
-      <div className="w-full">
-        <main role="main">
-          {/* Hero Section - Load immediately for best FCP/LCP */}
-          <section id="hero">
-            <HeroSection />
-          </section>
+    <div className="w-full">
+      <main role="main">
+        {/* Hero Section - Load immediately for best FCP/LCP */}
+        <section id="hero">
+          <HeroSection />
+        </section>
 
-          <SectionDivider fromColor="#FBEDE4" toColor="#FFFBF7" height="60px" />
+        <SectionDivider fromColor="#FBEDE4" toColor="#FFFBF7" height="60px" />
 
-          {/* All below-the-fold sections are lazy loaded */}
-          <Suspense fallback={<div className="min-h-[400px]" />}>
-            {/* Section backgrounds should NOT animate, only content within */}
-            <AnimatedComponent animateWrapper={false}>
-              <Section3Home2 />
-            </AnimatedComponent>
+        {/* All below-the-fold sections are lazy loaded */}
+        <Suspense fallback={<div className="min-h-[400px]" />}>
+          {/* Section backgrounds should NOT animate, only content within */}
+          <AnimatedComponent animateWrapper={false}>
+            <Section3Home2 />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#FFFBF7" toColor="#FDFBF7" height="60px" />
+          <SectionDivider fromColor="#FFFBF7" toColor="#FDFBF7" height="60px" />
 
-            {/* Exclusive Offers Section */}
-            <AnimatedComponent animateWrapper={false}>
-              <OffersSection />
-            </AnimatedComponent>
+          {/* Exclusive Offers Section */}
+          <AnimatedComponent animateWrapper={false}>
+            <OffersSection />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#FDFBF7" toColor="#F8F4EB" height="60px" />
+          <SectionDivider fromColor="#FDFBF7" toColor="#F8F4EB" height="60px" />
 
-            {/* What Makes The Skin Firm Exceptional */}
-            <AnimatedComponent animateWrapper={false}>
-              <Section3Point5Home2 />
-            </AnimatedComponent>
+          {/* What Makes The Skin Firm Exceptional */}
+          <AnimatedComponent animateWrapper={false}>
+            <Section3Point5Home2 />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#F8F4EB" toColor="#FDFBF7" height="60px" />
+          <SectionDivider fromColor="#F8F4EB" toColor="#FDFBF7" height="60px" />
 
-            {/* Stats Counter */}
-            <AnimatedComponent animateWrapper={false}>
-              <StatsCounter />
-            </AnimatedComponent>
+          {/* Stats Counter */}
+          <AnimatedComponent animateWrapper={false}>
+            <StatsCounter />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#FDFBF7" toColor="#F8F4EB" height="60px" />
+          <SectionDivider fromColor="#FDFBF7" toColor="#F8F4EB" height="60px" />
 
-            {/* Section3 and Section4 have same BG */}
-            <AnimatedComponent animateWrapper={false}>
-              <Section4Home2 />
-            </AnimatedComponent>
+          {/* Section3 and Section4 have same BG */}
+          <AnimatedComponent animateWrapper={false}>
+            <Section4Home2 />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#F8F4EB" toColor="#F8F4EB" height="60px" />
+          <SectionDivider fromColor="#F8F4EB" toColor="#F8F4EB" height="60px" />
 
-            {/* Section4 and Section5 have same BG */}
-            <AnimatedComponent animateWrapper={false}>
-              <Section5Home2 />
-            </AnimatedComponent>
+          {/* Section4 and Section5 have same BG */}
+          <AnimatedComponent animateWrapper={false}>
+            <Section5Home2 />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#F8F4EB" toColor="#FDFCF9" height="60px" />
+          <SectionDivider fromColor="#F8F4EB" toColor="#FDFCF9" height="60px" />
 
-            <AnimatedComponent animateWrapper={false}>
-              <Section6Home2 />
-            </AnimatedComponent>
+          <AnimatedComponent animateWrapper={false}>
+            <Section6Home2 />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#FDFCF9" toColor="#FFFFFF" height="60px" />
+          <SectionDivider fromColor="#FDFCF9" toColor="#FFFFFF" height="60px" />
 
-            <AnimatedComponent animateWrapper={false}>
-              <Section7Home2 />
-            </AnimatedComponent>
+          <AnimatedComponent animateWrapper={false}>
+            <Section7Home2 />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#FFFFFF" toColor="#FFFFFF" height="60px" />
+          <SectionDivider fromColor="#FFFFFF" toColor="#FFFFFF" height="60px" />
 
-            <AnimatedComponent animateWrapper={false}>
-              <Section9Home2 />
-            </AnimatedComponent>
+          <AnimatedComponent animateWrapper={false}>
+            <Section9Home2 />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#FFFFFF" toColor="#F8F4EB" height="60px" />
+          <SectionDivider fromColor="#FFFFFF" toColor="#F8F4EB" height="60px" />
 
-            {/* Before & After Gallery */}
-            <AnimatedComponent animateWrapper={false}>
-              <Section10Home2 />
-            </AnimatedComponent>
+          {/* Before & After Gallery */}
+          <AnimatedComponent animateWrapper={false}>
+            <Section10Home2 />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#F8F4EB" toColor="#FFFFFF" height="60px" />
+          <SectionDivider fromColor="#F8F4EB" toColor="#FFFFFF" height="60px" />
 
-            {/* Video Testimonials */}
-            <AnimatedComponent animateWrapper={false}>
-              <VideoTestimonials />
-            </AnimatedComponent>
+          {/* Video Testimonials */}
+          <AnimatedComponent animateWrapper={false}>
+            <VideoTestimonials />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#FFFFFF" toColor="#FFFFFF" height="60px" />
+          <SectionDivider fromColor="#FFFFFF" toColor="#FFFFFF" height="60px" />
 
-            <AnimatedComponent animateWrapper={false}>
-              <Cta2 />
-            </AnimatedComponent>
+          <AnimatedComponent animateWrapper={false}>
+            <Cta2 />
+          </AnimatedComponent>
 
-            <SectionDivider fromColor="#FFFFFF" toColor="#FFFFFF" height="60px" />
+          <SectionDivider fromColor="#FFFFFF" toColor="#FFFFFF" height="60px" />
 
-            <AnimatedComponent animateWrapper={false}>
-              <Faq />
-            </AnimatedComponent>
-          </Suspense>
-        </main>
-      </div>
-    </LenisScrollProvider>
+          <AnimatedComponent animateWrapper={false}>
+            <Faq />
+          </AnimatedComponent>
+        </Suspense>
+      </main>
+    </div>
   );
 }
 

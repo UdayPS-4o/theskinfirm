@@ -34,12 +34,29 @@ function ServicePageContent({ services }: ServicePageContentProps) {
 
   // Scroll to top on initial page load when no section param exists
   useEffect(() => {
+    // Disable browser's default scroll restoration to handle it manually
+    if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
     const sectionParam = searchParams.get("section");
 
     // Only scroll to top if there's no section parameter
     if (!sectionParam) {
-      window.scrollTo({ top: 0, behavior: "instant" });
+      window.scrollTo(0, 0);
+
+      // Double check after a short delay to handle any layout shifts or Lenis init
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
     }
+
+    return () => {
+      // Restore default scroll restoration on cleanup
+      if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "auto";
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Run only once on mount
 
