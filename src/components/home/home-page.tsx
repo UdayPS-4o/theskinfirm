@@ -75,6 +75,11 @@ const OffersSection = dynamic(() => import("@/components/home2/offers-section").
   ssr: true
 });
 
+const StatsCounter = dynamic(() => import("@/components/home2/stats-counter").then(mod => ({ default: mod.StatsCounter })), {
+  loading: () => <div className="min-h-[200px]" />,
+  ssr: true
+});
+
 interface HomePageProps {
   heroOffer?: HeroOffer | null;
 }
@@ -88,6 +93,8 @@ export default function HomePage({ heroOffer }: HomePageProps) {
           <section id="hero">
             <HeroSection />
           </section>
+
+          <SectionDivider fromColor="#FBEDE4" toColor="#FFFBF7" height="60px" />
 
           {/* All below-the-fold sections are lazy loaded */}
           <Suspense fallback={<div className="min-h-[400px]" />}>
@@ -110,23 +117,34 @@ export default function HomePage({ heroOffer }: HomePageProps) {
               <Section3Point5Home2 />
             </AnimatedComponent>
 
+            <SectionDivider fromColor="#F8F4EB" toColor="#FDFBF7" height="60px" />
+
+            {/* Stats Counter */}
+            <AnimatedComponent animateWrapper={false}>
+              <StatsCounter />
+            </AnimatedComponent>
+
+            <SectionDivider fromColor="#FDFBF7" toColor="#F8F4EB" height="60px" />
+
             {/* Section3 and Section4 have same BG */}
             <AnimatedComponent animateWrapper={false}>
               <Section4Home2 />
             </AnimatedComponent>
+
+            <SectionDivider fromColor="#F8F4EB" toColor="#F8F4EB" height="60px" />
 
             {/* Section4 and Section5 have same BG */}
             <AnimatedComponent animateWrapper={false}>
               <Section5Home2 />
             </AnimatedComponent>
 
-            <SectionDivider fromColor="#F8F4EB" toColor="#F8F4EB" height="60px" />
+            <SectionDivider fromColor="#F8F4EB" toColor="#FDFCF9" height="60px" />
 
             <AnimatedComponent animateWrapper={false}>
               <Section6Home2 />
             </AnimatedComponent>
 
-            <SectionDivider fromColor="#F8F4EB" toColor="#FFFFFF" height="60px" />
+            <SectionDivider fromColor="#FDFCF9" toColor="#FFFFFF" height="60px" />
 
             <AnimatedComponent animateWrapper={false}>
               <Section7Home2 />
@@ -152,9 +170,13 @@ export default function HomePage({ heroOffer }: HomePageProps) {
               <VideoTestimonials />
             </AnimatedComponent>
 
+            <SectionDivider fromColor="#FFFFFF" toColor="#FFFFFF" height="60px" />
+
             <AnimatedComponent animateWrapper={false}>
               <Cta2 />
             </AnimatedComponent>
+
+            <SectionDivider fromColor="#FFFFFF" toColor="#FFFFFF" height="60px" />
 
             <AnimatedComponent animateWrapper={false}>
               <Faq />

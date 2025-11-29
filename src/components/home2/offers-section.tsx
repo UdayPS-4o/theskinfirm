@@ -38,7 +38,7 @@ const offers = [
 
 export const OffersSection = () => {
     return (
-        <section className="py-12 md:py-16 bg-[#FDFBF7]">
+        <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-[#FDFBF7]">
             <AnimatedContent>
                 {/* Match the max-width with section3-5 (max-w-7xl) */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

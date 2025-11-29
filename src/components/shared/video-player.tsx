@@ -137,9 +137,9 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
                 src={src}
             />
 
-            {/* Mute/Unmute Indicator (floating badge) */}
-            <div className="absolute bottom-4 right-4 bg-black/80 hover:bg-black/90 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 z-20 pointer-events-none shadow-lg">
-                {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+            {/* Mute/Unmute Indicator (floating badge with liquid glass finish) */}
+            <div className="absolute bottom-4 right-4 bg-black/40 hover:bg-black/50 backdrop-blur-md text-white p-3 rounded-full transition-all duration-300 z-20 pointer-events-none shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] border border-white/20 hover:border-white/30 hover:scale-110">
+                {isMuted ? <VolumeX size={20} className="drop-shadow-lg" /> : <Volume2 size={20} className="drop-shadow-lg" />}
             </div>
         </div>
     );

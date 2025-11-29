@@ -34,6 +34,28 @@ const GalleryPageClient = () => {
   // Enhanced gallery data with correct treatment names and categories
   const galleryImages: GalleryImage[] = useMemo(
     () => [
+      { id: 2, src: "/gallery/2.png", category: "acne" },
+      { id: 3, src: "/gallery/3.png", category: "pigmentation" },
+      { id: 4, src: "/gallery/4.png", category: "acne" },
+      { id: 5, src: "/gallery/5.png", category: "aging" },
+      { id: 6, src: "/gallery/6.png", category: "pigmentation" },
+      { id: 7, src: "/gallery/7.png", category: "pigmentation" },
+      { id: 8, src: "/gallery/8.png", category: "facial" },
+      { id: 9, src: "/gallery/9.png", category: "acne" },
+      { id: 10, src: "/gallery/10.png", category: "facial" },
+      { id: 11, src: "/gallery/11.png", category: "facial" },
+      { id: 12, src: "/gallery/12.png", category: "facial" },
+      { id: 13, src: "/gallery/13.png", category: "facial" },
+      { id: 14, src: "/gallery/14.png", category: "facial" },
+      { id: 15, src: "/gallery/15.png", category: "facial" },
+      { id: 16, src: "/gallery/16.png", category: "facial" },
+      { id: 17, src: "/gallery/17.png", category: "facial" },
+      { id: 18, src: "/gallery/18.png", category: "hair" },
+      { id: 19, src: "/gallery/19.png", category: "hair" },
+      { id: 20, src: "/gallery/20.png", category: "hair" },
+      { id: 21, src: "/gallery/21.png", category: "hair" },
+      { id: 22, src: "/gallery/22.png", category: "hair" },
+      { id: 23, src: "/gallery/23.png", category: "hair" },
       { id: 24, src: "/clinic/The Skin Firm Pune.jpg", category: "clinic" },
       {
         id: 25,
@@ -71,11 +93,6 @@ const GalleryPageClient = () => {
         category: "clinic",
       },
       {
-        id: 32,
-        src: "/clinic/laserroom-theskinfirm-pune.jpg",
-        category: "clinic",
-      },
-      {
         id: 33,
         src: "/clinic/laserroom2-theskinfirm-pune.jpg",
         category: "clinic",
@@ -86,28 +103,6 @@ const GalleryPageClient = () => {
         src: "/clinic/doctor_s cabin-theskinfirm-pune.jpg",
         category: "clinic",
       },
-      { id: 2, src: "/gallery/2.png", category: "acne" },
-      { id: 3, src: "/gallery/3.png", category: "pigmentation" },
-      { id: 4, src: "/gallery/4.png", category: "acne" },
-      { id: 5, src: "/gallery/5.png", category: "aging" },
-      { id: 6, src: "/gallery/6.png", category: "pigmentation" },
-      { id: 7, src: "/gallery/7.png", category: "pigmentation" },
-      { id: 8, src: "/gallery/8.png", category: "facial" },
-      { id: 9, src: "/gallery/9.png", category: "acne" },
-      { id: 10, src: "/gallery/10.png", category: "facial" },
-      { id: 11, src: "/gallery/11.png", category: "facial" },
-      { id: 12, src: "/gallery/12.png", category: "facial" },
-      { id: 13, src: "/gallery/13.png", category: "facial" },
-      { id: 14, src: "/gallery/14.png", category: "facial" },
-      { id: 15, src: "/gallery/15.png", category: "facial" },
-      { id: 16, src: "/gallery/16.png", category: "facial" },
-      { id: 17, src: "/gallery/17.png", category: "facial" },
-      { id: 18, src: "/gallery/18.png", category: "hair" },
-      { id: 19, src: "/gallery/19.png", category: "hair" },
-      { id: 20, src: "/gallery/20.png", category: "hair" },
-      { id: 21, src: "/gallery/21.png", category: "hair" },
-      { id: 22, src: "/gallery/22.png", category: "hair" },
-      { id: 23, src: "/gallery/23.png", category: "hair" },
     ],
     []
   );
@@ -175,7 +170,7 @@ const GalleryPageClient = () => {
       direction === "next"
         ? (currentImageIndex + 1) % filteredImages.length
         : (currentImageIndex - 1 + filteredImages.length) %
-          filteredImages.length;
+        filteredImages.length;
 
     setCurrentImageIndex(newIndex);
     setSelectedImage(filteredImages[newIndex]);
@@ -271,11 +266,10 @@ const GalleryPageClient = () => {
                 <motion.button
                   key={category.key}
                   onClick={() => handleFilterChange(category.key)}
-                  className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border-2 ${
-                    activeFilter === category.key
+                  className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border-2 ${activeFilter === category.key
                       ? "bg-gradient-to-r from-[var(--color-primary-orange)] to-[var(--color-primary-brown)] text-white border-[var(--color-primary-orange)] shadow-lg shadow-[var(--color-primary-orange)]/25"
                       : "bg-white/80 text-[color:var(--color-light-text)] border-[var(--color-border-light)] hover:border-[var(--color-primary-orange)] hover:text-[color:var(--color-primary-orange)] hover:shadow-md"
-                  }`}
+                    }`}
                   initial={{ opacity: 0, y: 20, scale: 0.8 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{
@@ -378,11 +372,10 @@ const GalleryPageClient = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeFilter}
-              className={`${
-                viewMode === "grid"
+              className={`${viewMode === "grid"
                   ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
                   : "columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6"
-              }`}
+                }`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -391,11 +384,10 @@ const GalleryPageClient = () => {
               {filteredImages.map((image, index) => (
                 <motion.div
                   key={image.id}
-                  className={`relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group bg-white ${
-                    viewMode === "masonry"
+                  className={`relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group bg-white ${viewMode === "masonry"
                       ? "break-inside-avoid mb-6"
                       : "aspect-square"
-                  }`}
+                    }`}
                   initial={{ opacity: 0, y: 50, scale: 0.8, rotateY: 15 }}
                   animate={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
                   transition={{
@@ -584,11 +576,10 @@ const GalleryPageClient = () => {
                             setCurrentImageIndex(index);
                             setSelectedImage(filteredImages[index]);
                           }}
-                          className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                            index === currentImageIndex
+                          className={`w-2 h-2 rounded-full transition-all duration-200 ${index === currentImageIndex
                               ? "bg-white"
                               : "bg-white/40 hover:bg-white/60"
-                          }`}
+                            }`}
                         />
                       ))}
                     </div>

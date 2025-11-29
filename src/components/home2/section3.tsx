@@ -10,7 +10,7 @@ const imagePath = "/groom-putting-ring-bride-finger.jpg";
 
 export const Section3Home2 = () => {
     return (
-        <section className="w-full bg-[#FFFBF7] py-20 px-4 lg:px-20">
+        <section className="w-full bg-[#FFFBF7] pt-20 pb-10 px-4 lg:px-20">
             <AnimatedContent>
                 <div className="container mx-auto max-w-6xl relative">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
