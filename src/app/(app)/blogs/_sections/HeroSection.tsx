@@ -136,7 +136,7 @@ export function HeroSection({ featuredBlogs }: { featuredBlogs: Blog[] }) {
                             </span>
 
                             <div
-                              className="text-[#333333] text-3xl sm:text-4xl lg:text-5xl xl:text-[64px] font-semibold leading-[1.1em] tracking-[-0.01em] max-w-2xl"
+                              className="text-[#333333] text-3xl sm:text-4xl lg:text-5xl xl:text-[64px] font-semibold leading-[1.1em] tracking-[-0.01em] max-w-2xl [&_*]:!text-[inherit] [&_*]:!leading-[inherit] [&_*]:!tracking-[inherit]"
                               style={{ fontFamily: "Nunito Sans, sans-serif" }}
                             >
                               {/* @ts-ignore */}

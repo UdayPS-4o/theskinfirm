@@ -16,6 +16,7 @@ type FilterCategory =
   | "hair"
   | "facial"
   | "cosmetic"
+  | ""
   | "clinic";
 
 interface GalleryImage {
@@ -41,15 +42,15 @@ const GalleryPageClient = () => {
       { id: 6, src: "/gallery/6.png", category: "pigmentation" },
       { id: 7, src: "/gallery/7.png", category: "pigmentation" },
       { id: 8, src: "/gallery/8.png", category: "facial" },
-      { id: 9, src: "/gallery/9.png", category: "acne" },
-      { id: 10, src: "/gallery/10.png", category: "facial" },
+      { id: 9, src: "/gallery/9.png", category: "" },
+      { id: 10, src: "/gallery/10.png", category: "" },
       { id: 11, src: "/gallery/11.png", category: "facial" },
       { id: 12, src: "/gallery/12.png", category: "facial" },
       { id: 13, src: "/gallery/13.png", category: "facial" },
       { id: 14, src: "/gallery/14.png", category: "facial" },
-      { id: 15, src: "/gallery/15.png", category: "pigmentation" },
-      { id: 16, src: "/gallery/16.png", category: "facial" },
-      { id: 17, src: "/gallery/17.png", category: "pigmentation" },
+      { id: 15, src: "/gallery/15.png", category: "facial" },
+      { id: 16, src: "/gallery/16.png", category: "" },
+      { id: 17, src: "/gallery/17.png", category: "" },
       { id: 18, src: "/gallery/18.png", category: "hair" },
       { id: 19, src: "/gallery/19.png", category: "hair" },
       { id: 20, src: "/gallery/20.png", category: "hair" },

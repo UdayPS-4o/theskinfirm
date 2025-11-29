@@ -102,7 +102,7 @@ export default async function BlogArticlePage({
             )}
           </div>
 
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-medium leading-tight text-[#1a1a1a]">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-medium leading-tight text-[#1a1a1a] [&_*]:!text-[inherit] [&_*]:!leading-[inherit]">
             <RichText data={article.heroTitle} />
           </div>
 
