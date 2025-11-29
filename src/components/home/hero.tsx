@@ -261,7 +261,7 @@ export const Hero = ({ heroOffer }: HeroProps) => {
                 />
                 <Button
                   onClick={toggleMute}
-                  className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 h-auto"
+                  className="absolute bottom-4 right-4 backdrop-blur-md bg-white/20 hover:bg-white/30 border border-white/40 text-white rounded-full p-2 h-auto shadow-lg transition-all duration-300"
                   aria-label={isMuted ? "Unmute video" : "Mute video"}
                 >
                   {isMuted ? (
@@ -306,7 +306,7 @@ export const Hero = ({ heroOffer }: HeroProps) => {
               />
               <Button
                 onClick={toggleMute}
-                className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 h-auto"
+                className="absolute bottom-4 right-4 backdrop-blur-md bg-white/20 hover:bg-white/30 border border-white/40 text-white rounded-full p-2 h-auto shadow-lg transition-all duration-300"
                 aria-label={isMuted ? "Unmute video" : "Mute video"}
               >
                 {isMuted ? (
@@ -346,7 +346,7 @@ export const Hero = ({ heroOffer }: HeroProps) => {
               />
               <Button
                 onClick={toggleMute}
-                className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 h-auto"
+                className="absolute bottom-4 right-4 backdrop-blur-md bg-white/20 hover:bg-white/30 border border-white/40 text-white rounded-full p-2 h-auto shadow-lg transition-all duration-300"
                 aria-label={isMuted ? "Unmute video" : "Mute video"}
               >
                 {isMuted ? (

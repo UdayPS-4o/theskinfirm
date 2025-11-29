@@ -14,19 +14,20 @@ export const Cta2 = () => {
 
   return (
     <div className='relative mt-24 py-10 bg-radial flex items-center justify-center'>
-      <Image src="/cta2.png" alt="" layout="fill" objectFit="cover" className="-z-90" loading="lazy"/>
+      <Image src="/cta2.png" alt="" layout="fill" objectFit="cover" className="-z-90" loading="lazy" />
       <motion.div
         ref={ref}
         initial={{ opacity: 0, scale: 0.9 }}
         animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.6 }}
-        className='px-2 backdrop-blur-md bg-white/30 py-5 max-w-4xl'
+        className='px-2 backdrop-blur-md bg-white/10 md:bg-white/30 py-5 max-w-4xl'
       >
         <motion.h3
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className='font-semibold text-3xl/snug text-center text-wrap text-white px-8'
+          className='font-semibold text-xl sm:text-2xl md:text-3xl/snug text-center text-wrap text-white px-4 sm:px-6 md:px-8'
+          style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.6), 0 4px 24px rgba(0, 0, 0, 0.4)' }}
         >
           Ready for a transformation? <br /> Reserve your session with an expert skin specialist.
         </motion.h3>
@@ -37,12 +38,12 @@ export const Cta2 = () => {
           className='mt-5 flex flex-row items-center justify-center'
         >
 
-        <Link href={"/contact"} className='max-w-lg w-full bg-white rounded-lg flex items-center justify-center gap-x-5 py-4 text-[#D4A380]'>
-        <p className='text-lg'>
-          Book appointment
-        </p>
-        <ArrowRight className='size-6' />
-        </Link>
+          <Link href={"/contact"} className='max-w-lg w-full bg-white rounded-lg flex items-center justify-center gap-x-5 py-4 text-[#D4A380]'>
+            <p className='text-lg'>
+              Book appointment
+            </p>
+            <ArrowRight className='size-6' />
+          </Link>
         </motion.div>
       </motion.div>
     </div>

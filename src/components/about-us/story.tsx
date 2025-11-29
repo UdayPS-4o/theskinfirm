@@ -9,7 +9,7 @@ export default function DrKarishmaSection() {
     <section className="py-12 md:py-20 bg-[#FDFBF7]">
       <MaxWidthWrapper>
         <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-          <div className="w-full md:w-1/2 sticky top-24">
+          <div className="w-full md:w-1/2 md:sticky md:top-24">
             <div className="relative w-full max-w-[280px] md:max-w-sm mx-auto">
               <div className="absolute inset-0 border-2 border-[#D4A373] transform translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4"></div>
               <div className="relative aspect-[3/4] bg-gray-200">

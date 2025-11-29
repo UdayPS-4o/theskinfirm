@@ -32,27 +32,6 @@ export const LenisScrollProvider = ({ children }: LenisScrollProviderProps) => {
 
         requestAnimationFrame(raf);
 
-        // Track scroll progress to maintain position on resize
-        let currentProgress = 0;
-
-        lenis.on('scroll', (e: { progress: number }) => {
-            currentProgress = e.progress;
-        });
-
-        const handleResize = () => {
-            // Recalculate dimensions
-            lenis.resize();
-
-            // Restore relative position
-            // We clamp progress between 0 and 1 to avoid overscroll issues during resize
-            const progress = Math.min(Math.max(currentProgress, 0), 1);
-            const targetScroll = progress * lenis.limit;
-
-            lenis.scrollTo(targetScroll, { immediate: true });
-        };
-
-        window.addEventListener('resize', handleResize);
-
         // Handle hash changes (for same-page anchor navigation)
         const handleHashChange = () => {
             const hash = window.location.hash;
@@ -72,7 +51,6 @@ export const LenisScrollProvider = ({ children }: LenisScrollProviderProps) => {
         return () => {
             lenis.destroy();
             lenisRef.current = null;
-            window.removeEventListener('resize', handleResize);
             window.removeEventListener('hashchange', handleHashChange);
         };
     }, []);
