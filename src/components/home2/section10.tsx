@@ -63,7 +63,7 @@ export const Section10Home2 = () => {
                     <div className="flex justify-center mt-12">
                         <Link href="/gallery">
                             <Button
-                                className="bg-[#4A4036] hover:bg-[#D4A380] text-white transition-colors duration-200"
+                                className="bg-[#D4A380] hover:bg-[#C19660] text-white transition-colors duration-200"
                                 size="lg"
                             >
                                 Explore Full Gallery

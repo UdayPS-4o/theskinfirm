@@ -12,6 +12,11 @@ const Section3Home2 = dynamic(() => import("@/components/home2/section3").then(m
   ssr: true
 });
 
+const Section3Point5Home2 = dynamic(() => import("@/components/home2/section3-5").then(mod => ({ default: mod.Section3Point5Home2 })), {
+  loading: () => <div className="min-h-[400px]" />,
+  ssr: true
+});
+
 const Section4Home2 = dynamic(() => import("@/components/home2/section4").then(mod => ({ default: mod.Section4Home2 })), {
   loading: () => <div className="min-h-[400px]" />,
   ssr: true
@@ -65,6 +70,11 @@ const SectionDivider = dynamic(() => import("@/components/shared/section-divider
   ssr: true
 });
 
+const OffersSection = dynamic(() => import("@/components/home2/offers-section").then(mod => ({ default: mod.OffersSection })), {
+  loading: () => <div className="min-h-[400px]" />,
+  ssr: true
+});
+
 interface HomePageProps {
   heroOffer?: HeroOffer | null;
 }
@@ -84,6 +94,20 @@ export default function HomePage({ heroOffer }: HomePageProps) {
             {/* Section backgrounds should NOT animate, only content within */}
             <AnimatedComponent animateWrapper={false}>
               <Section3Home2 />
+            </AnimatedComponent>
+
+            <SectionDivider fromColor="#FFFBF7" toColor="#FDFBF7" height="60px" />
+
+            {/* Exclusive Offers Section */}
+            <AnimatedComponent animateWrapper={false}>
+              <OffersSection />
+            </AnimatedComponent>
+
+            <SectionDivider fromColor="#FDFBF7" toColor="#F8F4EB" height="60px" />
+
+            {/* What Makes The Skin Firm Exceptional */}
+            <AnimatedComponent animateWrapper={false}>
+              <Section3Point5Home2 />
             </AnimatedComponent>
 
             {/* Section3 and Section4 have same BG */}
