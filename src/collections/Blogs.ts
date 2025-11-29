@@ -29,7 +29,6 @@ export const Blogs: CollectionConfig = {
       name: "slug",
       type: "text",
       required: true,
-      unique: true,
       admin: {
         position: "sidebar",
       },
@@ -82,19 +81,4 @@ export const Blogs: CollectionConfig = {
       },
     },
   ],
-  hooks: {
-    beforeValidate: [
-      ({ data }) => {
-        if (data?.heroTitle && !data?.slug) {
-          // Extract text from richText if possible, or just use a default
-          // Since heroTitle is richText, it's complex to slugify directly without parsing
-          // For now, let's assume the user enters slug manually or we need a better way
-          // But to avoid errors, let's just not auto-generate if it's richText
-          // Or we can try to stringify it?
-          // data.slug = slugify(JSON.stringify(data.heroTitle), ...); // Ugly
-        }
-        return data;
-      },
-    ],
-  },
 };

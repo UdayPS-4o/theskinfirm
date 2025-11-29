@@ -42,6 +42,8 @@ export const OffersSection = () => {
             <AnimatedContent>
                 {/* Match the max-width with section3-5 (max-w-7xl) */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
                     <div className="grid grid-cols-2 gap-3 md:gap-6 lg:gap-8">
                         {offers.map((offer) => (
                             <div key={offer.id} className="bg-[#f9efe7] rounded-lg overflow-hidden flex flex-col md:flex-row group hover:shadow-md transition-all duration-300">

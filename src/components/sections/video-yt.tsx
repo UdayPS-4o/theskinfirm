@@ -29,9 +29,17 @@ export function VideoTestimonials() {
   return (
     <section className="w-full py-12">
       <MaxWidthWrapper>
-        <h2 className="mt-5 text-center font-semibold text-5xl text-[#333333]">
-          Expert Skincare Advice
-        </h2>
+        <div className="text-center mb-12">
+          <span className="inline-block text-[#C17A58] text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            Watch. Learn. Transform.
+          </span>
+          <h2 className="text-4xl lg:text-5xl font-semibold text-[#333333]">
+            Expert Skincare Advice
+          </h2>
+          <p className="text-[#6C6C6C] max-w-2xl mx-auto mt-4 text-base">
+            Get expert insights from Dr. Karishma Singh on skin care and treatments.
+          </p>
+        </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {videoUrls.map((url, index) => (
             <div key={index} className="w-full max-w-[90%] mx-auto md:max-w-none">

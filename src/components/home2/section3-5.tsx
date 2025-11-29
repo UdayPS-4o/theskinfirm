@@ -36,8 +36,20 @@ const content = {
 export const Section3Point5Home2 = () => (
     <section className="w-full bg-[#F8F4EB] py-16 lg:py-24 relative overflow-hidden">
         {/* background blobs (from Option 7) */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#D4A380]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4A380]/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        <div
+            className="absolute top-0 left-0 w-96 h-96 bg-[#D4A380]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
+            style={{
+                maskImage: 'linear-gradient(to bottom, transparent 50%, black 70%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, transparent 50%, black 70%)'
+            }}
+        />
+        <div
+            className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4A380]/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"
+            style={{
+                maskImage: 'linear-gradient(to bottom, black 30%, transparent 50%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 30%, transparent 50%)'
+            }}
+        />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">

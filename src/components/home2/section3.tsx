@@ -38,7 +38,7 @@ export const Section3Home2 = () => {
                                 <p className="text-[#6C6C6C] mb-8 leading-relaxed text-base">
                                     Expert dermatological care meets luxury in our bespoke pre-wedding programs, designed to unveil your most confident self.
                                 </p>
-                                <Link href="/contact" className="w-full">
+                                <Link href="/pre-wedding-services#packages" className="w-full">
                                     <Button className="w-full bg-[#4A4036] text-white rounded-xl py-6 text-lg hover:bg-[#5C5148]">
                                         View Packages
                                     </Button>

@@ -32,6 +32,17 @@ function ServicePageContent({ services }: ServicePageContentProps) {
     }
   }, [searchParams]);
 
+  // Scroll to top on initial page load when no section param exists
+  useEffect(() => {
+    const sectionParam = searchParams.get("section");
+
+    // Only scroll to top if there's no section parameter
+    if (!sectionParam) {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Run only once on mount
+
   // Mark content as loaded after initial render
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -45,15 +56,15 @@ function ServicePageContent({ services }: ServicePageContentProps) {
     if (!isContentLoaded) return;
 
     const sectionParam = searchParams.get("section");
-    
+
     if (sectionParam) {
       // Reset the flag when section changes
       scrollAttemptedRef.current = false;
-      
+
       // Wait for skeleton to disappear and content to render
       const scrollToSection = () => {
         const element = document.getElementById(`_${sectionParam}`);
-        
+
         if (element) {
           const navbarHeight = 80;
           const additionalOffset = 100;
@@ -116,21 +127,19 @@ function ServicePageContent({ services }: ServicePageContentProps) {
                   >
                     <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-center px-2 transition-all duration-300">
                       <span
-                        className={`whitespace-nowrap transition-all duration-300 ${
-                          activeTab === "skin"
+                        className={`whitespace-nowrap transition-all duration-300 ${activeTab === "skin"
                             ? "font-semibold text-[color:var(--color-primary-brown)]"
                             : "font-normal text-[color:var(--color-light-text)] hover:text-[color:var(--color-primary-brown)]"
-                        }`}
+                          }`}
                       >
                         Skin Services
                       </span>
                     </h4>
                     <div
-                      className={`absolute bottom-0 left-0 right-0 h-[3px] bg-[color:var(--color-primary-brown)] transition-all duration-300 ${
-                        activeTab === "skin"
+                      className={`absolute bottom-0 left-0 right-0 h-[3px] bg-[color:var(--color-primary-brown)] transition-all duration-300 ${activeTab === "skin"
                           ? "opacity-100 scale-x-100"
                           : "opacity-0 scale-x-0"
-                      }`}
+                        }`}
                     ></div>
                   </div>
 
@@ -141,21 +150,19 @@ function ServicePageContent({ services }: ServicePageContentProps) {
                   >
                     <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-center px-2 transition-all duration-300">
                       <span
-                        className={`whitespace-nowrap transition-all duration-300 ${
-                          activeTab === "hair"
+                        className={`whitespace-nowrap transition-all duration-300 ${activeTab === "hair"
                             ? "font-semibold text-[color:var(--color-primary-brown)]"
                             : "font-normal text-[color:var(--color-light-text)] hover:text-[color:var(--color-primary-brown)]"
-                        }`}
+                          }`}
                       >
                         Hair Services
                       </span>
                     </h4>
                     <div
-                      className={`absolute bottom-0 left-0 right-0 h-[3px] bg-[color:var(--color-primary-brown)] transition-all duration-300 ${
-                        activeTab === "hair"
+                      className={`absolute bottom-0 left-0 right-0 h-[3px] bg-[color:var(--color-primary-brown)] transition-all duration-300 ${activeTab === "hair"
                           ? "opacity-100 scale-x-100"
                           : "opacity-0 scale-x-0"
-                      }`}
+                        }`}
                     ></div>
                   </div>
 
@@ -166,21 +173,19 @@ function ServicePageContent({ services }: ServicePageContentProps) {
                   >
                     <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-center px-2 transition-all duration-300">
                       <span
-                        className={`whitespace-nowrap transition-all duration-300 ${
-                          activeTab === "laser"
+                        className={`whitespace-nowrap transition-all duration-300 ${activeTab === "laser"
                             ? "font-semibold text-[color:var(--color-primary-brown)]"
                             : "font-normal text-[color:var(--color-light-text)] hover:text-[color:var(--color-primary-brown)]"
-                        }`}
+                          }`}
                       >
                         Laser Services
                       </span>
                     </h4>
                     <div
-                      className={`absolute bottom-0 left-0 right-0 h-[3px] bg-[color:var(--color-primary-brown)] transition-all duration-300 ${
-                        activeTab === "laser"
+                      className={`absolute bottom-0 left-0 right-0 h-[3px] bg-[color:var(--color-primary-brown)] transition-all duration-300 ${activeTab === "laser"
                           ? "opacity-100 scale-x-100"
                           : "opacity-0 scale-x-0"
-                      }`}
+                        }`}
                     ></div>
                   </div>
                 </div>

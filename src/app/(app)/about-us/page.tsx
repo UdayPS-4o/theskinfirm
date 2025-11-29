@@ -6,9 +6,10 @@ import CompanyAboutSection from "@/components/about-us/company-about";
 import ReviewSection from "@/components/about-us/review";
 import { testimonials } from "@/data/about-us";
 import { Footer } from "@/components/layout/footer";
+import { SectionDivider } from "@/components/shared/section-divider";
 
 export const metadata: Metadata = {
-  title: "The Skin Firm - Pune’s Trusted Hair & Laser Clinic | About Us",
+  title: "The Skin Firm - Pune's Trusted Hair & Laser Clinic | About Us",
   description:
     "Founded by Dr. Karishma Singh, The Skin Firm in Pune blends medical-grade dermatology with aesthetic care. Personalized treatments for skin, hair & laser in a welcoming environment.",
   keywords: [
@@ -43,8 +44,17 @@ export default function AboutUsPage() {
   return (
     <>
       <HeroSection />
+
+      <SectionDivider fromColor="#FBEDE4" toColor="#FDFBF7" height="60px" />
+
       <CompanyAboutSection />
+
+      <SectionDivider fromColor="#FDFBF7" toColor="#FDFBF7" height="60px" />
+
       <KarishmaStorySection />
+
+      <SectionDivider fromColor="#FDFBF7" toColor="#FFFFFF" height="60px" />
+
       {/* <AboutStatsSection /> */}
       <ReviewSection testimonials={testimonials} />
     </>

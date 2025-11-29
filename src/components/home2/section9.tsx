@@ -34,7 +34,7 @@ const content = {
         {
             name: "Shazia Misquitta",
             review: "The clinic is exceptionally hygienic and the entire team operates with such a high level of professionalism. It's very reassuring to know you're in a clean and safe environment for your treatments.",
-            location: "NI BM, Pune"
+            location: "NIBM, Pune"
         }
     ]
 };

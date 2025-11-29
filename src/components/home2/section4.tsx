@@ -25,7 +25,7 @@ const content = {
             title: "Laser Solutions",
             image: "/home/laser.jpg",
             description: "Precision laser treatments for various concerns.",
-            link: "/services?tab=skin&section=advanced-skin-treatment"
+            link: "/services?tab=laser"
         },
         {
             title: "Hair & Scalp Treatments",
@@ -50,6 +50,9 @@ export const Section4Home2 = () => (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedContent>
                 <div className="text-center mb-16">
+                    <span className="inline-block text-[#C17A58] text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+                        What We Offer
+                    </span>
                     <h2 className="text-4xl lg:text-5xl font-semibold text-[#333333] mb-4">
                         {content.title}
                     </h2>
