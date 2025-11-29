@@ -16,10 +16,11 @@ import Image from "next/image";
 import { MaxWidthWrapper } from "./max-width";
 import { InstantSkeletonLink } from "@/components/shared/InstantSkeletonLink";
 
-const SocialIcon = ({ Icon, href }: { Icon: any; href: string }) => (
+const SocialIcon = ({ Icon, href, label }: { Icon: any; href: string; label: string }) => (
   <Link
     href={href}
     target="_blank"
+    aria-label={label}
     className="p-2.5 rounded-full bg-[#F9EEE7] hover:bg-[#D4A380] hover:text-white transition-all duration-300 group"
   >
     <Icon className="size-4 text-[#D4A380] group-hover:text-white transition-colors" />
@@ -60,12 +61,13 @@ export const Footer = () => {
                 Where Skin Meets Science, and Self-Care Feels Like Home
               </p>
               <div className="grid grid-cols-2 gap-3 w-fit">
-                <SocialIcon Icon={Instagram} href="https://www.instagram.com/theskinfirm_official/?hl=en" />
-                <SocialIcon Icon={Facebook} href="https://www.facebook.com/theskinfirmpune/" />
-                <SocialIcon Icon={Youtube} href="https://www.youtube.com/@TheSkinFirm-Pune" />
+                <SocialIcon Icon={Instagram} href="https://www.instagram.com/theskinfirm_official/?hl=en" label="Visit our Instagram page" />
+                <SocialIcon Icon={Facebook} href="https://www.facebook.com/theskinfirmpune/" label="Visit our Facebook page" />
+                <SocialIcon Icon={Youtube} href="https://www.youtube.com/@TheSkinFirm-Pune" label="Visit our YouTube channel" />
                 <Link
                   href="https://wa.me/918308669966"
                   target="_blank"
+                  aria-label="Contact us on WhatsApp"
                   className="p-2.5 rounded-full bg-[#F9EEE7] hover:bg-[#D4A380] transition-all duration-300 group"
                 >
                   <Image
@@ -191,12 +193,13 @@ export const Footer = () => {
                 Where Skin Meets Science, and Self-Care Feels Like Home
               </p>
               <div className="flex gap-3 mt-4">
-                <SocialIcon Icon={Instagram} href="https://www.instagram.com/theskinfirm_official/?hl=en" />
-                <SocialIcon Icon={Facebook} href="https://www.facebook.com/theskinfirmpune/" />
-                <SocialIcon Icon={Youtube} href="https://www.youtube.com/@TheSkinFirm-Pune" />
+                <SocialIcon Icon={Instagram} href="https://www.instagram.com/theskinfirm_official/?hl=en" label="Visit our Instagram page" />
+                <SocialIcon Icon={Facebook} href="https://www.facebook.com/theskinfirmpune/" label="Visit our Facebook page" />
+                <SocialIcon Icon={Youtube} href="https://www.youtube.com/@TheSkinFirm-Pune" label="Visit our YouTube channel" />
                 <Link
                   href="https://wa.me/918308669966"
                   target="_blank"
+                  aria-label="Contact us on WhatsApp"
                   className="p-2.5 rounded-full bg-[#F9EEE7] hover:bg-[#D4A380] transition-all duration-300 group"
                 >
                   <Image
@@ -341,12 +344,13 @@ export const Footer = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex justify-center gap-3"
           >
-            <SocialIcon Icon={Instagram} href="https://www.instagram.com/theskinfirm_official/?hl=en" />
-            <SocialIcon Icon={Facebook} href="https://www.facebook.com/theskinfirmpune/" />
-            <SocialIcon Icon={Youtube} href="https://www.youtube.com/@TheSkinFirm-Pune" />
+            <SocialIcon Icon={Instagram} href="https://www.instagram.com/theskinfirm_official/?hl=en" label="Visit our Instagram page" />
+            <SocialIcon Icon={Facebook} href="https://www.facebook.com/theskinfirmpune/" label="Visit our Facebook page" />
+            <SocialIcon Icon={Youtube} href="https://www.youtube.com/@TheSkinFirm-Pune" label="Visit our YouTube channel" />
             <Link
               href="https://wa.me/918308669966"
               target="_blank"
+              aria-label="Contact us on WhatsApp"
               className="p-2.5 rounded-full bg-[#F9EEE7] hover:bg-[#D4A380] transition-all duration-300 group"
             >
               <Image

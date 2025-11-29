@@ -63,6 +63,7 @@ export const SuccessStories = () => {
             <button
               className="text-4xl text-gray-400 hover:text-gray-600 transition-colors"
               onClick={scrollPrev}
+              aria-label="Previous testimonial"
             >
               ←
             </button>
@@ -75,9 +76,9 @@ export const SuccessStories = () => {
                         <p className="text-[#333333] text-lg lg:text-xl leading-relaxed mb-8">
                           {review.review}
                         </p>
-                        <h4 className="text-[#333333] text-xl font-semibold">
+                        <h3 className="text-[#333333] text-xl font-semibold">
                           {review.name}
-                        </h4>
+                        </h3>
                       </div>
                     </div>
                   </div>
@@ -87,6 +88,7 @@ export const SuccessStories = () => {
             <button
               className="text-4xl text-gray-400 hover:text-gray-600 transition-colors"
               onClick={scrollNext}
+              aria-label="Next testimonial"
             >
               →
             </button>

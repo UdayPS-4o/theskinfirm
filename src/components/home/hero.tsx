@@ -21,53 +21,58 @@ export const Hero = ({ heroOffer }: HeroProps) => {
   const videoRefTablet = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    // Capture current ref values to avoid React hooks warnings
+    const desktopVideo = videoRefDesktop.current;
+    const mobileVideo = videoRefMobile.current;
+    const tabletVideo = videoRefTablet.current;
+
     // Play all videos with proper error handling
-    const playVideo = (videoRef: React.RefObject<HTMLVideoElement | null>, label: string) => {
-      if (videoRef.current) {
-        videoRef.current.muted = true; // Ensure muted for autoplay
-        videoRef.current
+    const playVideo = (videoElement: HTMLVideoElement | null, label: string) => {
+      if (videoElement) {
+        videoElement.muted = true; // Ensure muted for autoplay
+        videoElement
           .play()
           .catch((e) => console.error(`${label} video autoplay failed`, e));
       }
     };
 
-    playVideo(videoRefDesktop, "Desktop");
-    playVideo(videoRefMobile, "Mobile");
-    playVideo(videoRefTablet, "Tablet");
+    playVideo(desktopVideo, "Desktop");
+    playVideo(mobileVideo, "Mobile");
+    playVideo(tabletVideo, "Tablet");
 
     // Prevent videos from pausing - keep them playing
-    const handlePause = (videoRef: React.RefObject<HTMLVideoElement | null>) => {
+    const handlePause = (videoElement: HTMLVideoElement | null) => {
       return () => {
-        if (videoRef.current && videoRef.current.paused) {
-          videoRef.current.play().catch((e) => console.error("Failed to resume video", e));
+        if (videoElement && videoElement.paused) {
+          videoElement.play().catch((e) => console.error("Failed to resume video", e));
         }
       };
     };
 
-    const desktopPauseHandler = handlePause(videoRefDesktop);
-    const mobilePauseHandler = handlePause(videoRefMobile);
-    const tabletPauseHandler = handlePause(videoRefTablet);
+    const desktopPauseHandler = handlePause(desktopVideo);
+    const mobilePauseHandler = handlePause(mobileVideo);
+    const tabletPauseHandler = handlePause(tabletVideo);
 
     // Add pause event listeners to auto-resume
-    videoRefDesktop.current?.addEventListener("pause", desktopPauseHandler);
-    videoRefMobile.current?.addEventListener("pause", mobilePauseHandler);
-    videoRefTablet.current?.addEventListener("pause", tabletPauseHandler);
+    desktopVideo?.addEventListener("pause", desktopPauseHandler);
+    mobileVideo?.addEventListener("pause", mobilePauseHandler);
+    tabletVideo?.addEventListener("pause", tabletPauseHandler);
 
     const unmuteOnInteraction = () => {
       const userPreference = localStorage.getItem("videoMuted");
       // Unmute if the user hasn't explicitly muted in the past.
       if (userPreference !== "true") {
-        if (videoRefDesktop.current) {
-          videoRefDesktop.current.muted = false;
-          videoRefDesktop.current.play().catch((e) => console.error("Failed to play desktop video", e));
+        if (desktopVideo) {
+          desktopVideo.muted = false;
+          desktopVideo.play().catch((e) => console.error("Failed to play desktop video", e));
         }
-        if (videoRefMobile.current) {
-          videoRefMobile.current.muted = false;
-          videoRefMobile.current.play().catch((e) => console.error("Failed to play mobile video", e));
+        if (mobileVideo) {
+          mobileVideo.muted = false;
+          mobileVideo.play().catch((e) => console.error("Failed to play mobile video", e));
         }
-        if (videoRefTablet.current) {
-          videoRefTablet.current.muted = false;
-          videoRefTablet.current.play().catch((e) => console.error("Failed to play tablet video", e));
+        if (tabletVideo) {
+          tabletVideo.muted = false;
+          tabletVideo.play().catch((e) => console.error("Failed to play tablet video", e));
         }
         setIsMuted(false);
       }
@@ -80,9 +85,6 @@ export const Hero = ({ heroOffer }: HeroProps) => {
     return () => {
       window.removeEventListener("click", unmuteOnInteraction);
       window.removeEventListener("touchstart", unmuteOnInteraction);
-      const desktopVideo = videoRefDesktop.current;
-      const mobileVideo = videoRefMobile.current;
-      const tabletVideo = videoRefTablet.current;
       desktopVideo?.removeEventListener("pause", desktopPauseHandler);
       mobileVideo?.removeEventListener("pause", mobilePauseHandler);
       tabletVideo?.removeEventListener("pause", tabletPauseHandler);

@@ -217,7 +217,6 @@ export default async function RootLayout({
       <head>
         {/* Preload critical hero assets for better FCP/LCP */}
         <link rel="preload" href="/finalframe.png" as="image" type="image/png" fetchPriority="high" />
-        <link rel="preload" href="/theskinfirm.mp4" as="video" type="video/mp4" />
 
         {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />

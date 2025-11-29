@@ -66,6 +66,37 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
         };
     }, []);
 
+    // Pause video when out of viewport
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // Video is in viewport - play it
+                        video.play().catch((err) => {
+                            console.log("Play failed:", err);
+                        });
+                    } else {
+                        // Video is out of viewport - pause it
+                        video.pause();
+                    }
+                });
+            },
+            {
+                threshold: 0.5, // Trigger when 50% of video is visible
+            }
+        );
+
+        observer.observe(video);
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
+
     // Toggle mute when clicking anywhere on the video
     const handleVideoClick = () => {
         if (videoRef.current) {
@@ -107,7 +138,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
             />
 
             {/* Mute/Unmute Indicator (floating badge) */}
-            <div className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 z-20 pointer-events-none">
+            <div className="absolute bottom-4 right-4 bg-black/80 hover:bg-black/90 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 z-20 pointer-events-none shadow-lg">
                 {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
             </div>
         </div>
