@@ -96,134 +96,129 @@ export const Section5Home2 = () => {
     const mobileServices = randomizedServices.filter(s => s.title !== "Pigmentation Treatment");
 
     return (
-        <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                        duration: 0.6,
-                        staggerChildren: 0.2,
-                    },
-                },
-            }}
-            className="py-16 lg:py-20 bg-[#F8F4EB]"
-        >
-            <MaxWidthWrapper>
-                <motion.div
-                    variants={{
-                        hidden: { opacity: 0, y: 30 },
-                        visible: {
-                            opacity: 1,
-                            y: 0,
-                            transition: { duration: 0.5 },
-                        },
-                    }}
-                    className="grid grid-cols-1 lg:grid-cols-2 items-end gap-6 lg:gap-8 mb-12"
-                >
-                    <div className="w-full text-center lg:text-left">
-                        <span className="text-[#D4A380] font-medium tracking-wider uppercase text-sm block mb-2">
-                            Our Main Services
-                        </span>
-                        <h2 className="text-4xl lg:text-5xl text-[#333333] font-semibold leading-tight">
-                            Our Signature Treatments
-                        </h2>
-                    </div>
-                    <div>
-                        <p className="text-base sm:text-lg leading-relaxed text-[#6C6C6C] text-center lg:text-start">
-                            Beauty begins the moment you decide to take care of yourself.
-                            <br />
-                            With 59+ services to choose from, it can be hard to know where to
-                            start. Explore our most sought-after treatments, crafted to
-                            enhance your natural beauty with precision,
-                            care, and expertise.{" "}
-                        </p>
-                    </div>
-                </motion.div>
+        <div className="py-16 lg:py-20 bg-[#F8F4EB]">
+            <div ref={ref}>
+                <MaxWidthWrapper>
+                    <motion.div
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        variants={{
+                            hidden: { opacity: 0, y: 30 },
+                            visible: {
+                                opacity: 1,
+                                y: 0,
+                                transition: {
+                                    duration: 0.6,
+                                    staggerChildren: 0.15
+                                },
+                            },
+                        }}
+                        className="grid grid-cols-1 lg:grid-cols-2 items-end gap-6 lg:gap-8 mb-12"
+                    >
+                        <div className="w-full text-center lg:text-left">
+                            <span className="text-[#D4A380] font-medium tracking-wider uppercase text-sm block mb-2">
+                                Our Main Services
+                            </span>
+                            <h2 className="text-4xl lg:text-5xl text-[#333333] font-semibold leading-tight">
+                                Our Signature Treatments
+                            </h2>
+                        </div>
+                        <div>
+                            <p className="text-base sm:text-lg leading-relaxed text-[#6C6C6C] text-center lg:text-start">
+                                Beauty begins the moment you decide to take care of yourself.
+                                <br />
+                                With 59+ services to choose from, it can be hard to know where to
+                                start. Explore our most sought-after treatments, crafted to
+                                enhance your natural beauty with precision,
+                                care, and expertise.{" "}
+                            </p>
+                        </div>
+                    </motion.div>
 
-                <motion.div
-                    variants={{
-                        hidden: { opacity: 0, y: 30 },
-                        visible: {
-                            opacity: 1,
-                            y: 0,
-                            transition: { duration: 0.5 },
-                        },
-                    }}
-                >
-                    {/* Mobile Grid Layout (2x2) */}
-                    <div className="grid grid-cols-2 gap-3 sm:hidden mb-8">
-                        {mobileServices.map((service, idx) => (
-                            <Service
-                                key={service.url}
-                                title={service.title}
-                                coverImageUrl={service.coverImageUrl}
-                                iconUrl={service.iconUrl}
-                                url={service.url}
-                                variant="mobile"
-                                priority={idx < 2}
-                            />
-                        ))}
-                    </div>
+                    <motion.div
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        variants={{
+                            hidden: { opacity: 0, y: 30 },
+                            visible: {
+                                opacity: 1,
+                                y: 0,
+                                transition: { duration: 0.6, delay: 0.2 },
+                            },
+                        }}
+                    >
+                        {/* Mobile Grid Layout (2x2) */}
+                        <div className="grid grid-cols-2 gap-3 sm:hidden mb-8">
+                            {mobileServices.map((service, idx) => (
+                                <Service
+                                    key={service.url}
+                                    title={service.title}
+                                    coverImageUrl={service.coverImageUrl}
+                                    iconUrl={service.iconUrl}
+                                    url={service.url}
+                                    variant="mobile"
+                                    priority={false}
+                                />
+                            ))}
+                        </div>
 
-                    {/* Desktop Carousel Layout */}
-                    <div className="hidden sm:block">
-                        <Carousel
-                            plugins={[Autoplay({ delay: 3000 })]}
-                            className="w-full pt-8 sm:pt-10"
-                            opts={{
-                                align: "start",
-                                loop: true,
-                            }}
-                        >
-                            <CarouselContent className="flex -ml-2 sm:-ml-4">
-                                {randomizedServices.map((service, idx) => (
-                                    <CarouselItem
-                                        key={service.url}
-                                        className="pl-2 sm:pl-4 basis-4/5 sm:basis-3/4 md:basis-1/2 lg:basis-1/2 xl:basis-1/3"
-                                    >
-                                        <Service
-                                            title={service.title}
-                                            coverImageUrl={service.coverImageUrl}
-                                            iconUrl={service.iconUrl}
-                                            url={service.url}
-                                            variant="default"
-                                            priority={idx < 3}
-                                        />
-                                    </CarouselItem>
-                                ))}
-                            </CarouselContent>
-                        </Carousel>
-                    </div>
-                </motion.div>
+                        {/* Desktop Carousel Layout */}
+                        <div className="hidden sm:block">
+                            <Carousel
+                                plugins={[Autoplay({ delay: 3000 })]}
+                                className="w-full pt-8 sm:pt-10"
+                                opts={{
+                                    align: "start",
+                                    loop: true,
+                                }}
+                            >
+                                <CarouselContent className="flex -ml-2 sm:-ml-4">
+                                    {randomizedServices.map((service, idx) => (
+                                        <CarouselItem
+                                            key={service.url}
+                                            className="pl-2 sm:pl-4 basis-4/5 sm:basis-3/4 md:basis-1/2 lg:basis-1/2 xl:basis-1/3"
+                                        >
+                                            <Service
+                                                title={service.title}
+                                                coverImageUrl={service.coverImageUrl}
+                                                iconUrl={service.iconUrl}
+                                                url={service.url}
+                                                variant="default"
+                                                priority={false}
+                                            />
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                            </Carousel>
+                        </div>
+                    </motion.div>
 
-                <motion.div
-                    variants={{
-                        hidden: { opacity: 0, y: 30 },
-                        visible: {
-                            opacity: 1,
-                            y: 0,
-                            transition: { duration: 0.5 },
-                        },
-                    }}
-                    className="flex flex-row justify-center sm:justify-end mt-8 sm:mt-16"
-                >
-                    <InstantSkeletonLink href="/services">
-                        <Button
-                            className="bg-[#D4A380] hover:bg-[#C19660] text-white transition-colors duration-200"
-                            size={"lg"}
-                        >
-                            <p>Explore All Services</p>
-                            <ArrowRight className="ml-2" />
-                        </Button>
-                    </InstantSkeletonLink>
-                </motion.div>
-            </MaxWidthWrapper>
-        </motion.div>
+                    <motion.div
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        variants={{
+                            hidden: { opacity: 0, y: 30 },
+                            visible: {
+                                opacity: 1,
+                                y: 0,
+                                transition: { duration: 0.6, delay: 0.4 },
+                            },
+                        }}
+                        className="flex flex-row justify-center sm:justify-end mt-8 sm:mt-16"
+                    >
+                        <InstantSkeletonLink href="/services">
+                            <Button
+                                className="bg-[#D4A380] hover:bg-[#C19660] text-white transition-colors duration-200"
+                                size={"lg"}
+                            >
+                                <p>Explore All Services</p>
+                                <ArrowRight className="ml-2" />
+                            </Button>
+                        </InstantSkeletonLink>
+                    </motion.div>
+                </MaxWidthWrapper>
+            </div>
+        </div>
     );
 };
 
@@ -301,4 +296,3 @@ function Service({
         </Link>
     );
 }
-

@@ -69,7 +69,7 @@ export const Section4Home2 = () => (
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 sizes={idx === 1 ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"}
-                                loading={idx < 2 ? "eager" : "lazy"}
+                                loading="lazy"
                             />
                             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
                             <div className="absolute bottom-0 left-0 p-6 w-full">

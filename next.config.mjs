@@ -22,7 +22,7 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 31536000, // 1 year for better caching
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -41,6 +41,47 @@ const nextConfig = {
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Webpack optimizations for better bundle size and performance
+  webpack: (config, { dev, isServer }) => {
+    // Production optimizations
+    if (!dev) {
+      config.optimization = {
+        ...config.optimization,
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Vendor chunk
+            vendor: {
+              name: 'vendor',
+              chunks: 'all',
+              test: /node_modules/,
+              priority: 20
+            },
+            // Common chunk
+            common: {
+              name: 'common',
+              minChunks: 2,
+              chunks: 'all',
+              priority: 10,
+              reuseExistingChunk: true,
+              enforce: true
+            }
+          }
+        }
+      };
+    }
+
+    // Better caching for faster rebuilds
+    config.cache = {
+      type: 'filesystem',
+    };
+
+    return config;
   },
   // Performance optimizations
   reactStrictMode: true,

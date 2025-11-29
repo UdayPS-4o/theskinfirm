@@ -36,7 +36,7 @@ const jsonLd = {
     ratingValue: "4.9",
   },
   description:
-    "“The Skin Firm is a modern dermatology & skin care clinic in NIBM and Mohammed Wadi, Pune, offering advanced treatments including HydraFacial, skin laser treatment, laser hair removal, acne treatment & acne scar correction, pigmentation therapy, anti-aging solutions, and hair restoration. Rooted in ‘where skin meets science,’ we combine advanced medical technology with a holistic approach—addressing skin, nutrition, and lifestyle. Led by Dr. Karishma Singh, our empathetic team delivers personalized, results-driven care in a comforting environment. Discover radiant, confident skin with us.”",
+    "The Skin Firm is a modern dermatology & skin care clinic in NIBM and Mohammed Wadi, Pune, offering advanced treatments including HydraFacial, skin laser treatment, laser hair removal, acne treatment & acne scar correction, pigmentation therapy, anti-aging solutions, and hair restoration. Rooted in 'where skin meets science,' we combine advanced medical technology with a holistic approach—addressing skin, nutrition, and lifestyle. Led by Dr. Karishma Singh, our empathetic team delivers personalized, results-driven care in a comforting environment. Discover radiant, confident skin with us.",
   hasMap: "https://maps.google.com/maps?cid=3428824594272079360",
   image:
     "https://lh3.googleusercontent.com/GMnEAdN-kbwOnk8n3ponXa_JjgkEs7CHF4HpyBDafZHHs6IWf6Yc7GDQu3e6eeZm8j58F9r00q46ewYFPA=s0",
@@ -215,6 +215,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preload critical hero assets for better FCP/LCP */}
+        <link rel="preload" href="/finalframe.png" as="image" type="image/png" fetchPriority="high" />
+        <link rel="preload" href="/theskinfirm.mp4" as="video" type="video/mp4" />
+
         {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
@@ -236,10 +240,10 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Script
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://www.googletagmanager.com/gtag/js?id=G-2D5D0GH7J3"
         />
-        <Script id="google-analytics-script" strategy="afterInteractive">
+        <Script id="google-analytics-script" strategy="lazyOnload">
           {`
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

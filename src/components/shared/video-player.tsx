@@ -2,109 +2,114 @@
 
 import { useRef, useEffect, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
+import Image from "next/image";
 
 interface VideoPlayerProps {
     src: string;
     className?: string;
     objectPosition?: string;
+    posterImage?: string; // Optional poster image for mobile
 }
 
 export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     src,
     className = "",
     objectPosition = "center",
+    posterImage,
 }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [isMuted, setIsMuted] = useState(true); // Start muted for autoplay compatibility
-    const [isVisible, setIsVisible] = useState(false);
+    const [isMuted, setIsMuted] = useState(false); // Start unmuted - we'll attempt autoplay with audio
+    const [videoReady, setVideoReady] = useState(false);
 
-    // Autoplay video on mount (must be muted for autoplay to work)
+    // Attempt autoplay with audio on mount
     useEffect(() => {
         const video = videoRef.current;
         if (!video) return;
 
-        // Try to load saved preference, default to muted
-        const savedMutePreference = localStorage.getItem("videoMuted");
-        const shouldBeMuted = savedMutePreference !== "false"; // Default to muted
+        // Function to attempt unmuted autoplay
+        const attemptAutoplay = async () => {
+            try {
+                // First, try unmuted autoplay
+                video.muted = false;
+                await video.play();
+                setIsMuted(false);
+                console.log("✅ Unmuted autoplay successful");
+            } catch (error) {
+                // If unmuted autoplay fails, try muted autoplay
+                console.log("⚠️ Unmuted autoplay blocked, trying muted...");
+                try {
+                    video.muted = true;
+                    await video.play();
+                    setIsMuted(true);
+                    console.log("✅ Muted autoplay successful");
+                } catch (mutedError) {
+                    console.error("❌ All autoplay attempts failed:", mutedError);
+                }
+            }
+        };
 
-        setIsMuted(shouldBeMuted);
-        video.muted = shouldBeMuted;
+        const handleCanPlayThrough = () => {
+            setVideoReady(true);
+        };
 
-        // Autoplay (muted to ensure it works)
-        video.play().catch((e) => console.error("Autoplay failed:", e));
-    }, []);
+        video.addEventListener('canplaythrough', handleCanPlayThrough);
 
-    // Intersection Observer to pause/play video when out of/in view
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
+        // Check if video is already ready (cached)
+        if (video.readyState >= 3) {
+            setVideoReady(true);
+        }
 
-        let hasPlayedOnce = false;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    setIsVisible(entry.isIntersecting);
-
-                    // On initial load, the video should be playing already from the first useEffect
-                    // Only control play/pause when scrolling after initial load
-                    if (!hasPlayedOnce) {
-                        hasPlayedOnce = true;
-                        return;
-                    }
-
-                    if (entry.isIntersecting) {
-                        video.play().catch(() => {
-                            // Play failed, might need user interaction
-                        });
-                    } else {
-                        video.pause();
-                    }
-                });
-            },
-            { threshold: 0.1 } // Lower threshold so it starts playing sooner
-        );
-
-        observer.observe(video);
+        attemptAutoplay();
 
         return () => {
-            observer.disconnect();
+            video.removeEventListener('canplaythrough', handleCanPlayThrough);
         };
     }, []);
 
-    const toggleMute = () => {
+    // Toggle mute when clicking anywhere on the video
+    const handleVideoClick = () => {
         if (videoRef.current) {
             const newMutedState = !isMuted;
             setIsMuted(newMutedState);
             videoRef.current.muted = newMutedState;
-
-            // Save preference to localStorage
-            localStorage.setItem("videoMuted", newMutedState.toString());
         }
     };
 
     return (
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full cursor-pointer bg-[#FBEDE4]" onClick={handleVideoClick}>
+            {/* Poster Image for Mobile - Rendered on Server for LCP */}
+            {posterImage && (
+                <div
+                    className={`absolute inset-0 z-10 md:hidden transition-opacity duration-500 ${videoReady ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                >
+                    <Image
+                        src={posterImage}
+                        alt="Video poster"
+                        fill
+                        className="object-cover"
+                        style={{ objectPosition }}
+                        priority
+                        quality={90}
+                        sizes="(max-width: 768px) 100vw, 1px"
+                    />
+                </div>
+            )}
+
+            {/* Video Element */}
             <video
                 ref={videoRef}
                 className={className}
                 style={{ objectPosition }}
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
                 src={src}
             />
 
-            {/* Mute/Unmute Button */}
-            {isVisible && (
-                <button
-                    onClick={toggleMute}
-                    className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 z-10"
-                    aria-label={isMuted ? "Unmute video" : "Mute video"}
-                >
-                    {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-                </button>
-            )}
+            {/* Mute/Unmute Indicator (floating badge) */}
+            <div className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 z-20 pointer-events-none">
+                {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+            </div>
         </div>
     );
 };

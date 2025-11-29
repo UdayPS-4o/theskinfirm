@@ -373,7 +373,7 @@ export const Navbar = ({
 
   return (
     <nav
-      className={`py-4 lg:py-4 w-full bg-[#e3caab] sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "shadow-lg backdrop-blur-sm bg-[#FBEDE4]/95" : ""
+      className={`py-4 lg:py-4 w-full bg-[#e3caab] sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "shadow-lg" : ""
         }`}
     >
       <div className="mx-auto w-full max-w-[1350px] px-4 lg:px-10 flex items-center justify-between">

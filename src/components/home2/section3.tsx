@@ -21,7 +21,7 @@ export const Section3Home2 = () => {
                                     alt="Bridal Prep"
                                     fill
                                     className="object-cover"
-                                    priority
+                                    loading="lazy"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
                                 />
                             </div>
